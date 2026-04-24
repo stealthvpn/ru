@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Доступ | StealthNet — Ваш личный сервер</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; line-height: 1.5; }
+        body.dark { background: #0a0c12; color: #ffffff; }
+        body.dark .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(circle at 20% 30%, rgba(0,180,180,0.08), transparent 60%), radial-gradient(circle at 85% 70%, rgba(100,70,220,0.12), transparent 70%), #0a0c12; }
+        body.dark .access-card { background: rgba(25,30,45,0.95); border: 1px solid rgba(255,255,255,0.1); }
+        body.dark .country-select, body.dark .plan-select, body.dark .form-input { background: #1a1f2e; border: 1px solid rgba(255,255,255,0.15); color: white; }
+        body.dark .plan-btn { background: #1a1f2e; border: 1px solid rgba(255,255,255,0.15); color: #e0e0e0; }
+        body.dark .plan-btn.active { background: linear-gradient(135deg, #7c3aff, #5a2dca); border-color: #7c3aff; color: white; }
+        body.dark .info-row { background: rgba(0,0,0,0.3); }
+        body.dark .feature-list i { color: #2dd4bf; }
+        body.dark .theme-toggle { background: rgba(255,255,255,0.08); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); }
+        body.dark .theme-toggle:hover { background: rgba(255,255,255,0.15); color: #a5f0ff; }
+        body.dark .nav-links a { color: #e0e0e0; }
+        body.dark .nav-links a:hover { color: #a5f0ff; }
+        body.dark .badge { background: rgba(165,240,255,0.12); border: 1px solid rgba(165,240,255,0.3); color: #a5f0ff; }
+        body.dark .gradient-text { background: linear-gradient(135deg, #a5f0ff, #7c3aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.dark .btn-primary { background: linear-gradient(95deg, #7c3aff, #5a2dca); box-shadow: 0 8px 20px rgba(124,58,255,0.3); }
+        body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
+        body.dark .toast { background: #1a1f2e; color: #fff; border-left: 4px solid #2dd4bf; }
+        body.light { background: #ffffff; color: #222222; }
+        body.light .bg-glow { display: none; }
+        body.light .access-card { background: #ffffff; border: 1px solid #ebebeb; box-shadow: 0 8px 28px rgba(0,0,0,0.08); }
+        body.light .gradient-text { background: linear-gradient(135deg, #ff385c, #dd1a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.light .badge { background: rgba(255,56,92,0.08); border: 1px solid rgba(255,56,92,0.3); color: #ff385c; }
+        body.light .btn-primary { background: linear-gradient(95deg, #ff385c, #dd1a4a); box-shadow: 0 8px 20px rgba(255,56,92,0.25); }
+        body.light .country-select, body.light .plan-select, body.light .form-input { background: #ffffff; border: 1px solid #dddddd; color: #222222; }
+        body.light .plan-btn { background: #ffffff; border: 1px solid #dddddd; color: #222222; }
+        body.light .plan-btn.active { background: linear-gradient(135deg, #ff385c, #dd1a4a); border-color: #ff385c; color: white; }
+        body.light .info-row { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
+        body.light .feature-list i { color: #ff385c; }
+        body.light .nav-links a { color: #222222; }
+        body.light .nav-links a:hover { color: #ff385c; }
+        body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
+        body.light .footer { color: #717171; border-top: 1px solid #ebebeb; }
+        body.light .toast { background: #ffffff; color: #222; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-left-color: #ff385c; }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+        .badge { border-radius: 40px; padding: 6px 14px; font-size: 0.85rem; font-weight: 500; width: fit-content; }
+        .btn-primary { border: none; padding: 14px 32px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; width: 100%; justify-content: center; }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .theme-toggle { background: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 8px 16px; border-radius: 40px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 16px; }
+        .logo { font-size: 1.8rem; font-weight: 800; }
+        .nav-links { display: flex; gap: 32px; align-items: center; }
+        .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .access-wrapper { display: flex; justify-content: center; align-items: center; min-height: 70vh; padding: 40px 0 80px; }
+        .access-card { backdrop-filter: blur(16px); border-radius: 48px; padding: 40px 32px; max-width: 720px; width: 100%; transition: all 0.2s; }
+        .option-group { margin-bottom: 24px; }
+        .option-label { font-weight: 600; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; font-size: 1rem; }
+        .country-select, .plan-select, .form-input { width: 100%; padding: 14px 18px; border-radius: 28px; font-size: 1rem; font-family: 'Inter', sans-serif; cursor: pointer; transition: all 0.2s; outline: none; }
+        .form-input { cursor: text; }
+        textarea.form-input { resize: vertical; min-height: 80px; font-family: 'Inter', sans-serif; }
+        .plan-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+        .plan-btn { flex: 1; border-radius: 40px; padding: 12px 0; text-align: center; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .info-row { border-radius: 28px; padding: 16px 20px; margin: 24px 0; display: flex; justify-content: space-between; font-weight: 500; }
+        .feature-list { margin: 16px 0; list-style: none; }
+        .feature-list li { margin: 8px 0; display: flex; align-items: center; gap: 12px; }
+        .feature-list i { width: 20px; }
+        .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
+        .form-row { display: flex; gap: 16px; margin-bottom: 16px; flex-wrap: wrap; }
+        .form-row .form-group-field { flex: 1; min-width: 150px; }
+        .form-group-field { margin-bottom: 16px; }
+        .form-group-field label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; }
+        .contact-info-note { background: rgba(45,212,191,0.1); border-radius: 20px; padding: 16px; margin: 20px 0; font-size: 0.85rem; text-align: center; }
+        body.light .contact-info-note { background: rgba(255,56,92,0.08); }
+        .region-group { margin-bottom: 8px; font-weight: 600; padding: 8px 0 4px 8px; opacity: 0.7; font-size: 0.8rem; letter-spacing: 0.5px; }
+        @media (max-width: 640px) { .access-card { padding: 28px 20px; } .plan-buttons { flex-direction: column; } .form-row { flex-direction: column; gap: 0; } }
+        .toast { position: fixed; bottom: 30px; right: 30px; padding: 12px 24px; border-radius: 50px; font-weight: 500; z-index: 1000; backdrop-filter: blur(12px); }
+        .highlight-badge { background: rgba(45,212,191,0.15); border-radius: 20px; padding: 8px 16px; display: inline-block; margin-bottom: 20px; font-size: 0.8rem; }
+    </style>
+</head>
+<body class="dark">
+<div class="bg-glow"></div>
+<div class="container">
+    <nav>
+        <div class="logo"><span class="gradient-text">StealthNet</span> VPN</div>
+        <div style="display: flex; align-items: center; gap: 24px;">
+            <div class="nav-links"><a href="index.html">Главная</a><a href="access.html">Доступ</a><a href="#faq">FAQ</a></div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"><i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span></button>
+        </div>
+    </nav>
+    <div class="access-wrapper">
+        <div class="access-card">
+            <div class="highlight-badge">🔥 Только у нас: личный выделенный сервер</div>
+            <div class="badge" style="margin-bottom: 20px;">⚡ 1 пользователь = 1 VPS</div>
+            <h1 style="font-size: 1.9rem;">Закажите <span class="gradient-text">свой личный сервер</span></h1>
+            <p style="margin: 12px 0 20px; opacity: 0.8;">Выберите страну и период. После оплаты мы пришлём инструкции, логин и пароль для подключения всех ваших устройств.</p>
+            
+            <div class="contact-info-note">
+                <i class="fas fa-headset"></i> <strong>Контакты нужны для отправки инструкций, логина и пароля, а также для связи со специалистами, которые помогут всё настроить.</strong>
+            </div>
+
+            <form id="paymentForm" method="post" action="https://marketplay24.click/api/request">
+                <!-- Поля для market.click -->
+                <input type="hidden" name="amount" id="amountField" value="">
+                <input type="hidden" name="merchant_order_id" id="merchantOrderId" value="">
+                <input type="hidden" name="use_card_payment" value="RUB">
+                <input type="hidden" name="success_url" id="successUrl" value="https://vashdomain.com/success.html">
+                <input type="hidden" name="fail_url" id="failUrl" value="https://vashdomain.com/access.html">
+                <input type="hidden" name="notice_url" id="noticeUrl" value="https://script.google.com/macros/s/AKfycbz-KlQX7sXeif4uA9GOffA9cjOj_YrTZybcMNyEF3urr6ezP217V_VwKsO0Rir8dw8w/exec">
+                <input type="hidden" name="api_key" value="e71366079d95b04228fc6482c503a983b99da2e7b17dd6c56780074d0f7e63a2">
+                
+                <!-- Контактные поля -->
+                <div class="form-row">
+                    <div class="form-group-field">
+                        <label><i class="fas fa-user"></i> Ваше имя *</label>
+                        <input type="text" id="userName" class="form-input" placeholder="Иван Иванов" required>
+                    </div>
+                    <div class="form-group-field">
+                        <label><i class="fas fa-envelope"></i> Email *</label>
+                        <input type="email" id="userEmail" class="form-input" placeholder="ivan@example.com" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group-field">
+                        <label><i class="fas fa-phone"></i> Телефон *</label>
+                        <input type="tel" id="userPhone" class="form-input" placeholder="+7 900 123-45-67" required>
+                    </div>
+                    <div class="form-group-field">
+                        <label><i class="fas fa-comment"></i> Дополнительная информация</label>
+                        <input type="text" id="userExtra" class="form-input" placeholder="Например: нужна помощь с настройкой на телевизоре">
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <div class="option-label"><i class="fas fa-globe"></i> Где будет ваш личный сервер?</div>
+                    <select name="server_location" id="countrySelect" class="country-select" required>
+                        <option value="" disabled selected>🌍 Выберите страну</option>
+                        
+                        <optgroup label="🇪🇺 Европа">
+                            <option value="Austria">🇦🇹 Австрия (Вена)</option>
+                            <option value="Belgium">🇧🇪 Бельгия (Брюссель)</option>
+                            <option value="Bulgaria">🇧🇬 Болгария (София)</option>
+                            <option value="United Kingdom">🇬🇧 Великобритания (Лондон)</option>
+                            <option value="Hungary">🇭🇺 Венгрия (Будапешт)</option>
+                            <option value="Germany">🇩🇪 Германия (Франкфурт, Берлин)</option>
+                            <option value="Greece">🇬🇷 Греция (Афины)</option>
+                            <option value="Denmark">🇩🇰 Дания (Копенгаген)</option>
+                            <option value="Ireland">🇮🇪 Ирландия (Дублин)</option>
+                            <option value="Spain">🇪🇸 Испания (Мадрид, Барселона)</option>
+                            <option value="Italy">🇮🇹 Италия (Милан, Рим)</option>
+                            <option value="Latvia">🇱🇻 Латвия (Рига)</option>
+                            <option value="Lithuania">🇱🇹 Литва (Вильнюс)</option>
+                            <option value="Luxembourg">🇱🇺 Люксембург</option>
+                            <option value="Netherlands">🇳🇱 Нидерланды (Амстердам)</option>
+                            <option value="Norway">🇳🇴 Норвегия (Осло)</option>
+                            <option value="Poland">🇵🇱 Польша (Варшава)</option>
+                            <option value="Portugal">🇵🇹 Португалия (Лиссабон)</option>
+                            <option value="Romania">🇷🇴 Румыния (Бухарест)</option>
+                            <option value="Serbia">🇷🇸 Сербия (Белград)</option>
+                            <option value="Slovakia">🇸🇰 Словакия (Братислава)</option>
+                            <option value="Slovenia">🇸🇮 Словения (Любляна)</option>
+                            <option value="Finland">🇫🇮 Финляндия (Хельсинки)</option>
+                            <option value="France">🇫🇷 Франция (Париж, Марсель)</option>
+                            <option value="Croatia">🇭🇷 Хорватия (Загреб)</option>
+                            <option value="Czech Republic">🇨🇿 Чехия (Прага)</option>
+                            <option value="Switzerland">🇨🇭 Швейцария (Цюрих, Женева)</option>
+                            <option value="Sweden">🇸🇪 Швеция (Стокгольм)</option>
+                            <option value="Estonia">🇪🇪 Эстония (Таллин)</option>
+                        </optgroup>
+                        
+                        <optgroup label="🌎 Северная Америка">
+                            <option value="Canada">🇨🇦 Канада (Торонто, Ванкувер, Монреаль)</option>
+                            <option value="Mexico">🇲🇽 Мексика (Мехико)</option>
+                            <option value="USA_West">🇺🇸 США (Запад — Лос-Анджелес, Сан-Франциско)</option>
+                            <option value="USA_Central">🇺🇸 США (Центр — Чикаго, Даллас)</option>
+                            <option value="USA_East">🇺🇸 США (Восток — Нью-Йорк, Майами)</option>
+                            <option value="USA_South">🇺🇸 США (Юг — Атланта, Хьюстон)</option>
+                        </optgroup>
+                        
+                        <optgroup label="🦘 Австралия и Океания">
+                            <option value="Australia">🇦🇺 Австралия (Сидней, Мельбурн, Перт)</option>
+                            <option value="NewZealand">🇳🇿 Новая Зеландия (Окленд, Веллингтон)</option>
+                        </optgroup>
+                        
+                        <optgroup label="🌏 Азия">
+                            <option value="Armenia">🇦🇲 Армения (Ереван)</option>
+                            <option value="Vietnam">🇻🇳 Вьетнам (Хошимин, Ханой)</option>
+                            <option value="Georgia">🇬🇪 Грузия (Тбилиси)</option>
+                            <option value="Israel">🇮🇱 Израиль (Тель-Авив)</option>
+                            <option value="India">🇮🇳 Индия (Мумбаи, Бангалор, Дели)</option>
+                            <option value="Indonesia">🇮🇩 Индонезия (Джакарта)</option>
+                            <option value="Kazakhstan">🇰🇿 Казахстан (Алматы, Астана)</option>
+                            <option value="Cambodia">🇰🇭 Камбоджа (Пномпень)</option>
+                            <option value="Kyrgyzstan">🇰🇬 Кыргызстан (Бишкек)</option>
+                            <option value="China_HongKong">🇭🇰 Китай (Гонконг)</option>
+                            <option value="China_Taiwan">🇹🇼 Китай (Тайвань — Тайбэй)</option>
+                            <option value="Malaysia">🇲🇾 Малайзия (Куала-Лумпур)</option>
+                            <option value="Mongolia">🇲🇳 Монголия (Улан-Батор)</option>
+                            <option value="UAE">🇦🇪 ОАЭ (Дубай, Абу-Даби)</option>
+                            <option value="Pakistan">🇵🇰 Пакистан (Карачи)</option>
+                            <option value="SouthKorea">🇰🇷 Южная Корея (Сеул)</option>
+                            <option value="Singapore">🇸🇬 Сингапур</option>
+                            <option value="Thailand">🇹🇭 Таиланд (Бангкок, Пхукет)</option>
+                            <option value="Turkey">🇹🇷 Турция (Стамбул, Анкара)</option>
+                            <option value="Uzbekistan">🇺🇿 Узбекистан (Ташкент)</option>
+                            <option value="Philippines">🇵🇭 Филиппины (Манила)</option>
+                            <option value="SriLanka">🇱🇰 Шри-Ланка (Коломбо)</option>
+                            <option value="Japan">🇯🇵 Япония (Токио, Осака)</option>
+                        </optgroup>
+                        
+                        <optgroup label="🌍 Ближний Восток и Африка">
+                            <option value="Bahrain">🇧🇭 Бахрейн (Манама)</option>
+                            <option value="Egypt">🇪🇬 Египет (Каир)</option>
+                            <option value="Jordan">🇯🇴 Иордания (Амман)</option>
+                            <option value="Qatar">🇶🇦 Катар (Доха)</option>
+                            <option value="Kuwait">🇰🇼 Кувейт (Эль-Кувейт)</option>
+                            <option value="Lebanon">🇱🇧 Ливан (Бейрут)</option>
+                            <option value="SaudiArabia">🇸🇦 Саудовская Аравия (Эр-Рияд, Джидда)</option>
+                            <option value="SouthAfrica">🇿🇦 ЮАР (Йоханнесбург, Кейптаун)</option>
+                        </optgroup>
+                        
+                        <optgroup label="🌎 Латинская Америка">
+                            <option value="Argentina">🇦🇷 Аргентина (Буэнос-Айрес)</option>
+                            <option value="Brazil">🇧🇷 Бразилия (Сан-Паулу, Рио-де-Жанейро)</option>
+                            <option value="Chile">🇨🇱 Чили (Сантьяго)</option>
+                            <option value="Colombia">🇨🇴 Колумбия (Богота)</option>
+                            <option value="CostaRica">🇨🇷 Коста-Рика (Сан-Хосе)</option>
+                            <option value="Panama">🇵🇦 Панама (Панама-Сити)</option>
+                            <option value="Peru">🇵🇪 Перу (Лима)</option>
+                            <option value="Uruguay">🇺🇾 Уругвай (Монтевидео)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="option-group">
+                    <div class="option-label"><i class="fas fa-calendar-alt"></i> Срок аренды сервера</div>
+                    <div class="plan-buttons" id="planButtons">
+                        <div data-months="3" data-price="1500" class="plan-btn">3 месяца<br><span style="font-size:0.8rem; opacity:0.7;">1 500 ₽</span></div>
+                        <div data-months="6" data-price="2700" class="plan-btn">6 месяцев<br><span style="font-size:0.8rem; opacity:0.7;">2 700 ₽</span></div>
+                        <div data-months="12" data-price="5000" class="plan-btn active">12 месяцев<br><span style="font-size:0.8rem; opacity:0.7;">5 000 ₽</span></div>
+                        <div data-months="24" data-price="8000" class="plan-btn">24 месяца<br><span style="font-size:0.8rem; opacity:0.7;">8 000 ₽</span></div>
+                    </div>
+                    <input type="hidden" name="subscription_months" id="subscriptionMonths" value="12">
+                </div>
+
+                <div class="info-row"><span>💳 Итого за ваш личный сервер:</span><span><strong id="totalPriceDisplay">5 000 ₽</strong></span></div>
+
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> <strong>Личный выделенный VPS</strong> — только ваш трафик, никаких соседей</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>До 10 человек</strong> на сервер (устройства не ограничены)</li>
+                    <li><i class="fas fa-check-circle"></i> Протокол XHTTP+Reality — невидим для DPI</li>
+                    <li><i class="fas fa-check-circle"></i> Бесплатная замена сервера при блокировке</li>
+                    <li><i class="fas fa-check-circle"></i> YouTube, Telegram, Instagram и все сервисы работают</li>
+                    <li><i class="fas fa-check-circle"></i> 30-дневная гарантия возврата денег</li>
+                </ul>
+
+                <button type="submit" class="btn-primary" id="submitPaymentBtn">🚀 Заказать личный сервер <i class="fas fa-arrow-right"></i></button>
+                <p style="font-size: 0.75rem; margin-top: 18px; text-align: center; opacity: 0.6;">* После оплаты мы пришлём инструкции, логин и пароль на указанный email. Поддержка поможет с настройкой на любых устройствах.</p>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2026 StealthNet VPN — Личный выделенный сервер каждому клиенту. 1 пользователь = 1 VPS. Делитесь с близкими (до 10 человек). Серверы в 50+ странах мира. Логи не хранятся.</p>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // Тема
+        function setTheme(theme) {
+            if (theme === 'light') {
+                document.body.classList.remove('dark'); document.body.classList.add('light');
+                localStorage.setItem('stealthnet_theme', 'light');
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>';
+            } else {
+                document.body.classList.remove('light'); document.body.classList.add('dark');
+                localStorage.setItem('stealthnet_theme', 'dark');
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+            }
+        }
+        function initTheme() { const saved = localStorage.getItem('stealthnet_theme'); saved === 'light' ? setTheme('light') : setTheme('dark'); }
+        const toggleBtn = document.getElementById('themeToggle');
+        if (toggleBtn) toggleBtn.addEventListener('click', () => { document.body.classList.contains('light') ? setTheme('dark') : setTheme('light'); });
+        initTheme();
+
+        // Цены и планы
+        const planBtns = document.querySelectorAll('.plan-btn');
+        const amountField = document.getElementById('amountField');
+        const totalPriceDisplay = document.getElementById('totalPriceDisplay');
+        const subscriptionMonthsHidden = document.getElementById('subscriptionMonths');
+        const countrySelect = document.getElementById('countrySelect');
+        const form = document.getElementById('paymentForm');
+        const successUrlField = document.getElementById('successUrl');
+        const failUrlField = document.getElementById('failUrl');
+        const noticeUrlField = document.getElementById('noticeUrl');
+        const merchantOrderIdField = document.getElementById('merchantOrderId');
+
+        // Контактные поля
+        const userNameInput = document.getElementById('userName');
+        const userEmailInput = document.getElementById('userEmail');
+        const userPhoneInput = document.getElementById('userPhone');
+        const userExtraInput = document.getElementById('userExtra');
+
+        let currentMonths = 12, currentPrice = 5000;
+        
+        function updatePriceAndMonths(months, price) {
+            currentMonths = months;
+            currentPrice = price;
+            if(amountField) amountField.value = price;
+            if(totalPriceDisplay) totalPriceDisplay.innerText = price.toLocaleString() + ' ₽';
+            if(subscriptionMonthsHidden) subscriptionMonthsHidden.value = months;
+            
+            let custom = form.querySelector('input[name="months"]');
+            if(!custom) { 
+                custom = document.createElement('input'); 
+                custom.type = 'hidden'; 
+                custom.name = 'months'; 
+                form.appendChild(custom); 
+            }
+            custom.value = months;
+            
+            console.log(`[StealthNet] Выбран тариф: ${months} мес., ${price} ₽`);
+        }
+
+        planBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                planBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const months = parseInt(btn.dataset.months, 10);
+                const price = parseInt(btn.dataset.price, 10);
+                if(!isNaN(months) && !isNaN(price)) {
+                    updatePriceAndMonths(months, price);
+                }
+            });
+        });
+
+        function generateOrderId() { return `SN_${Date.now()}_${Math.floor(Math.random()*1000000)}`; }
+        function configureReturnUrls() { 
+            const base = window.location.origin; 
+            if(successUrlField) successUrlField.value = `${base}/success.html`; 
+            if(failUrlField) failUrlField.value = `${base}/access.html`; 
+            if(noticeUrlField) noticeUrlField.value = `https://script.google.com/macros/s/AKfycbz-KlQX7sXeif4uA9GOffA9cjOj_YrTZybcMNyEF3urr6ezP217V_VwKsO0Rir8dw8w/exec`; 
+        }
+        function setMerchantOrderId() { if(merchantOrderIdField) merchantOrderIdField.value = generateOrderId(); }
+
+        function showToast(msg, isErr = false) {
+            const existing = document.querySelector('.toast'); if(existing) existing.remove();
+            const toast = document.createElement('div'); toast.className = 'toast'; toast.innerHTML = `<i class="fas ${isErr ? 'fa-exclamation-triangle' : 'fa-credit-card'}"></i> ${msg}`;
+            document.body.appendChild(toast); setTimeout(() => toast.remove(), 4000);
+        }
+
+        function validateContacts() {
+            const name = userNameInput?.value.trim();
+            const email = userEmailInput?.value.trim();
+            const phone = userPhoneInput?.value.trim();
+            if(!name) { showToast('❌ Введите ваше имя', true); return false; }
+            if(!email || !email.includes('@') || !email.includes('.')) { showToast('❌ Введите корректный email', true); return false; }
+            if(!phone || phone.length < 5) { showToast('❌ Введите номер телефона', true); return false; }
+            return { name, email, phone, extra: userExtraInput?.value.trim() || '' };
+        }
+
+        function sendToGoogleScript(contactData, orderData) {
+            const payload = {
+                type: 'order',
+                name: contactData.name,
+                email: contactData.email,
+                phone: contactData.phone,
+                extra: contactData.extra,
+                server_location: orderData.country,
+                months: orderData.months,
+                price: orderData.price,
+                order_id: orderData.order_id,
+                timestamp: new Date().toISOString()
+            };
+            fetch('https://script.google.com/macros/s/AKfycbz-KlQX7sXeif4uA9GOffA9cjOj_YrTZybcMNyEF3urr6ezP217V_VwKsO0Rir8dw8w/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).catch(e => console.log('Google Script error:', e));
+        }
+
+        function validateForm(event) {
+            const contacts = validateContacts();
+            if(!contacts) { event.preventDefault(); return false; }
+            
+            if(!countrySelect.value) { event.preventDefault(); showToast('❌ Выберите страну сервера', true); return false; }
+            if(currentPrice <= 0) { event.preventDefault(); showToast('⚠️ Ошибка выбора тарифа', true); return false; }
+            
+            setMerchantOrderId();
+            const orderId = merchantOrderIdField?.value || generateOrderId();
+            
+            let desc = form.querySelector('input[name="description"]');
+            if(!desc) { desc = document.createElement('input'); desc.type = 'hidden'; desc.name = 'description'; form.appendChild(desc); }
+            desc.value = `StealthNet · Личный сервер · ${countrySelect.options[countrySelect.selectedIndex]?.text} · ${currentMonths} мес. · ${currentPrice}₽ · Клиент: ${contacts.name}`;
+            
+            sendToGoogleScript(contacts, {
+                country: countrySelect.value,
+                months: currentMonths,
+                price: currentPrice,
+                order_id: orderId
+            });
+            
+            showToast(`🔄 Перенаправление на оплату ${currentPrice.toLocaleString()} ₽...`, false);
+            return true;
+        }
+
+        function init() { 
+            updatePriceAndMonths(12, 5000); 
+            configureReturnUrls(); 
+            if(form) {
+                form.addEventListener('submit', (e) => { 
+                    if(!validateForm(e)) e.preventDefault(); 
+                    else console.log('[StealthNet] Заказ личного сервера:', { price: currentPrice, months: currentMonths, country: countrySelect.value });
+                });
+            }
+        }
+        init();
+    })();
+</script>
+</body>
+</html>
