@@ -334,7 +334,7 @@
     function updateMetaTags() {
         document.title = `${articleData.title} | VPS-VPN Блог`;
         document.querySelector('meta[name="description"]')?.setAttribute('content', articleData.excerpt || '');
-        document.querySelector('link[rel="canonical"]')?.setAttribute('href', `https://ваш-сайт.ru/articles/${articleId}.html`);
+        document.querySelector('link[rel="canonical"]')?.setAttribute('href', `https://vps-vpn.ru/articles/${articleId}.html`);
         document.querySelector('meta[property="og:title"]')?.setAttribute('content', articleData.title);
         document.querySelector('meta[property="og:description"]')?.setAttribute('content', articleData.excerpt || '');
         document.querySelector('meta[property="og:image"]')?.setAttribute('content', articleData.imageUrl || '');
