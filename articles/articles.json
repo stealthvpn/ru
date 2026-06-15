@@ -1,11 +1,11 @@
 [
 {
-  "id": "pochemu-vpn-ne-rabutaet-kak-ranee",
-  "title": "Почему обычные VPN больше не работают в России и как я нашёл решение на vps-vpn.ru",
-  "excerpt": "Личный опыт: как DPI блокирует WireGuard и OpenVPN за 5 минут, почему массовые сервисы стали бесполезны, и как я перешёл на персональный VPS с XHTTP+Reality от VPS-VPN. Честный рассказ от реального пользователя.",
+  "id": "pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie",
+  "title": "Почему VPN перестали работать, и как я нашёл единственное рабочее решение на vps-vpn.ru",
+  "excerpt": "Личный опыт: почему DPI блокирует массовые VPN за минуты, а индивидуальные прокси не дают скорости. Как я, обычный айтишник, перестал играть в рулетку и купил личный сервер с XHTTP+Reality. Честный обзор vps-vpn.ru и почему его невозможно заблокировать.",
   "tag": "Технологии",
-  "image": "🔬",
-  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "image": "🔒",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
   "date": "2026-06-15",
   "views": 0
 }
