@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /access.html
+Disallow: /success.html
+Disallow: /*?
+Disallow: /access.html?*
+Disallow: /success.html?*
+
+Sitemap: https://ваш-сайт.ru/sitemap.xml
+
+# Для Яндекса
+Host: https://ваш-сайт.ru
