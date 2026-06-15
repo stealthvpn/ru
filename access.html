@@ -383,10 +383,8 @@
             return { name, email, phone, extra: userExtraInput?.value.trim() || '' };
         }
 
-        // ========== ВЕБХУК НА GOOGLE SCRIPT (ПАРАЛЛЕЛЬНО, БЕЗ ОЖИДАНИЯ) ==========
         function sendWebhookToGoogleScript(contactData, orderData) {
-            // ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ URL GOOGLE APPS SCRIPT
-            const webhookUrl = 'https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec';
+            const webhookUrl = 'https://script.google.com/macros/s/AKfycbw9AjxkkiFf9ds0cGY56xuGi3gpBL4ePV2ytdxfi-lGYN_-fPmxKsji43K3RqPRiPy3/exec';
             
             const payload = {
                 event: 'new_order',
