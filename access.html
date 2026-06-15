@@ -101,7 +101,7 @@
     <nav>
         <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
         <div style="display: flex; align-items: center; gap: 24px;">
-            <div class="nav-links"><a href="index.html">Главная</a><a href="access.html">Доступ</a><a href="#faq">FAQ</a></div>
+            <div class="nav-links"><a href="index.html">Главная</a><a href="access.html">Доступ</a><a href="blog.html">Блог</a></div>
             <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему"><i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span></button>
         </div>
     </nav>
@@ -121,10 +121,13 @@
                 <input type="hidden" name="amount" id="amountField" value="">
                 <input type="hidden" name="merchant_order_id" id="merchantOrderId" value="">
                 <input type="hidden" name="use_card_payment" value="RUB">
+                
                 <!-- ВАЖНО: ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ ДОМЕН -->
                 <input type="hidden" name="success_url" id="successUrl" value="https://ваш-сайт.ru/success.html">
                 <input type="hidden" name="fail_url" id="failUrl" value="https://ваш-сайт.ru/access.html">
-                <input type="hidden" name="notice_url" id="noticeUrl" value="https://script.google.com/macros/s/YOUR_WEBHOOK_ID/exec">
+                
+                <!-- notice_url оставляем, market.click отправит туда уведомление -->
+                <input type="hidden" name="notice_url" id="noticeUrl" value="https://ваш-сайт.ru/webhook.php">
                 <input type="hidden" name="api_key" value="e71366079d95b04228fc6482c503a983b99da2e7b17dd6c56780074d0f7e63a2">
                 
                 <!-- Контактные поля -->
@@ -153,7 +156,6 @@
                     <div class="option-label"><i class="fas fa-globe"></i> Где будет ваш личный сервер?</div>
                     <select name="server_location" id="countrySelect" class="country-select" required>
                         <option value="" disabled selected>🌍 Выберите страну</option>
-                        
                         <optgroup label="🇪🇺 Европа">
                             <option value="Austria">🇦🇹 Австрия (Вена)</option>
                             <option value="Belgium">🇧🇪 Бельгия (Брюссель)</option>
@@ -185,7 +187,6 @@
                             <option value="Sweden">🇸🇪 Швеция (Стокгольм)</option>
                             <option value="Estonia">🇪🇪 Эстония (Таллин)</option>
                         </optgroup>
-                        
                         <optgroup label="🌎 Северная Америка">
                             <option value="Canada">🇨🇦 Канада (Торонто, Ванкувер, Монреаль)</option>
                             <option value="Mexico">🇲🇽 Мексика (Мехико)</option>
@@ -194,12 +195,10 @@
                             <option value="USA_East">🇺🇸 США (Восток — Нью-Йорк, Майами)</option>
                             <option value="USA_South">🇺🇸 США (Юг — Атланта, Хьюстон)</option>
                         </optgroup>
-                        
                         <optgroup label="🦘 Австралия и Океания">
                             <option value="Australia">🇦🇺 Австралия (Сидней, Мельбурн, Перт)</option>
                             <option value="NewZealand">🇳🇿 Новая Зеландия (Окленд, Веллингтон)</option>
                         </optgroup>
-                        
                         <optgroup label="🌏 Азия">
                             <option value="Armenia">🇦🇲 Армения (Ереван)</option>
                             <option value="Vietnam">🇻🇳 Вьетнам (Хошимин, Ханой)</option>
@@ -225,7 +224,6 @@
                             <option value="SriLanka">🇱🇰 Шри-Ланка (Коломбо)</option>
                             <option value="Japan">🇯🇵 Япония (Токио, Осака)</option>
                         </optgroup>
-                        
                         <optgroup label="🌍 Ближний Восток и Африка">
                             <option value="Bahrain">🇧🇭 Бахрейн (Манама)</option>
                             <option value="Egypt">🇪🇬 Египет (Каир)</option>
@@ -236,7 +234,6 @@
                             <option value="SaudiArabia">🇸🇦 Саудовская Аравия (Эр-Рияд, Джидда)</option>
                             <option value="SouthAfrica">🇿🇦 ЮАР (Йоханнесбург, Кейптаун)</option>
                         </optgroup>
-                        
                         <optgroup label="🌎 Латинская Америка">
                             <option value="Argentina">🇦🇷 Аргентина (Буэнос-Айрес)</option>
                             <option value="Brazil">🇧🇷 Бразилия (Сан-Паулу, Рио-де-Жанейро)</option>
@@ -312,7 +309,6 @@
         const form = document.getElementById('paymentForm');
         const successUrlField = document.getElementById('successUrl');
         const failUrlField = document.getElementById('failUrl');
-        const noticeUrlField = document.getElementById('noticeUrl');
         const merchantOrderIdField = document.getElementById('merchantOrderId');
 
         // Контактные поля
@@ -356,19 +352,25 @@
         });
 
         function generateOrderId() { return `VPS_${Date.now()}_${Math.floor(Math.random()*1000000)}`; }
+        
         function configureReturnUrls() { 
             const base = window.location.origin; 
             if(successUrlField) successUrlField.value = `${base}/success.html`; 
             if(failUrlField) failUrlField.value = `${base}/access.html`; 
-            // ВАЖНО: ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ WEBHOOK URL
-            if(noticeUrlField) noticeUrlField.value = `https://script.google.com/macros/s/YOUR_WEBHOOK_ID/exec`; 
         }
-        function setMerchantOrderId() { if(merchantOrderIdField) merchantOrderIdField.value = generateOrderId(); }
+        
+        function setMerchantOrderId() { 
+            if(merchantOrderIdField) merchantOrderIdField.value = generateOrderId(); 
+        }
 
         function showToast(msg, isErr = false) {
-            const existing = document.querySelector('.toast'); if(existing) existing.remove();
-            const toast = document.createElement('div'); toast.className = 'toast'; toast.innerHTML = `<i class="fas ${isErr ? 'fa-exclamation-triangle' : 'fa-credit-card'}"></i> ${msg}`;
-            document.body.appendChild(toast); setTimeout(() => toast.remove(), 4000);
+            const existing = document.querySelector('.toast'); 
+            if(existing) existing.remove();
+            const toast = document.createElement('div'); 
+            toast.className = 'toast'; 
+            toast.innerHTML = `<i class="fas ${isErr ? 'fa-exclamation-triangle' : 'fa-credit-card'}"></i> ${msg}`;
+            document.body.appendChild(toast); 
+            setTimeout(() => toast.remove(), 4000);
         }
 
         function validateContacts() {
@@ -381,57 +383,104 @@
             return { name, email, phone, extra: userExtraInput?.value.trim() || '' };
         }
 
-        function sendToGoogleScript(contactData, orderData) {
-            // ВАЖНО: ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ GOOGLE SCRIPT URL
-            const scriptUrl = 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec';
+        // ========== ВЕБХУК НА GOOGLE SCRIPT (ПАРАЛЛЕЛЬНО, БЕЗ ОЖИДАНИЯ) ==========
+        function sendWebhookToGoogleScript(contactData, orderData) {
+            // ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ URL GOOGLE APPS SCRIPT
+            const webhookUrl = 'https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec';
             
             const payload = {
-                type: 'order',
+                event: 'new_order',
+                order_id: orderData.order_id,
                 name: contactData.name,
                 email: contactData.email,
                 phone: contactData.phone,
-                extra: contactData.extra,
-                server_location: orderData.country,
+                comment: contactData.extra,
+                country: orderData.country,
+                country_name: countrySelect.options[countrySelect.selectedIndex]?.text || '',
                 months: orderData.months,
                 price: orderData.price,
-                order_id: orderData.order_id,
                 timestamp: new Date().toISOString(),
-                service: 'vps-vpn'
+                source: 'vps-vpn'
             };
-            fetch(scriptUrl, {
+            
+            // Отправляем параллельно, НЕ ЖДЁМ ОТВЕТА
+            fetch(webhookUrl, {
                 method: 'POST',
-                mode: 'no-cors',
+                mode: 'no-cors',  // no-cors режим для быстрой отправки без ожидания ответа
+                cache: 'no-cache',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
-            }).catch(e => console.log('Google Script error:', e));
+            }).catch(e => {
+                // Ошибка не блокирует оплату, просто логируем в консоль
+                console.log('[Webhook] Ошибка отправки на Google Script:', e);
+            });
             
             // Сохраняем email в localStorage для success.html
             localStorage.setItem('vpsvpn_last_email', contactData.email);
+            localStorage.setItem('vpsvpn_last_order_id', orderData.order_id);
+            
+            console.log('[Webhook] Данные отправлены параллельно:', payload);
         }
 
         function validateForm(event) {
+            // 1. Валидация контактов
             const contacts = validateContacts();
-            if(!contacts) { event.preventDefault(); return false; }
+            if(!contacts) { 
+                event.preventDefault(); 
+                return false; 
+            }
             
-            if(!countrySelect.value) { event.preventDefault(); showToast('❌ Выберите страну сервера', true); return false; }
-            if(currentPrice <= 0) { event.preventDefault(); showToast('⚠️ Ошибка выбора тарифа', true); return false; }
+            // 2. Валидация страны
+            if(!countrySelect.value) { 
+                event.preventDefault(); 
+                showToast('❌ Выберите страну сервера', true); 
+                return false; 
+            }
             
+            // 3. Валидация цены
+            if(currentPrice <= 0) { 
+                event.preventDefault(); 
+                showToast('⚠️ Ошибка выбора тарифа', true); 
+                return false; 
+            }
+            
+            // 4. Генерируем ID заказа
             setMerchantOrderId();
             const orderId = merchantOrderIdField?.value || generateOrderId();
             
+            // 5. Добавляем описание заказа
             let desc = form.querySelector('input[name="description"]');
-            if(!desc) { desc = document.createElement('input'); desc.type = 'hidden'; desc.name = 'description'; form.appendChild(desc); }
+            if(!desc) { 
+                desc = document.createElement('input'); 
+                desc.type = 'hidden'; 
+                desc.name = 'description'; 
+                form.appendChild(desc); 
+            }
             desc.value = `VPS-VPN · Личный сервер · ${countrySelect.options[countrySelect.selectedIndex]?.text} · ${currentMonths} мес. · ${currentPrice}₽ · Клиент: ${contacts.name}`;
             
-            sendToGoogleScript(contacts, {
+            // 6. ОТПРАВЛЯЕМ ВЕБХУК ПАРАЛЛЕЛЬНО (НЕ БЛОКИРУЕМ ФОРМУ)
+            //    Используем setTimeout чтобы отправить сразу после валидации
+            setTimeout(() => {
+                sendWebhookToGoogleScript(contacts, {
+                    country: countrySelect.value,
+                    months: currentMonths,
+                    price: currentPrice,
+                    order_id: orderId
+                });
+            }, 10);
+            
+            // 7. Показываем уведомление
+            showToast(`🔄 Перенаправление на оплату ${currentPrice.toLocaleString()} ₽...`, false);
+            
+            // 8. Разрешаем отправку формы на marketplay24.click
+            console.log('[VPS-VPN] Отправка формы на marketplay24.click:', { 
+                price: currentPrice, 
+                months: currentMonths, 
                 country: countrySelect.value,
-                months: currentMonths,
-                price: currentPrice,
                 order_id: orderId
             });
             
-            showToast(`🔄 Перенаправление на оплату ${currentPrice.toLocaleString()} ₽...`, false);
-            return true;
+            return true; // Форма отправится на marketplay24.click
         }
 
         function init() { 
@@ -439,8 +488,10 @@
             configureReturnUrls(); 
             if(form) {
                 form.addEventListener('submit', (e) => { 
-                    if(!validateForm(e)) e.preventDefault(); 
-                    else console.log('[VPS-VPN] Заказ личного сервера:', { price: currentPrice, months: currentMonths, country: countrySelect.value });
+                    if(!validateForm(e)) {
+                        e.preventDefault();
+                    }
+                    // Если validateForm вернул true, форма отправляется на marketplay24.click
                 });
             }
         }
