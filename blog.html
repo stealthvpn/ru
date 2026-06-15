@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     
     <!-- SEO метатеги -->
-    <title>Блог VPS-VPN — статьи о VPN, приватности и обходе блокировок</title>
-    <meta name="description" content="Полезные статьи о VPN технологиях, обходе блокировок, защите приватности. XHTTP+Reality, WireGuard, VPS настройка и многое другое.">
-    <meta name="keywords" content="vpn блог, статьи про vpn, обход блокировок, xhttp reality, настройка vps, приватность в интернете">
+    <title>Блог VPS-VPN — статьи о VPN, приватности, путешествиях и обходе блокировок</title>
+    <meta name="description" content="Полезные статьи о VPN технологиях, обходе блокировок, защите приватности, а также путеводители по странам мира. XHTTP+Reality, WireGuard, VPS настройка и многое другое.">
+    <meta name="keywords" content="vpn блог, статьи про vpn, обход блокировок, xhttp reality, настройка vps, приватность, путешествия, eSIM, страны">
     <meta name="author" content="VPS-VPN">
     <meta name="robots" content="index, follow">
     
@@ -16,15 +16,15 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ваш-сайт.ru/blog.html">
-    <meta property="og:title" content="Блог VPS-VPN — статьи о VPN, приватности и обходе блокировок">
-    <meta property="og:description" content="Полезные статьи о VPN технологиях, обходе блокировок, защите приватности.">
+    <meta property="og:title" content="Блог VPS-VPN — статьи о VPN, приватности и путешествиях">
+    <meta property="og:description" content="Полезные статьи о VPN технологиях, обходе блокировок, защите приватности и путеводители по странам.">
     <meta property="og:image" content="https://ваш-сайт.ru/og-blog.jpg">
     <meta property="og:site_name" content="VPS-VPN">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:title" content="Блог VPS-VPN">
-    <meta property="twitter:description" content="Статьи о VPN и приватности">
+    <meta property="twitter:description" content="Статьи о VPN, приватности и путешествиях">
     <meta property="twitter:image" content="https://ваш-сайт.ru/og-blog.jpg">
     
     <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
@@ -74,49 +74,51 @@
         .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
         .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
         
-        /* Blog Layout */
         .blog-header { text-align: center; padding: 40px 0 20px; }
         .blog-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
         .blog-grid { display: flex; gap: 40px; flex-wrap: wrap; }
         .blog-main { flex: 2.5; min-width: 280px; }
         .blog-sidebar { flex: 1; min-width: 260px; }
         
-        /* Search */
         .search-box { margin-bottom: 30px; }
         .search-input { width: 100%; padding: 14px 18px; border-radius: 40px; font-size: 1rem; outline: none; transition: 0.2s; }
         
-        /* Blog Cards */
         .blog-card { border-radius: 28px; padding: 24px; margin-bottom: 24px; transition: all 0.25s; }
         .blog-card:hover { transform: translateY(-4px); }
         .blog-card .category-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; margin-bottom: 12px; }
-        .blog-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        .blog-card h3 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.4; }
         .blog-card h3 a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
         .blog-card h3 a:hover { opacity: 0.7; }
-        .blog-meta { display: flex; gap: 16px; margin: 12px 0; font-size: 0.8rem; opacity: 0.7; }
+        .blog-meta { display: flex; gap: 16px; margin: 12px 0; font-size: 0.8rem; opacity: 0.7; flex-wrap: wrap; }
         .blog-excerpt { margin: 12px 0; line-height: 1.6; opacity: 0.9; }
         .read-more { color: #7c3aff; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px; }
         body.light .read-more { color: #ff385c; }
         
-        /* Sidebar */
+        /* Card image */
+        .card-image { width: 100%; height: 180px; object-fit: cover; border-radius: 20px; margin-bottom: 16px; background: linear-gradient(135deg, #7c3aff20, #2dd4bf20); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+        
         .sidebar-widget { border-radius: 28px; padding: 24px; margin-bottom: 24px; }
         .sidebar-widget h4 { font-size: 1.2rem; margin-bottom: 16px; }
         .popular-posts li, .categories-list li { list-style: none; margin: 12px 0; }
-        .popular-posts a, .categories-list a { text-decoration: none; color: inherit; transition: opacity 0.2s; display: flex; justify-content: space-between; }
+        .popular-posts a, .categories-list a { text-decoration: none; color: inherit; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
         .popular-posts a:hover, .categories-list a:hover { opacity: 0.7; }
-        .post-count { opacity: 0.6; font-size: 0.8rem; }
+        .post-count { opacity: 0.6; font-size: 0.75rem; }
         
-        /* Pagination */
         .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
         .pagination a, .pagination span { padding: 8px 16px; border-radius: 40px; text-decoration: none; color: inherit; transition: 0.2s; }
         .pagination a:hover { background: rgba(124,58,255,0.2); }
         .pagination .current { background: #7c3aff; color: white; }
         body.light .pagination .current { background: #ff385c; }
         
-        /* Breadcrumbs */
         .breadcrumbs { padding: 16px 0; font-size: 0.85rem; }
         .breadcrumbs a { text-decoration: none; }
         
         .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; margin-top: 40px; }
+        
+        .loading-spinner { text-align: center; padding: 60px; }
+        .loading-spinner i { font-size: 3rem; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
         @media (max-width: 768px) {
             .container { padding: 0 16px; }
@@ -125,6 +127,7 @@
             .blog-grid { flex-direction: column; }
             .blog-header h1 { font-size: 1.8rem; }
             .blog-card h3 { font-size: 1.2rem; }
+            .card-image { height: 140px; }
         }
     </style>
 </head>
@@ -153,7 +156,7 @@
 
     <div class="blog-header">
         <h1>Блог <span class="gradient-text">VPS-VPN</span></h1>
-        <p style="max-width: 700px; margin: 0 auto;">Статьи о VPN технологиях, обходе блокировок, защите приватности и настройке VPS серверов</p>
+        <p style="max-width: 700px; margin: 0 auto;">Статьи о VPN технологиях, обходе блокировок, защите приватности и путеводители по странам мира</p>
     </div>
 
     <div class="blog-grid">
@@ -162,8 +165,7 @@
                 <input type="text" id="searchInput" class="search-input" placeholder="🔍 Поиск по статьям...">
             </div>
             <div id="articlesList">
-                <!-- Список статей будет загружен через JavaScript -->
-                <div style="text-align: center; padding: 40px;">Загрузка статей...</div>
+                <div class="loading-spinner"><i class="fas fa-spinner"></i><br>Загрузка статей...</div>
             </div>
             <div id="pagination" class="pagination"></div>
         </div>
@@ -184,16 +186,21 @@
             </div>
 
             <div class="sidebar-widget">
-                <h4>📅 Архив</h4>
+                <h4>📅 Архив по месяцам</h4>
                 <ul class="categories-list" id="archiveList">
                     <li>Загрузка...</li>
                 </ul>
             </div>
 
             <div class="sidebar-widget">
-                <h4>💡 Полезное</h4>
-                <p>Хотите получить персональный сервер без блокировок?</p>
-                <button class="btn-primary" style="margin-top: 16px; width: 100%;" onclick="location.href='access.html'">🚀 Заказать VPS</button>
+                <h4>🏷️ Теги</h4>
+                <div id="tagsCloud" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h4>🚀 Личный сервер</h4>
+                <p>Хотите получить свой выделенный VPS без блокировок?</p>
+                <button class="btn-primary" style="margin-top: 16px; width: 100%;" onclick="location.href='access.html'">Заказать сейчас</button>
             </div>
         </div>
     </div>
@@ -205,183 +212,80 @@
 </div>
 
 <script>
-    // База данных статей (для главной страницы блога)
-    // При реальном использовании — загружать из JSON файла или генерировать статически
-    const articlesDatabase = [
-        {
-            id: 1,
-            title: "Что такое XHTTP+Reality и как он обходит DPI?",
-            slug: "xhttp-reality-obhod-dpi",
-            description: "Подробный разбор технологии XHTTP+Reality, которая маскирует VPN трафик под обычный HTTPS и делает его невидимым для Deep Packet Inspection.",
-            content: "Полный текст статьи...",
-            category: "technology",
-            categoryName: "Технологии",
-            date: "2026-06-15",
-            readTime: 8,
-            views: 1240,
-            image: "xhttp-reality.jpg",
-            keywords: "xhttp reality, обход dpi, маскировка трафика, vpn технология"
-        },
-        {
-            id: 2,
-            title: "Как выбрать страну для VPS сервера?",
-            slug: "vybor-strany-dlya-vps",
-            description: "Сравнение серверов в Европе, Азии и Америке. Влияние地理位置 на скорость и доступность сервисов.",
-            content: "Полный текст статьи...",
-            category: "guides",
-            categoryName: "Гайды",
-            date: "2026-06-10",
-            readTime: 6,
-            views: 890,
-            image: "vps-locations.jpg",
-            keywords: "выбор vps, локация сервера, скорость vpn, где лучше взять vps"
-        },
-        {
-            id: 3,
-            title: "Настройка VPN на роутере: пошаговая инструкция",
-            slug: "nastroyka-vpn-na-routere",
-            description: "Как настроить VPN на роутерах ASUS, TP-Link, Keenetic и других. Защита всех устройств в доме.",
-            content: "Полный текст статьи...",
-            category: "setup",
-            categoryName: "Настройка",
-            date: "2026-06-05",
-            readTime: 10,
-            views: 2340,
-            image: "router-vpn.jpg",
-            keywords: "vpn на роутере, настройка роутера, openwrt, keenetic vpn"
-        },
-        {
-            id: 4,
-            title: "Почему обычные VPN блокируют за 5 минут?",
-            slug: "pochemu-vpn-blokiruyut",
-            description: "Разбираемся, как DPI распознает WireGuard и OpenVPN, и почему выделенный сервер — решение проблемы.",
-            content: "Полный текст статьи...",
-            category: "technology",
-            categoryName: "Технологии",
-            date: "2026-05-28",
-            readTime: 7,
-            views: 3450,
-            image: "vpn-block.jpg",
-            keywords: "блокировка vpn, dpi распознавание, wireguard блокировка, openvpn детект"
-        },
-        {
-            id: 5,
-            title: "Как защитить приватность в Telegram?",
-            slug: "privatnost-v-telegram",
-            description: "Настройки конфиденциальности, использование прокси и VPN для максимальной анонимности в Telegram.",
-            content: "Полный текст статьи...",
-            category: "privacy",
-            categoryName: "Приватность",
-            date: "2026-05-20",
-            readTime: 5,
-            views: 1560,
-            image: "telegram-privacy.jpg",
-            keywords: "приватность telegram, настройки telegram, анонимность, скрыть номер"
-        },
-        {
-            id: 6,
-            title: "Сравнение протоколов VPN: WireGuard vs OpenVPN vs XHTTP",
-            slug: "sravnenie-protokolov-vpn",
-            description: "Тесты скорости, безопасности и скрытности. Какой протокол лучше в 2026 году?",
-            content: "Полный текст статьи...",
-            category: "technology",
-            categoryName: "Технологии",
-            date: "2026-05-15",
-            readTime: 12,
-            views: 2100,
-            image: "protocols-compare.jpg",
-            keywords: "сравнение vpn протоколов, wireguard vs openvpn, xhttp vs wireguard"
-        },
-        {
-            id: 7,
-            title: "Как смотреть YouTube без замедлений через VPN",
-            slug: "youtube-bez-zamedleniy",
-            description: "Настройка кэширования, выбор оптимального сервера и протокола для YouTube 4K.",
-            content: "Полный текст статьи...",
-            category: "guides",
-            categoryName: "Гайды",
-            date: "2026-05-10",
-            readTime: 6,
-            views: 980,
-            image: "youtube-speed.jpg",
-            keywords: "ютуб через впн, замедление youtube, смотреть youtube без лагов"
-        },
-        {
-            id: 8,
-            title: "Настройка VPN на iPhone и iPad (iOS)",
-            slug: "vpn-na-iphone-ios",
-            description: "Полная инструкция по настройке VPN на устройствах Apple. Поддержка WireGuard и OpenVPN.",
-            content: "Полный текст статьи...",
-            category: "setup",
-            categoryName: "Настройка",
-            date: "2026-05-05",
-            readTime: 5,
-            views: 1870,
-            image: "ios-vpn.jpg",
-            keywords: "vpn на айфон, настройка ios vpn, wireguard ios, openvpn connect"
-        },
-        {
-            id: 9,
-            title: "Что такое VPS и чем он отличается от обычного VPN?",
-            slug: "vps-otlichie-ot-vpn",
-            description: "Объясняем разницу между виртуальным выделенным сервером и обычным VPN сервисом.",
-            content: "Полный текст статьи...",
-            category: "basics",
-            categoryName: "Основы",
-            date: "2026-04-28",
-            readTime: 8,
-            views: 3200,
-            image: "vps-vs-vpn.jpg",
-            keywords: "vps или vpn, что лучше, выделенный сервер, приватный vpn"
-        },
-        {
-            id: 10,
-            title: "Как установить VPN на Smart TV (Samsung, LG, Sony)",
-            slug: "vpn-na-smart-tv",
-            description: "Способы настройки VPN на телевизорах с Tizen, WebOS и Android TV.",
-            content: "Полный текст статьи...",
-            category: "setup",
-            categoryName: "Настройка",
-            date: "2026-04-20",
-            readTime: 7,
-            views: 2450,
-            image: "smarttv-vpn.jpg",
-            keywords: "vpn на телевизор, smart tv vpn, samsung tizen vpn, lg webos vpn"
-        }
-    ];
-
+    let articlesDatabase = [];
     let currentPage = 1;
     let currentCategory = 'all';
     let currentSearch = '';
+    let currentTag = '';
     const articlesPerPage = 6;
-
+    
+    // Загрузка статей из JSON файла
+    async function loadArticles() {
+        try {
+            const response = await fetch('articles/articles.json?v=' + Date.now());
+            if (!response.ok) throw new Error('Ошибка загрузки JSON');
+            const data = await response.json();
+            articlesDatabase = data;
+            // Сортировка по дате (новые сверху)
+            articlesDatabase.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // Сохраняем просмотры из localStorage
+            articlesDatabase.forEach(article => {
+                const savedViews = localStorage.getItem(`views_${article.id}`);
+                if (savedViews) article.views = parseInt(savedViews);
+                else article.views = article.views || Math.floor(Math.random() * 3000) + 100;
+            });
+            
+            renderSidebar();
+            renderArticles();
+        } catch (error) {
+            console.error('Ошибка загрузки статей:', error);
+            document.getElementById('articlesList').innerHTML = '<div style="text-align: center; padding: 60px;"><i class="fas fa-exclamation-triangle" style="font-size: 3rem;"></i><p style="margin-top: 20px;">Ошибка загрузки статей. Пожалуйста, обновите страницу.</p></div>';
+        }
+    }
+    
     function formatDate(dateString) {
         const date = new Date(dateString);
         return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
     }
-
+    
+    function getTagIcon(tag) {
+        const icons = {
+            'VPN': '🔒',
+            'Технологии': '🔬',
+            'Путешествия': '✈️',
+            'Страны': '🌍',
+            'Гайды': '📖',
+            'Настройка': '⚙️',
+            'Приватность': '🔏',
+            'eSIM': '📱',
+            'Безопасность': '🛡️'
+        };
+        return icons[tag] || '📄';
+    }
+    
     function getFilteredArticles() {
         let filtered = [...articlesDatabase];
         
         if (currentCategory !== 'all') {
-            filtered = filtered.filter(a => a.category === currentCategory);
+            filtered = filtered.filter(a => a.tag === currentCategory);
+        }
+        
+        if (currentTag) {
+            filtered = filtered.filter(a => a.tag === currentTag);
         }
         
         if (currentSearch) {
             const searchLower = currentSearch.toLowerCase();
             filtered = filtered.filter(a => 
                 a.title.toLowerCase().includes(searchLower) || 
-                a.description.toLowerCase().includes(searchLower) ||
-                a.keywords.toLowerCase().includes(searchLower)
+                (a.excerpt && a.excerpt.toLowerCase().includes(searchLower))
             );
         }
         
-        // Сортировка по дате (новые сверху)
-        filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
         return filtered;
     }
-
+    
     function renderArticles() {
         const filtered = getFilteredArticles();
         const totalPages = Math.ceil(filtered.length / articlesPerPage);
@@ -392,28 +296,31 @@
         const container = document.getElementById('articlesList');
         
         if (pageArticles.length === 0) {
-            container.innerHTML = '<div style="text-align: center; padding: 60px;"><i class="fas fa-search" style="font-size: 3rem; opacity: 0.5;"></i><p style="margin-top: 20px;">Статьи не найдены</p><button class="btn-primary" style="margin-top: 20px;" onclick="resetSearch()">Сбросить фильтр</button></div>';
+            container.innerHTML = '<div style="text-align: center; padding: 60px;"><i class="fas fa-search" style="font-size: 3rem; opacity: 0.5;"></i><p style="margin-top: 20px;">Статьи не найдены</p><button class="btn-primary" style="margin-top: 20px;" onclick="resetFilters()">Сбросить фильтр</button></div>';
             return;
         }
         
         container.innerHTML = pageArticles.map(article => `
             <div class="blog-card" data-id="${article.id}">
-                <span class="category-tag">${article.categoryName}</span>
-                <h3><a href="articles/${article.slug}.html">${escapeHtml(article.title)}</a></h3>
+                ${article.imageUrl ? 
+                    `<div class="card-image"><img src="${article.imageUrl}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;font-size:3rem;\\'>${article.image || '📄'}</div>'"></div>` :
+                    `<div class="card-image" style="font-size: 3rem;">${article.image || '📄'}</div>`
+                }
+                <span class="category-tag">${getTagIcon(article.tag)} ${article.tag || 'Статья'}</span>
+                <h3><a href="articles/${article.id}.html">${escapeHtml(article.title)}</a></h3>
                 <div class="blog-meta">
                     <span><i class="far fa-calendar"></i> ${formatDate(article.date)}</span>
-                    <span><i class="far fa-clock"></i> ${article.readTime} мин</span>
-                    <span><i class="far fa-eye"></i> ${article.views}</span>
+                    <span><i class="far fa-eye"></i> ${article.views || 0} просмотров</span>
                 </div>
-                <p class="blog-excerpt">${escapeHtml(article.description)}</p>
-                <a href="articles/${article.slug}.html" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
+                <p class="blog-excerpt">${escapeHtml(article.excerpt || article.title.substring(0, 150))}...</p>
+                <a href="articles/${article.id}.html" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
             </div>
         `).join('');
         
         renderPagination(totalPages);
         updateCounters();
     }
-
+    
     function renderPagination(totalPages) {
         const paginationContainer = document.getElementById('pagination');
         if (totalPages <= 1) {
@@ -446,7 +353,7 @@
             });
         });
     }
-
+    
     function updateCounters() {
         const allCount = articlesDatabase.length;
         document.getElementById('allCount').innerText = allCount;
@@ -454,7 +361,7 @@
         // Обновляем счетчики категорий
         const categories = {};
         articlesDatabase.forEach(article => {
-            categories[article.category] = (categories[article.category] || 0) + 1;
+            categories[article.tag] = (categories[article.tag] || 0) + 1;
         });
         
         const categoriesList = document.getElementById('categoriesList');
@@ -466,24 +373,26 @@
             if (span) span.innerText = count;
         });
     }
-
+    
     function renderSidebar() {
-        // Категории
+        // Категории (теги)
         const categories = {};
         articlesDatabase.forEach(article => {
-            categories[article.category] = (categories[article.category] || 0) + 1;
+            if (article.tag) categories[article.tag] = (categories[article.tag] || 0) + 1;
         });
         
         const categoriesList = document.getElementById('categoriesList');
-        const categoryHtml = Object.entries(categories).map(([key, count]) => `
-            <li><a href="#" data-category="${key}">${getCategoryName(key)} <span class="post-count">${count}</span></a></li>
-        `).join('');
-        categoriesList.innerHTML = `<li><a href="#" data-category="all">Все статьи <span class="post-count" id="allCount">${articlesDatabase.length}</span></a></li>${categoryHtml}`;
+        const categoryHtml = Object.entries(categories)
+            .sort((a, b) => b[1] - a[1])
+            .map(([key, count]) => `
+                <li><a href="#" data-category="${key}">${getTagIcon(key)} ${key} <span class="post-count">${count}</span></a></li>
+            `).join('');
+        categoriesList.innerHTML = `<li><a href="#" data-category="all">📚 Все статьи <span class="post-count" id="allCount">${articlesDatabase.length}</span></a></li>${categoryHtml}`;
         
         // Популярные статьи (по просмотрам)
-        const popular = [...articlesDatabase].sort((a, b) => b.views - a.views).slice(0, 5);
+        const popular = [...articlesDatabase].sort((a, b) => (b.views || 0) - (a.views || 0)).slice(0, 5);
         const popularHtml = popular.map(article => `
-            <li><a href="articles/${article.slug}.html">${escapeHtml(article.title)} <span class="post-count">${article.views} 👁</span></a></li>
+            <li><a href="articles/${article.id}.html">${getTagIcon(article.tag)} ${escapeHtml(article.title.substring(0, 60))}${article.title.length > 60 ? '...' : ''} <span class="post-count">${article.views || 0} 👁</span></a></li>
         `).join('');
         document.getElementById('popularPosts').innerHTML = popularHtml;
         
@@ -497,15 +406,23 @@
         });
         
         const archiveHtml = Object.entries(archives).slice(0, 6).map(([label, count]) => `
-            <li><a href="#" data-archive="${label}">${label} <span class="post-count">${count}</span></a></li>
+            <li><a href="#" data-archive="${label}">📅 ${label} <span class="post-count">${count}</span></a></li>
         `).join('');
         document.getElementById('archiveList').innerHTML = archiveHtml || '<li>Нет записей</li>';
+        
+        // Облако тегов
+        const tagsCloud = document.getElementById('tagsCloud');
+        const tagEntries = Object.entries(categories).sort((a, b) => b[1] - a[1]);
+        tagsCloud.innerHTML = tagEntries.map(([tag, count]) => `
+            <a href="#" data-tag="${tag}" style="display: inline-block; padding: 4px 12px; border-radius: 20px; background: rgba(124,58,255,0.15); text-decoration: none; color: inherit; font-size: ${0.8 + count / 50}rem; transition: 0.2s;">${getTagIcon(tag)} ${tag}</a>
+        `).join('');
         
         // Обработчики для категорий
         document.querySelectorAll('.categories-list a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 currentCategory = link.dataset.category;
+                currentTag = '';
                 currentPage = 1;
                 currentSearch = '';
                 document.getElementById('searchInput').value = '';
@@ -520,40 +437,45 @@
                 e.preventDefault();
                 currentSearch = link.dataset.archive;
                 currentCategory = 'all';
+                currentTag = '';
                 currentPage = 1;
                 document.getElementById('searchInput').value = currentSearch;
                 renderArticles();
                 window.scrollTo({ top: 400, behavior: 'smooth' });
             });
         });
+        
+        // Обработчики для тегов
+        document.querySelectorAll('#tagsCloud a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentTag = link.dataset.tag;
+                currentCategory = 'all';
+                currentPage = 1;
+                currentSearch = '';
+                document.getElementById('searchInput').value = '';
+                renderArticles();
+                window.scrollTo({ top: 400, behavior: 'smooth' });
+            });
+        });
     }
-
-    function getCategoryName(key) {
-        const names = {
-            'technology': '🔬 Технологии',
-            'guides': '📖 Гайды',
-            'setup': '⚙️ Настройка',
-            'privacy': '🔒 Приватность',
-            'basics': '📚 Основы',
-            'news': '📰 Новости'
-        };
-        return names[key] || key;
-    }
-
+    
     function escapeHtml(text) {
+        if (!text) return '';
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     }
-
-    function resetSearch() {
+    
+    function resetFilters() {
         currentSearch = '';
         currentCategory = 'all';
+        currentTag = '';
         currentPage = 1;
         document.getElementById('searchInput').value = '';
         renderArticles();
     }
-
+    
     // Поиск с debounce
     let searchTimeout;
     document.getElementById('searchInput').addEventListener('input', (e) => {
@@ -561,11 +483,12 @@
         searchTimeout = setTimeout(() => {
             currentSearch = e.target.value;
             currentCategory = 'all';
+            currentTag = '';
             currentPage = 1;
             renderArticles();
         }, 300);
     });
-
+    
     // Тема
     function setTheme(theme) {
         if (theme === 'light') {
@@ -580,22 +503,24 @@
             if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
         }
     }
-
+    
     function initTheme() {
         const savedTheme = localStorage.getItem('vpsvpn_theme');
         if (savedTheme === 'light') setTheme('light');
         else setTheme('dark');
     }
-
+    
     document.getElementById('themeToggle').addEventListener('click', () => {
         const isLight = document.body.classList.contains('light');
         isLight ? setTheme('dark') : setTheme('light');
     });
     initTheme();
-
-    // Инициализация
-    renderSidebar();
-    renderArticles();
+    
+    // Загружаем статьи
+    loadArticles();
+    
+    // Экспортируем функции для глобального использования
+    window.resetFilters = resetFilters;
 </script>
 
 <!-- Yandex.Metrika counter -->
