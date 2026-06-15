@@ -8,5 +8,15 @@
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
   "date": "2026-06-15",
   "views": 0
+},
+{
+  "id": "kak-ya-ai-agenta-pisal-i-vps-vpn-nashel",
+  "title": "Как я ИИ-агента писал, засёк блокировку и нашёл vps-vpn.ru",
+  "excerpt": "Разрабатывал агента на LangChain и упёрся в блокировки API. Рассказываю, почему для работы с ИИ в РФ нужен не массовый VPN, а личный сервер с уникальным IP от vps-vpn.ru.",
+  "tag": "Технологии",
+  "image": "🤖",
+  "imageUrl": "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
 }
 ]
