@@ -1,43 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<!-- Основные метатеги -->
-<title>StealthNet — Персональный выделенный VPN сервер | Без блокировок</title>
-<meta name="description" content="Личный выделенный VPS/VPN сервер. 1 клиент = 1 IP. XHTTP+Reality технология. До 10 устройств одновременно. Обход блокировок 2026. 30 дней гарантии.">
-<meta name="keywords" content="личный vpn сервер, выделенный vpn, vps vpn, обход блокировок, xhttp reality, stealth vpn, приватный vpn, без логов">
-<meta name="author" content="StealthNet">
-<meta name="robots" content="index, follow">
-<meta name="language" content="Russian">
-<meta name="revisit-after" content="7 days">
-
-<!-- Canonical URL (замените example.com на ваш домен) -->
-<link rel="canonical" href="https://example.com/index.html">
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://example.com/">
-<meta property="og:title" content="StealthNet — Личный выделенный VPN сервер">
-<meta property="og:description" content="1 клиент = 1 VPS. Никаких соседей по IP. Обходим блокировки технологией XHTTP+Reality.">
-<meta property="og:image" content="https://example.com/og-image.jpg">
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://example.com/">
-<meta property="twitter:title" content="StealthNet — Ваш личный VPN сервер">
-<meta property="twitter:description" content="Полный контроль и приватность. Без логов и блокировок.">
-<meta property="twitter:image" content="https://example.com/og-image.jpg">
-
-<!-- Гео таргетинг (если аудитория в РФ/СНГ) -->
-<meta name="geo.region" content="RU">
-<meta name="geo.placename" content="Russia">
-
-<!-- Технические -->
-<meta name="format-detection" content="telephone=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- SEO метатеги -->
+    <title>Оплата прошла успешно | VPS-VPN</title>
+    <meta name="description" content="Спасибо за заказ! Ваш личный выделенный сервер активируется в ближайшее время. Инструкции отправлены на email.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="canonical" href="https://ваш-сайт.ru/success.html">
+    
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -93,7 +69,7 @@
 <div class="bg-glow"></div>
 <div class="container">
     <nav>
-        <div class="logo"><span class="gradient-text">StealthNet</span> VPN</div>
+        <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
         <div style="display: flex; align-items: center; gap: 24px;">
             <div class="nav-links">
                 <a href="index.html">Главная</a>
@@ -112,7 +88,7 @@
                 <i class="fas fa-check-circle"></i>
             </div>
             <h1>Оплата прошла <span class="gradient-text">успешно!</span></h1>
-            <div class="success-message">
+            <div class="success-message" id="successMessage">
                 <p>Спасибо за доверие! 🎉</p>
                 <p style="margin-top: 12px;">В ближайшее время вам будут высланы все данные для подключения, а также с вами свяжутся наши специалисты для помощи в настройке.</p>
             </div>
@@ -125,15 +101,15 @@
             </div>
             <div class="info-box">
                 <p><i class="fas fa-clock"></i> <strong>Обычно ответ приходит в течение 5-15 минут после оплаты.</strong></p>
-                <p style="margin-top: 8px; font-size: 0.85rem;">Если письмо не пришло — проверьте папку "Спам" или напишите нам в Telegram: <strong>@stealthnet_support</strong></p>
+                <p style="margin-top: 8px; font-size: 0.85rem;">Если письмо не пришло — проверьте папку "Спам" или напишите нам в Telegram: <strong>@vpsvpn_support</strong></p>
             </div>
             <a href="index.html" class="btn-primary" style="margin-top: 20px;">🏠 Вернуться на главную</a>
         </div>
     </div>
     
     <div class="footer">
-        <p>© 2026 StealthNet VPN — Ваш личный выделенный сервер. Серверы вне РФ, логи не хранятся.</p>
-        <p style="margin-top: 8px;"><i class="fas fa-envelope"></i> support@stealthnet.example • <i class="fab fa-telegram"></i> @stealthnet</p>
+        <p>© 2026 VPS-VPN — Ваш личный выделенный сервер. Серверы вне РФ, логи не хранятся.</p>
+        <p style="margin-top: 8px;"><i class="fas fa-envelope"></i> support@vps-vpn.ru • <i class="fab fa-telegram"></i> @vpsvpn_support</p>
     </div>
 </div>
 
@@ -142,23 +118,42 @@
         function setTheme(theme) {
             if (theme === 'light') {
                 document.body.classList.remove('dark'); document.body.classList.add('light');
-                localStorage.setItem('stealthnet_theme', 'light');
+                localStorage.setItem('vpsvpn_theme', 'light');
                 const toggleBtn = document.getElementById('themeToggle');
                 if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>';
             } else {
                 document.body.classList.remove('light'); document.body.classList.add('dark');
-                localStorage.setItem('stealthnet_theme', 'dark');
+                localStorage.setItem('vpsvpn_theme', 'dark');
                 const toggleBtn = document.getElementById('themeToggle');
                 if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
             }
         }
-        function initTheme() { const saved = localStorage.getItem('stealthnet_theme'); saved === 'light' ? setTheme('light') : setTheme('dark'); }
+        function initTheme() { const saved = localStorage.getItem('vpsvpn_theme'); saved === 'light' ? setTheme('light') : setTheme('dark'); }
         const toggleBtn = document.getElementById('themeToggle');
         if (toggleBtn) toggleBtn.addEventListener('click', () => { document.body.classList.contains('light') ? setTheme('dark') : setTheme('light'); });
         initTheme();
+        
+        // Персонализация сообщения, если есть email в localStorage
+        const savedEmail = localStorage.getItem('vpsvpn_last_email');
+        const successMessageDiv = document.getElementById('successMessage');
+        
+        if(savedEmail && successMessageDiv) {
+            const name = savedEmail.split('@')[0];
+            successMessageDiv.innerHTML = `
+                <p>Спасибо, ${name}! 🎉</p>
+                <p style="margin-top: 12px;">Письмо с инструкциями отправлено на <strong>${savedEmail}</strong>.</p>
+                <p style="margin-top: 8px;">В ближайшее время с вами свяжутся наши специалисты для помощи в настройке.</p>
+            `;
+            // Очищаем email из localStorage после использования
+            localStorage.removeItem('vpsvpn_last_email');
+        }
+        
+        // Отправка события в метрику
+        if(typeof ym !== 'undefined') {
+            ym(108981205, 'reachGoal', 'order_success');
+        }
     })();
 </script>
-
 
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
@@ -167,15 +162,12 @@
         m[i].l=1*new Date();
         for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108981205', 'ym');
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
 
-    ym(108981205, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    ym(108981205, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
-
-
-    
 </body>
 </html>
