@@ -28,5 +28,15 @@
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
   "date": "2026-06-15",
   "views": 0
+},
+{
+  "id": "kak-ya-docheri-vk-zablokiroval-i-vps-vpn-nashel",
+  "title": "Как я дочери ВКонтакте заблокировал и задумался о своём доступе в интернет",
+  "excerpt": "Увидел новость о запрете соцсетей для детей в Великобритании и вспомнил, как сам блокировал дочери доступ. Тогда я задумался: а кто может заблокировать меня? Рассказываю, почему для свободного доступа нужен личный VPS от vps-vpn.ru, а не массовый VPN.",
+  "tag": "Технологии",
+  "image": "🔞",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
 }
 ]
