@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- SEO метатеги -->
+    <title>Блог VPS-VPN — статьи о VPN, приватности и обходе блокировок</title>
+    <meta name="description" content="Полезные статьи о VPN технологиях, обходе блокировок, защите приватности. XHTTP+Reality, WireGuard, VPS настройка и многое другое.">
+    <meta name="keywords" content="vpn блог, статьи про vpn, обход блокировок, xhttp reality, настройка vps, приватность в интернете">
+    <meta name="author" content="VPS-VPN">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://ваш-сайт.ru/blog.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ваш-сайт.ru/blog.html">
+    <meta property="og:title" content="Блог VPS-VPN — статьи о VPN, приватности и обходе блокировок">
+    <meta property="og:description" content="Полезные статьи о VPN технологиях, обходе блокировок, защите приватности.">
+    <meta property="og:image" content="https://ваш-сайт.ru/og-blog.jpg">
+    <meta property="og:site_name" content="VPS-VPN">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Блог VPS-VPN">
+    <meta property="twitter:description" content="Статьи о VPN и приватности">
+    <meta property="twitter:image" content="https://ваш-сайт.ru/og-blog.jpg">
+    
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; line-height: 1.5; }
+        
+        body.dark { background: #0a0c12; color: #ffffff; }
+        body.dark .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(circle at 20% 30%, rgba(0,180,180,0.08), transparent 60%), radial-gradient(circle at 85% 70%, rgba(100,70,220,0.12), transparent 70%), #0a0c12; }
+        body.dark .blog-card { background: rgba(25,30,45,0.9); border: 1px solid rgba(255,255,255,0.08); }
+        body.dark .category-tag { background: rgba(165,240,255,0.12); border: 1px solid rgba(165,240,255,0.2); color: #a5f0ff; }
+        body.dark .sidebar-widget { background: rgba(25,30,45,0.9); border: 1px solid rgba(255,255,255,0.08); }
+        body.dark .theme-toggle { background: rgba(255,255,255,0.08); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); }
+        body.dark .nav-links a { color: #e0e0e0; }
+        body.dark .nav-links a:hover, body.dark .nav-links a.active { color: #a5f0ff; }
+        body.dark .gradient-text { background: linear-gradient(135deg, #a5f0ff, #7c3aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
+        body.dark .search-input { background: #1a1f2e; border: 1px solid rgba(255,255,255,0.15); color: white; }
+        body.dark .breadcrumbs { color: #7f8c9b; }
+        body.dark .breadcrumbs a { color: #a5f0ff; }
+        
+        body.light { background: #ffffff; color: #222222; }
+        body.light .bg-glow { display: none; }
+        body.light .blog-card { background: #ffffff; border: 1px solid #ebebeb; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+        body.light .category-tag { background: rgba(255,56,92,0.08); border: 1px solid rgba(255,56,92,0.2); color: #ff385c; }
+        body.light .sidebar-widget { background: #f7f7f7; border: 1px solid #ebebeb; }
+        body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
+        body.light .nav-links a { color: #222222; }
+        body.light .nav-links a:hover, body.light .nav-links a.active { color: #ff385c; }
+        body.light .gradient-text { background: linear-gradient(135deg, #ff385c, #dd1a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.light .footer { color: #717171; border-top: 1px solid #ebebeb; }
+        body.light .search-input { background: #ffffff; border: 1px solid #dddddd; color: #222222; }
+        body.light .breadcrumbs { color: #717171; }
+        body.light .breadcrumbs a { color: #ff385c; }
+        
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(95deg, #7c3aff, #5a2dca); }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .theme-toggle { background: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 8px 16px; border-radius: 40px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 16px; }
+        .logo { font-size: 1.8rem; font-weight: 800; }
+        .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        
+        /* Blog Layout */
+        .blog-header { text-align: center; padding: 40px 0 20px; }
+        .blog-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .blog-grid { display: flex; gap: 40px; flex-wrap: wrap; }
+        .blog-main { flex: 2.5; min-width: 280px; }
+        .blog-sidebar { flex: 1; min-width: 260px; }
+        
+        /* Search */
+        .search-box { margin-bottom: 30px; }
+        .search-input { width: 100%; padding: 14px 18px; border-radius: 40px; font-size: 1rem; outline: none; transition: 0.2s; }
+        
+        /* Blog Cards */
+        .blog-card { border-radius: 28px; padding: 24px; margin-bottom: 24px; transition: all 0.25s; }
+        .blog-card:hover { transform: translateY(-4px); }
+        .blog-card .category-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; margin-bottom: 12px; }
+        .blog-card h3 { font-size: 1.4rem; margin-bottom: 12px; }
+        .blog-card h3 a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+        .blog-card h3 a:hover { opacity: 0.7; }
+        .blog-meta { display: flex; gap: 16px; margin: 12px 0; font-size: 0.8rem; opacity: 0.7; }
+        .blog-excerpt { margin: 12px 0; line-height: 1.6; opacity: 0.9; }
+        .read-more { color: #7c3aff; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px; }
+        body.light .read-more { color: #ff385c; }
+        
+        /* Sidebar */
+        .sidebar-widget { border-radius: 28px; padding: 24px; margin-bottom: 24px; }
+        .sidebar-widget h4 { font-size: 1.2rem; margin-bottom: 16px; }
+        .popular-posts li, .categories-list li { list-style: none; margin: 12px 0; }
+        .popular-posts a, .categories-list a { text-decoration: none; color: inherit; transition: opacity 0.2s; display: flex; justify-content: space-between; }
+        .popular-posts a:hover, .categories-list a:hover { opacity: 0.7; }
+        .post-count { opacity: 0.6; font-size: 0.8rem; }
+        
+        /* Pagination */
+        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
+        .pagination a, .pagination span { padding: 8px 16px; border-radius: 40px; text-decoration: none; color: inherit; transition: 0.2s; }
+        .pagination a:hover { background: rgba(124,58,255,0.2); }
+        .pagination .current { background: #7c3aff; color: white; }
+        body.light .pagination .current { background: #ff385c; }
+        
+        /* Breadcrumbs */
+        .breadcrumbs { padding: 16px 0; font-size: 0.85rem; }
+        .breadcrumbs a { text-decoration: none; }
+        
+        .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; margin-top: 40px; }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            nav { flex-direction: column; align-items: center; }
+            .nav-links { gap: 20px; justify-content: center; }
+            .blog-grid { flex-direction: column; }
+            .blog-header h1 { font-size: 1.8rem; }
+            .blog-card h3 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body class="dark">
+<div class="bg-glow"></div>
+
+<div class="container">
+    <nav>
+        <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+        <div style="display: flex; align-items: center; gap: 24px;">
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="blog.html" class="active">Блог</a>
+                <a href="access.html">Купить</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                <i class="fas fa-sun"></i>
+                <span style="font-size: 0.9rem;">Светлая</span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="breadcrumbs">
+        <a href="index.html">Главная</a> / <span>Блог</span>
+    </div>
+
+    <div class="blog-header">
+        <h1>Блог <span class="gradient-text">VPS-VPN</span></h1>
+        <p style="max-width: 700px; margin: 0 auto;">Статьи о VPN технологиях, обходе блокировок, защите приватности и настройке VPS серверов</p>
+    </div>
+
+    <div class="blog-grid">
+        <div class="blog-main">
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Поиск по статьям...">
+            </div>
+            <div id="articlesList">
+                <!-- Список статей будет загружен через JavaScript -->
+                <div style="text-align: center; padding: 40px;">Загрузка статей...</div>
+            </div>
+            <div id="pagination" class="pagination"></div>
+        </div>
+
+        <div class="blog-sidebar">
+            <div class="sidebar-widget">
+                <h4>📚 Категории</h4>
+                <ul class="categories-list" id="categoriesList">
+                    <li><a href="#" data-category="all">Все статьи <span class="post-count" id="allCount">0</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h4>⭐ Популярные статьи</h4>
+                <ul class="popular-posts" id="popularPosts">
+                    <li>Загрузка...</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h4>📅 Архив</h4>
+                <ul class="categories-list" id="archiveList">
+                    <li>Загрузка...</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h4>💡 Полезное</h4>
+                <p>Хотите получить персональный сервер без блокировок?</p>
+                <button class="btn-primary" style="margin-top: 16px; width: 100%;" onclick="location.href='access.html'">🚀 Заказать VPS</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 VPS-VPN — Ваш личный выделенный сервер. Серверы вне РФ, логи не хранятся.</p>
+        <p style="margin-top: 8px;"><i class="fas fa-envelope"></i> support@vps-vpn.ru</p>
+    </div>
+</div>
+
+<script>
+    // База данных статей (для главной страницы блога)
+    // При реальном использовании — загружать из JSON файла или генерировать статически
+    const articlesDatabase = [
+        {
+            id: 1,
+            title: "Что такое XHTTP+Reality и как он обходит DPI?",
+            slug: "xhttp-reality-obhod-dpi",
+            description: "Подробный разбор технологии XHTTP+Reality, которая маскирует VPN трафик под обычный HTTPS и делает его невидимым для Deep Packet Inspection.",
+            content: "Полный текст статьи...",
+            category: "technology",
+            categoryName: "Технологии",
+            date: "2026-06-15",
+            readTime: 8,
+            views: 1240,
+            image: "xhttp-reality.jpg",
+            keywords: "xhttp reality, обход dpi, маскировка трафика, vpn технология"
+        },
+        {
+            id: 2,
+            title: "Как выбрать страну для VPS сервера?",
+            slug: "vybor-strany-dlya-vps",
+            description: "Сравнение серверов в Европе, Азии и Америке. Влияние地理位置 на скорость и доступность сервисов.",
+            content: "Полный текст статьи...",
+            category: "guides",
+            categoryName: "Гайды",
+            date: "2026-06-10",
+            readTime: 6,
+            views: 890,
+            image: "vps-locations.jpg",
+            keywords: "выбор vps, локация сервера, скорость vpn, где лучше взять vps"
+        },
+        {
+            id: 3,
+            title: "Настройка VPN на роутере: пошаговая инструкция",
+            slug: "nastroyka-vpn-na-routere",
+            description: "Как настроить VPN на роутерах ASUS, TP-Link, Keenetic и других. Защита всех устройств в доме.",
+            content: "Полный текст статьи...",
+            category: "setup",
+            categoryName: "Настройка",
+            date: "2026-06-05",
+            readTime: 10,
+            views: 2340,
+            image: "router-vpn.jpg",
+            keywords: "vpn на роутере, настройка роутера, openwrt, keenetic vpn"
+        },
+        {
+            id: 4,
+            title: "Почему обычные VPN блокируют за 5 минут?",
+            slug: "pochemu-vpn-blokiruyut",
+            description: "Разбираемся, как DPI распознает WireGuard и OpenVPN, и почему выделенный сервер — решение проблемы.",
+            content: "Полный текст статьи...",
+            category: "technology",
+            categoryName: "Технологии",
+            date: "2026-05-28",
+            readTime: 7,
+            views: 3450,
+            image: "vpn-block.jpg",
+            keywords: "блокировка vpn, dpi распознавание, wireguard блокировка, openvpn детект"
+        },
+        {
+            id: 5,
+            title: "Как защитить приватность в Telegram?",
+            slug: "privatnost-v-telegram",
+            description: "Настройки конфиденциальности, использование прокси и VPN для максимальной анонимности в Telegram.",
+            content: "Полный текст статьи...",
+            category: "privacy",
+            categoryName: "Приватность",
+            date: "2026-05-20",
+            readTime: 5,
+            views: 1560,
+            image: "telegram-privacy.jpg",
+            keywords: "приватность telegram, настройки telegram, анонимность, скрыть номер"
+        },
+        {
+            id: 6,
+            title: "Сравнение протоколов VPN: WireGuard vs OpenVPN vs XHTTP",
+            slug: "sravnenie-protokolov-vpn",
+            description: "Тесты скорости, безопасности и скрытности. Какой протокол лучше в 2026 году?",
+            content: "Полный текст статьи...",
+            category: "technology",
+            categoryName: "Технологии",
+            date: "2026-05-15",
+            readTime: 12,
+            views: 2100,
+            image: "protocols-compare.jpg",
+            keywords: "сравнение vpn протоколов, wireguard vs openvpn, xhttp vs wireguard"
+        },
+        {
+            id: 7,
+            title: "Как смотреть YouTube без замедлений через VPN",
+            slug: "youtube-bez-zamedleniy",
+            description: "Настройка кэширования, выбор оптимального сервера и протокола для YouTube 4K.",
+            content: "Полный текст статьи...",
+            category: "guides",
+            categoryName: "Гайды",
+            date: "2026-05-10",
+            readTime: 6,
+            views: 980,
+            image: "youtube-speed.jpg",
+            keywords: "ютуб через впн, замедление youtube, смотреть youtube без лагов"
+        },
+        {
+            id: 8,
+            title: "Настройка VPN на iPhone и iPad (iOS)",
+            slug: "vpn-na-iphone-ios",
+            description: "Полная инструкция по настройке VPN на устройствах Apple. Поддержка WireGuard и OpenVPN.",
+            content: "Полный текст статьи...",
+            category: "setup",
+            categoryName: "Настройка",
+            date: "2026-05-05",
+            readTime: 5,
+            views: 1870,
+            image: "ios-vpn.jpg",
+            keywords: "vpn на айфон, настройка ios vpn, wireguard ios, openvpn connect"
+        },
+        {
+            id: 9,
+            title: "Что такое VPS и чем он отличается от обычного VPN?",
+            slug: "vps-otlichie-ot-vpn",
+            description: "Объясняем разницу между виртуальным выделенным сервером и обычным VPN сервисом.",
+            content: "Полный текст статьи...",
+            category: "basics",
+            categoryName: "Основы",
+            date: "2026-04-28",
+            readTime: 8,
+            views: 3200,
+            image: "vps-vs-vpn.jpg",
+            keywords: "vps или vpn, что лучше, выделенный сервер, приватный vpn"
+        },
+        {
+            id: 10,
+            title: "Как установить VPN на Smart TV (Samsung, LG, Sony)",
+            slug: "vpn-na-smart-tv",
+            description: "Способы настройки VPN на телевизорах с Tizen, WebOS и Android TV.",
+            content: "Полный текст статьи...",
+            category: "setup",
+            categoryName: "Настройка",
+            date: "2026-04-20",
+            readTime: 7,
+            views: 2450,
+            image: "smarttv-vpn.jpg",
+            keywords: "vpn на телевизор, smart tv vpn, samsung tizen vpn, lg webos vpn"
+        }
+    ];
+
+    let currentPage = 1;
+    let currentCategory = 'all';
+    let currentSearch = '';
+    const articlesPerPage = 6;
+
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    function getFilteredArticles() {
+        let filtered = [...articlesDatabase];
+        
+        if (currentCategory !== 'all') {
+            filtered = filtered.filter(a => a.category === currentCategory);
+        }
+        
+        if (currentSearch) {
+            const searchLower = currentSearch.toLowerCase();
+            filtered = filtered.filter(a => 
+                a.title.toLowerCase().includes(searchLower) || 
+                a.description.toLowerCase().includes(searchLower) ||
+                a.keywords.toLowerCase().includes(searchLower)
+            );
+        }
+        
+        // Сортировка по дате (новые сверху)
+        filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        return filtered;
+    }
+
+    function renderArticles() {
+        const filtered = getFilteredArticles();
+        const totalPages = Math.ceil(filtered.length / articlesPerPage);
+        const start = (currentPage - 1) * articlesPerPage;
+        const end = start + articlesPerPage;
+        const pageArticles = filtered.slice(start, end);
+        
+        const container = document.getElementById('articlesList');
+        
+        if (pageArticles.length === 0) {
+            container.innerHTML = '<div style="text-align: center; padding: 60px;"><i class="fas fa-search" style="font-size: 3rem; opacity: 0.5;"></i><p style="margin-top: 20px;">Статьи не найдены</p><button class="btn-primary" style="margin-top: 20px;" onclick="resetSearch()">Сбросить фильтр</button></div>';
+            return;
+        }
+        
+        container.innerHTML = pageArticles.map(article => `
+            <div class="blog-card" data-id="${article.id}">
+                <span class="category-tag">${article.categoryName}</span>
+                <h3><a href="articles/${article.slug}.html">${escapeHtml(article.title)}</a></h3>
+                <div class="blog-meta">
+                    <span><i class="far fa-calendar"></i> ${formatDate(article.date)}</span>
+                    <span><i class="far fa-clock"></i> ${article.readTime} мин</span>
+                    <span><i class="far fa-eye"></i> ${article.views}</span>
+                </div>
+                <p class="blog-excerpt">${escapeHtml(article.description)}</p>
+                <a href="articles/${article.slug}.html" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
+            </div>
+        `).join('');
+        
+        renderPagination(totalPages);
+        updateCounters();
+    }
+
+    function renderPagination(totalPages) {
+        const paginationContainer = document.getElementById('pagination');
+        if (totalPages <= 1) {
+            paginationContainer.innerHTML = '';
+            return;
+        }
+        
+        let pages = [];
+        for (let i = 1; i <= totalPages; i++) {
+            if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+                pages.push(i);
+            } else if (pages[pages.length - 1] !== '...') {
+                pages.push('...');
+            }
+        }
+        
+        paginationContainer.innerHTML = pages.map(page => {
+            if (page === '...') {
+                return '<span>...</span>';
+            }
+            return `<a href="#" data-page="${page}" class="${page === currentPage ? 'current' : ''}">${page}</a>`;
+        }).join('');
+        
+        document.querySelectorAll('.pagination a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentPage = parseInt(link.dataset.page);
+                renderArticles();
+                window.scrollTo({ top: 400, behavior: 'smooth' });
+            });
+        });
+    }
+
+    function updateCounters() {
+        const allCount = articlesDatabase.length;
+        document.getElementById('allCount').innerText = allCount;
+        
+        // Обновляем счетчики категорий
+        const categories = {};
+        articlesDatabase.forEach(article => {
+            categories[article.category] = (categories[article.category] || 0) + 1;
+        });
+        
+        const categoriesList = document.getElementById('categoriesList');
+        const categoryItems = categoriesList.querySelectorAll('li:not(:first-child)');
+        categoryItems.forEach(item => {
+            const category = item.querySelector('a').dataset.category;
+            const count = categories[category] || 0;
+            const span = item.querySelector('.post-count');
+            if (span) span.innerText = count;
+        });
+    }
+
+    function renderSidebar() {
+        // Категории
+        const categories = {};
+        articlesDatabase.forEach(article => {
+            categories[article.category] = (categories[article.category] || 0) + 1;
+        });
+        
+        const categoriesList = document.getElementById('categoriesList');
+        const categoryHtml = Object.entries(categories).map(([key, count]) => `
+            <li><a href="#" data-category="${key}">${getCategoryName(key)} <span class="post-count">${count}</span></a></li>
+        `).join('');
+        categoriesList.innerHTML = `<li><a href="#" data-category="all">Все статьи <span class="post-count" id="allCount">${articlesDatabase.length}</span></a></li>${categoryHtml}`;
+        
+        // Популярные статьи (по просмотрам)
+        const popular = [...articlesDatabase].sort((a, b) => b.views - a.views).slice(0, 5);
+        const popularHtml = popular.map(article => `
+            <li><a href="articles/${article.slug}.html">${escapeHtml(article.title)} <span class="post-count">${article.views} 👁</span></a></li>
+        `).join('');
+        document.getElementById('popularPosts').innerHTML = popularHtml;
+        
+        // Архив по месяцам
+        const archives = {};
+        articlesDatabase.forEach(article => {
+            const date = new Date(article.date);
+            const key = `${date.getFullYear()}-${date.getMonth() + 1}`;
+            const label = date.toLocaleDateString('ru-RU', { year: 'numeric', month: 'long' });
+            archives[label] = (archives[label] || 0) + 1;
+        });
+        
+        const archiveHtml = Object.entries(archives).slice(0, 6).map(([label, count]) => `
+            <li><a href="#" data-archive="${label}">${label} <span class="post-count">${count}</span></a></li>
+        `).join('');
+        document.getElementById('archiveList').innerHTML = archiveHtml || '<li>Нет записей</li>';
+        
+        // Обработчики для категорий
+        document.querySelectorAll('.categories-list a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentCategory = link.dataset.category;
+                currentPage = 1;
+                currentSearch = '';
+                document.getElementById('searchInput').value = '';
+                renderArticles();
+                window.scrollTo({ top: 400, behavior: 'smooth' });
+            });
+        });
+        
+        // Обработчики для архива
+        document.querySelectorAll('#archiveList a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                currentSearch = link.dataset.archive;
+                currentCategory = 'all';
+                currentPage = 1;
+                document.getElementById('searchInput').value = currentSearch;
+                renderArticles();
+                window.scrollTo({ top: 400, behavior: 'smooth' });
+            });
+        });
+    }
+
+    function getCategoryName(key) {
+        const names = {
+            'technology': '🔬 Технологии',
+            'guides': '📖 Гайды',
+            'setup': '⚙️ Настройка',
+            'privacy': '🔒 Приватность',
+            'basics': '📚 Основы',
+            'news': '📰 Новости'
+        };
+        return names[key] || key;
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    function resetSearch() {
+        currentSearch = '';
+        currentCategory = 'all';
+        currentPage = 1;
+        document.getElementById('searchInput').value = '';
+        renderArticles();
+    }
+
+    // Поиск с debounce
+    let searchTimeout;
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            currentSearch = e.target.value;
+            currentCategory = 'all';
+            currentPage = 1;
+            renderArticles();
+        }, 300);
+    });
+
+    // Тема
+    function setTheme(theme) {
+        if (theme === 'light') {
+            document.body.classList.remove('dark'); document.body.classList.add('light');
+            localStorage.setItem('vpsvpn_theme', 'light');
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>';
+        } else {
+            document.body.classList.remove('light'); document.body.classList.add('dark');
+            localStorage.setItem('vpsvpn_theme', 'dark');
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+        }
+    }
+
+    function initTheme() {
+        const savedTheme = localStorage.getItem('vpsvpn_theme');
+        if (savedTheme === 'light') setTheme('light');
+        else setTheme('dark');
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+        const isLight = document.body.classList.contains('light');
+        isLight ? setTheme('dark') : setTheme('light');
+    });
+    initTheme();
+
+    // Инициализация
+    renderSidebar();
+    renderArticles();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(108981205, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
