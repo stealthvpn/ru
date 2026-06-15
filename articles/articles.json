@@ -328,5 +328,435 @@
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
   "date": "2026-06-15",
   "views": 0
+},
+{
+  "id": "pochemu-aviarezhim-vazhen-i-prichem-zdes-vps-vpn",
+  "title": "Почему авиарежим в самолёте — не прихоть, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что авиарежим нужен, чтобы мощные сигналы не мешали приборам. Понял, что в интернете та же история: массовые VPN создают «помехи» для всех. Рассказываю, как я перешёл на «тихий» и чистый канал — личный сервер на vps-vpn.ru.",
+  "tag": "Путешествия",
+  "image": "✈️",
+  "imageUrl": "https://images.pexels.com/photos/210182/pexels-photo-210182.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "kak-ya-v-moskve-ekonomlyu-na-dosuge-i-na-vpn-tozhe",
+  "title": "Как я в Москве трачу на досуг 2000 рублей и экономлю на VPN с vps-vpn.ru",
+  "excerpt": "Узнал, как можно классно отдыхать в Москве за 2000 ₽ в месяц. Понял, что главное — знать лайфхаки. Провёл параллель с VPN: массовые сервисы — это дорого и ненадёжно. Рассказываю, как я перешёл на vps-vpn.ru и стал платить 500 ₽/мес за стабильный доступ.",
+  "tag": "Гайды",
+  "image": "🎭",
+  "imageUrl": "https://images.pexels.com/photos/2608514/pexels-photo-2608514.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "pochemu-ya-ne-stal-brat-robot-pylesos-v-arendu-a-kupil-vps-vpn",
+  "title": "Почему я не стал брать робот-пылесос напрокат, а купил личный сервер vps-vpn.ru",
+  "excerpt": "Задумался о роботе-помощнике для дома. Подумал: брать в аренду или покупать? Понял, что частое использование требует своего. Провёл параллель с VPN: массовые сервисы — это «аренда» IP у тысяч соседей. А vps-vpn.ru — свой собственный инструмент.",
+  "tag": "Гайды",
+  "image": "🤖",
+  "imageUrl": "https://images.pexels.com/photos/8441206/pexels-photo-8441206.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "kak-shaurma-v-ofise-ubila-startap-i-prichem-zdes-vps-vpn",
+  "title": "Как шаурма в офисе убила стартап, и почему я больше не пользуюсь массовыми VPN",
+  "excerpt": "Прочитал историю, как заказ шаурмы в офис привёл к увольнению руководителя. Понял: в IT тот же принцип — «общепит» (массовые услуги) опасен. Рассказываю, как я перешёл на «личную кухню» — свой сервер на vps-vpn.ru.",
+  "tag": "Гайды",
+  "image": "🌯",
+  "imageUrl": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "pochemu-znat-pravila-angliyskogo-nedostatochno-i-prichem-zdes-vps-vpn",
+  "title": "Почему знать правила английского недостаточно, и при чём здесь vps-vpn.ru",
+  "excerpt": "Прочитал статью об ошибках в английском: проблема не в правилах, а в отсутствии практики. Понял, что то же самое с VPN: массовые сервисы — это «теория». Рассказываю, как я перешёл к «практике» — личному серверу на vps-vpn.ru, который реально работает.",
+  "tag": "Гайды",
+  "image": "🇬🇧",
+  "imageUrl": "https://images.pexels.com/photos/4144220/pexels-photo-4144220.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "kak-ya-vizu-v-gretsiyu-oformlyal-i-vps-vpn-nashel",
+  "title": "Как я визу в Грецию оформлял и понял, что с VPN нужно так же",
+  "excerpt": "Узнал, сколько шагов нужно, чтобы получить визу в Грецию: 8 этапов, море риска. Понял, что с доступом в интернет та же история: массовый VPN — это «самостоятельная подача». Рассказываю, как я перешёл на «визовый центр» — личный сервер на vps-vpn.ru.",
+  "tag": "Путешествия",
+  "image": "🇬🇷",
+  "imageUrl": "https://images.pexels.com/photos/1654974/pexels-photo-1654974.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "pochemu-razgovor-s-soboy-pomogaet-i-prichem-zdes-vps-vpn",
+  "title": "Почему разговор с самим собой помогает, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что проговаривание вслух упорядочивает мысли. Понял, что в интернете та же история: массовый VPN — это «каша в голове». А vps-vpn.ru — «чёткая речь». Рассказываю, как я наладил свой цифровой «внутренний диалог».",
+  "tag": "Технологии",
+  "image": "🧠",
+  "imageUrl": "https://images.pexels.com/photos/2588757/pexels-photo-2588757.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "kak-ya-iz-ayti-na-stroyku-ukhodil-i-vps-vpn-nashel",
+  "title": "Как я из IT на стройку уходил и заодно нашёл vps-vpn.ru",
+  "excerpt": "Прочитал историю разработчика, который ушёл из IT на стройку и стал счастливым. Понял, что счастье — в надёжности и предсказуемости. Провёл параллель с VPN: массовые сервисы — это «стресс», а vps-vpn.ru — «спокойствие». Рассказываю, как я выбрал стабильный доступ.",
+  "tag": "Технологии",
+  "image": "🔨",
+  "imageUrl": "https://images.pexels.com/photos/159358/construction-site-building-construction-159358.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "kak-ya-rezyume-na-hh-otpravlyal-i-vps-vpn-nashel",
+  "title": "Как я резюме на hh отправлял и понял, что с VPN то же самое",
+  "excerpt": "Узнал, почему работодатели не читают резюме на hh.ru — алгоритмы отсеивают массу. Понял, что с VPN та же история: массовые IP блокируют. Рассказываю, как я перешёл на vps-vpn.ru — личный сервер, который не блокируют.",
+  "tag": "Технологии",
+  "image": "📄",
+  "imageUrl": "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "kak-ya-stantsiyu-dlya-dronov-v-yakutii-izuchal-i-vps-vpn-nashel",
+  "title": "Как я станцией для дронов в Якутии восхищался и нашёл vps-vpn.ru",
+  "excerpt": "Узнал про роботизированную станцию для дронов в Якутии. Понял: автономность и надёжность — это главное. Провёл параллель с VPN: массовые сервисы — это дроны без станции, а vps-vpn.ru — это «автоматическая база» для вашего трафика.",
+  "tag": "Технологии",
+  "image": "🚁",
+  "imageUrl": "https://images.pexels.com/photos/4226764/pexels-photo-4226764.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "kak-megapolisy-delayut-nas-zavisimymi-i-prichem-zdes-vps-vpn",
+  "title": "Как мегаполисы делают нас зависимыми, и при чём здесь vps-vpn.ru",
+  "excerpt": "Прочитал статью о том, как «комфорт в кредит» превращает нас в бытовых инвалидов. Понял, что с доступом в интернет та же история. Рассказываю, как я перестал зависеть от «общих» систем и перешёл на vps-vpn.ru.",
+  "tag": "Технологии",
+  "image": "🏙️",
+  "imageUrl": "https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-startap-fast-checkout-provalilsya-i-prichem-zdes-vps-vpn",
+  "title": "Как стартап Fast Checkout провалился, и при чём здесь vps-vpn.ru",
+  "excerpt": "Прочитал историю стартапа Fast Checkout, который потратил $124 млн на ненужную кнопку. Понял: то же самое с массовыми VPN — они создают иллюзию решения, но не решают проблему. Рассказываю, как я нашёл реально работающий инструмент — vps-vpn.ru.",
+  "tag": "Технологии",
+  "image": "💰",
+  "imageUrl": "https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "pochemu-optimalnyy-son-vazhen-i-kak-eto-svyazano-s-vps-vpn2",
+  "title": "Почему «спать больше» — не всегда полезно, и при чём здесь vps-vpn.ru",
+  "excerpt": "Новое исследование Nature показало: сон по U-образной кривой — вреден и недосып, и пересып. Провёл параллель с массовыми VPN. Рассказываю, как я нашёл свою «золотую середину» — личный сервер на vps-vpn.ru.",
+  "tag": "Технологии",
+  "image": "😴",
+  "imageUrl": "https://images.pexels.com/photos/4101555/pexels-photo-4101555.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-novyy-samsung-galaxy-a27-predstavili-i-prichem-zdes-vps-vpn",
+  "title": "Как новый Samsung Galaxy A27 представили, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал про новый бюджетный смартфон Samsung Galaxy A27. Понял: «бюджетный» часто означает компромиссы. Провёл параллель с VPN: массовые сервисы — это «A-серия», а vps-vpn.ru — «флагман». Рассказываю, почему я выбрал надёжность и уникальность.",
+  "tag": "Технологии",
+  "image": "📱",
+  "imageUrl": "https://images.pexels.com/photos/47261/pexels-photo-47261.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-bespilotnyy-kater-flymar-sozdavali-i-prichem-zdes-vps-vpn",
+  "title": "Как беспилотный катер Flymar создавали, и при чём здесь vps-vpn.ru",
+  "excerpt": "Прочитал историю разработки беспилотного катера в Петербурге. Понял: Agile и «итеративная инженерия» работают и в IT. Провёл параллель с VPN: массовые сервисы — это «водомёт», а vps-vpn.ru — «беспилотный катер». Рассказываю, как я выбрал современный подход.",
+  "tag": "Технологии",
+  "image": "⛵",
+  "imageUrl": "https://images.pexels.com/photos/162422/boat-water-river-boat-162422.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-mikrobiom-vliyaet-na-usvoenie-edy-i-prichem-zdes-vps-vpn",
+  "title": "Как микробиом влияет на усвоение еды, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что один и тот же продукт даёт разное количество энергии разным людям. Понял: универсальные подходы не работают. Провёл параллель с VPN: массовые сервисы — это «усреднённый подсчёт калорий», а vps-vpn.ru — «персональный подход». Рассказываю, как я выбрал индивидуальность.",
+  "tag": "Технологии",
+  "image": "🍎",
+  "imageUrl": "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-otkaz-ot-google-avtorizacii-menyaet-privychnyy-mir-i-prichem-zdes-vps-vpn",
+  "title": "Как отказ от Google-авторизации меняет привычный мир, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что сайты отказываются от Google-авторизации. Понял: пора задуматься о цифровой независимости. Провёл параллель с VPN: массовые сервисы — как «чужой аккаунт», а vps-vpn.ru — как «своя идентификация». Рассказываю, как я перешёл к контролю.",
+  "tag": "Технологии",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-zapret-na-vhod-cherez-gmail-menyaet-nashu-zhizn-i-prichem-zdes-vps-vpn",
+  "title": "Как запрет на вход через Gmail меняет нашу жизнь, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что вход через Gmail запрещён в России. Понял: пора менять привычки. Провёл параллель с VPN: массовые сервисы — как «вход через Gmail», а vps-vpn.ru — как «российская авторизация». Рассказываю, как я выбрал надёжность.",
+  "tag": "Технологии",
+  "image": "📧",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-apple-vydaet-rossiyanam-amerikanskie-id-i-prichem-zdes-vps-vpn",
+  "title": "Как Apple выдаёт россиянам американские ID, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что Apple теперь выдаёт россиянам американские Apple ID. Понял: мы не контролируем свою цифровую идентичность. Провёл параллель с VPN: массовые сервисы — как «чужой ID», а vps-vpn.ru — как «свой собственный». Рассказываю, как я взял контроль в свои руки.",
+  "tag": "Технологии",
+  "image": "🍎",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-rossiyskie-pwa-servisy-menyat-nashu-zhizn-i-prichem-zdes-vps-vpn",
+  "title": "Как российские PWA-сервисы меняют нашу жизнь, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что российские сервисы теперь можно установить как PWA-приложения, минуя App Store. Понял: независимость от посредников — это сила. Провёл параллель с VPN: массовые сервисы — как «зависимость от магазина», а vps-vpn.ru — как «PWA-приложение». Рассказываю, как я выбрал независимость.",
+  "tag": "Технологии",
+  "image": "📱",
+  "imageUrl": "https://images.pexels.com/photos/5083406/pexels-photo-5083406.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-oplatit-icloud-iz-rossii-i-prichem-zdes-vps-vpn",
+  "title": "Как оплатить iCloud из России, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, как оплатить iCloud из России в 2026. Понял: главное — знать правильные способы. Провёл параллель с VPN: массовые сервисы — как «сомнительные методы оплаты», а vps-vpn.ru — как «надёжный способ». Рассказываю, как я выбрал стабильность.",
+  "tag": "Технологии",
+  "image": "☁️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-telegram-obnovil-funkcional-i-prichem-zdes-vps-vpn",
+  "title": "Как Telegram обновил функционал, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что Telegram добавил полноценное Markdown-форматирование. Понял: развитие идёт, но проблема блокировок остаётся. Провёл параллель с VPN: массовые сервисы — как «старая версия», а vps-vpn.ru — как «новое обновление». Рассказываю, как я выбрал стабильность.",
+  "tag": "Технологии",
+  "image": "📱",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "konec-epohi-odnogo-klika-i-prichem-zdes-vps-vpn",
+  "title": "Конец эпохи «одного клика»: почему российские сервисы отказываются от входа через Google и Apple",
+  "excerpt": "Узнал, почему российские сервисы массово отказываются от входа через Google и Apple. Понял: пора задуматься о цифровой независимости. Провёл параллель с VPN: массовые сервисы — как «вход через Google», а vps-vpn.ru — как «своя идентификация». Рассказываю, как я выбрал контроль.",
+  "tag": "Технологии",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-popolnit-app-store-v-rossii-i-prichem-zdes-vps-vpn",
+  "title": "Как пополнить App Store в России, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, как пополнить App Store в России. Понял: регион имеет значение. Провёл параллель с VPN: массовые сервисы — как «карта с чужим регионом», а vps-vpn.ru — как «правильный регион». Рассказываю, как я выбрал стабильность.",
+  "tag": "Технологии",
+  "image": "🍎",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "chto-takoe-esim-i-prichem-zdes-vps-vpn",
+  "title": "Что такое eSIM, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что такое eSIM и как она работает. Понял: цифровизация и отказ от физических носителей — это будущее. Провёл параллель с VPN: массовые сервисы — как «физическая сим-карта», а vps-vpn.ru — как «eSIM». Рассказываю, как я выбрал гибкость.",
+  "tag": "Технологии",
+  "image": "📱",
+  "imageUrl": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-smenit-region-v-app-store-i-prichem-zdes-vps-vpn",
+  "title": "Как сменить регион в App Store, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, как сменить регион в App Store. Понял: это полезно, но это костыль. Провёл параллель с VPN: массовые сервисы — как «смена региона», а vps-vpn.ru — как «свой регион». Рассказываю, как я выбрал постоянство.",
+  "tag": "Технологии",
+  "image": "🍎",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-oborot-karsheringa-upal-i-prichem-zdes-vps-vpn",
+  "title": "Как оборот каршеринга упал, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что оборот каршеринга в России сократился. Понял: люди устают от «общих» ресурсов. Провёл параллель с VPN: массовые сервисы — как «каршеринг», а vps-vpn.ru — как «личный автомобиль». Рассказываю, как я выбрал своё.",
+  "tag": "Технологии",
+  "image": "🚗",
+  "imageUrl": "https://images.pexels.com/photos/1657312/pexels-photo-1657312.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-roskomnadzor-izmenil-pravila-blokirovki-vpn-i-prichem-zdes-vps-vpn",
+  "title": "Как Роскомнадзор изменил правила блокировки VPN, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что Роскомнадзор изменил подход к блокировке VPN. Теперь страдают даже российские сайты. Понял: массовые VPN под ударом. Рассказываю, как я защитил свой доступ с помощью vps-vpn.ru — личного сервера, который невозможно заблокировать.",
+  "tag": "Технологии",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-apple-uzhestochila-pravila-app-store-i-prichem-zdes-vps-vpn",
+  "title": "Как Apple ужесточила правила App Store, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что Apple будет удалять невостребованные и необновляемые приложения. Понял: в App Store ценят уникальность и качество. Провёл параллель с VPN: массовые сервисы — как «низкокачественные приложения», а vps-vpn.ru — как «уникальный продукт». Рассказываю, как я выбрал качество.",
+  "tag": "Технологии",
+  "image": "🍎",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-biznes-idei-dlya-nachinayushchikh-i-prichem-zdes-vps-vpn",
+  "title": "Как бизнес-идеи для начинающих связаны с vps-vpn.ru",
+  "excerpt": "Узнал о бизнес-идеях для начинающих в 2026. Понял: успех — в решении реальных проблем. Провёл параллель с VPN: массовые сервисы — это «хайп», а vps-vpn.ru — это «решение проблемы». Рассказываю, как я выбрал надёжный инструмент.",
+  "tag": "Технологии",
+  "image": "💼",
+  "imageUrl": "https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-youtube-rasshiril-spisok-stran-dlya-soobshcheniy-i-prichem-zdes-vps-vpn",
+  "title": "Как YouTube расширил список стран для обмена сообщениями, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что YouTube добавил США, Бразилию и Сингапур в список стран для обмена сообщениями. России там нет. Понял: пора самому выбирать свой «регион». Провёл параллель с VPN: массовые сервисы — как «ожидание», а vps-vpn.ru — как «свой регион». Рассказываю, как я получил доступ.",
+  "tag": "Технологии",
+  "image": "▶️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-na-borbu-s-vpn-vydelyayut-milliard-i-prichem-zdes-vps-vpn",
+  "title": "Как на борьбу с VPN выделяют миллиард рублей, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что на борьбу с VPN выделяют ещё 1,3 млрд рублей. Понял: массовые сервисы под ударом. Рассказываю, как я защитил свой доступ с помощью vps-vpn.ru — личного сервера, который невозможно обнаружить и заблокировать.",
+  "tag": "Технологии",
+  "image": "💰",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-pochta-rossii-zapuskaet-virtualnogo-operatora-i-prichem-zdes-vps-vpn",
+  "title": "Как «Почта России» запускает виртуального оператора, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что «Почта России» запускает виртуального оператора на сети Билайн. Понял: арендованная инфраструктура — это компромисс. Провёл параллель с VPN: массовые сервисы — как MVNO, а vps-vpn.ru — как «собственная вышка». Рассказываю, как я выбрал надёжность.",
+  "tag": "Технологии",
+  "image": "📦",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-bronirovanie-oteley-booking-iz-rossii-i-prichem-zdes-vps-vpn",
+  "title": "Как бронировать отели на Booking из России, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, как бронировать отели на Booking из России без предоплаты. Понял: у каждой выгоды есть обратная сторона. Провёл параллель с VPN: массовые сервисы — как «бронирование без предоплаты», а vps-vpn.ru — как «надёжная оплата». Рассказываю, как я выбрал определённость.",
+  "tag": "Путешествия",
+  "image": "🏨",
+  "imageUrl": "https://images.pexels.com/photos/2506926/pexels-photo-2506926.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-karta-novostroek-moskvy-snizhenie-czen-i-prichem-zdes-vps-vpn",
+  "title": "Как карта новостроек Москвы помогает найти реальные скидки, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, как карта новостроек Москвы показывает, где цены реально снижаются. Понял: не всем скидкам можно верить. Провёл параллель с VPN: массовые сервисы — как «сомнительные скидки», а vps-vpn.ru — как «честная цена». Рассказываю, как я выбрал надёжность.",
+  "tag": "Технологии",
+  "image": "🏠",
+  "imageUrl": "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-instagram-razreshil-menjat-poryadok-publikatsij-i-prichem-zdes-vps-vpn",
+  "title": "Как Instagram разрешил менять порядок публикаций, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, что Instagram теперь позволяет менять порядок публикаций. Понял: контроль над своим контентом — это важно. Провёл параллель с VPN: массовые сервисы — как «Instagram без гибкости», а vps-vpn.ru — как «полный контроль». Рассказываю, как я выбрал свободу.",
+  "tag": "Технологии",
+  "image": "📱",
+  "imageUrl": "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-biznes-idei-dlya-malenkogo-goroda-i-prichem-zdes-vps-vpn",
+  "title": "Как бизнес-идеи для маленького города связаны с vps-vpn.ru",
+  "excerpt": "Узнал о бизнес-идеях для маленького города в 2026. Понял: главное — выходить за рамки локального рынка. Провёл параллель с VPN: массовые сервисы — как «бизнес в маленьком городе», а vps-vpn.ru — как «выход на глобальный рынок». Рассказываю, как я выбрал масштабируемость.",
+  "tag": "Технологии",
+  "image": "🏪",
+  "imageUrl": "https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-prevratit-ideyu-v-biznes-i-prichem-zdes-vps-vpn",
+  "title": "Как превратить идею в прибыльный бизнес, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал, как превратить идею в прибыльный бизнес. Понял: главное — масштабирование. Провёл параллель с VPN: массовые сервисы — как «идея без масштаба», а vps-vpn.ru — как «успешный стартап». Рассказываю, как я выбрал стабильность.",
+  "tag": "Технологии",
+  "image": "💡",
+  "imageUrl": "https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-max-shpionit-za-polzovatelyami-vpn-i-prichem-zdes-vps-vpn",
+  "title": "Как мессенджер MAX шпионит за пользователями VPN, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал шокирующую новость: мессенджер MAX шпионит за пользователями VPN. Реверс-инжиниринг показал, как приложение вычисляет тех, кто обходит блокировки. Рассказываю, как защитить себя и почему vps-vpn.ru остаётся незаметным для таких шпионских модулей.",
+  "tag": "Приватность",
+  "image": "🔒",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-telegram-obkhodit-blokirovku-na-samom-dele-i-prichem-zdes-vps-vpn",
+  "title": "Как Telegram на самом деле обходит блокировки, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал правду о том, кто на самом деле чинит Telegram при блокировках. Официальная команда молчала, энтузиасты сделали всё. Провёл параллель с VPN: массовые сервисы — как «официальный Telegram», а vps-vpn.ru — как «энтузиасты». Рассказываю, как я выбрал надёжное решение.",
+  "tag": "Технологии",
+  "image": "📱",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-ya-sobesedovanija-prohodil-i-prichem-zdes-vps-vpn",
+  "title": "Как я собеседования проходил, и при чём здесь vps-vpn.ru",
+  "excerpt": "Прочитал историю разработчика, который прошёл собеседования в Ozon, Т-Банк и другие компании. Понял: система найма сломана. Провёл параллель с VPN: массовые сервисы — как «собеседования в Ozon», а vps-vpn.ru — как «оффер мечты». Рассказываю, как я выбрал надёжное решение.",
+  "tag": "Технологии",
+  "image": "💼",
+  "imageUrl": "https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-belye-spiski-rabotayut-i-prichem-zdes-vps-vpn",
+  "title": "Как работают белые списки в РФ, и при чём здесь vps-vpn.ru",
+  "excerpt": "Разбираюсь, как работают белые списки ТСПУ в России. 63 тысячи разрешённых IP из 46 миллионов. Провёл параллель с VPN: массовые сервисы не работают, а vps-vpn.ru — это надёжное решение на базе VLESS+Reality на VPS в белом списке.",
+  "tag": "Технологии",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-my-ne-ponimaem-tekhnologii-i-prichem-zdes-vps-vpn",
+  "title": "Как мы перестали понимать технологии, и при чём здесь vps-vpn.ru",
+  "excerpt": "Прочитал статью о том, что даже NASA не может скопировать свой двигатель. Понял: мы живём в мире «чёрных ящиков». Провёл параллель с VPN: массовые сервисы — это «магия», а vps-vpn.ru — это «понимание». Рассказываю, как я выбрал осознанный подход.",
+  "tag": "Технологии",
+  "image": "🤔",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
 }
 ]
