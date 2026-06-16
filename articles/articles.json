@@ -768,5 +768,35 @@
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
   "date": "2026-06-16",
   "views": 0
+},
+{
+  "id": "kak-ya-starlink-v-rossii-podklyuchat-pytalsya-i-prichem-zdes-vps-vpn",
+  "title": "Как я пытался подключить Starlink в России, и при чём здесь vps-vpn.ru",
+  "excerpt": "Прочитал историю энтузиаста, который пытался подключить Starlink в России. Понял: строить свою инфраструктуру — это круто, но сложно. Провёл параллель с VPN: самостоятельный Starlink — как «свой сервер», а vps-vpn.ru — как «готовое решение». Рассказываю, как я выбрал надёжность.",
+  "tag": "Технологии",
+  "image": "🛰️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-klient-telega-okazalsya-opasnym-i-prichem-zdes-vps-vpn",
+  "title": "Как клиент «Телега» оказался опасным, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал об альтернативном клиенте для Telegram, который обещал обход блокировок. Но реверс-инжиниринг показал страшную правду: нарушение GPL, сертификат Минцифры и слив данных. Провёл параллель с VPN: выбирайте надёжные решения — vps-vpn.ru.",
+  "tag": "Безопасность",
+  "image": "⚠️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
+},
+{
+  "id": "kak-na-samom-dele-rabotaet-mikrovolnovka-i-prichem-zdes-vps-vpn",
+  "title": "Как на самом деле работает микроволновка, и при чём здесь vps-vpn.ru",
+  "excerpt": "Узнал правду о микроволновке: оказывается, миф о резонансной частоте воды — это неправда. Понял, что и с VPN та же история: красивые мифы мешают видеть реальность. Рассказываю, как я выбрал vps-vpn.ru — решение, которое работает, даже если его сложно объяснить.",
+  "tag": "Технологии",
+  "image": "⚡",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=600&h=400&fit=crop",
+  "date": "2026-06-16",
+  "views": 0
 }
 ]
