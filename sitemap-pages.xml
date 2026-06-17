@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- Главная -->
+    <url>
+        <loc>https://vps-vpn.ru/</loc>
+        <lastmod>2026-06-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ru" href="https://vps-vpn.ru/"/>
+    </url>
+
+    <!-- Блог -->
+    <url>
+        <loc>https://vps-vpn.ru/blog.html</loc>
+        <lastmod>2026-06-18</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Доступ/Покупка -->
+    <url>
+        <loc>https://vps-vpn.ru/access.html</loc>
+        <lastmod>2026-06-18</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Успешная оплата -->
+    <url>
+        <loc>https://vps-vpn.ru/success.html</loc>
+        <lastmod>2026-06-18</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.4</priority>
+    </url>
+
+    <!-- Шаблон статьи (не индексировать) -->
+    <url>
+        <loc>https://vps-vpn.ru/article-template.html</loc>
+        <lastmod>2026-06-18</lastmod>
+        <changefreq>never</changefreq>
+        <priority>0.1</priority>
+    </url>
+
+</urlset>
