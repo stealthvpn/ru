@@ -7,21 +7,22 @@ Disallow: /logs/
 Disallow: /backup/
 Disallow: /includes/
 Disallow: /config/
+Disallow: /article-template.html
 
 # Sitemap
 Sitemap: https://vps-vpn.ru/sitemap.xml
 
-# Правила для поисковых роботов
+# Яндекс
 User-agent: Yandex
 Allow: /
 Disallow: /admin/
 Disallow: /tmp/
 Host: https://vps-vpn.ru
+Crawl-delay: 5
 
+# Google
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
 Disallow: /tmp/
-
-# Время обновления
 Crawl-delay: 5
