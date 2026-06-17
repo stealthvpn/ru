@@ -50,6 +50,8 @@
         body.dark .search-input { background: #1a1f2e; border: 1px solid rgba(255,255,255,0.15); color: white; }
         body.dark .breadcrumbs { color: #7f8c9b; }
         body.dark .breadcrumbs a { color: #a5f0ff; }
+        body.dark .tag-link { background: rgba(165,240,255,0.1); color: #a5f0ff; border: 1px solid rgba(165,240,255,0.15); }
+        body.dark .tag-link:hover { background: rgba(165,240,255,0.2); }
         
         body.light { background: #ffffff; color: #222222; }
         body.light .bg-glow { display: none; }
@@ -64,6 +66,8 @@
         body.light .search-input { background: #ffffff; border: 1px solid #dddddd; color: #222222; }
         body.light .breadcrumbs { color: #717171; }
         body.light .breadcrumbs a { color: #ff385c; }
+        body.light .tag-link { background: rgba(255,56,92,0.08); color: #ff385c; border: 1px solid rgba(255,56,92,0.15); }
+        body.light .tag-link:hover { background: rgba(255,56,92,0.15); }
         
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(95deg, #7c3aff, #5a2dca); }
@@ -94,7 +98,6 @@
         .read-more { color: #7c3aff; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px; }
         body.light .read-more { color: #ff385c; }
         
-        /* Card image */
         .card-image { width: 100%; height: 180px; object-fit: cover; border-radius: 20px; margin-bottom: 16px; background: linear-gradient(135deg, #7c3aff20, #2dd4bf20); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
         .card-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
         
@@ -104,6 +107,27 @@
         .popular-posts a, .categories-list a { text-decoration: none; color: inherit; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
         .popular-posts a:hover, .categories-list a:hover { opacity: 0.7; }
         .post-count { opacity: 0.6; font-size: 0.75rem; }
+        
+        .tag-link {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem !important; /* Фиксированный размер */
+            font-weight: 500;
+            transition: 0.2s;
+            margin: 3px;
+            white-space: nowrap;
+        }
+        .tag-link:hover { 
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+        .tag-link .tag-count {
+            opacity: 0.6;
+            font-size: 0.7rem;
+            margin-left: 4px;
+        }
         
         .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
         .pagination a, .pagination span { padding: 8px 16px; border-radius: 40px; text-decoration: none; color: inherit; transition: 0.2s; }
@@ -120,6 +144,13 @@
         .loading-spinner i { font-size: 3rem; animation: spin 1s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         
+        .filter-active {
+            background: rgba(124,58,255,0.2) !important;
+            border-radius: 20px;
+            padding: 2px 12px;
+        }
+        body.light .filter-active { background: rgba(255,56,92,0.15) !important; }
+        
         @media (max-width: 768px) {
             .container { padding: 0 16px; }
             nav { flex-direction: column; align-items: center; }
@@ -128,6 +159,7 @@
             .blog-header h1 { font-size: 1.8rem; }
             .blog-card h3 { font-size: 1.2rem; }
             .card-image { height: 140px; }
+            .tag-link { font-size: 0.75rem !important; padding: 4px 10px; }
         }
     </style>
 </head>
@@ -194,7 +226,7 @@
 
             <div class="sidebar-widget">
                 <h4>🏷️ Теги</h4>
-                <div id="tagsCloud" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+                <div id="tagsCloud" style="display: flex; flex-wrap: wrap; gap: 4px;"></div>
             </div>
 
             <div class="sidebar-widget">
@@ -226,6 +258,7 @@
             if (!response.ok) throw new Error('Ошибка загрузки JSON');
             const data = await response.json();
             articlesDatabase = data;
+            
             // Сортировка по дате (новые сверху)
             articlesDatabase.sort((a, b) => new Date(b.date) - new Date(a.date));
             
@@ -259,7 +292,9 @@
             'Настройка': '⚙️',
             'Приватность': '🔏',
             'eSIM': '📱',
-            'Безопасность': '🛡️'
+            'Безопасность': '🛡️',
+            'Гаджеты': '📱',
+            'Обзоры': '📱'
         };
         return icons[tag] || '📄';
     }
@@ -268,18 +303,19 @@
         let filtered = [...articlesDatabase];
         
         if (currentCategory !== 'all') {
-            filtered = filtered.filter(a => a.tag === currentCategory);
+            filtered = filtered.filter(a => a.category === currentCategory || a.tag === currentCategory);
         }
         
         if (currentTag) {
-            filtered = filtered.filter(a => a.tag === currentTag);
+            filtered = filtered.filter(a => a.tag === currentTag || a.category === currentTag);
         }
         
         if (currentSearch) {
             const searchLower = currentSearch.toLowerCase();
             filtered = filtered.filter(a => 
                 a.title.toLowerCase().includes(searchLower) || 
-                (a.excerpt && a.excerpt.toLowerCase().includes(searchLower))
+                (a.excerpt && a.excerpt.toLowerCase().includes(searchLower)) ||
+                (a.description && a.description.toLowerCase().includes(searchLower))
             );
         }
         
@@ -300,22 +336,24 @@
             return;
         }
         
-        container.innerHTML = pageArticles.map(article => `
+        container.innerHTML = pageArticles.map(article => {
+            const tagName = article.tag || article.category || 'Статья';
+            return `
             <div class="blog-card" data-id="${article.id}">
                 ${article.imageUrl ? 
                     `<div class="card-image"><img src="${article.imageUrl}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;font-size:3rem;\\'>${article.image || '📄'}</div>'"></div>` :
                     `<div class="card-image" style="font-size: 3rem;">${article.image || '📄'}</div>`
                 }
-                <span class="category-tag">${getTagIcon(article.tag)} ${article.tag || 'Статья'}</span>
+                <span class="category-tag">${getTagIcon(tagName)} ${tagName}</span>
                 <h3><a href="articles/${article.id}.html">${escapeHtml(article.title)}</a></h3>
                 <div class="blog-meta">
                     <span><i class="far fa-calendar"></i> ${formatDate(article.date)}</span>
                     <span><i class="far fa-eye"></i> ${article.views || 0} просмотров</span>
                 </div>
-                <p class="blog-excerpt">${escapeHtml(article.excerpt || article.title.substring(0, 150))}...</p>
+                <p class="blog-excerpt">${escapeHtml(article.excerpt || article.description || article.title.substring(0, 150))}...</p>
                 <a href="articles/${article.id}.html" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
             </div>
-        `).join('');
+        `}).join('');
         
         renderPagination(totalPages);
         updateCounters();
@@ -361,7 +399,8 @@
         // Обновляем счетчики категорий
         const categories = {};
         articlesDatabase.forEach(article => {
-            categories[article.tag] = (categories[article.tag] || 0) + 1;
+            const key = article.tag || article.category || 'Другое';
+            categories[key] = (categories[key] || 0) + 1;
         });
         
         const categoriesList = document.getElementById('categoriesList');
@@ -378,29 +417,31 @@
         // Категории (теги)
         const categories = {};
         articlesDatabase.forEach(article => {
-            if (article.tag) categories[article.tag] = (categories[article.tag] || 0) + 1;
+            const key = article.tag || article.category || 'Другое';
+            categories[key] = (categories[key] || 0) + 1;
         });
         
         const categoriesList = document.getElementById('categoriesList');
         const categoryHtml = Object.entries(categories)
             .sort((a, b) => b[1] - a[1])
             .map(([key, count]) => `
-                <li><a href="#" data-category="${key}">${getTagIcon(key)} ${key} <span class="post-count">${count}</span></a></li>
+                <li><a href="#" data-category="${key}" class="${currentCategory === key ? 'filter-active' : ''}">${getTagIcon(key)} ${key} <span class="post-count">${count}</span></a></li>
             `).join('');
-        categoriesList.innerHTML = `<li><a href="#" data-category="all">📚 Все статьи <span class="post-count" id="allCount">${articlesDatabase.length}</span></a></li>${categoryHtml}`;
+        categoriesList.innerHTML = `<li><a href="#" data-category="all" class="${currentCategory === 'all' && !currentTag ? 'filter-active' : ''}">📚 Все статьи <span class="post-count" id="allCount">${articlesDatabase.length}</span></a></li>${categoryHtml}`;
         
         // Популярные статьи (по просмотрам)
         const popular = [...articlesDatabase].sort((a, b) => (b.views || 0) - (a.views || 0)).slice(0, 5);
-        const popularHtml = popular.map(article => `
-            <li><a href="articles/${article.id}.html">${getTagIcon(article.tag)} ${escapeHtml(article.title.substring(0, 60))}${article.title.length > 60 ? '...' : ''} <span class="post-count">${article.views || 0} 👁</span></a></li>
-        `).join('');
+        const popularHtml = popular.map(article => {
+            const tagName = article.tag || article.category || 'Статья';
+            return `
+            <li><a href="articles/${article.id}.html">${getTagIcon(tagName)} ${escapeHtml(article.title.substring(0, 60))}${article.title.length > 60 ? '...' : ''} <span class="post-count">${article.views || 0} 👁</span></a></li>
+        `}).join('');
         document.getElementById('popularPosts').innerHTML = popularHtml;
         
         // Архив по месяцам
         const archives = {};
         articlesDatabase.forEach(article => {
             const date = new Date(article.date);
-            const key = `${date.getFullYear()}-${date.getMonth() + 1}`;
             const label = date.toLocaleDateString('ru-RU', { year: 'numeric', month: 'long' });
             archives[label] = (archives[label] || 0) + 1;
         });
@@ -410,23 +451,32 @@
         `).join('');
         document.getElementById('archiveList').innerHTML = archiveHtml || '<li>Нет записей</li>';
         
-        // Облако тегов
+        // Облако тегов - все теги одного размера!
         const tagsCloud = document.getElementById('tagsCloud');
         const tagEntries = Object.entries(categories).sort((a, b) => b[1] - a[1]);
         tagsCloud.innerHTML = tagEntries.map(([tag, count]) => `
-            <a href="#" data-tag="${tag}" style="display: inline-block; padding: 4px 12px; border-radius: 20px; background: rgba(124,58,255,0.15); text-decoration: none; color: inherit; font-size: ${0.8 + count / 50}rem; transition: 0.2s;">${getTagIcon(tag)} ${tag}</a>
+            <a href="#" data-tag="${tag}" class="tag-link ${currentTag === tag ? 'filter-active' : ''}">
+                ${getTagIcon(tag)} ${tag} <span class="tag-count">${count}</span>
+            </a>
         `).join('');
         
         // Обработчики для категорий
         document.querySelectorAll('.categories-list a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                currentCategory = link.dataset.category;
-                currentTag = '';
+                const category = link.dataset.category;
+                if (category === 'all') {
+                    currentCategory = 'all';
+                    currentTag = '';
+                } else {
+                    currentCategory = category;
+                    currentTag = '';
+                }
                 currentPage = 1;
                 currentSearch = '';
                 document.getElementById('searchInput').value = '';
                 renderArticles();
+                renderSidebar();
                 window.scrollTo({ top: 400, behavior: 'smooth' });
             });
         });
@@ -441,6 +491,7 @@
                 currentPage = 1;
                 document.getElementById('searchInput').value = currentSearch;
                 renderArticles();
+                renderSidebar();
                 window.scrollTo({ top: 400, behavior: 'smooth' });
             });
         });
@@ -449,12 +500,19 @@
         document.querySelectorAll('#tagsCloud a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                currentTag = link.dataset.tag;
-                currentCategory = 'all';
+                const tag = link.dataset.tag;
+                if (currentTag === tag) {
+                    currentTag = '';
+                    currentCategory = 'all';
+                } else {
+                    currentTag = tag;
+                    currentCategory = 'all';
+                }
                 currentPage = 1;
                 currentSearch = '';
                 document.getElementById('searchInput').value = '';
                 renderArticles();
+                renderSidebar();
                 window.scrollTo({ top: 400, behavior: 'smooth' });
             });
         });
@@ -474,6 +532,7 @@
         currentPage = 1;
         document.getElementById('searchInput').value = '';
         renderArticles();
+        renderSidebar();
     }
     
     // Поиск с debounce
@@ -486,6 +545,7 @@
             currentTag = '';
             currentPage = 1;
             renderArticles();
+            renderSidebar();
         }, 300);
     });
     
