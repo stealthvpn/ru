@@ -25,12 +25,77 @@
     <meta property="og:description" content="Персональный выделенный VPS/VPN сервер. Выберите страну и период.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vps-vpn.ru/access.html">
+    <meta property="og:image" content="https://vps-vpn.ru/og-image.jpg">
     
     <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Schema.org разметка -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Персональный выделенный VPS/VPN сервер",
+      "description": "Закажите личный выделенный VPS/VPN сервер с уникальным IP. Выберите страну и период. 1 клиент = 1 VPS. До 10 человек на сервер.",
+      "image": "https://vps-vpn.ru/og-image.jpg",
+      "brand": {
+        "@type": "Brand",
+        "name": "VPS-VPN"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "RUB",
+        "lowPrice": "2000",
+        "highPrice": "8000",
+        "offerCount": "4",
+        "availability": "https://schema.org/InStock",
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "RU",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "RUB"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "RU"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 1,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 1,
+              "unitCode": "DAY"
+            }
+          }
+        }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "128"
+      }
+    }
+    </script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; line-height: 1.5; }
@@ -102,69 +167,6 @@
         .toast { position: fixed; bottom: 30px; right: 30px; padding: 12px 24px; border-radius: 50px; font-weight: 500; z-index: 1000; backdrop-filter: blur(12px); }
         .highlight-badge { background: rgba(45,212,191,0.15); border-radius: 20px; padding: 8px 16px; display: inline-block; margin-bottom: 20px; font-size: 0.8rem; }
     </style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Персональный выделенный VPS/VPN сервер",
-  "description": "Закажите личный выделенный VPS/VPN сервер с уникальным IP. Выберите страну и период. 1 клиент = 1 VPS. До 10 человек на сервер.",
-  "image": "https://vps-vpn.ru/og-image.jpg",
-  "brand": {
-    "@type": "Brand",
-    "name": "VPS-VPN"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "priceCurrency": "RUB",
-    "lowPrice": "2000",
-    "highPrice": "8000",
-    "offerCount": "4",
-    "availability": "https://schema.org/InStock",
-    "hasMerchantReturnPolicy": {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "RU",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 30,
-      "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/FreeReturn"
-    },
-    "shippingDetails": {
-      "@type": "OfferShippingDetails",
-      "shippingRate": {
-        "@type": "MonetaryAmount",
-        "value": "0",
-        "currency": "RUB"
-      },
-      "shippingDestination": {
-        "@type": "DefinedRegion",
-        "addressCountry": "RU"
-      },
-      "deliveryTime": {
-        "@type": "ShippingDeliveryTime",
-        "handlingTime": {
-          "@type": "QuantitativeValue",
-          "minValue": 0,
-          "maxValue": 1,
-          "unitCode": "DAY"
-        },
-        "transitTime": {
-          "@type": "QuantitativeValue",
-          "minValue": 0,
-          "maxValue": 1,
-          "unitCode": "DAY"
-        }
-      }
-    }
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "128"
-  }
-}
-</script>
-    
 </head>
 <body class="dark">
 <div class="bg-glow"></div>
@@ -352,7 +354,7 @@
 
 <script>
     (function() {
-        // Тема
+        // ========== ТЕМА ==========
         function setTheme(theme) {
             if (theme === 'light') {
                 document.body.classList.remove('dark'); document.body.classList.add('light');
@@ -371,7 +373,7 @@
         if (toggleBtn) toggleBtn.addEventListener('click', () => { document.body.classList.contains('light') ? setTheme('dark') : setTheme('light'); });
         initTheme();
 
-        // Цены и планы
+        // ========== ЦЕНЫ И ПЛАНЫ ==========
         const planBtns = document.querySelectorAll('.plan-btn');
         const amountField = document.getElementById('amountField');
         const totalPriceDisplay = document.getElementById('totalPriceDisplay');
@@ -475,18 +477,18 @@
             // Отправляем параллельно, НЕ ЖДЁМ ОТВЕТА
             fetch(webhookUrl, {
                 method: 'POST',
-                mode: 'no-cors',  // no-cors режим для быстрой отправки без ожидания ответа
+                mode: 'no-cors',
                 cache: 'no-cache',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             }).catch(e => {
-                // Ошибка не блокирует оплату, просто логируем в консоль
                 console.log('[Webhook] Ошибка отправки на Google Script:', e);
             });
             
-            // Сохраняем email в localStorage для success.html
+            // Сохраняем данные в localStorage для success.html
             localStorage.setItem('vpsvpn_last_email', contactData.email);
             localStorage.setItem('vpsvpn_last_order_id', orderData.order_id);
+            localStorage.setItem('vpsvpn_last_price', orderData.price); // <-- ДОБАВЛЕНО
             
             console.log('[Webhook] Данные отправлены параллельно:', payload);
         }
@@ -528,7 +530,6 @@
             desc.value = `VPS-VPN · Личный сервер · ${countrySelect.options[countrySelect.selectedIndex]?.text} · ${currentMonths} мес. · ${currentPrice}₽ · Клиент: ${contacts.name}`;
             
             // 6. ОТПРАВЛЯЕМ ВЕБХУК ПАРАЛЛЕЛЬНО (НЕ БЛОКИРУЕМ ФОРМУ)
-            //    Используем setTimeout чтобы отправить сразу после валидации
             setTimeout(() => {
                 sendWebhookToGoogleScript(contacts, {
                     country: countrySelect.value,
@@ -549,9 +550,10 @@
                 order_id: orderId
             });
             
-            return true; // Форма отправится на marketplay24.click
+            return true;
         }
 
+        // ========== ИНИЦИАЛИЗАЦИЯ ==========
         function init() { 
             updatePriceAndMonths(4, 2000); 
             configureReturnUrls(); 
@@ -560,7 +562,6 @@
                     if(!validateForm(e)) {
                         e.preventDefault();
                     }
-                    // Если validateForm вернул true, форма отправляется на marketplay24.click
                 });
             }
         }
