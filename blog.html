@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-FS3MC3KGRX');
     </script>
+    
     <!-- SEO метатеги -->
-    <title>Блог VPS-VPN — статьи о VPN, приватности, путешествиях и обходе блокировок</title>
-    <meta name="description" content="Полезные статьи о VPN технологиях, обходе блокировок, защите приватности, а также путеводители по странам мира. XHTTP+Reality, WireGuard, VPS настройка и многое другое.">
-    <meta name="keywords" content="vpn блог, статьи про vpn, обход блокировок, xhttp reality, настройка vps, приватность, путешествия, eSIM, страны">
+    <title>Блог VPS-VPN — статьи о VPN, приватности и технологиях</title>
+    <meta name="description" content="Полезные статьи о VPN-технологиях, обходе блокировок, защите приватности, настройке личного VPS-сервера и цифровой свободе. Актуальные гайды и обзоры от VPS-VPN.">
+    <meta name="keywords" content="блог vpn, статьи о vpn, обход блокировок, приватность, vps сервер, xhttp reality, настройка vpn">
     <meta name="author" content="VPS-VPN">
     <meta name="robots" content="index, follow">
     
@@ -24,22 +25,37 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vps-vpn.ru/blog.html">
-    <meta property="og:title" content="Блог VPS-VPN — статьи о VPN, приватности и путешествиях">
-    <meta property="og:description" content="Полезные статьи о VPN технологиях, обходе блокировок, защите приватности и путеводители по странам.">
-    <meta property="og:image" content="https://vps-vpn.ru/og-blog.jpg">
+    <meta property="og:title" content="Блог VPS-VPN — статьи о VPN, приватности и технологиях">
+    <meta property="og:description" content="Полезные статьи о VPN-технологиях, обходе блокировок, защите приватности и настройке личного VPS-сервера.">
+    <meta property="og:image" content="https://vps-vpn.ru/og-image.jpg">
     <meta property="og:site_name" content="VPS-VPN">
     
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Блог VPS-VPN">
-    <meta property="twitter:description" content="Статьи о VPN, приватности и путешествиях">
-    <meta property="twitter:image" content="https://vps-vpn.ru/og-blog.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Блог VPS-VPN — статьи о VPN, приватности и технологиях">
+    <meta name="twitter:description" content="Полезные статьи о VPN-технологиях, обходе блокировок и защите приватности.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/og-image.jpg">
     
     <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Schema.org разметка для страницы блога (заполняется динамически) -->
+    <script type="application/ld+json" id="blogSchema">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Блог VPS-VPN — статьи о VPN, приватности и технологиях",
+      "description": "Полезные статьи о VPN-технологиях, обходе блокировок, защите приватности и настройке личного VPS-сервера.",
+      "url": "https://vps-vpn.ru/blog.html",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": []
+      }
+    }
+    </script>
     
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,38 +63,43 @@
         
         body.dark { background: #0a0c12; color: #ffffff; }
         body.dark .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: radial-gradient(circle at 20% 30%, rgba(0,180,180,0.08), transparent 60%), radial-gradient(circle at 85% 70%, rgba(100,70,220,0.12), transparent 70%), #0a0c12; }
-        body.dark .blog-card { background: rgba(25,30,45,0.9); border: 1px solid rgba(255,255,255,0.08); }
-        body.dark .category-tag { background: rgba(165,240,255,0.12); border: 1px solid rgba(165,240,255,0.2); color: #a5f0ff; }
-        body.dark .sidebar-widget { background: rgba(25,30,45,0.9); border: 1px solid rgba(255,255,255,0.08); }
+        body.dark .blog-card { background: rgba(25,30,45,0.95); border: 1px solid rgba(255,255,255,0.08); }
+        body.dark .blog-card:hover { border-color: rgba(165,240,255,0.3); }
+        body.dark .tag { background: rgba(165,240,255,0.12); border: 1px solid rgba(165,240,255,0.2); color: #a5f0ff; }
         body.dark .theme-toggle { background: rgba(255,255,255,0.08); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); }
+        body.dark .theme-toggle:hover { background: rgba(255,255,255,0.15); color: #a5f0ff; }
         body.dark .nav-links a { color: #e0e0e0; }
-        body.dark .nav-links a:hover, body.dark .nav-links a.active { color: #a5f0ff; }
+        body.dark .nav-links a:hover { color: #a5f0ff; }
         body.dark .gradient-text { background: linear-gradient(135deg, #a5f0ff, #7c3aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.dark .btn-primary { background: linear-gradient(95deg, #7c3aff, #5a2dca); box-shadow: 0 8px 20px rgba(124,58,255,0.3); }
         body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
-        body.dark .search-input { background: #1a1f2e; border: 1px solid rgba(255,255,255,0.15); color: white; }
-        body.dark .breadcrumbs { color: #7f8c9b; }
-        body.dark .breadcrumbs a { color: #a5f0ff; }
-        body.dark .tag-link { background: rgba(165,240,255,0.1); color: #a5f0ff; border: 1px solid rgba(165,240,255,0.15); }
-        body.dark .tag-link:hover { background: rgba(165,240,255,0.2); }
+        body.dark .pagination a { color: #e0e0e0; border: 1px solid rgba(255,255,255,0.1); }
+        body.dark .pagination a:hover { background: rgba(165,240,255,0.1); border-color: #a5f0ff; }
+        body.dark .pagination a.active { background: #7c3aff; border-color: #7c3aff; color: white; }
+        body.dark .filter-btn { background: rgba(255,255,255,0.05); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.1); }
+        body.dark .filter-btn:hover, body.dark .filter-btn.active { background: rgba(165,240,255,0.15); border-color: #a5f0ff; color: #a5f0ff; }
         
         body.light { background: #ffffff; color: #222222; }
         body.light .bg-glow { display: none; }
         body.light .blog-card { background: #ffffff; border: 1px solid #ebebeb; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-        body.light .category-tag { background: rgba(255,56,92,0.08); border: 1px solid rgba(255,56,92,0.2); color: #ff385c; }
-        body.light .sidebar-widget { background: #f7f7f7; border: 1px solid #ebebeb; }
-        body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
-        body.light .nav-links a { color: #222222; }
-        body.light .nav-links a:hover, body.light .nav-links a.active { color: #ff385c; }
+        body.light .blog-card:hover { border-color: #ff385c; box-shadow: 0 8px 24px rgba(255,56,92,0.08); }
+        body.light .tag { background: rgba(255,56,92,0.08); border: 1px solid rgba(255,56,92,0.2); color: #ff385c; }
         body.light .gradient-text { background: linear-gradient(135deg, #ff385c, #dd1a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.light .btn-primary { background: linear-gradient(95deg, #ff385c, #dd1a4a); box-shadow: 0 8px 20px rgba(255,56,92,0.25); }
+        body.light .nav-links a { color: #222222; }
+        body.light .nav-links a:hover { color: #ff385c; }
+        body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
         body.light .footer { color: #717171; border-top: 1px solid #ebebeb; }
-        body.light .search-input { background: #ffffff; border: 1px solid #dddddd; color: #222222; }
-        body.light .breadcrumbs { color: #717171; }
-        body.light .breadcrumbs a { color: #ff385c; }
-        body.light .tag-link { background: rgba(255,56,92,0.08); color: #ff385c; border: 1px solid rgba(255,56,92,0.15); }
-        body.light .tag-link:hover { background: rgba(255,56,92,0.15); }
+        body.light .pagination a { color: #222222; border: 1px solid #ebebeb; }
+        body.light .pagination a:hover { background: #f7f7f7; }
+        body.light .pagination a.active { background: #ff385c; border-color: #ff385c; color: white; }
+        body.light .filter-btn { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
+        body.light .filter-btn:hover, body.light .filter-btn.active { background: #ff385c; border-color: #ff385c; color: white; }
         
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-        .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(95deg, #7c3aff, #5a2dca); }
+        h1, h2 { font-weight: 700; letter-spacing: -0.02em; }
+        .badge { border-radius: 40px; padding: 6px 14px; font-size: 0.85rem; font-weight: 500; width: fit-content; }
+        .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
         .btn-primary:hover { transform: translateY(-2px); }
         .theme-toggle { background: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 8px 16px; border-radius: 40px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 16px; }
@@ -86,88 +107,42 @@
         .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
         .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
         
-        .blog-header { text-align: center; padding: 40px 0 20px; }
-        .blog-header h1 { font-size: 2.5rem; margin-bottom: 16px; }
-        .blog-grid { display: flex; gap: 40px; flex-wrap: wrap; }
-        .blog-main { flex: 2.5; min-width: 280px; }
-        .blog-sidebar { flex: 1; min-width: 260px; }
+        .blog-header { padding: 40px 0 20px; text-align: center; }
+        .blog-header h1 { font-size: 2.8rem; margin-bottom: 12px; }
+        .blog-header p { font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto; }
         
-        .search-box { margin-bottom: 30px; }
-        .search-input { width: 100%; padding: 14px 18px; border-radius: 40px; font-size: 1rem; outline: none; transition: 0.2s; }
+        .blog-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 30px 0 20px; }
+        .filter-btn { padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.2s; border: none; }
         
-        .blog-card { border-radius: 28px; padding: 24px; margin-bottom: 24px; transition: all 0.25s; }
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; padding: 20px 0; }
+        .blog-card { border-radius: 28px; padding: 28px; transition: all 0.25s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
         .blog-card:hover { transform: translateY(-4px); }
-        .blog-card .category-tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; margin-bottom: 12px; }
-        .blog-card h3 { font-size: 1.4rem; margin-bottom: 12px; line-height: 1.4; }
-        .blog-card h3 a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
-        .blog-card h3 a:hover { opacity: 0.7; }
-        .blog-meta { display: flex; gap: 16px; margin: 12px 0; font-size: 0.8rem; opacity: 0.7; flex-wrap: wrap; }
-        .blog-excerpt { margin: 12px 0; line-height: 1.6; opacity: 0.9; }
-        .read-more { color: #7c3aff; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px; }
-        body.light .read-more { color: #ff385c; }
+        .blog-card .card-image { width: 100%; height: 200px; border-radius: 16px; object-fit: cover; margin-bottom: 16px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .blog-card .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; margin-bottom: 12px; width: fit-content; }
+        .blog-card h3 { font-size: 1.2rem; margin-bottom: 10px; line-height: 1.4; }
+        .blog-card p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; flex-grow: 1; }
+        .blog-card .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 0.8rem; opacity: 0.6; }
         
-        .card-image { width: 100%; height: 180px; object-fit: cover; border-radius: 20px; margin-bottom: 16px; background: linear-gradient(135deg, #7c3aff20, #2dd4bf20); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
-        .card-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; }
+        .pagination { display: flex; justify-content: center; gap: 8px; padding: 40px 0; flex-wrap: wrap; }
+        .pagination a { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px; border-radius: 40px; text-decoration: none; font-weight: 500; transition: all 0.2s; }
+        .pagination a.disabled { opacity: 0.3; pointer-events: none; }
         
-        .sidebar-widget { border-radius: 28px; padding: 24px; margin-bottom: 24px; }
-        .sidebar-widget h4 { font-size: 1.2rem; margin-bottom: 16px; }
-        .popular-posts li, .categories-list li { list-style: none; margin: 12px 0; }
-        .popular-posts a, .categories-list a { text-decoration: none; color: inherit; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-        .popular-posts a:hover, .categories-list a:hover { opacity: 0.7; }
-        .post-count { opacity: 0.6; font-size: 0.75rem; }
-        
-        .tag-link {
-            display: inline-block;
-            padding: 6px 14px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.85rem !important; /* Фиксированный размер */
-            font-weight: 500;
-            transition: 0.2s;
-            margin: 3px;
-            white-space: nowrap;
-        }
-        .tag-link:hover { 
-            transform: scale(1.05);
-            opacity: 0.8;
-        }
-        .tag-link .tag-count {
-            opacity: 0.6;
-            font-size: 0.7rem;
-            margin-left: 4px;
-        }
-        
-        .pagination { display: flex; justify-content: center; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
-        .pagination a, .pagination span { padding: 8px 16px; border-radius: 40px; text-decoration: none; color: inherit; transition: 0.2s; }
-        .pagination a:hover { background: rgba(124,58,255,0.2); }
-        .pagination .current { background: #7c3aff; color: white; }
-        body.light .pagination .current { background: #ff385c; }
-        
-        .breadcrumbs { padding: 16px 0; font-size: 0.85rem; }
-        .breadcrumbs a { text-decoration: none; }
-        
-        .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; margin-top: 40px; }
-        
-        .loading-spinner { text-align: center; padding: 60px; }
-        .loading-spinner i { font-size: 3rem; animation: spin 1s linear infinite; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        
-        .filter-active {
-            background: rgba(124,58,255,0.2) !important;
-            border-radius: 20px;
-            padding: 2px 12px;
-        }
-        body.light .filter-active { background: rgba(255,56,92,0.15) !important; }
+        .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
+        .loading { text-align: center; padding: 60px 0; font-size: 1.2rem; opacity: 0.6; }
+        .no-articles { text-align: center; padding: 60px 0; font-size: 1.1rem; opacity: 0.6; }
         
         @media (max-width: 768px) {
             .container { padding: 0 16px; }
-            nav { flex-direction: column; align-items: center; }
-            .nav-links { gap: 20px; justify-content: center; }
-            .blog-grid { flex-direction: column; }
-            .blog-header h1 { font-size: 1.8rem; }
-            .blog-card h3 { font-size: 1.2rem; }
-            .card-image { height: 140px; }
-            .tag-link { font-size: 0.75rem !important; padding: 4px 10px; }
+            nav { flex-direction: column; align-items: center; gap: 12px; }
+            .nav-links { gap: 16px; justify-content: center; }
+            .nav-links a { font-size: 0.85rem; }
+            .blog-header h1 { font-size: 2rem; }
+            .blog-grid { grid-template-columns: 1fr; gap: 20px; }
+            .blog-card { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .blog-header h1 { font-size: 1.6rem; }
+            .filter-btn { font-size: 0.75rem; padding: 6px 14px; }
         }
     </style>
 </head>
@@ -177,11 +152,11 @@
 <div class="container">
     <nav>
         <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
-        <div style="display: flex; align-items: center; gap: 24px;">
+        <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
             <div class="nav-links">
                 <a href="index.html">Главная</a>
-                <a href="blog.html" class="active">Блог</a>
-                <a href="access.html">Купить</a>
+                <a href="access.html">Доступ</a>
+                <a href="blog.html" style="color: #a5f0ff;">📝 Блог</a>
             </div>
             <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
                 <i class="fas fa-sun"></i>
@@ -190,405 +165,216 @@
         </div>
     </nav>
 
-    <div class="breadcrumbs">
-        <a href="index.html">Главная</a> / <span>Блог</span>
-    </div>
-
     <div class="blog-header">
-        <h1>Блог <span class="gradient-text">VPS-VPN</span></h1>
-        <p style="max-width: 700px; margin: 0 auto;">Статьи о VPN технологиях, обходе блокировок, защите приватности и путеводители по странам мира</p>
+        <div class="badge" style="margin: 0 auto 16px;">📝 Блог</div>
+        <h1>Статьи о <span class="gradient-text">VPN, приватности</span> и технологиях</h1>
+        <p>Полезные материалы о том, как оставаться свободным в интернете, обходить блокировки и защищать свои данные.</p>
     </div>
 
-    <div class="blog-grid">
-        <div class="blog-main">
-            <div class="search-box">
-                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Поиск по статьям...">
-            </div>
-            <div id="articlesList">
-                <div class="loading-spinner"><i class="fas fa-spinner"></i><br>Загрузка статей...</div>
-            </div>
-            <div id="pagination" class="pagination"></div>
-        </div>
-
-        <div class="blog-sidebar">
-            <div class="sidebar-widget">
-                <h4>📚 Категории</h4>
-                <ul class="categories-list" id="categoriesList">
-                    <li><a href="#" data-category="all">Все статьи <span class="post-count" id="allCount">0</span></a></li>
-                </ul>
-            </div>
-
-            <div class="sidebar-widget">
-                <h4>⭐ Популярные статьи</h4>
-                <ul class="popular-posts" id="popularPosts">
-                    <li>Загрузка...</li>
-                </ul>
-            </div>
-
-            <div class="sidebar-widget">
-                <h4>📅 Архив по месяцам</h4>
-                <ul class="categories-list" id="archiveList">
-                    <li>Загрузка...</li>
-                </ul>
-            </div>
-
-            <div class="sidebar-widget">
-                <h4>🏷️ Теги</h4>
-                <div id="tagsCloud" style="display: flex; flex-wrap: wrap; gap: 4px;"></div>
-            </div>
-
-            <div class="sidebar-widget">
-                <h4>🚀 Личный сервер</h4>
-                <p>Хотите получить свой выделенный VPS без блокировок?</p>
-                <button class="btn-primary" style="margin-top: 16px; width: 100%;" onclick="location.href='access.html'">Заказать сейчас</button>
-            </div>
-        </div>
+    <!-- Фильтры по тегам -->
+    <div class="blog-filters" id="filterContainer">
+        <button class="filter-btn active" data-filter="all">Все статьи</button>
     </div>
+
+    <!-- Сетка статей -->
+    <div class="blog-grid" id="blogGrid">
+        <div class="loading">Загрузка статей...</div>
+    </div>
+
+    <!-- Пагинация -->
+    <div class="pagination" id="pagination"></div>
 
     <div class="footer">
         <p>© 2026 VPS-VPN — Ваш личный выделенный сервер. Серверы вне РФ, логи не хранятся.</p>
-        <p style="margin-top: 8px;"><i class="fas fa-envelope"></i> support@vps-vpn.ru</p>
+        <p style="margin-top: 8px;">
+            <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+            <a href="blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+        </p>
     </div>
 </div>
 
 <script>
-    let articlesDatabase = [];
-    let currentPage = 1;
-    let currentCategory = 'all';
-    let currentSearch = '';
-    let currentTag = '';
-    const articlesPerPage = 6;
-    
-    // Загрузка статей из JSON файла
-    async function loadArticles() {
-        try {
-            const response = await fetch('articles/articles.json?v=' + Date.now());
-            if (!response.ok) throw new Error('Ошибка загрузки JSON');
-            const data = await response.json();
-            articlesDatabase = data;
-            
-            // Сортировка по дате (новые сверху)
-            articlesDatabase.sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // Сохраняем просмотры из localStorage
-            articlesDatabase.forEach(article => {
-                const savedViews = localStorage.getItem(`views_${article.id}`);
-                if (savedViews) article.views = parseInt(savedViews);
-                else article.views = article.views || Math.floor(Math.random() * 3000) + 100;
-            });
-            
-            renderSidebar();
-            renderArticles();
-        } catch (error) {
-            console.error('Ошибка загрузки статей:', error);
-            document.getElementById('articlesList').innerHTML = '<div style="text-align: center; padding: 60px;"><i class="fas fa-exclamation-triangle" style="font-size: 3rem;"></i><p style="margin-top: 20px;">Ошибка загрузки статей. Пожалуйста, обновите страницу.</p></div>';
-        }
-    }
-    
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
-    }
-    
-    function getTagIcon(tag) {
-        const icons = {
-            'VPN': '🔒',
-            'Технологии': '🔬',
-            'Путешествия': '✈️',
-            'Страны': '🌍',
-            'Гайды': '📖',
-            'Настройка': '⚙️',
-            'Приватность': '🔏',
-            'eSIM': '📱',
-            'Безопасность': '🛡️',
-            'Гаджеты': '📱',
-            'Обзоры': '📱'
-        };
-        return icons[tag] || '📄';
-    }
-    
-    function getFilteredArticles() {
-        let filtered = [...articlesDatabase];
-        
-        if (currentCategory !== 'all') {
-            filtered = filtered.filter(a => a.category === currentCategory || a.tag === currentCategory);
-        }
-        
-        if (currentTag) {
-            filtered = filtered.filter(a => a.tag === currentTag || a.category === currentTag);
-        }
-        
-        if (currentSearch) {
-            const searchLower = currentSearch.toLowerCase();
-            filtered = filtered.filter(a => 
-                a.title.toLowerCase().includes(searchLower) || 
-                (a.excerpt && a.excerpt.toLowerCase().includes(searchLower)) ||
-                (a.description && a.description.toLowerCase().includes(searchLower))
-            );
-        }
-        
-        return filtered;
-    }
-    
-    function renderArticles() {
-        const filtered = getFilteredArticles();
-        const totalPages = Math.ceil(filtered.length / articlesPerPage);
-        const start = (currentPage - 1) * articlesPerPage;
-        const end = start + articlesPerPage;
-        const pageArticles = filtered.slice(start, end);
-        
-        const container = document.getElementById('articlesList');
-        
-        if (pageArticles.length === 0) {
-            container.innerHTML = '<div style="text-align: center; padding: 60px;"><i class="fas fa-search" style="font-size: 3rem; opacity: 0.5;"></i><p style="margin-top: 20px;">Статьи не найдены</p><button class="btn-primary" style="margin-top: 20px;" onclick="resetFilters()">Сбросить фильтр</button></div>';
-            return;
-        }
-        
-        container.innerHTML = pageArticles.map(article => {
-            const tagName = article.tag || article.category || 'Статья';
-            return `
-            <div class="blog-card" data-id="${article.id}">
-                ${article.imageUrl ? 
-                    `<div class="card-image"><img src="${article.imageUrl}" alt="${escapeHtml(article.title)}" loading="lazy" onerror="this.parentElement.innerHTML='<div style=\\'display:flex;align-items:center;justify-content:center;height:100%;font-size:3rem;\\'>${article.image || '📄'}</div>'"></div>` :
-                    `<div class="card-image" style="font-size: 3rem;">${article.image || '📄'}</div>`
-                }
-                <span class="category-tag">${getTagIcon(tagName)} ${tagName}</span>
-                <h3><a href="articles/${article.id}.html">${escapeHtml(article.title)}</a></h3>
-                <div class="blog-meta">
-                    <span><i class="far fa-calendar"></i> ${formatDate(article.date)}</span>
-                    <span><i class="far fa-eye"></i> ${article.views || 0} просмотров</span>
-                </div>
-                <p class="blog-excerpt">${escapeHtml(article.excerpt || article.description || article.title.substring(0, 150))}...</p>
-                <a href="articles/${article.id}.html" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
-            </div>
-        `}).join('');
-        
-        renderPagination(totalPages);
-        updateCounters();
-    }
-    
-    function renderPagination(totalPages) {
-        const paginationContainer = document.getElementById('pagination');
-        if (totalPages <= 1) {
-            paginationContainer.innerHTML = '';
-            return;
-        }
-        
-        let pages = [];
-        for (let i = 1; i <= totalPages; i++) {
-            if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
-                pages.push(i);
-            } else if (pages[pages.length - 1] !== '...') {
-                pages.push('...');
+    (function() {
+        // ========== ТЕМА ==========
+        function setTheme(theme) {
+            const isLight = theme === 'light';
+            document.body.classList.toggle('light', isLight);
+            document.body.classList.toggle('dark', !isLight);
+            localStorage.setItem('vpsvpn_theme', theme);
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) {
+                toggleBtn.innerHTML = isLight 
+                    ? '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>'
+                    : '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
             }
         }
-        
-        paginationContainer.innerHTML = pages.map(page => {
-            if (page === '...') {
-                return '<span>...</span>';
-            }
-            return `<a href="#" data-page="${page}" class="${page === currentPage ? 'current' : ''}">${page}</a>`;
-        }).join('');
-        
-        document.querySelectorAll('.pagination a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                currentPage = parseInt(link.dataset.page);
+        function initTheme() {
+            const saved = localStorage.getItem('vpsvpn_theme');
+            setTheme(saved === 'light' ? 'light' : 'dark');
+        }
+        document.getElementById('themeToggle')?.addEventListener('click', () => {
+            const isLight = document.body.classList.contains('light');
+            setTheme(isLight ? 'dark' : 'light');
+        });
+        initTheme();
+
+        // ========== СОСТОЯНИЕ ==========
+        let allArticles = [];
+        let currentFilter = 'all';
+        let currentPage = 1;
+        const perPage = 12;
+
+        // ========== ЗАГРУЗКА СТАТЕЙ ==========
+        async function loadArticles() {
+            const grid = document.getElementById('blogGrid');
+            try {
+                const response = await fetch('https://vps-vpn.ru/articles/articles.json');
+                if (!response.ok) throw new Error('Ошибка загрузки');
+                allArticles = await response.json();
+                
+                // Сортировка: сначала новые (по дате)
+                allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                // Собираем уникальные теги для фильтров
+                const tags = new Set();
+                allArticles.forEach(a => { if (a.tag) tags.add(a.tag); });
+                
+                const filterContainer = document.getElementById('filterContainer');
+                tags.forEach(tag => {
+                    const btn = document.createElement('button');
+                    btn.className = 'filter-btn';
+                    btn.dataset.filter = tag;
+                    btn.textContent = tag;
+                    filterContainer.appendChild(btn);
+                });
+                
+                // Добавляем обработчики фильтров
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentFilter = this.dataset.filter;
+                        currentPage = 1;
+                        renderArticles();
+                    });
+                });
+                
                 renderArticles();
-                window.scrollTo({ top: 400, behavior: 'smooth' });
-            });
-        });
-    }
-    
-    function updateCounters() {
-        const allCount = articlesDatabase.length;
-        document.getElementById('allCount').innerText = allCount;
-        
-        // Обновляем счетчики категорий
-        const categories = {};
-        articlesDatabase.forEach(article => {
-            const key = article.tag || article.category || 'Другое';
-            categories[key] = (categories[key] || 0) + 1;
-        });
-        
-        const categoriesList = document.getElementById('categoriesList');
-        const categoryItems = categoriesList.querySelectorAll('li:not(:first-child)');
-        categoryItems.forEach(item => {
-            const category = item.querySelector('a').dataset.category;
-            const count = categories[category] || 0;
-            const span = item.querySelector('.post-count');
-            if (span) span.innerText = count;
-        });
-    }
-    
-    function renderSidebar() {
-        // Категории (теги)
-        const categories = {};
-        articlesDatabase.forEach(article => {
-            const key = article.tag || article.category || 'Другое';
-            categories[key] = (categories[key] || 0) + 1;
-        });
-        
-        const categoriesList = document.getElementById('categoriesList');
-        const categoryHtml = Object.entries(categories)
-            .sort((a, b) => b[1] - a[1])
-            .map(([key, count]) => `
-                <li><a href="#" data-category="${key}" class="${currentCategory === key ? 'filter-active' : ''}">${getTagIcon(key)} ${key} <span class="post-count">${count}</span></a></li>
+                updateSchema(allArticles);
+                
+            } catch (error) {
+                console.error('[VPS-VPN] Ошибка загрузки статей:', error);
+                grid.innerHTML = `<div class="no-articles">⚠️ Не удалось загрузить статьи. Попробуйте позже.</div>`;
+            }
+        }
+
+        // ========== ФИЛЬТРАЦИЯ ==========
+        function getFilteredArticles() {
+            if (currentFilter === 'all') return allArticles;
+            return allArticles.filter(a => a.tag === currentFilter);
+        }
+
+        // ========== РЕНДЕРИНГ ==========
+        function renderArticles() {
+            const grid = document.getElementById('blogGrid');
+            const filtered = getFilteredArticles();
+            const totalPages = Math.ceil(filtered.length / perPage);
+            
+            if (totalPages === 0) {
+                grid.innerHTML = `<div class="no-articles">😕 Статей в этой категории пока нет.</div>`;
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
+            
+            if (currentPage > totalPages) currentPage = totalPages;
+            
+            const start = (currentPage - 1) * perPage;
+            const end = start + perPage;
+            const pageArticles = filtered.slice(start, end);
+            
+            grid.innerHTML = pageArticles.map(article => `
+                <a href="article.html?id=${article.id}" class="blog-card">
+                    <div class="card-image">
+                        ${article.image ? article.image : '📄'}
+                    </div>
+                    <div class="tag">${article.tag || 'Статья'}</div>
+                    <h3>${article.title}</h3>
+                    <p>${article.excerpt || ''}</p>
+                    <div class="card-footer">
+                        <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
+                        <span><i class="far fa-eye"></i> ${article.views || 0}</span>
+                    </div>
+                </a>
             `).join('');
-        categoriesList.innerHTML = `<li><a href="#" data-category="all" class="${currentCategory === 'all' && !currentTag ? 'filter-active' : ''}">📚 Все статьи <span class="post-count" id="allCount">${articlesDatabase.length}</span></a></li>${categoryHtml}`;
-        
-        // Популярные статьи (по просмотрам)
-        const popular = [...articlesDatabase].sort((a, b) => (b.views || 0) - (a.views || 0)).slice(0, 5);
-        const popularHtml = popular.map(article => {
-            const tagName = article.tag || article.category || 'Статья';
-            return `
-            <li><a href="articles/${article.id}.html">${getTagIcon(tagName)} ${escapeHtml(article.title.substring(0, 60))}${article.title.length > 60 ? '...' : ''} <span class="post-count">${article.views || 0} 👁</span></a></li>
-        `}).join('');
-        document.getElementById('popularPosts').innerHTML = popularHtml;
-        
-        // Архив по месяцам
-        const archives = {};
-        articlesDatabase.forEach(article => {
-            const date = new Date(article.date);
-            const label = date.toLocaleDateString('ru-RU', { year: 'numeric', month: 'long' });
-            archives[label] = (archives[label] || 0) + 1;
-        });
-        
-        const archiveHtml = Object.entries(archives).slice(0, 6).map(([label, count]) => `
-            <li><a href="#" data-archive="${label}">📅 ${label} <span class="post-count">${count}</span></a></li>
-        `).join('');
-        document.getElementById('archiveList').innerHTML = archiveHtml || '<li>Нет записей</li>';
-        
-        // Облако тегов - все теги одного размера!
-        const tagsCloud = document.getElementById('tagsCloud');
-        const tagEntries = Object.entries(categories).sort((a, b) => b[1] - a[1]);
-        tagsCloud.innerHTML = tagEntries.map(([tag, count]) => `
-            <a href="#" data-tag="${tag}" class="tag-link ${currentTag === tag ? 'filter-active' : ''}">
-                ${getTagIcon(tag)} ${tag} <span class="tag-count">${count}</span>
-            </a>
-        `).join('');
-        
-        // Обработчики для категорий
-        document.querySelectorAll('.categories-list a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const category = link.dataset.category;
-                if (category === 'all') {
-                    currentCategory = 'all';
-                    currentTag = '';
-                } else {
-                    currentCategory = category;
-                    currentTag = '';
-                }
-                currentPage = 1;
-                currentSearch = '';
-                document.getElementById('searchInput').value = '';
-                renderArticles();
-                renderSidebar();
-                window.scrollTo({ top: 400, behavior: 'smooth' });
-            });
-        });
-        
-        // Обработчики для архива
-        document.querySelectorAll('#archiveList a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                currentSearch = link.dataset.archive;
-                currentCategory = 'all';
-                currentTag = '';
-                currentPage = 1;
-                document.getElementById('searchInput').value = currentSearch;
-                renderArticles();
-                renderSidebar();
-                window.scrollTo({ top: 400, behavior: 'smooth' });
-            });
-        });
-        
-        // Обработчики для тегов
-        document.querySelectorAll('#tagsCloud a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const tag = link.dataset.tag;
-                if (currentTag === tag) {
-                    currentTag = '';
-                    currentCategory = 'all';
-                } else {
-                    currentTag = tag;
-                    currentCategory = 'all';
-                }
-                currentPage = 1;
-                currentSearch = '';
-                document.getElementById('searchInput').value = '';
-                renderArticles();
-                renderSidebar();
-                window.scrollTo({ top: 400, behavior: 'smooth' });
-            });
-        });
-    }
-    
-    function escapeHtml(text) {
-        if (!text) return '';
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-    
-    function resetFilters() {
-        currentSearch = '';
-        currentCategory = 'all';
-        currentTag = '';
-        currentPage = 1;
-        document.getElementById('searchInput').value = '';
-        renderArticles();
-        renderSidebar();
-    }
-    
-    // Поиск с debounce
-    let searchTimeout;
-    document.getElementById('searchInput').addEventListener('input', (e) => {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(() => {
-            currentSearch = e.target.value;
-            currentCategory = 'all';
-            currentTag = '';
-            currentPage = 1;
-            renderArticles();
-            renderSidebar();
-        }, 300);
-    });
-    
-    // Тема
-    function setTheme(theme) {
-        if (theme === 'light') {
-            document.body.classList.remove('dark'); document.body.classList.add('light');
-            localStorage.setItem('vpsvpn_theme', 'light');
-            const toggleBtn = document.getElementById('themeToggle');
-            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>';
-        } else {
-            document.body.classList.remove('light'); document.body.classList.add('dark');
-            localStorage.setItem('vpsvpn_theme', 'dark');
-            const toggleBtn = document.getElementById('themeToggle');
-            if (toggleBtn) toggleBtn.innerHTML = '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+            
+            renderPagination(totalPages);
         }
-    }
-    
-    function initTheme() {
-        const savedTheme = localStorage.getItem('vpsvpn_theme');
-        if (savedTheme === 'light') setTheme('light');
-        else setTheme('dark');
-    }
-    
-    document.getElementById('themeToggle').addEventListener('click', () => {
-        const isLight = document.body.classList.contains('light');
-        isLight ? setTheme('dark') : setTheme('light');
-    });
-    initTheme();
-    
-    // Загружаем статьи
-    loadArticles();
-    
-    // Экспортируем функции для глобального использования
-    window.resetFilters = resetFilters;
+
+        // ========== ПАГИНАЦИЯ ==========
+        function renderPagination(totalPages) {
+            const container = document.getElementById('pagination');
+            if (totalPages <= 1) { container.innerHTML = ''; return; }
+            
+            let html = '';
+            const prevDisabled = currentPage === 1 ? 'disabled' : '';
+            html += `<a href="#" class="${prevDisabled}" data-page="${currentPage - 1}">‹</a>`;
+            
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, currentPage + 2);
+            
+            if (startPage > 1) html += `<a href="#" data-page="1">1</a>${startPage > 2 ? '<span>…</span>' : ''}`;
+            for (let i = startPage; i <= endPage; i++) {
+                html += `<a href="#" data-page="${i}" class="${i === currentPage ? 'active' : ''}">${i}</a>`;
+            }
+            if (endPage < totalPages) html += `${endPage < totalPages - 1 ? '<span>…</span>' : ''}<a href="#" data-page="${totalPages}">${totalPages}</a>`;
+            
+            const nextDisabled = currentPage === totalPages ? 'disabled' : '';
+            html += `<a href="#" class="${nextDisabled}" data-page="${currentPage + 1}">›</a>`;
+            
+            container.innerHTML = html;
+            
+            container.querySelectorAll('a[data-page]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = parseInt(this.dataset.page);
+                    if (page >= 1 && page <= totalPages && page !== currentPage) {
+                        currentPage = page;
+                        renderArticles();
+                        window.scrollTo({ top: 400, behavior: 'smooth' });
+                    }
+                });
+            });
+        }
+
+        // ========== ФОРМАТ ДАТЫ ==========
+        function formatDate(dateStr) {
+            if (!dateStr) return '';
+            const d = new Date(dateStr);
+            return d.toLocaleDateString('ru-RU', { day: '2-digit', month: 'long', year: 'numeric' });
+        }
+
+        // ========== ОБНОВЛЕНИЕ SCHEMA.ORG ==========
+        function updateSchema(articles) {
+            const schemaScript = document.getElementById('blogSchema');
+            if (!schemaScript) return;
+            
+            try {
+                const schemaData = JSON.parse(schemaScript.textContent);
+                const itemList = articles.slice(0, 20).map((article, index) => ({
+                    "@type": "ListItem",
+                    "position": index + 1,
+                    "url": `https://vps-vpn.ru/article.html?id=${article.id}`
+                }));
+                schemaData.mainEntity.itemListElement = itemList;
+                schemaScript.textContent = JSON.stringify(schemaData, null, 2);
+            } catch(e) {
+                console.log('[VPS-VPN] Ошибка обновления Schema:', e);
+            }
+        }
+
+        // ========== ЗАПУСК ==========
+        loadArticles();
+    })();
 </script>
 
 <!-- Yandex.Metrika counter -->
