@@ -78,6 +78,7 @@
         body.dark .pagination a.active { background: #7c3aff; border-color: #7c3aff; color: white; }
         body.dark .filter-btn { background: rgba(255,255,255,0.05); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.1); }
         body.dark .filter-btn:hover, body.dark .filter-btn.active { background: rgba(165,240,255,0.15); border-color: #a5f0ff; color: #a5f0ff; }
+        body.dark .empty-state { color: #7f8c9b; }
         
         body.light { background: #ffffff; color: #222222; }
         body.light .bg-glow { display: none; }
@@ -95,6 +96,7 @@
         body.light .pagination a.active { background: #ff385c; border-color: #ff385c; color: white; }
         body.light .filter-btn { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
         body.light .filter-btn:hover, body.light .filter-btn.active { background: #ff385c; border-color: #ff385c; color: white; }
+        body.light .empty-state { color: #999; }
         
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         h1, h2 { font-weight: 700; letter-spacing: -0.02em; }
@@ -118,6 +120,7 @@
         .blog-card { border-radius: 28px; padding: 28px; transition: all 0.25s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
         .blog-card:hover { transform: translateY(-4px); }
         .blog-card .card-image { width: 100%; height: 200px; border-radius: 16px; object-fit: cover; margin-bottom: 16px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .blog-card .card-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
         .blog-card .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; margin-bottom: 12px; width: fit-content; }
         .blog-card h3 { font-size: 1.2rem; margin-bottom: 10px; line-height: 1.4; }
         .blog-card p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; flex-grow: 1; }
@@ -126,10 +129,18 @@
         .pagination { display: flex; justify-content: center; gap: 8px; padding: 40px 0; flex-wrap: wrap; }
         .pagination a { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px; border-radius: 40px; text-decoration: none; font-weight: 500; transition: all 0.2s; }
         .pagination a.disabled { opacity: 0.3; pointer-events: none; }
+        .pagination span { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px; }
         
         .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
         .loading { text-align: center; padding: 60px 0; font-size: 1.2rem; opacity: 0.6; }
         .no-articles { text-align: center; padding: 60px 0; font-size: 1.1rem; opacity: 0.6; }
+        
+        .empty-state { text-align: center; padding: 60px 20px; }
+        .empty-state .icon { font-size: 4rem; margin-bottom: 16px; }
+        .empty-state h3 { font-size: 1.5rem; margin-bottom: 8px; }
+        
+        /* Счётчик статей */
+        .article-count { text-align: center; font-size: 0.9rem; opacity: 0.6; margin-top: -10px; }
         
         @media (max-width: 768px) {
             .container { padding: 0 16px; }
@@ -169,6 +180,7 @@
         <div class="badge" style="margin: 0 auto 16px;">📝 Блог</div>
         <h1>Статьи о <span class="gradient-text">VPN, приватности</span> и технологиях</h1>
         <p>Полезные материалы о том, как оставаться свободным в интернете, обходить блокировки и защищать свои данные.</p>
+        <div class="article-count" id="articleCount"></div>
     </div>
 
     <!-- Фильтры по тегам -->
@@ -224,48 +236,93 @@
         let currentPage = 1;
         const perPage = 12;
 
+        // ========== ПОЛУЧЕНИЕ URL СТАТЬИ ==========
+        function getArticleUrl(articleId) {
+            return `https://vps-vpn.ru/articles/${articleId}.html`;
+        }
+
         // ========== ЗАГРУЗКА СТАТЕЙ ==========
         async function loadArticles() {
             const grid = document.getElementById('blogGrid');
+            grid.innerHTML = `<div class="loading">📚 Загрузка статей...</div>`;
+            
             try {
-                const response = await fetch('https://vps-vpn.ru/articles/articles.json');
-                if (!response.ok) throw new Error('Ошибка загрузки');
+                // Добавляем параметр для обхода кэша
+                const response = await fetch('https://vps-vpn.ru/articles/articles.json?v=' + Date.now());
+                if (!response.ok) throw new Error('Ошибка загрузки: ' + response.status);
                 allArticles = await response.json();
+                
+                // Проверяем, что данные загрузились
+                if (!Array.isArray(allArticles) || allArticles.length === 0) {
+                    throw new Error('Нет статей для отображения');
+                }
                 
                 // Сортировка: сначала новые (по дате)
                 allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
                 
+                // Обновляем счётчик
+                updateArticleCount();
+                
                 // Собираем уникальные теги для фильтров
-                const tags = new Set();
-                allArticles.forEach(a => { if (a.tag) tags.add(a.tag); });
+                buildFilters();
                 
-                const filterContainer = document.getElementById('filterContainer');
-                tags.forEach(tag => {
-                    const btn = document.createElement('button');
-                    btn.className = 'filter-btn';
-                    btn.dataset.filter = tag;
-                    btn.textContent = tag;
-                    filterContainer.appendChild(btn);
-                });
-                
-                // Добавляем обработчики фильтров
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                        this.classList.add('active');
-                        currentFilter = this.dataset.filter;
-                        currentPage = 1;
-                        renderArticles();
-                    });
-                });
-                
+                // Рендерим статьи
                 renderArticles();
                 updateSchema(allArticles);
                 
             } catch (error) {
                 console.error('[VPS-VPN] Ошибка загрузки статей:', error);
-                grid.innerHTML = `<div class="no-articles">⚠️ Не удалось загрузить статьи. Попробуйте позже.</div>`;
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">⚠️</div>
+                        <h3>Не удалось загрузить статьи</h3>
+                        <p style="opacity: 0.7;">Пожалуйста, попробуйте обновить страницу позже.</p>
+                        <button class="btn-primary" style="margin-top: 20px; width: auto;" onclick="location.reload()">🔄 Обновить</button>
+                    </div>
+                `;
             }
+        }
+
+        // ========== ОБНОВЛЕНИЕ СЧЁТЧИКА ==========
+        function updateArticleCount() {
+            const countEl = document.getElementById('articleCount');
+            if (countEl) {
+                countEl.textContent = `Всего статей: ${allArticles.length}`;
+            }
+        }
+
+        // ========== ПОСТРОЕНИЕ ФИЛЬТРОВ ==========
+        function buildFilters() {
+            const tags = new Set();
+            allArticles.forEach(a => { if (a.tag) tags.add(a.tag); });
+            
+            const filterContainer = document.getElementById('filterContainer');
+            // Оставляем кнопку "Все статьи"
+            const allBtn = filterContainer.querySelector('[data-filter="all"]');
+            filterContainer.innerHTML = '';
+            filterContainer.appendChild(allBtn);
+            
+            // Сортируем теги по алфавиту
+            const sortedTags = Array.from(tags).sort();
+            
+            sortedTags.forEach(tag => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.dataset.filter = tag;
+                btn.textContent = tag;
+                filterContainer.appendChild(btn);
+            });
+            
+            // Добавляем обработчики фильтров
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    currentPage = 1;
+                    renderArticles();
+                });
+            });
         }
 
         // ========== ФИЛЬТРАЦИЯ ==========
@@ -281,7 +338,13 @@
             const totalPages = Math.ceil(filtered.length / perPage);
             
             if (totalPages === 0) {
-                grid.innerHTML = `<div class="no-articles">😕 Статей в этой категории пока нет.</div>`;
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="icon">😕</div>
+                        <h3>Статей в этой категории пока нет</h3>
+                        <p style="opacity: 0.7;">Попробуйте выбрать другую категорию или загляните позже.</p>
+                    </div>
+                `;
                 document.getElementById('pagination').innerHTML = '';
                 return;
             }
@@ -289,19 +352,22 @@
             if (currentPage > totalPages) currentPage = totalPages;
             
             const start = (currentPage - 1) * perPage;
-            const end = start + perPage;
+            const end = Math.min(start + perPage, filtered.length);
             const pageArticles = filtered.slice(start, end);
             
             grid.innerHTML = pageArticles.map(article => `
-                <a href="article.html?id=${article.id}" class="blog-card">
+                <a href="${getArticleUrl(article.id)}" class="blog-card" itemscope itemtype="https://schema.org/Article">
                     <div class="card-image">
-                        ${article.image ? article.image : '📄'}
+                        ${article.imageUrl ? 
+                            `<img src="${article.imageUrl}" alt="${escapeHtml(article.title)}" loading="lazy">` : 
+                            (article.image || '📄')
+                        }
                     </div>
-                    <div class="tag">${article.tag || 'Статья'}</div>
-                    <h3>${article.title}</h3>
-                    <p>${article.excerpt || ''}</p>
+                    <div class="tag" itemprop="about">${escapeHtml(article.tag || 'Статья')}</div>
+                    <h3 itemprop="headline">${escapeHtml(article.title)}</h3>
+                    <p itemprop="description">${escapeHtml(article.excerpt || '')}</p>
                     <div class="card-footer">
-                        <span><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
+                        <span itemprop="datePublished"><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
                         <span><i class="far fa-eye"></i> ${article.views || 0}</span>
                     </div>
                 </a>
@@ -322,11 +388,19 @@
             let startPage = Math.max(1, currentPage - 2);
             let endPage = Math.min(totalPages, currentPage + 2);
             
-            if (startPage > 1) html += `<a href="#" data-page="1">1</a>${startPage > 2 ? '<span>…</span>' : ''}`;
+            if (startPage > 1) {
+                html += `<a href="#" data-page="1">1</a>`;
+                if (startPage > 2) html += `<span>…</span>`;
+            }
+            
             for (let i = startPage; i <= endPage; i++) {
                 html += `<a href="#" data-page="${i}" class="${i === currentPage ? 'active' : ''}">${i}</a>`;
             }
-            if (endPage < totalPages) html += `${endPage < totalPages - 1 ? '<span>…</span>' : ''}<a href="#" data-page="${totalPages}">${totalPages}</a>`;
+            
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) html += `<span>…</span>`;
+                html += `<a href="#" data-page="${totalPages}">${totalPages}</a>`;
+            }
             
             const nextDisabled = currentPage === totalPages ? 'disabled' : '';
             html += `<a href="#" class="${nextDisabled}" data-page="${currentPage + 1}">›</a>`;
@@ -349,8 +423,20 @@
         // ========== ФОРМАТ ДАТЫ ==========
         function formatDate(dateStr) {
             if (!dateStr) return '';
-            const d = new Date(dateStr);
-            return d.toLocaleDateString('ru-RU', { day: '2-digit', month: 'long', year: 'numeric' });
+            try {
+                const d = new Date(dateStr);
+                return d.toLocaleDateString('ru-RU', { day: '2-digit', month: 'long', year: 'numeric' });
+            } catch {
+                return dateStr;
+            }
+        }
+
+        // ========== ESCAPE HTML ==========
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
         }
 
         // ========== ОБНОВЛЕНИЕ SCHEMA.ORG ==========
@@ -363,7 +449,7 @@
                 const itemList = articles.slice(0, 20).map((article, index) => ({
                     "@type": "ListItem",
                     "position": index + 1,
-                    "url": `https://vps-vpn.ru/article.html?id=${article.id}`
+                    "url": getArticleUrl(article.id)
                 }));
                 schemaData.mainEntity.itemListElement = itemList;
                 schemaScript.textContent = JSON.stringify(schemaData, null, 2);
