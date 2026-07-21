@@ -24,6 +24,75 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Schema.org разметка для заказа (заполняется динамически через JavaScript) -->
+    <script type="application/ld+json" id="orderSchema">
+    {
+      "@context": "https://schema.org",
+      "@type": "Order",
+      "orderNumber": "",
+      "orderStatus": "https://schema.org/OrderProcessing",
+      "price": {
+        "@type": "MonetaryAmount",
+        "price": "",
+        "priceCurrency": "RUB"
+      },
+      "acceptedOffer": {
+        "@type": "Offer",
+        "name": "Персональный выделенный VPS/VPN сервер",
+        "description": "Личный выделенный VPS с уникальным IP. До 10 человек на сервер. Технология XHTTP+Reality. 30 дней гарантии.",
+        "price": "",
+        "priceCurrency": "RUB",
+        "availability": "https://schema.org/InStock",
+        "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "RU",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn"
+        },
+        "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": "0",
+            "currency": "RUB"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "RU"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 1,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 1,
+              "unitCode": "DAY"
+            }
+          }
+        }
+      },
+      "merchant": {
+        "@type": "Organization",
+        "name": "VPS-VPN",
+        "url": "https://vps-vpn.ru"
+      },
+      "customer": {
+        "@type": "Person",
+        "email": ""
+      },
+      "orderDate": ""
+    }
+    </script>
+    
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
@@ -38,6 +107,7 @@
         body.dark .gradient-text { background: linear-gradient(135deg, #a5f0ff, #7c3aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
         body.dark .btn-primary { background: linear-gradient(95deg, #7c3aff, #5a2dca); box-shadow: 0 8px 20px rgba(124,58,255,0.3); }
         body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
+        body.dark .success-icon { color: #2dd4bf; }
         
         body.light { background: #ffffff; color: #222222; }
         body.light .bg-glow { display: none; }
@@ -48,6 +118,7 @@
         body.light .nav-links a:hover { color: #ff385c; }
         body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
         body.light .footer { color: #717171; border-top: 1px solid #ebebeb; }
+        body.light .success-icon { color: #ff385c; }
         
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; flex: 1; }
         .nav-links { display: flex; gap: 32px; align-items: center; }
@@ -59,8 +130,6 @@
         .success-wrapper { display: flex; justify-content: center; align-items: center; min-height: 70vh; padding: 40px 0 80px; }
         .success-card { backdrop-filter: blur(16px); border-radius: 48px; padding: 48px 40px; max-width: 600px; width: 100%; text-align: center; transition: all 0.2s; }
         .success-icon { font-size: 5rem; margin-bottom: 24px; }
-        body.dark .success-icon { color: #2dd4bf; }
-        body.light .success-icon { color: #ff385c; }
         h1 { font-size: 2rem; margin-bottom: 16px; }
         .success-message { margin: 24px 0; line-height: 1.6; opacity: 0.9; }
         .info-box { background: rgba(45,212,191,0.1); border-radius: 24px; padding: 20px; margin: 24px 0; text-align: left; }
@@ -70,7 +139,21 @@
         .btn-primary:hover { transform: translateY(-2px); }
         .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
         
-        @media (max-width: 640px) { .success-card { padding: 32px 24px; } }
+        /* Анимация для иконки успеха */
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .success-icon i {
+            animation: successPulse 2s ease-in-out infinite;
+        }
+        
+        @media (max-width: 640px) { 
+            .success-card { padding: 32px 24px; }
+            nav { flex-direction: column; align-items: center; }
+            .nav-links { gap: 16px; }
+        }
     </style>
 </head>
 <body class="dark">
@@ -78,7 +161,7 @@
 <div class="container">
     <nav>
         <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
-        <div style="display: flex; align-items: center; gap: 24px;">
+        <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
             <div class="nav-links">
                 <a href="index.html">Главная</a>
                 <a href="access.html">Доступ</a>
@@ -99,6 +182,12 @@
             <div class="success-message" id="successMessage">
                 <p>Спасибо за доверие! 🎉</p>
                 <p style="margin-top: 12px;">В ближайшее время вам будут высланы все данные для подключения, а также с вами свяжутся наши специалисты для помощи в настройке.</p>
+            </div>
+            <div class="info-box" id="orderDetails">
+                <p><i class="fas fa-shopping-cart"></i> <strong>Детали заказа:</strong></p>
+                <p id="orderNumberDisplay">• Номер заказа: <span id="orderNumber">-</span></p>
+                <p id="orderPriceDisplay">• Сумма: <span id="orderPrice">-</span></p>
+                <p id="orderEmailDisplay">• Email: <span id="orderEmail">-</span></p>
             </div>
             <div class="info-box">
                 <p><i class="fas fa-envelope"></i> <strong>Что вас ожидает:</strong></p>
@@ -123,6 +212,7 @@
 
 <script>
     (function() {
+        // ========== ТЕМА ==========
         function setTheme(theme) {
             if (theme === 'light') {
                 document.body.classList.remove('dark'); document.body.classList.add('light');
@@ -141,24 +231,108 @@
         if (toggleBtn) toggleBtn.addEventListener('click', () => { document.body.classList.contains('light') ? setTheme('dark') : setTheme('light'); });
         initTheme();
         
-        // Персонализация сообщения, если есть email в localStorage
-        const savedEmail = localStorage.getItem('vpsvpn_last_email');
-        const successMessageDiv = document.getElementById('successMessage');
-        
-        if(savedEmail && successMessageDiv) {
-            const name = savedEmail.split('@')[0];
-            successMessageDiv.innerHTML = `
-                <p>Спасибо, ${name}! 🎉</p>
-                <p style="margin-top: 12px;">Письмо с инструкциями отправлено на <strong>${savedEmail}</strong>.</p>
-                <p style="margin-top: 8px;">В ближайшее время с вами свяжутся наши специалисты для помощи в настройке.</p>
-            `;
-            // Очищаем email из localStorage после использования
-            localStorage.removeItem('vpsvpn_last_email');
+        // ========== ЗАГРУЗКА ДАННЫХ ЗАКАЗА ==========
+        function loadOrderData() {
+            const orderId = localStorage.getItem('vpsvpn_last_order_id');
+            const customerEmail = localStorage.getItem('vpsvpn_last_email');
+            const orderPrice = localStorage.getItem('vpsvpn_last_price');
+            
+            // Отображаем данные на странице
+            document.getElementById('orderNumber').textContent = orderId || 'Неизвестен';
+            document.getElementById('orderEmail').textContent = customerEmail || 'Не указан';
+            document.getElementById('orderPrice').textContent = orderPrice ? orderPrice + ' ₽' : 'Неизвестно';
+            
+            return { orderId, customerEmail, orderPrice };
         }
         
-        // Отправка события в метрику
-        if(typeof ym !== 'undefined') {
-            ym(108981205, 'reachGoal', 'order_success');
+        // ========== ПЕРСОНАЛИЗАЦИЯ СООБЩЕНИЯ ==========
+        function personalizeMessage() {
+            const savedEmail = localStorage.getItem('vpsvpn_last_email');
+            const successMessageDiv = document.getElementById('successMessage');
+            
+            if(savedEmail && successMessageDiv) {
+                const name = savedEmail.split('@')[0];
+                successMessageDiv.innerHTML = `
+                    <p>Спасибо, ${name}! 🎉</p>
+                    <p style="margin-top: 12px;">Письмо с инструкциями отправлено на <strong>${savedEmail}</strong>.</p>
+                    <p style="margin-top: 8px;">В ближайшее время с вами свяжутся наши специалисты для помощи в настройке.</p>
+                `;
+            }
+        }
+        
+        // ========== ЗАПОЛНЕНИЕ SCHEMA.ORG РАЗМЕТКИ ==========
+        function fillOrderSchema() {
+            const schemaScript = document.getElementById('orderSchema');
+            if (!schemaScript) return;
+            
+            try {
+                const schemaData = JSON.parse(schemaScript.textContent);
+                const orderId = localStorage.getItem('vpsvpn_last_order_id') || `VPS-${Date.now()}`;
+                const customerEmail = localStorage.getItem('vpsvpn_last_email') || '';
+                const orderPrice = localStorage.getItem('vpsvpn_last_price') || '2000';
+                const now = new Date().toISOString().split('T')[0];
+                
+                schemaData.orderNumber = orderId;
+                schemaData.price.price = orderPrice;
+                schemaData.acceptedOffer.price = orderPrice;
+                schemaData.customer.email = customerEmail;
+                schemaData.orderDate = now;
+                
+                schemaScript.textContent = JSON.stringify(schemaData, null, 2);
+                
+                console.log('[VPS-VPN] Schema.org разметка заказа заполнена:', schemaData);
+            } catch(e) {
+                console.log('[VPS-VPN] Ошибка заполнения Schema.org:', e);
+            }
+        }
+        
+        // ========== ОТПРАВКА СОБЫТИЯ В МЕТРИКУ ==========
+        function sendAnalyticsEvent() {
+            if (typeof ym !== 'undefined') {
+                try {
+                    ym(108981205, 'reachGoal', 'order_success');
+                    console.log('[VPS-VPN] Событие order_success отправлено в Яндекс.Метрику');
+                } catch(e) {
+                    console.log('[VPS-VPN] Ошибка отправки в Метрику:', e);
+                }
+            }
+        }
+        
+        // ========== ОЧИСТКА LOCALSTORAGE ПОСЛЕ ИСПОЛЬЗОВАНИЯ ==========
+        function cleanupLocalStorage() {
+            // Очищаем только после того, как все данные использованы
+            // Используем setTimeout чтобы дать время на обработку
+            setTimeout(() => {
+                localStorage.removeItem('vpsvpn_last_email');
+                localStorage.removeItem('vpsvpn_last_order_id');
+                localStorage.removeItem('vpsvpn_last_price');
+                console.log('[VPS-VPN] localStorage очищен после использования');
+            }, 5000);
+        }
+        
+        // ========== ИНИЦИАЛИЗАЦИЯ ==========
+        function init() {
+            // Загружаем данные заказа
+            loadOrderData();
+            
+            // Персонализируем сообщение
+            personalizeMessage();
+            
+            // Заполняем Schema.org разметку
+            fillOrderSchema();
+            
+            // Отправляем событие в метрику
+            sendAnalyticsEvent();
+            
+            // Очищаем localStorage через 5 секунд
+            cleanupLocalStorage();
+        }
+        
+        // Запускаем всё после загрузки DOM
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
         }
     })();
 </script>
