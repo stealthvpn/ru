@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FS3MC3KGRX');
+    </script>
+    
+    <!-- ====== СЕО МЕТАТЕГИ ====== -->
+    <title>GRE-туннели: что это, как работают, настройка и применение | VPS-VPN</title>
+    <meta name="description" content="Полное руководство по GRE-туннелям (Generic Routing Encapsulation): принцип работы, преимущества, недостатки, сравнение с IPsec, L2TP и VXLAN. Узнайте, как GRE используется в VPN и почему личный VPS с XHTTP+Reality — это будущее.">
+    <meta name="keywords" content="GRE-туннели, Generic Routing Encapsulation, туннелирование, VPN, протоколы туннелирования, инкапсуляция, GRE vs IPsec, настройка GRE, обход DPI, XHTTP Reality, личный VPN на VPS">
+    <meta name="author" content="Команда VPS-VPN">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://vps-vpn.ru/articles/gre-tunneli.html">
+    
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vps-vpn.ru/articles/gre-tunneli.html">
+    <meta property="og:title" content="GRE-туннели: что это, как работают, настройка и применение">
+    <meta property="og:description" content="Полное руководство по GRE-туннелям: принцип работы, преимущества, недостатки, сравнение с IPsec, L2TP и VXLAN.">
+    <meta property="og:image" content="https://vps-vpn.ru/images/gre-tunnels.jpg">
+    <meta property="og:site_name" content="VPS-VPN">
+    <meta property="article:published_time" content="2026-07-23">
+    <meta property="article:modified_time" content="2026-07-23">
+    <meta property="article:author" content="Команда VPS-VPN">
+    <meta property="article:section" content="Технологии">
+    
+    <!-- ====== TWITTER ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GRE-туннели: что это, как работают, настройка и применение">
+    <meta name="twitter:description" content="Полное руководство по GRE-туннелям: принцип работы, преимущества, недостатки, сравнение с IPsec, L2TP и VXLAN.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/gre-tunnels.jpg">
+    
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    
+    <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "GRE-туннели: что это, как работают, настройка и применение",
+      "description": "Полное руководство по GRE-туннелям: принцип работы, преимущества, недостатки, сравнение с IPsec, L2TP и VXLAN.",
+      "image": "https://vps-vpn.ru/images/gre-tunnels.jpg",
+      "datePublished": "2026-07-23",
+      "dateModified": "2026-07-23",
+      "author": {
+        "@type": "Organization",
+        "name": "VPS-VPN"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "VPS-VPN",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vps-vpn.ru/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vps-vpn.ru/articles/gre-tunneli.html"
+      },
+      "keywords": "GRE-туннели, Generic Routing Encapsulation, туннелирование, VPN, протоколы туннелирования, инкапсуляция, GRE vs IPsec, настройка GRE, обход DPI, XHTTP Reality",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+          { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+          { "@type": "ListItem", "position": 3, "name": "GRE-туннели", "item": "https://vps-vpn.ru/articles/gre-tunneli.html" }
+        ]
+      }
+    }
+    </script>
+    
+    <style>
+        /* ====== ОБЩИЕ СТИЛИ ====== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; line-height: 1.6; }
+        
+        body.dark { background: #0a0c12; color: #e0e0e0; }
+        body.dark .article-container { background: rgba(25,30,45,0.95); border: 1px solid rgba(255,255,255,0.08); }
+        body.dark .theme-toggle { background: rgba(255,255,255,0.08); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); }
+        body.dark .theme-toggle:hover { background: rgba(255,255,255,0.15); color: #a5f0ff; }
+        body.dark .nav-links a { color: #e0e0e0; }
+        body.dark .nav-links a:hover { color: #a5f0ff; }
+        body.dark .gradient-text { background: linear-gradient(135deg, #a5f0ff, #7c3aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.dark .tag { background: rgba(165,240,255,0.12); color: #a5f0ff; border: 1px solid rgba(165,240,255,0.2); }
+        body.dark .btn-primary { background: linear-gradient(95deg, #7c3aff, #5a2dca); box-shadow: 0 8px 20px rgba(124,58,255,0.3); }
+        body.dark .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(124,58,255,0.45); }
+        body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
+        body.dark .related-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .related-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .protocol-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .protocol-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .timeline-card { background: rgba(255,255,255,0.03); border-left: 3px solid #7c3aff; }
+        body.dark .vps-advantage { background: linear-gradient(135deg, rgba(124,58,255,0.08), rgba(45,212,191,0.05)); border: 1px solid rgba(124,58,255,0.2); }
+        body.dark .tech-highlight { background: rgba(124,58,255,0.06); border-left: 4px solid #7c3aff; }
+        body.dark .era-badge { background: rgba(165,240,255,0.1); color: #a5f0ff; }
+        body.dark .breadcrumb a { color: #a5f0ff; }
+        
+        body.light { background: #ffffff; color: #222222; }
+        body.light .article-container { background: #ffffff; border: 1px solid #ebebeb; box-shadow: 0 8px 28px rgba(0,0,0,0.06); }
+        body.light .gradient-text { background: linear-gradient(135deg, #ff385c, #dd1a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.light .tag { background: rgba(255,56,92,0.08); color: #ff385c; border: 1px solid rgba(255,56,92,0.2); }
+        body.light .btn-primary { background: linear-gradient(95deg, #ff385c, #dd1a4a); box-shadow: 0 8px 20px rgba(255,56,92,0.25); }
+        body.light .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,56,92,0.35); }
+        body.light .nav-links a { color: #222222; }
+        body.light .nav-links a:hover { color: #ff385c; }
+        body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
+        body.light .footer { color: #717171; border-top: 1px solid #ebebeb; }
+        body.light .related-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .related-card:hover { border-color: #ff385c; }
+        body.light .protocol-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .protocol-card:hover { border-color: #ff385c; }
+        body.light .timeline-card { background: #fafafa; border-left: 3px solid #ff385c; }
+        body.light .vps-advantage { background: linear-gradient(135deg, rgba(255,56,92,0.05), rgba(255,56,92,0.02)); border: 1px solid rgba(255,56,92,0.12); }
+        body.light .tech-highlight { background: rgba(255,56,92,0.04); border-left: 4px solid #ff385c; }
+        body.light .era-badge { background: rgba(255,56,92,0.08); color: #ff385c; }
+        body.light .breadcrumb a { color: #ff385c; }
+        
+        .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+        .container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 16px; }
+        .logo { font-size: 1.8rem; font-weight: 800; }
+        .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .theme-toggle { background: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 8px 16px; border-radius: 40px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+        
+        .article-container { border-radius: 32px; padding: 48px 56px; margin: 30px 0 50px; transition: all 0.2s; }
+        
+        /* Хлебные крошки */
+        .breadcrumb { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; padding: 8px 0; }
+        .breadcrumb a { text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { margin: 0 6px; }
+        
+        .article-meta { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; font-size: 0.9rem; opacity: 0.7; }
+        .tag { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        
+        .article-container h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 20px; }
+        .article-container h2 { font-size: 1.6rem; font-weight: 700; margin: 36px 0 16px; letter-spacing: -0.01em; }
+        .article-container h3 { font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px; }
+        .article-container p { margin-bottom: 18px; opacity: 0.9; }
+        .article-container ul, .article-container ol { margin: 16px 0 24px 24px; }
+        .article-container li { margin-bottom: 8px; }
+        .article-container blockquote { border-left: 4px solid #7c3aff; padding-left: 20px; margin: 24px 0; font-style: italic; opacity: 0.8; }
+        body.light .article-container blockquote { border-left-color: #ff385c; }
+        
+        .article-author { display: flex; align-items: center; gap: 16px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
+        body.light .article-author { border-top-color: #ebebeb; }
+        .article-author .avatar { width: 56px; height: 56px; border-radius: 50%; background: #7c3aff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
+        body.light .article-author .avatar { background: #ff385c; }
+        .article-author .bio { font-size: 0.9rem; opacity: 0.7; }
+        
+        .article-cta { background: linear-gradient(135deg, rgba(124,58,255,0.12), rgba(45,212,191,0.08)); border-radius: 24px; padding: 32px 40px; margin: 40px 0; text-align: center; border: 1px solid rgba(124,58,255,0.2); }
+        body.light .article-cta { background: linear-gradient(135deg, rgba(255,56,92,0.08), rgba(255,56,92,0.03)); border-color: rgba(255,56,92,0.15); }
+        .article-cta h3 { margin-bottom: 12px; }
+        .article-cta .btn-primary { margin-top: 16px; }
+        
+        .protocol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 16px 0 24px; }
+        .protocol-card { padding: 20px; border-radius: 16px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .protocol-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .protocol-card p { font-size: 0.82rem; opacity: 0.8; margin-bottom: 0; }
+        .protocol-card .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.6rem; font-weight: 600; margin-top: 8px; }
+        .badge-high { background: rgba(45,212,191,0.2); color: #2dd4bf; }
+        .badge-mid { background: rgba(251,191,36,0.2); color: #fbbf24; }
+        .badge-low { background: rgba(255,56,92,0.15); color: #ff385c; }
+        .badge-purple { background: rgba(124,58,255,0.2); color: #a78bfa; }
+        body.light .badge-high { background: rgba(45,212,191,0.15); color: #0d9488; }
+        body.light .badge-mid { background: rgba(251,191,36,0.15); color: #b45309; }
+        body.light .badge-low { background: rgba(255,56,92,0.12); color: #dc2626; }
+        body.light .badge-purple { background: rgba(124,58,255,0.12); color: #7c3aff; }
+        
+        .related-articles { margin: 40px 0 30px; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 16px; }
+        .related-card { padding: 20px; border-radius: 20px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .related-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .related-card p { font-size: 0.85rem; opacity: 0.7; }
+        .related-card .tag { font-size: 0.65rem; margin-bottom: 8px; display: inline-block; }
+        
+        .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
+        
+        .timeline-card { padding: 16px 20px; border-radius: 12px; margin-bottom: 14px; }
+        .timeline-card .year { font-weight: 700; font-size: 1.1rem; display: inline-block; margin-right: 12px; }
+        .timeline-card .era-badge { display: inline-block; padding: 2px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; margin-left: 8px; }
+        
+        .vps-advantage { border-radius: 20px; padding: 28px 32px; margin: 24px 0; }
+        .vps-advantage h3 { margin-top: 0; }
+        .vps-advantage ul { list-style: none; padding: 0; margin: 12px 0; }
+        .vps-advantage ul li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+        .vps-advantage ul li::before { content: "◆"; position: absolute; left: 0; color: #7c3aff; font-weight: 700; }
+        body.light .vps-advantage ul li::before { color: #ff385c; }
+        
+        .tech-highlight { border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+        .tech-highlight code { font-family: 'Inter', monospace; background: rgba(255,255,255,0.08); padding: 2px 10px; border-radius: 6px; font-size: 0.85rem; }
+        body.light .tech-highlight code { background: rgba(0,0,0,0.05); }
+        
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+        .comparison-table thead tr { border-bottom: 2px solid rgba(255,255,255,0.1); }
+        body.light .comparison-table thead tr { border-bottom-color: #d1d5db; }
+        .comparison-table th { text-align: left; padding: 12px 8px; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        body.light .comparison-table td { border-bottom-color: #f3f4f6; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .check { color: #2dd4bf; }
+        body.light .comparison-table .check { color: #0d9488; }
+        .comparison-table .cross { color: #ff385c; }
+        .comparison-table .highlight-row { background: rgba(124,58,255,0.06); }
+        body.light .comparison-table .highlight-row { background: rgba(255,56,92,0.04); }
+        
+        @media (max-width: 768px) {
+            .article-container { padding: 28px 20px; }
+            .article-container h1 { font-size: 1.6rem; }
+            .article-container h2 { font-size: 1.3rem; }
+            nav { flex-direction: column; align-items: center; }
+            .nav-links { gap: 16px; justify-content: center; }
+            .nav-links a { font-size: 0.85rem; }
+            .article-cta { padding: 24px 20px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .protocol-grid { grid-template-columns: 1fr 1fr; }
+            .comparison-table { font-size: 0.78rem; }
+            .vps-advantage { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .article-container h1 { font-size: 1.3rem; }
+            .article-meta { font-size: 0.75rem; gap: 12px; }
+            .protocol-grid { grid-template-columns: 1fr; }
+            .comparison-table { font-size: 0.7rem; }
+            .comparison-table th, .comparison-table td { padding: 6px 4px; }
+            .timeline-card .year { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body class="dark">
+<div class="container-wide">
+    <nav>
+        <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+        <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+            <div class="nav-links">
+                <a href="/">Главная</a>
+                <a href="/access.html">Доступ</a>
+                <a href="/blog.html">📝 Блог</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                <i class="fas fa-sun"></i>
+                <span style="font-size: 0.9rem;">Светлая</span>
+            </button>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <article class="article-container">
+        
+        <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Главная</a>
+            <span>›</span>
+            <a href="/blog.html">Блог</a>
+            <span>›</span>
+            <span>GRE-туннели</span>
+        </nav>
+        
+        <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+        <div class="article-meta">
+            <span class="tag">🔗 Туннелирование</span>
+            <span><i class="far fa-calendar-alt"></i> 23 июля 2026</span>
+            <span><i class="far fa-clock"></i> 15 минут чтения</span>
+            <span><i class="far fa-eye"></i> 1 842 просмотра</span>
+        </div>
+
+        <!-- ====== ЗАГОЛОВОК ====== -->
+        <h1>GRE-туннели: что это, как работают, настройка и применение</h1>
+
+        <!-- ====== ВСТУПЛЕНИЕ ====== -->
+        <p><strong>GRE-туннели (Generic Routing Encapsulation)</strong> — это один из старейших и самых универсальных протоколов туннелирования, который используется в сетях по сей день. Он позволяет инкапсулировать пакеты одного протокола в пакеты другого, создавая виртуальные каналы связи поверх существующих сетей. В этой статье мы подробно разберём, что такое GRE, как он работает, в чём его сильные и слабые стороны, сравним с другими протоколами (IPsec, L2TP, VXLAN) и расскажем, где он применяется сегодня. А также объясним, почему в эпоху активного DPI и интернет-цензуры на смену классическим туннелям приходят более современные решения, такие как <strong>личный VPN на VPS с технологией XHTTP + Reality</strong>.</p>
+
+        <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+        <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
+            <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
+            <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
+                <li style="margin: 4px 0;"><a href="#what-is-gre" style="color: #a5f0ff; text-decoration: none;">1. Что такое GRE?</a></li>
+                <li style="margin: 4px 0;"><a href="#how-gre-works" style="color: #a5f0ff; text-decoration: none;">2. Как работают GRE-туннели</a></li>
+                <li style="margin: 4px 0;"><a href="#history-gre" style="color: #a5f0ff; text-decoration: none;">3. История и развитие GRE</a></li>
+                <li style="margin: 4px 0;"><a href="#pros-cons" style="color: #a5f0ff; text-decoration: none;">4. Преимущества и недостатки</a></li>
+                <li style="margin: 4px 0;"><a href="#comparison" style="color: #a5f0ff; text-decoration: none;">5. Сравнение с IPsec, L2TP, VXLAN</a></li>
+                <li style="margin: 4px 0;"><a href="#use-cases" style="color: #a5f0ff; text-decoration: none;">6. Где применяются GRE-туннели</a></li>
+                <li style="margin: 4px 0;"><a href="#gre-and-dpi" style="color: #a5f0ff; text-decoration: none;">7. GRE и DPI: почему это уязвимо</a></li>
+                <li style="margin: 4px 0;"><a href="#modern-alternative" style="color: #a5f0ff; text-decoration: none;">8. Современная альтернатива: XHTTP + Reality</a></li>
+                <li style="margin: 4px 0;"><a href="#verdict" style="color: #a5f0ff; text-decoration: none;">9. Итог: эволюция туннелирования</a></li>
+            </ul>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 1 ====== -->
+        <h2 id="what-is-gre">Что такое GRE?</h2>
+        <p><strong>GRE (Generic Routing Encapsulation)</strong> — это протокол туннелирования, разработанный компанией Cisco в 1994 году (RFC 1701, позже обновлён в RFC 2784 и RFC 2890). Он предназначен для инкапсуляции сетевых пакетов одного протокола внутри пакетов другого протокола. Например, GRE позволяет передавать трафик IPv6 через сеть IPv4 или организовывать VPN-соединения поверх интернета.</p>
+        
+        <p>В отличие от многих других протоколов, GRE не обеспечивает шифрование или аутентификацию. Это纯粹的 протокол инкапсуляции, который часто используется в связке с IPsec для обеспечения безопасности.</p>
+
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">🔑 Ключевые особенности GRE:</p>
+            <ul style="margin: 4px 0 0 20px;">
+                <li><strong>Инкапсуляция</strong> — упаковка одного пакета в другой.</li>
+                <li><strong>Мультипротокольность</strong> — поддерживает различные протоколы (IPv4, IPv6, IPX, AppleTalk и др.).</li>
+                <li><strong>Простота</strong> — минимальный заголовок (4 байта в базовой версии).</li>
+                <li><strong>Гибкость</strong> — может использоваться для создания туннелей «точка-точка».</li>
+                <li><strong>Отсутствие шифрования</strong> — трафик передаётся в открытом виде (если не используется IPsec).</li>
+            </ul>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 2 ====== -->
+        <h2 id="how-gre-works">Как работают GRE-туннели</h2>
+        <p>Принцип работы GRE достаточно прост. Предположим, у нас есть два маршрутизатора (или сервера), которые хотят обмениваться данными через сеть, где напрямую это невозможно (например, из-за разных протоколов или ограничений). GRE создаёт виртуальный туннель между ними.</p>
+        
+        <ol>
+            <li><strong>Инкапсуляция:</strong> Исходный пакет (например, IPv6) оборачивается в GRE-заголовок. К этому добавляется внешний IP-заголовок (например, IPv4) с адресами маршрутизаторов-шлюзов.</li>
+            <li><strong>Передача:</strong> Полученный пакет отправляется через транзитную сеть (обычно интернет) к другому концу туннеля.</li>
+            <li><strong>Деинкапсуляция:</strong> На принимающей стороне внешний заголовок и GRE-заголовок удаляются, и исходный пакет доставляется получателю.</li>
+        </ol>
+        
+        <p>GRE поддерживает дополнительные опции, такие как <strong>Key</strong> (идентификатор туннеля) и <strong>Sequence Number</strong> (для упорядочивания пакетов), что позволяет организовывать множество туннелей между одними и теми же устройствами.</p>
+
+        <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(45,212,191,0.15);">
+            <p style="font-weight: 600; margin-bottom: 4px;">📌 Простой пример:</p>
+            <p style="margin-bottom: 0;">Вы хотите соединить два офиса, в одном из которых используется IPv6, а в другом — IPv4. GRE позволяет «завернуть» IPv6-пакеты в IPv4-обёртку и передать их через интернет. На другом конце они распаковываются и доставляются по назначению.</p>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 3 ====== -->
+        <h2 id="history-gre">История и развитие GRE</h2>
+        <p>GRE был разработан в середине 1990-х годов, когда интернет активно развивался, и возникла потребность в соединении сетей с разными протоколами. Первая спецификация (RFC 1701) появилась в 1994 году, затем была обновлена (RFC 2784 в 2000 году) и дополнена (RFC 2890 — расширения для Key и Sequence Number).</p>
+        
+        <div class="timeline-card">
+            <span class="year">1994</span>
+            <span class="era-badge">Зарождение</span>
+            <p style="margin-top: 8px; margin-bottom: 0;"><strong>RFC 1701</strong> — первая спецификация GRE. Протокол позволял инкапсулировать различные протоколы в IP-пакеты.</p>
+        </div>
+        <div class="timeline-card">
+            <span class="year">2000</span>
+            <span class="era-badge">Стандартизация</span>
+            <p style="margin-top: 8px; margin-bottom: 0;"><strong>RFC 2784</strong> — уточнённый стандарт, который используется до сих пор. Определяет базовый формат GRE-заголовка.</p>
+        </div>
+        <div class="timeline-card">
+            <span class="year">2000</span>
+            <span class="era-badge">Расширение</span>
+            <p style="margin-top: 8px; margin-bottom: 0;"><strong>RFC 2890</strong> — добавлены поля Key и Sequence Number для идентификации и упорядочивания пакетов.</p>
+        </div>
+        
+        <p>С тех пор GRE стал стандартным инструментом в арсенале сетевых инженеров, особенно в корпоративных сетях и у провайдеров.</p>
+
+        <!-- ====== РАЗДЕЛ 4 ====== -->
+        <h2 id="pros-cons">Преимущества и недостатки GRE</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0;">
+            <div style="background: rgba(45,212,191,0.05); border-radius: 16px; padding: 20px; border: 1px solid rgba(45,212,191,0.15);">
+                <h4 style="color: #2dd4bf; margin-top: 0;">✅ Преимущества</h4>
+                <ul style="margin: 8px 0 0 20px;">
+                    <li><strong>Универсальность:</strong> поддерживает любые протоколы.</li>
+                    <li><strong>Простота:</strong> минимальный оверхед (всего 4 байта заголовка).</li>
+                    <li><strong>Гибкость:</strong> возможность создавать туннели «точка-точка».</li>
+                    <li><strong>Совместимость:</strong> поддерживается практически всеми маршрутизаторами.</li>
+                    <li><strong>Масштабируемость:</strong> можно организовать множество туннелей.</li>
+                </ul>
+            </div>
+            <div style="background: rgba(255,56,92,0.05); border-radius: 16px; padding: 20px; border: 1px solid rgba(255,56,92,0.15);">
+                <h4 style="color: #ff385c; margin-top: 0;">❌ Недостатки</h4>
+                <ul style="margin: 8px 0 0 20px;">
+                    <li><strong>Нет шифрования:</strong> трафик передаётся в открытом виде.</li>
+                    <li><strong>Нет аутентификации:</strong> любой может подключиться к туннелю.</li>
+                    <li><strong>Проблемы с NAT:</strong> GRE не всегда корректно проходит через NAT.</li>
+                    <li><strong>Уязвимость к DPI:</strong> GRE-трафик легко обнаруживается.</li>
+                    <li><strong>Сложность отладки:</strong> при проблемах трудно диагностировать.</li>
+                </ul>
+            </div>
+        </div>
+
+        <p>Из-за отсутствия шифрования GRE редко используется как самостоятельное решение для VPN. Обычно его комбинируют с IPsec, чтобы получить защищённый туннель (GRE over IPsec).</p>
+
+        <!-- ====== РАЗДЕЛ 5 ====== -->
+        <h2 id="comparison">Сравнение GRE с IPsec, L2TP и VXLAN</h2>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Характеристика</th>
+                    <th>GRE</th>
+                    <th>IPsec</th>
+                    <th>L2TP</th>
+                    <th>VXLAN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Шифрование</strong></td>
+                    <td><span class="cross">❌</span> Нет</td>
+                    <td><span class="check">✅</span> Есть (AES, 3DES)</td>
+                    <td><span class="cross">❌</span> Нет (использует IPsec)</td>
+                    <td><span class="cross">❌</span> Нет</td>
+                </tr>
+                <tr>
+                    <td><strong>Аутентификация</strong></td>
+                    <td><span class="cross">❌</span> Нет</td>
+                    <td><span class="check">✅</span> Есть</td>
+                    <td><span class="check">✅</span> Есть (через IPsec)</td>
+                    <td><span class="cross">❌</span> Нет</td>
+                </tr>
+                <tr>
+                    <td><strong>Инкапсуляция</strong></td>
+                    <td>Любые протоколы</td>
+                    <td>Только IP</td>
+                    <td>PPP</td>
+                    <td>Ethernet (L2)</td>
+                </tr>
+                <tr>
+                    <td><strong>Оверхед</strong></td>
+                    <td>Минимальный (4 байта)</td>
+                    <td>Высокий (50+ байт)</td>
+                    <td>Средний</td>
+                    <td>Высокий (50+ байт)</td>
+                </tr>
+                <tr>
+                    <td><strong>NAT Traversal</strong></td>
+                    <td>Проблемы</td>
+                    <td><span class="check">✅</span> Есть (NAT-T)</td>
+                    <td><span class="check">✅</span> Есть</td>
+                    <td><span class="check">✅</span> Есть</td>
+                </tr>
+                <tr>
+                    <td><strong>Обнаружение DPI</strong></td>
+                    <td>Легко</td>
+                    <td>Легко</td>
+                    <td>Легко</td>
+                    <td>Сложнее</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Рекомендация</strong></td>
+                    <td>Для тестов, не для продакшена</td>
+                    <td>Корпоративные VPN</td>
+                    <td>Устаревает</td>
+                    <td>Дата-центры, облака</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>Как видно из таблицы, GRE — это простой и быстрый протокол, но он не обеспечивает безопасность. IPsec даёт шифрование, но имеет большой оверхед. L2TP — это компромисс, но он тоже устаревает. VXLAN — это современный протокол для виртуализации сетей в дата-центрах.</p>
+
+        <!-- ====== РАЗДЕЛ 6 ====== -->
+        <h2 id="use-cases">Где применяются GRE-туннели сегодня</h2>
+        <p>Несмотря на возраст, GRE всё ещё активно используется в различных сценариях:</p>
+        <ul>
+            <li><strong>Корпоративные сети:</strong> для соединения филиалов (Site-to-Site VPN) в связке с IPsec.</li>
+            <li><strong>Мультипротокольные среды:</strong> для передачи трафика IPv6 через IPv4.</li>
+            <li><strong>Динамическая маршрутизация:</strong> GRE используется для организации туннелей между маршрутизаторами с протоколами OSPF или BGP.</li>
+            <li><strong>Тестирование и лаборатории:</strong> для эмуляции сетевых топологий.</li>
+            <li><strong>DMVPN (Dynamic Multipoint VPN):</strong> технология Cisco, которая использует GRE для создания динамических туннелей.</li>
+        </ul>
+        
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">🔧 GRE в DMVPN:</p>
+            <p style="margin-bottom: 0;">DMVPN — это решение Cisco, которое позволяет создавать VPN-сети с динамическими туннелями между узлами. GRE используется как протокол инкапсуляции, а IPsec — для шифрования. Это даёт гибкость и масштабируемость.</p>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 7 ====== -->
+        <h2 id="gre-and-dpi">GRE и DPI: почему это уязвимо</h2>
+        <p>Системы <strong>Deep Packet Inspection (DPI)</strong> — это технология анализа трафика, которая используется провайдерами и государствами для фильтрации и блокировки нежелательного контента. DPI анализирует не только заголовки пакетов, но и их содержимое.</p>
+        
+        <p>GRE-трафик легко обнаруживается по характерному протокольному номеру <strong>47</strong> в IP-заголовке. DPI-системы видят, что это GRE, и могут блокировать такие пакеты или ограничивать их пропускную способность. Даже если вы используете GRE over IPsec, сам факт использования GRE может быть выявлен.</p>
+        
+        <blockquote>
+            "GRE — это как открытая книга для DPI. Любой современный анализатор трафика без труда определит, что вы используете GRE-туннель, и может применить к нему ограничения." — из обсуждения на профильных форумах.
+        </blockquote>
+
+        <p>В странах с жёсткой интернет-цензурой (например, в России, Китае, Иране) GRE-туннели часто блокируются на уровне провайдера. Поэтому для обхода блокировок нужны более современные технологии.</p>
+
+        <!-- ====== РАЗДЕЛ 8 ====== -->
+        <h2 id="modern-alternative">Современная альтернатива: XHTTP + Reality</h2>
+        
+        <p>В отличие от GRE, который легко обнаруживается, технология <strong>XHTTP + Reality</strong> маскирует ваш трафик под обычный HTTPS-запрос к легитимному сайту. DPI не может отличить ваше соединение от реального браузера Chrome, потому что:</p>
+        
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">🔬 XHTTP + Reality: как это работает</p>
+            <ul style="margin: 4px 0 0 20px;">
+                <li><strong>Имитация TLS-рукопожатия</strong> — соединение выглядит как стандартный HTTPS-запрос.</li>
+                <li><strong>Маскировка под Chrome</strong> — все параметры соответствуют реальному браузеру (версия, набор шифров, заголовки).</li>
+                <li><strong>Отсутствие характерных сигнатур</strong> — в отличие от GRE или OpenVPN, у XHTTP нет узнаваемых паттернов.</li>
+                <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста.</li>
+            </ul>
+        </div>
+        
+        <p>Благодаря этой технологии ваш VPN-трафик <strong>неотличим от обычного веб-сёрфинга</strong>. Это делает XHTTP + Reality идеальным решением для стран с активным DPI.</p>
+
+        <!-- ====== РАЗДЕЛ 9 ====== -->
+        <h2 id="verdict">Итог: эволюция туннелирования</h2>
+        
+        <p>GRE-туннели — это надёжный и проверенный временем инструмент, но они не подходят для современного интернета, где DPI-системы могут легко их обнаружить и заблокировать. Если вам нужно безопасное и незаметное соединение, классические туннели уже не помогут.</p>
+        
+        <p><strong>Сегодня личный VPN на VPS с технологией XHTTP + Reality — это вершина эволюции туннелирования.</strong> Вы получаете:</p>
+        <ul>
+            <li><strong>Персональный IP-адрес</strong> — не разделяете с тысячами других пользователей.</li>
+            <li><strong>Максимальную скорость</strong> — ни с кем не делите пропускную способность.</li>
+            <li><strong>Невидимость для DPI</strong> — трафик маскируется под обычный браузер Chrome.</li>
+            <li><strong>Полный контроль</strong> — сами управляете сервером и настройками.</li>
+            <li><strong>Zero-log политику</strong> — никаких логов вашей активности.</li>
+        </ul>
+
+        <div class="vps-advantage">
+            <h3>🚀 В чём отличие подхода VPS-VPN?</h3>
+            <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN-сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.</p>
+            
+            <ul>
+                <li><strong>Никаких «шумных соседей»:</strong> ваш IP-адрес используете только вы. Никто не сможет «подставить» вас своей активностью.</li>
+                <li><strong>Стабильная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
+                <li><strong>Минимальный риск блокировок:</strong> массовые IP-адреса часто попадают в бан-листы из-за действий других пользователей. Ваш личный IP — чистый.</li>
+                <li><strong>Полный контроль:</strong> вы сами управляете сервером, выбираете протоколы и настройки безопасности.</li>
+                <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS, DPI не может его отличить от обычного браузера Chrome.</li>
+            </ul>
+            
+            <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
+                <p style="font-weight: 700; margin-bottom: 4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
+                <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP-адресом и индивидуальными настройками маскировки.</p>
+            </div>
+        </div>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Параметр</th>
+                    <th>GRE-туннель</th>
+                    <th>Массовый VPN</th>
+                    <th>Личный VPN на VPS (XHTTP+Reality)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Шифрование</strong></td>
+                    <td><span class="cross">❌</span> Нет</td>
+                    <td><span class="check">✅</span> Есть</td>
+                    <td><span class="check">✅</span> Есть</td>
+                </tr>
+                <tr>
+                    <td><strong>Маскировка от DPI</strong></td>
+                    <td><span class="cross">❌</span> Легко обнаружить</td>
+                    <td><span class="cross">❌</span> Легко обнаружить</td>
+                    <td><span class="check">✅</span> Неотличим от HTTPS</td>
+                </tr>
+                <tr>
+                    <td><strong>IP-адрес</strong></td>
+                    <td>Общий или статический</td>
+                    <td>Общий (1000+ пользователей)</td>
+                    <td><span class="check">✅</span> Персональный</td>
+                </tr>
+                <tr>
+                    <td><strong>Скорость</strong></td>
+                    <td>Зависит от сети</td>
+                    <td>Разделяется</td>
+                    <td><span class="check">✅</span> Максимальная</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Сложность блокировки</strong></td>
+                    <td>Легко</td>
+                    <td>Легко</td>
+                    <td><span class="check">✅</span> В 1000 раз сложнее</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
+        <div class="article-cta">
+            <h3>🔥 Получите свой личный VPN-сервер с технологией XHTTP + Reality</h3>
+            <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита.</p>
+            <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.</p>
+            <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
+        </div>
+
+        <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
+            <p style="font-weight: 700; font-size: 1.05rem;">✅ GRE — это прошлое. Будущее — за персонализацией и маскировкой.</p>
+            <p>Классические туннели вроде GRE больше не работают в условиях жёсткого DPI. В <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> мы предлагаем именно то, что нужно для современного интернета: выделенный сервер, передовую технологию XHTTP + Reality и полную конфиденциальность.</p>
+            <p style="margin-top: 12px; font-weight: 600;">Интернет должен быть свободным, безопасным и быстрым. Выбирайте решение, которое работает по-настоящему. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.</p>
+        </div>
+
+        <!-- ====== АВТОР ====== -->
+        <div class="article-author">
+            <div class="avatar">🔗</div>
+            <div>
+                <p style="font-weight: 600;">Команда VPS-VPN</p>
+                <p class="bio">Эксперты в области сетевых технологий и кибербезопасности. Специализируемся на туннелировании, VPN и обходе DPI.</p>
+            </div>
+        </div>
+
+        <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+        <div class="related-articles">
+            <h3>📖 Похожие статьи</h3>
+            <div class="related-grid">
+                <a href="/articles/chto-takoe-tunnelirovanie-v-vpn.html" class="related-card">
+                    <span class="tag">🔗 Туннелирование</span>
+                    <h4>Что такое туннелирование в VPN</h4>
+                    <p>Основы туннелирования и его роль в VPN</p>
+                </a>
+                <a href="/articles/vxlan.html" class="related-card">
+                    <span class="tag">🔗 Туннелирование</span>
+                    <h4>VXLAN: виртуальное расширение локальных сетей</h4>
+                    <p>Современный протокол для дата-центров</p>
+                </a>
+                <a href="/articles/mpls-vpn.html" class="related-card">
+                    <span class="tag">🔗 Туннелирование</span>
+                    <h4>MPLS VPN: что это и как работает</h4>
+                    <p>Технология MPLS для VPN-сетей</p>
+                </a>
+                <a href="/articles/dmvpn-dynamic-multipoint-vpn.html" class="related-card">
+                    <span class="tag">🔗 Туннелирование</span>
+                    <h4>DMVPN: динамические многоточечные VPN</h4>
+                    <p>Решение Cisco на основе GRE и IPsec</p>
+                </a>
+                <a href="/articles/ipsec-vpn.html" class="related-card">
+                    <span class="tag">🔐 Безопасность</span>
+                    <h4>IPsec VPN: протокол безопасности</h4>
+                    <p>Как работает IPsec и где применяется</p>
+                </a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<div class="container-wide">
+    <div class="footer">
+        <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+        <p style="margin-top: 8px;">
+            <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+            <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ========== ТЕМА ==========
+        function setTheme(theme) {
+            const isLight = theme === 'light';
+            document.body.classList.toggle('light', isLight);
+            document.body.classList.toggle('dark', !isLight);
+            localStorage.setItem('vpsvpn_theme', theme);
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) {
+                toggleBtn.innerHTML = isLight 
+                    ? '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>'
+                    : '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+            }
+        }
+        function initTheme() {
+            const saved = localStorage.getItem('vpsvpn_theme');
+            setTheme(saved === 'light' ? 'light' : 'dark');
+        }
+        document.getElementById('themeToggle')?.addEventListener('click', () => {
+            const isLight = document.body.classList.contains('light');
+            setTheme(isLight ? 'dark' : 'light');
+        });
+        initTheme();
+    })();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(108981205, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
