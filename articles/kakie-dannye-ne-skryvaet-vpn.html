@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-FS3MC3KGRX');
+    </script>
+
+    <!-- ====== СЕО МЕТАТЕГИ ====== -->
+    <title>Какие данные не скрывает VPN — полный разбор + решение с XHTTP Reality | VPS-VPN</title>
+    <meta name="description" content="Узнайте, какие данные не скрывает VPN: IP, трафик, метаданные, DNS, активность в браузере и другое. Почему личный VPN на VPS с XHTTP+Reality скрывает даже сам факт использования VPN." />
+    <meta name="keywords" content="какие данные не скрывает vpn, что скрывает vpn, ограничения vpn, dpi обход, xhttp reality, личный vpn на vps, vps-vpn" />
+    <meta name="author" content="Команда VPS-VPN" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://vps-vpn.ru/articles/kakie-dannye-ne-skryvaet-vpn.html" />
+
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vps-vpn.ru/articles/kakie-dannye-ne-skryvaet-vpn.html" />
+    <meta property="og:title" content="Какие данные не скрывает VPN — полный разбор + решение с XHTTP Reality" />
+    <meta property="og:description" content="Узнайте, какие данные не скрывает VPN: IP, трафик, метаданные, DNS, активность в браузере и другое. Почему личный VPN на VPS с XHTTP+Reality скрывает даже сам факт использования VPN." />
+    <meta property="og:image" content="https://vps-vpn.ru/images/vpn-data-not-hidden.jpg" />
+    <meta property="og:site_name" content="VPS-VPN" />
+    <meta property="article:published_time" content="2026-07-23" />
+    <meta property="article:modified_time" content="2026-07-23" />
+    <meta property="article:author" content="Команда VPS-VPN" />
+    <meta property="article:section" content="Технологии" />
+
+    <!-- ====== TWITTER ====== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Какие данные не скрывает VPN — полный разбор + решение с XHTTP Reality" />
+    <meta name="twitter:description" content="Узнайте, какие данные не скрывает VPN: IP, трафик, метаданные, DNS, активность в браузере и другое. Почему личный VPN на VPS с XHTTP+Reality скрывает даже сам факт использования VPN." />
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/vpn-data-not-hidden.jpg" />
+
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+    <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": "Какие данные не скрывает VPN — полный разбор + решение с XHTTP Reality",
+            "description": "Узнайте, какие данные не скрывает VPN: IP, трафик, метаданные, DNS, активность в браузере и другое. Почему личный VPN на VPS с XHTTP+Reality скрывает даже сам факт использования VPN.",
+            "image": "https://vps-vpn.ru/images/vpn-data-not-hidden.jpg",
+            "datePublished": "2026-07-23",
+            "dateModified": "2026-07-23",
+            "author": {
+                "@type": "Organization",
+                "name": "VPS-VPN"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "VPS-VPN",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://vps-vpn.ru/logo.png"
+                }
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://vps-vpn.ru/articles/kakie-dannye-ne-skryvaet-vpn.html"
+            },
+            "keywords": "какие данные не скрывает vpn, что скрывает vpn, ограничения vpn, dpi обход, xhttp reality, личный vpn на vps",
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+                    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+                    { "@type": "ListItem", "position": 3, "name": "Какие данные не скрывает VPN", "item": "https://vps-vpn.ru/articles/kakie-dannye-ne-skryvaet-vpn.html" }
+                ]
+            }
+        }
+    </script>
+
+    <style>
+        /* ====== ОБЩИЕ СТИЛИ ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        body.dark {
+            background: #0a0c12;
+            color: #e0e0e0;
+        }
+        body.dark .article-container {
+            background: rgba(25, 30, 45, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .theme-toggle {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        body.dark .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #a5f0ff;
+        }
+        body.dark .nav-links a {
+            color: #e0e0e0;
+        }
+        body.dark .nav-links a:hover {
+            color: #a5f0ff;
+        }
+        body.dark .gradient-text {
+            background: linear-gradient(135deg, #a5f0ff, #7c3aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.dark .tag {
+            background: rgba(165, 240, 255, 0.12);
+            color: #a5f0ff;
+            border: 1px solid rgba(165, 240, 255, 0.2);
+        }
+        body.dark .btn-primary {
+            background: linear-gradient(95deg, #7c3aff, #5a2dca);
+            box-shadow: 0 8px 20px rgba(124, 58, 255, 0.3);
+        }
+        body.dark .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(124, 58, 255, 0.45);
+        }
+        body.dark .footer {
+            color: #7f8c9b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.dark .related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .related-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .protocol-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .protocol-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .timeline-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #7c3aff;
+        }
+        body.dark .vps-advantage {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.08), rgba(45, 212, 191, 0.05));
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.dark .tech-highlight {
+            background: rgba(124, 58, 255, 0.06);
+            border-left: 4px solid #7c3aff;
+        }
+        body.dark .era-badge {
+            background: rgba(165, 240, 255, 0.1);
+            color: #a5f0ff;
+        }
+        body.dark .breadcrumb a {
+            color: #a5f0ff;
+        }
+
+        body.light {
+            background: #ffffff;
+            color: #222222;
+        }
+        body.light .article-container {
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+        }
+        body.light .gradient-text {
+            background: linear-gradient(135deg, #ff385c, #dd1a4a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.light .tag {
+            background: rgba(255, 56, 92, 0.08);
+            color: #ff385c;
+            border: 1px solid rgba(255, 56, 92, 0.2);
+        }
+        body.light .btn-primary {
+            background: linear-gradient(95deg, #ff385c, #dd1a4a);
+            box-shadow: 0 8px 20px rgba(255, 56, 92, 0.25);
+        }
+        body.light .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(255, 56, 92, 0.35);
+        }
+        body.light .nav-links a {
+            color: #222222;
+        }
+        body.light .nav-links a:hover {
+            color: #ff385c;
+        }
+        body.light .theme-toggle {
+            background: #f7f7f7;
+            color: #222222;
+            border: 1px solid #ebebeb;
+        }
+        body.light .footer {
+            color: #717171;
+            border-top: 1px solid #ebebeb;
+        }
+        body.light .related-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .related-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .protocol-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .protocol-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .timeline-card {
+            background: #fafafa;
+            border-left: 3px solid #ff385c;
+        }
+        body.light .vps-advantage {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.05), rgba(255, 56, 92, 0.02));
+            border: 1px solid rgba(255, 56, 92, 0.12);
+        }
+        body.light .tech-highlight {
+            background: rgba(255, 56, 92, 0.04);
+            border-left: 4px solid #ff385c;
+        }
+        body.light .era-badge {
+            background: rgba(255, 56, 92, 0.08);
+            color: #ff385c;
+        }
+        body.light .breadcrumb a {
+            color: #ff385c;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .container-wide {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 40px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        .btn-primary {
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .article-container {
+            border-radius: 32px;
+            padding: 48px 56px;
+            margin: 30px 0 50px;
+            transition: all 0.2s;
+        }
+
+        /* Хлебные крошки */
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            padding: 8px 0;
+        }
+        .breadcrumb a {
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-container h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .article-container h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 36px 0 16px;
+            letter-spacing: -0.01em;
+        }
+        .article-container h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 28px 0 12px;
+        }
+        .article-container p {
+            margin-bottom: 18px;
+            opacity: 0.9;
+        }
+        .article-container ul,
+        .article-container ol {
+            margin: 16px 0 24px 24px;
+        }
+        .article-container li {
+            margin-bottom: 8px;
+        }
+        .article-container blockquote {
+            border-left: 4px solid #7c3aff;
+            padding-left: 20px;
+            margin: 24px 0;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        body.light .article-container blockquote {
+            border-left-color: #ff385c;
+        }
+
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 40px;
+        }
+        body.light .article-author {
+            border-top-color: #ebebeb;
+        }
+        .article-author .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #7c3aff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        body.light .article-author .avatar {
+            background: #ff385c;
+        }
+        .article-author .bio {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .article-cta {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.12), rgba(45, 212, 191, 0.08));
+            border-radius: 24px;
+            padding: 32px 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.light .article-cta {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.08), rgba(255, 56, 92, 0.03));
+            border-color: rgba(255, 56, 92, 0.15);
+        }
+        .article-cta h3 {
+            margin-bottom: 12px;
+        }
+        .article-cta .btn-primary {
+            margin-top: 16px;
+        }
+
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 16px 0 24px;
+        }
+        .protocol-card {
+            padding: 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+        }
+        .protocol-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .protocol-card p {
+            font-size: 0.82rem;
+            opacity: 0.8;
+            margin-bottom: 0;
+        }
+        .protocol-card .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .badge-high {
+            background: rgba(45, 212, 191, 0.2);
+            color: #2dd4bf;
+        }
+        .badge-mid {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+        .badge-low {
+            background: rgba(255, 56, 92, 0.15);
+            color: #ff385c;
+        }
+        .badge-purple {
+            background: rgba(124, 58, 255, 0.2);
+            color: #a78bfa;
+        }
+        body.light .badge-high {
+            background: rgba(45, 212, 191, 0.15);
+            color: #0d9488;
+        }
+        body.light .badge-mid {
+            background: rgba(251, 191, 36, 0.15);
+            color: #b45309;
+        }
+        body.light .badge-low {
+            background: rgba(255, 56, 92, 0.12);
+            color: #dc2626;
+        }
+        body.light .badge-purple {
+            background: rgba(124, 58, 255, 0.12);
+            color: #7c3aff;
+        }
+
+        .related-articles {
+            margin: 40px 0 30px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 16px;
+        }
+        .related-card {
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+        }
+        .related-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .related-card p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        .related-card .tag {
+            font-size: 0.65rem;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.85rem;
+        }
+
+        .timeline-card {
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+        }
+        .timeline-card .year {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-right: 12px;
+        }
+        .timeline-card .era-badge {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .vps-advantage {
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin: 24px 0;
+        }
+        .vps-advantage h3 {
+            margin-top: 0;
+        }
+        .vps-advantage ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+        .vps-advantage ul li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .vps-advantage ul li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #7c3aff;
+            font-weight: 700;
+        }
+        body.light .vps-advantage ul li::before {
+            color: #ff385c;
+        }
+
+        .tech-highlight {
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .tech-highlight code {
+            font-family: 'Inter', monospace;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        body.light .tech-highlight code {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+        .comparison-table thead tr {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        body.light .comparison-table thead tr {
+            border-bottom-color: #d1d5db;
+        }
+        .comparison-table th {
+            text-align: left;
+            padding: 12px 8px;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.light .comparison-table td {
+            border-bottom-color: #f3f4f6;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table .check {
+            color: #2dd4bf;
+        }
+        body.light .comparison-table .check {
+            color: #0d9488;
+        }
+        .comparison-table .cross {
+            color: #ff385c;
+        }
+        .comparison-table .highlight-row {
+            background: rgba(124, 58, 255, 0.06);
+        }
+        body.light .comparison-table .highlight-row {
+            background: rgba(255, 56, 92, 0.04);
+        }
+
+        .icon-list {
+            list-style: none;
+            padding: 0;
+        }
+        .icon-list li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .icon-list li::before {
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+        .icon-list .cross-li::before {
+            content: "✕";
+            color: #ff385c;
+        }
+        .icon-list .check-li::before {
+            content: "✓";
+            color: #2dd4bf;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 28px 20px;
+            }
+            .article-container h1 {
+                font-size: 1.6rem;
+            }
+            .article-container h2 {
+                font-size: 1.3rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-links {
+                gap: 16px;
+                justify-content: center;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            .article-cta {
+                padding: 24px 20px;
+            }
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            .protocol-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .comparison-table {
+                font-size: 0.78rem;
+            }
+            .vps-advantage {
+                padding: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .article-container h1 {
+                font-size: 1.3rem;
+            }
+            .article-meta {
+                font-size: 0.75rem;
+                gap: 12px;
+            }
+            .protocol-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 6px 4px;
+            }
+            .timeline-card .year {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark">
+    <div class="container-wide">
+        <nav>
+            <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+            <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+                <div class="nav-links">
+                    <a href="/">Главная</a>
+                    <a href="/access.html">Доступ</a>
+                    <a href="/blog.html">📝 Блог</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                    <i class="fas fa-sun"></i>
+                    <span style="font-size: 0.9rem;">Светлая</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <article class="article-container">
+
+            <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Главная</a>
+                <span>›</span>
+                <a href="/blog.html">Блог</a>
+                <span>›</span>
+                <span>Какие данные не скрывает VPN</span>
+            </nav>
+
+            <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+            <div class="article-meta">
+                <span class="tag">🔍 Технологии безопасности</span>
+                <span><i class="far fa-calendar-alt"></i> 23 июля 2026</span>
+                <span><i class="far fa-clock"></i> 10 минут чтения</span>
+                <span><i class="far fa-eye"></i> 3 842 просмотра</span>
+            </div>
+
+            <!-- ====== ЗАГОЛОВОК ====== -->
+            <h1>Какие данные не скрывает VPN — полный разбор и почему личный VPS с XHTTP + Reality решает проблему</h1>
+
+            <!-- ====== ВСТУПЛЕНИЕ ====== -->
+            <p>VPN давно стал обязательным инструментом для тех, кто ценит приватность, хочет обойти географические ограничения или защитить данные в публичных сетях. Однако многие пользователи ошибочно полагают, что VPN <strong>скрывает абсолютно всё</strong> об их активности в интернете. Это не так. Сегодня мы детально разберём, <strong>какие данные не скрывает VPN</strong>, где проходят границы его защиты и почему массовые сервисы с общими IP‑адресами уже не справляются с современными угрозами — в отличие от <strong>личного VPN на VPS</strong> с технологией <strong>XHTTP + Reality</strong>.</p>
+
+            <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+            <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
+                <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
+                <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
+                    <li style="margin: 4px 0;"><a href="#what-vpn-hides" style="color: #a5f0ff; text-decoration: none;">1. Что VPN скрывает на самом деле</a></li>
+                    <li style="margin: 4px 0;"><a href="#what-not-hides" style="color: #a5f0ff; text-decoration: none;">2. Что VPN НЕ скрывает — полный список</a></li>
+                    <li style="margin: 4px 0;"><a href="#mass-vs-personal" style="color: #a5f0ff; text-decoration: none;">3. Массовый VPN vs Личный VPN на VPS</a></li>
+                    <li style="margin: 4px 0;"><a href="#xhttp-reality" style="color: #a5f0ff; text-decoration: none;">4. XHTTP + Reality — скрываем сам факт VPN</a></li>
+                    <li style="margin: 4px 0;"><a href="#comparison" style="color: #a5f0ff; text-decoration: none;">5. Сравнение: что скрывает обычный VPN и что — VPS-VPN</a></li>
+                    <li style="margin: 4px 0;"><a href="#how-to-choose" style="color: #a5f0ff; text-decoration: none;">6. Как выбрать VPN, который действительно защищает</a></li>
+                    <li style="margin: 4px 0;"><a href="#verdict" style="color: #a5f0ff; text-decoration: none;">7. Итог: безопасность начинается с правильного выбора</a></li>
+                </ul>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 1 ====== -->
+            <h2 id="what-vpn-hides">Что VPN скрывает на самом деле</h2>
+            <p>Прежде чем говорить об ограничениях, давайте чётко определим, что же VPN гарантированно защищает:</p>
+            <ul>
+                <li><strong>Ваш реальный IP‑адрес</strong> — провайдер и сайты видят IP‑адрес VPN‑сервера, а не ваш.</li>
+                <li><strong>Географическое местоположение</strong> — вы можете «перемещаться» в любую страну, где есть сервер.</li>
+                <li><strong>Содержимое трафика</strong> — всё, что вы отправляете и получаете, зашифровано (если используется современный протокол).</li>
+                <li><strong>Историю посещений</strong> — провайдер не видит, какие сайты вы открываете.</li>
+            </ul>
+            <p>Это базовый функционал, который обеспечивает любой добросовестный VPN‑сервис. Но на этом список заканчивается. Всё остальное <strong>остаётся видимым</strong> для разных сторон — и часто это становится неожиданностью.</p>
+
+            <!-- ====== РАЗДЕЛ 2 ====== -->
+            <h2 id="what-not-hides">Что VPN НЕ скрывает — полный список</h2>
+
+            <h3>🔓 1. Данные, передаваемые через HTTP (не HTTPS)</h3>
+            <p>VPN шифрует трафик на транспортном уровне, но если вы заходите на сайт по протоколу HTTP, все передаваемые данные (логины, пароли, содержимое форм) внутри туннеля <strong>передаются в открытом виде</strong>. Злоумышленник, перехвативший трафик на выходе с VPN‑сервера, сможет их прочитать. Всегда используйте HTTPS.</p>
+
+            <h3>⏱ 2. Метаданные трафика</h3>
+            <p>VPN не скрывает <strong>время</strong>, <strong>объём</strong> и <strong>частоту</strong> передаваемых данных. Провайдер видит, что вы активно обмениваетесь пакетами в определённые часы, а DPI‑системы могут анализировать эти паттерны даже без расшифровки содержимого.</p>
+
+            <h3>🕵 3. Сам факт использования VPN (без маскировки)</h3>
+            <p>Большинство VPN‑протоколов (OpenVPN, WireGuard, IPSec) имеют <strong>узнаваемые сигнатуры</strong>. DPI‑системы легко определяют, что вы используете VPN, даже если содержимое зашифровано. Это позволяет блокировать соединение или ограничивать скорость.</p>
+
+            <h3>🌐 4. DNS‑запросы (если не настроен DNS‑over‑HTTPS)</h3>
+            <p>По умолчанию многие VPN‑клиенты отправляют DNS‑запросы через провайдера или собственный DNS‑сервер без шифрования. Это означает, что <strong>список сайтов, которые вы посещаете, может быть известен</strong> вашему интернет‑провайдеру. Решение — использовать DNS‑over‑HTTPS или встроенный DNS‑туннель.</p>
+
+            <h3>🧩 5. Данные браузера — отпечатки, куки, история</h3>
+            <p>VPN не влияет на то, что браузер сохраняет в куках, локальном хранилище или кэше. Сайты могут идентифицировать вас по <strong>цифровому отпечатку</strong> браузера (разрешение экрана, установленные шрифты, плагины, часовой пояс) даже при смене IP. Это не зависит от VPN.</p>
+
+            <h3>📧 6. Активность в социальных сетях и почте</h3>
+            <p>Если вы входите в аккаунт Google, Facebook или любого другого сервиса, вы <strong>авторизуетесь</strong>. VPN скрывает IP, но <strong>не скрывает вашу личность</strong> внутри этих сервисов. Все ваши действия в почте, соцсетях и мессенджерах привязаны к аккаунту, а не к IP.</p>
+
+            <h3>💣 7. Вредоносное ПО и фишинг</h3>
+            <p>VPN — это не антивирус. Он не защищает от вредоносных сайтов, фишинговых атак и загрузки заражённых файлов. Если вы перейдёте по фишинговой ссылке и введёте свои данные, злоумышленники получат их, несмотря на VPN.</p>
+
+            <h3>🔌 8. Утечки IP/DNS/WebRTC (при неправильной настройке)</h3>
+            <p>Некорректно настроенный VPN может «пропускать» реальный IP‑адрес через WebRTC или утечки DNS. Это особенно актуально для браузерных расширений и дешёвых VPN‑клиентов. Без дополнительной защиты ваш настоящий адрес станет известен сайтам.</p>
+
+            <h3>📝 9. Данные, которые вы сами вводите на сайтах</h3>
+            <p>VPN не может помешать вам <strong>добровольно</strong> передать свои персональные данные — имя, адрес, номер телефона, данные банковской карты при оплате. Он лишь шифрует канал передачи, но не контролирует, что вы отправляете.</p>
+
+            <blockquote>
+                «VPN — это надёжный щит для вашего IP‑адреса и зашифрованный туннель для данных. Но это не магия, которая делает вас невидимым. Многие аспекты вашей активности остаются открытыми.»
+            </blockquote>
+
+            <!-- ====== РАЗДЕЛ 3 ====== -->
+            <h2 id="mass-vs-personal">Почему массовые VPN не решают проблему</h2>
+            <p>Большинство коммерческих VPN‑сервисов используют <strong>общие IP‑адреса</strong>, на которых сидят тысячи пользователей. Это создаёт дополнительные риски:</p>
+            <ul>
+                <li><strong>IP‑адрес часто попадает в чёрные списки</strong> из‑за действий других пользователей (спам, мошенничество, пиринг).</li>
+                <li><strong>DPI легко распознаёт массовые VPN</strong> по характерным паттернам и блокирует их за считанные минуты.</li>
+                <li><strong>Скорость нестабильна</strong> — канал делится между всеми активными пользователями.</li>
+                <li><strong>Провайдеры и сайты могут применять коллективные санкции</strong> ко всему пулу IP.</li>
+            </ul>
+            <p>Кроме того, большинство массовых VPN <strong>не используют маскировку трафика</strong>, поэтому для DPI ваше соединение выглядит как «VPN‑трафик» и легко блокируется.</p>
+
+            <!-- ====== РАЗДЕЛ 4 ====== -->
+            <h2 id="xhttp-reality">XHTTP + Reality — технология, которая скрывает сам факт VPN</h2>
+
+            <div class="tech-highlight">
+                <p style="font-weight: 600; margin-bottom: 6px;">🔬 XHTTP + Reality: как работает невидимость</p>
+                <p style="margin-bottom: 8px;">Эта технология маскирует VPN‑трафик под <strong>обычный HTTPS‑запрос</strong> к легитимному сайту. DPI не может отличить ваше соединение от реального браузера Chrome, потому что:</p>
+                <ul style="margin: 4px 0 0 20px;">
+                    <li><strong>Имитация TLS‑рукопожатия</strong> — соединение выглядит как стандартный HTTPS.</li>
+                    <li><strong>Маскировка под Chrome</strong> — все параметры (версия, набор шифров, заголовки) соответствуют реальному браузеру.</li>
+                    <li><strong>Отсутствие характерных сигнатур</strong> — в отличие от OpenVPN или WireGuard, у XHTTP нет узнаваемых паттернов.</li>
+                    <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста.</li>
+                </ul>
+            </div>
+
+            <p>Благодаря этому <strong>DPI видит ваш трафик как обычный веб‑сёрфинг</strong>. Он не может определить, что внутри этого зашифрованного соединения передаются VPN‑данные. Именно поэтому технология XHTTP + Reality делает ваш VPN <strong>абсолютно незаметным</strong> для систем фильтрации.</p>
+
+            <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(45,212,191,0.15);">
+                <p style="font-weight: 600; margin-bottom: 4px;">📌 Ключевое преимущество:</p>
+                <p style="margin-bottom: 0;">Теперь не только содержимое трафика скрыто, но и <strong>сам факт использования VPN</strong>. Для провайдера и DPI вы — обычный пользователь Chrome, который просматривает сайты. <strong>Нас в 1000 раз сложнее заблокировать и отследить.</strong></p>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 5 ====== -->
+            <h2 id="comparison">Сравнение: что скрывает обычный VPN и что — личный VPS‑VPN</h2>
+
+            <div class="vps-advantage">
+                <h3>🚀 В чём отличие подхода VPS‑VPN?</h3>
+                <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN‑сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.</p>
+                <ul>
+                    <li><strong>Никаких «шумных соседей»:</strong> ваш IP‑адрес используете только вы. Никто не сможет «подставить» вас своей активностью.</li>
+                    <li><strong>Стабильная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
+                    <li><strong>Минимальный риск блокировок:</strong> массовые IP‑адреса часто попадают в бан‑листы из‑за действий других пользователей. Ваш личный IP — чистый.</li>
+                    <li><strong>Полный контроль:</strong> вы сами управляете сервером, выбираете протоколы и настройки безопасности.</li>
+                    <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS, DPI не может его отличить от обычного браузера Chrome.</li>
+                </ul>
+                <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
+                    <p style="font-weight: 700; margin-bottom: 4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
+                    <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS‑VPN</a> — это отдельный выделенный сервер с уникальным IP‑адресом и индивидуальными настройками маскировки.</p>
+                </div>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Массовый VPN</th>
+                        <th>Личный VPN на VPS (VPS‑VPN)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>IP‑адрес</strong></td>
+                        <td>Общий (1000+ пользователей)</td>
+                        <td><span class="check">✅</span> Персональный, только ваш</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Скорость</strong></td>
+                        <td>Разделяется между всеми</td>
+                        <td><span class="check">✅</span> Максимальная, только ваша</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Риск блокировки</strong></td>
+                        <td>Высокий (из‑за соседей)</td>
+                        <td><span class="check">✅</span> Минимальный</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Маскировка трафика (XHTTP + Reality)</strong></td>
+                        <td><span class="cross">✕</span> Обычно отсутствует</td>
+                        <td><span class="check">✅</span> Есть, имитация Chrome</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Скрывает факт использования VPN</strong></td>
+                        <td><span class="cross">✕</span> DPI видит</td>
+                        <td><span class="check">✅</span> DPI не отличает от веб‑трафика</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Логирование</strong></td>
+                        <td>Часто хранят логи</td>
+                        <td><span class="check">✅</span> Zero‑log, полная конфиденциальность</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Сложность обнаружения DPI</strong></td>
+                        <td>Легко обнаружить</td>
+                        <td><span class="check">✅</span> В 1000 раз сложнее</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ====== РЕКЛАМНЫЙ БЛОК ====== -->
+            <div class="article-cta">
+                <h3>🔥 Получите свой личный VPN‑сервер с технологией XHTTP + Reality</h3>
+                <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS‑VPN</a></strong> предлагаем полностью выделенный VPN‑сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита.</p>
+                <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI‑системы увидят обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.</p>
+                <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN‑сервер</a>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 6 ====== -->
+            <h2 id="how-to-choose">Как выбрать VPN, который действительно защищает</h2>
+            <p>Исходя из всего вышесказанного, можно сформулировать критерии <strong>по‑настоящему надёжного VPN</strong>:</p>
+            <ul>
+                <li><strong>Персональный IP‑адрес</strong> — вы не делите его с другими.</li>
+                <li><strong>Маскировка трафика</strong> — ваш VPN не должен быть узнаваем для DPI.</li>
+                <li><strong>Современная криптография</strong> — протоколы с надёжным шифрованием (AES‑256, ChaCha20).</li>
+                <li><strong>Zero‑log политика</strong> — сервис не хранит логи вашей активности.</li>
+                <li><strong>Настраиваемость</strong> — возможность выбирать протоколы, порты, уровни маскировки.</li>
+                <li><strong>Высокая скорость и стабильность</strong> — без перегрузок от соседей.</li>
+            </ul>
+            <p>Всем этим требованиям соответствует <strong>личный VPN на VPS</strong> с технологией XHTTP + Reality, который предлагает <a href="/">VPS‑VPN</a>.</p>
+
+            <!-- ====== РАЗДЕЛ 7 ====== -->
+            <h2 id="verdict">Итог: безопасность начинается с правильного выбора</h2>
+            <p>VPN — это мощный инструмент, но он не всесилен. Он <strong>скрывает IP и шифрует трафик</strong>, но оставляет открытыми множество других каналов утечки: метаданные, DNS, данные браузера, активность в аккаунтах и сам факт использования VPN. Массовые сервисы с общими IP только усугубляют ситуацию, делая вас уязвимым для блокировок и DPI.</p>
+            <p><strong>Единственное решение, которое закрывает все эти пробелы</strong> — это персональный VPN‑сервер на VPS с передовой технологией <strong>XHTTP + Reality</strong>. Он:</p>
+            <ul>
+                <li>скрывает сам факт использования VPN;</li>
+                <li>имитирует обычный браузер Chrome;</li>
+                <li>даёт вам чистый, ни с кем не разделённый IP;</li>
+                <li>обеспечивает максимальную скорость и стабильность;</li>
+                <li>не хранит логи.</li>
+            </ul>
+
+            <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
+                <p style="font-weight: 700; font-size: 1.05rem;">✅ Будущее VPN — за персонализацией и маскировкой.</p>
+                <p>Массовые VPN с общими IP‑адресами уходят в прошлое. В <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS‑VPN</a></strong> мы предлагаем именно то, что нужно для современного интернета: выделенный сервер, передовую технологию XHTTP + Reality и полную конфиденциальность.</p>
+                <p style="margin-top: 12px; font-weight: 600;">Интернет должен быть свободным, безопасным и быстрым. Выбирайте решение, которое работает по‑настоящему. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS‑VPN</a>.</p>
+            </div>
+
+            <!-- ====== АВТОР ====== -->
+            <div class="article-author">
+                <div class="avatar">🔐</div>
+                <div>
+                    <p style="font-weight: 600;">Команда VPS‑VPN</p>
+                    <p class="bio">Эксперты в области сетевых технологий и кибербезопасности. Помогаем пользователям разобраться в тонкостях работы VPN и выбирать действительно надёжные решения.</p>
+                </div>
+            </div>
+
+            <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+            <div class="related-articles">
+                <h3>📖 Похожие статьи</h3>
+                <div class="related-grid">
+                    <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
+                        <span class="tag">🔐 VPN</span>
+                        <h4>Что такое VPN и как он работает</h4>
+                        <p>Полное руководство для начинающих и продвинутых</p>
+                    </a>
+                    <a href="/articles/dlya-chego-nuzhen-vpn-v-sovremennom-mire.html" class="related-card">
+                        <span class="tag">🌍 VPN</span>
+                        <h4>Для чего нужен VPN в современном мире</h4>
+                        <p>Основные сценарии использования VPN</p>
+                    </a>
+                    <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
+                        <span class="tag">⚙️ Технологии</span>
+                        <h4>Основные компоненты VPN‑соединения</h4>
+                        <p>Из чего состоит VPN‑туннель</p>
+                    </a>
+                    <a href="/articles/kak-rabotaet-shirovanie-v-vpn.html" class="related-card">
+                        <span class="tag">🔐 Безопасность</span>
+                        <h4>Как работает шифрование в VPN</h4>
+                        <p>Объяснение алгоритмов шифрования</p>
+                    </a>
+                    <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
+                        <span class="tag">💡 Опыт</span>
+                        <h4>Почему VPN перестали работать</h4>
+                        <p>Личный опыт: решение на vps‑vpn.ru</p>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="container-wide">
+        <div class="footer">
+            <p>© 2026 VPS‑VPN — Ваш личный выделенный VPN‑сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+            <p style="margin-top: 8px;">
+                <i class="fas fa-envelope"></i> support@vps‑vpn.ru &nbsp;|&nbsp;
+                <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ========== ТЕМА ==========
+            function setTheme(theme) {
+                const isLight = theme === 'light';
+                document.body.classList.toggle('light', isLight);
+                document.body.classList.toggle('dark', !isLight);
+                localStorage.setItem('vpsvpn_theme', theme);
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) {
+                    toggleBtn.innerHTML = isLight ?
+                        '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>' :
+                        '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+                }
+            }
+
+            function initTheme() {
+                const saved = localStorage.getItem('vpsvpn_theme');
+                setTheme(saved === 'light' ? 'light' : 'dark');
+            }
+            document.getElementById('themeToggle')?.addEventListener('click', () => {
+                const isLight = document.body.classList.contains('light');
+                setTheme(isLight ? 'dark' : 'light');
+            });
+            initTheme();
+        })();
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(108981205, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer",
+            accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
