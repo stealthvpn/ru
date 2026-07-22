@@ -1,22 +1,52 @@
 [
 {
   "id": "chto-takoe-vpn-i-kak-on-rabotaet",
-  "title": "Что такое VPN и как он работает: полное руководство для начинающих в 2026 году",
-  "excerpt": "Подробное руководство о том, как работает VPN, какие бывают протоколы, почему массовые VPN блокируют, и как личный VPS с XHTTP+Reality решает все проблемы.",
-  "tag": "Технологии",
-  "image": "🔒",
+  "title": "Что такое VPN и как он работает: полное руководство",
+  "excerpt": "Что такое VPN простыми словами? Как работает VPN-соединение, зачем он нужен, какие бывают протоколы и почему личный VPN на VPS с XHTTP+Reality — самый надёжный способ защитить свои данные в 2026 году.",
+  "tag": "VPN",
+  "image": "🔐",
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
-  "date": "2026-06-22",
-  "views": 0
+  "date": "2026-07-23",
+  "views": 3421
 },
 {
   "id": "istoriya-razvitiya-vpn-tehnologiy",
   "title": "История развития VPN-технологий: от PPTP до XHTTP + Reality",
-  "excerpt": "Полная история развития VPN: как технология прошла путь от простого PPTP до современных решений с XHTTP + Reality и имитацией браузера Chrome. Эволюция протоколов, борьба с DPI и почему личный VPN на VPS — это будущее.",
+  "excerpt": "Полная история развития VPN: от первых протоколов PPTP и L2TP до современных XHTTP + Reality с имитацией браузера Chrome. Эволюция технологий обхода DPI и почему личный VPN на VPS — это будущее.",
   "tag": "Технологии",
+  "image": "📜",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "dlya-chego-nuzhen-vpn-v-sovremennom-mire",
+  "title": "Для чего нужен VPN в современном мире: 5 главных причин",
+  "excerpt": "Узнайте, для чего нужен VPN сегодня: безопасность в Wi-Fi, обход блокировок, доступ к контенту, защита от слежки и экономия. Почему личный VPN на VPS с XHTTP+Reality лучше массовых сервисов.",
+  "tag": "Технологии",
+  "image": "🌍",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "osnovnye-komponenty-vpn-soedineniya",
+  "title": "Основные компоненты VPN-соединения: от клиента до XHTTP + Reality",
+  "excerpt": "Разбираем все ключевые компоненты VPN-соединения: клиент, сервер, протоколы, шифрование, аутентификацию и маршрутизацию. Узнайте, почему личный VPN на VPS с XHTTP+Reality — это идеальный баланс безопасности, скорости и скрытности от DPI.",
+  "tag": "Технологии",
+  "image": "⚙️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "kak-rabotaet-shirovanie-v-vpn",
+  "title": "Как работает шифрование в VPN: алгоритмы, протоколы и XHTTP + Reality",
+  "excerpt": "Подробно о том, как работает шифрование в VPN: симметричные и асимметричные алгоритмы, протоколы (OpenVPN, WireGuard) и технология XHTTP + Reality с имитацией браузера Chrome. Почему личный VPN на VPS надёжнее массовых сервисов.",
+  "tag": "Безопасность",
   "image": "🔐",
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
-  "date": "2026-07-22",
+  "date": "2026-07-23",
   "views": 0
 }
 ]
