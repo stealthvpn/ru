@@ -42,7 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Schema.org разметка для страницы блога (заполняется динамически) -->
+    <!-- Schema.org разметка для страницы блога (обновляется динамически) -->
     <script type="application/ld+json" id="blogSchema">
     {
       "@context": "https://schema.org",
@@ -50,6 +50,13 @@
       "name": "Блог VPS-VPN — статьи о VPN, приватности и технологиях",
       "description": "Полезные статьи о VPN-технологиях, обходе блокировок, защите приватности и настройке личного VPS-сервера.",
       "url": "https://vps-vpn.ru/blog.html",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+          { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" }
+        ]
+      },
       "mainEntity": {
         "@type": "ItemList",
         "itemListElement": []
@@ -72,6 +79,8 @@
         body.dark .nav-links a:hover { color: #a5f0ff; }
         body.dark .gradient-text { background: linear-gradient(135deg, #a5f0ff, #7c3aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
         body.dark .btn-primary { background: linear-gradient(95deg, #7c3aff, #5a2dca); box-shadow: 0 8px 20px rgba(124,58,255,0.3); }
+        body.dark .btn-secondary { background: rgba(255,255,255,0.06); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.12); }
+        body.dark .btn-secondary:hover { background: rgba(255,255,255,0.12); }
         body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
         body.dark .pagination a { color: #e0e0e0; border: 1px solid rgba(255,255,255,0.1); }
         body.dark .pagination a:hover { background: rgba(165,240,255,0.1); border-color: #a5f0ff; }
@@ -82,6 +91,10 @@
         body.dark .search-input { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; }
         body.dark .search-input:focus { border-color: #a5f0ff; outline: none; }
         body.dark .search-input::placeholder { color: #7f8c9b; }
+        body.dark .breadcrumb a { color: #a5f0ff; }
+        body.dark .popular-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .popular-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .cta-block { background: linear-gradient(135deg, rgba(124,58,255,0.12), rgba(45,212,191,0.08)); border: 1px solid rgba(124,58,255,0.2); }
         
         body.light { background: #ffffff; color: #222222; }
         body.light .bg-glow { display: none; }
@@ -90,6 +103,8 @@
         body.light .tag { background: rgba(255,56,92,0.08); border: 1px solid rgba(255,56,92,0.2); color: #ff385c; }
         body.light .gradient-text { background: linear-gradient(135deg, #ff385c, #dd1a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
         body.light .btn-primary { background: linear-gradient(95deg, #ff385c, #dd1a4a); box-shadow: 0 8px 20px rgba(255,56,92,0.25); }
+        body.light .btn-secondary { background: #f7f7f7; color: #222; border: 1px solid #ebebeb; }
+        body.light .btn-secondary:hover { background: #ebebeb; }
         body.light .nav-links a { color: #222222; }
         body.light .nav-links a:hover { color: #ff385c; }
         body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
@@ -103,93 +118,70 @@
         body.light .search-input { background: #f7f7f7; border: 1px solid #ebebeb; color: #222; }
         body.light .search-input:focus { border-color: #ff385c; outline: none; }
         body.light .search-input::placeholder { color: #999; }
+        body.light .breadcrumb a { color: #ff385c; }
+        body.light .popular-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .popular-card:hover { border-color: #ff385c; }
+        body.light .cta-block { background: linear-gradient(135deg, rgba(255,56,92,0.08), rgba(255,56,92,0.03)); border: 1px solid rgba(255,56,92,0.15); }
         
         .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
         h1, h2 { font-weight: 700; letter-spacing: -0.02em; }
         .badge { border-radius: 40px; padding: 6px 14px; font-size: 0.85rem; font-weight: 500; width: fit-content; }
         .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
         .btn-primary:hover { transform: translateY(-2px); }
+        .btn-secondary { border: none; padding: 10px 24px; border-radius: 40px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: 0.2s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+        .btn-secondary:hover { transform: translateY(-2px); }
         .theme-toggle { background: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 8px 16px; border-radius: 40px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 16px; }
         .logo { font-size: 1.8rem; font-weight: 800; }
         .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
         .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
         
-        .blog-header { padding: 40px 0 20px; text-align: center; }
+        /* Хлебные крошки */
+        .breadcrumb { font-size: 0.9rem; opacity: 0.7; padding: 16px 0 8px; }
+        .breadcrumb a { text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { margin: 0 6px; }
+        
+        .blog-header { padding: 20px 0 10px; text-align: center; }
         .blog-header h1 { font-size: 2.8rem; margin-bottom: 12px; }
         .blog-header p { font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto; }
         
-        /* ====== ПОИСК ====== */
-        .search-container {
-            max-width: 600px;
-            margin: 20px auto 10px;
-            position: relative;
-        }
-        .search-input {
-            width: 100%;
-            padding: 14px 20px 14px 48px;
-            border-radius: 40px;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: #fff;
-        }
-        .search-input:focus {
-            border-color: #a5f0ff;
-            outline: none;
-        }
-        .search-input::placeholder {
-            color: #7f8c9b;
-        }
-        .search-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #7f8c9b;
-            font-size: 1.1rem;
-        }
-        .search-clear {
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #7f8c9b;
-            cursor: pointer;
-            font-size: 1.1rem;
-            display: none;
-        }
-        .search-clear.visible {
-            display: block;
-        }
-        .search-clear:hover {
-            color: #ff385c;
-        }
+        .search-container { max-width: 600px; margin: 20px auto 10px; position: relative; }
+        .search-input { width: 100%; padding: 14px 20px 14px 48px; border-radius: 40px; font-size: 1rem; font-family: 'Inter', sans-serif; transition: all 0.2s; }
+        .search-icon { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #7f8c9b; font-size: 1.1rem; }
+        .search-clear { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); color: #7f8c9b; cursor: pointer; font-size: 1.1rem; display: none; }
+        .search-clear.visible { display: block; }
+        .search-clear:hover { color: #ff385c; }
         body.dark .search-clear:hover { color: #ff6b6b; }
         body.light .search-clear:hover { color: #ff385c; }
+        .search-results-info { text-align: center; font-size: 0.9rem; opacity: 0.6; margin: 8px 0 0; min-height: 1.4rem; }
         
-        .search-results-info {
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.6;
-            margin: 8px 0 0;
-            min-height: 1.4rem;
-        }
-        
-        .blog-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 20px 0 20px; }
+        .blog-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 20px 0 10px; }
         .filter-btn { padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.2s; border: none; }
+        .filter-heading { text-align: center; font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; opacity: 0.8; }
+        
+        .popular-section { margin: 30px 0 20px; }
+        .popular-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; margin-top: 12px; }
+        .popular-card { padding: 18px 20px; border-radius: 20px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .popular-card h4 { font-size: 1rem; margin-bottom: 6px; }
+        .popular-card p { font-size: 0.85rem; opacity: 0.7; }
+        .popular-card .tag { font-size: 0.65rem; margin-bottom: 8px; display: inline-block; }
         
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; padding: 20px 0; }
         .blog-card { border-radius: 28px; padding: 28px; transition: all 0.25s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
         .blog-card:hover { transform: translateY(-4px); }
-        .blog-card .card-image { width: 100%; height: 200px; border-radius: 16px; object-fit: cover; margin-bottom: 16px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+        .blog-card .card-image { width: 100%; height: 200px; border-radius: 16px; object-fit: cover; margin-bottom: 16px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; font-size: 4rem; overflow: hidden; }
         .blog-card .card-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
         .blog-card .tag { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; margin-bottom: 12px; width: fit-content; }
         .blog-card h3 { font-size: 1.2rem; margin-bottom: 10px; line-height: 1.4; }
         .blog-card p { font-size: 0.9rem; opacity: 0.8; line-height: 1.6; flex-grow: 1; }
         .blog-card .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; font-size: 0.8rem; opacity: 0.6; }
+        
+        .cta-block { border-radius: 24px; padding: 32px 40px; margin: 40px 0; text-align: center; }
+        .cta-block h3 { margin-bottom: 12px; }
+        .cta-block p { max-width: 600px; margin: 0 auto 16px; opacity: 0.9; }
+        .cta-block .btn-primary { margin: 8px; }
+        .cta-block .btn-secondary { margin: 8px; }
         
         .pagination { display: flex; justify-content: center; gap: 8px; padding: 40px 0; flex-wrap: wrap; }
         .pagination a { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; height: 40px; padding: 0 12px; border-radius: 40px; text-decoration: none; font-weight: 500; transition: all 0.2s; }
@@ -198,12 +190,9 @@
         
         .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
         .loading { text-align: center; padding: 60px 0; font-size: 1.2rem; opacity: 0.6; }
-        .no-articles { text-align: center; padding: 60px 0; font-size: 1.1rem; opacity: 0.6; }
-        
         .empty-state { text-align: center; padding: 60px 20px; }
         .empty-state .icon { font-size: 4rem; margin-bottom: 16px; }
         .empty-state h3 { font-size: 1.5rem; margin-bottom: 8px; }
-        
         .article-count { text-align: center; font-size: 0.9rem; opacity: 0.6; margin-top: -10px; }
         
         @media (max-width: 768px) {
@@ -216,10 +205,13 @@
             .blog-card { padding: 20px; }
             .search-container { margin: 16px auto 8px; }
             .search-input { padding: 12px 16px 12px 42px; font-size: 0.9rem; }
+            .popular-grid { grid-template-columns: 1fr 1fr; }
+            .cta-block { padding: 24px 20px; }
         }
         @media (max-width: 480px) {
             .blog-header h1 { font-size: 1.6rem; }
             .filter-btn { font-size: 0.75rem; padding: 6px 14px; }
+            .popular-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -242,6 +234,13 @@
         </div>
     </nav>
 
+    <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Главная</a>
+        <span>›</span>
+        <span>Блог</span>
+    </nav>
+
     <div class="blog-header">
         <div class="badge" style="margin: 0 auto 16px;">📝 Блог</div>
         <h1>Статьи о <span class="gradient-text">VPN, приватности</span> и технологиях</h1>
@@ -258,18 +257,35 @@
         <div class="article-count" id="articleCount"></div>
     </div>
 
-    <!-- Фильтры по тегам -->
+    <!-- ====== КАТЕГОРИИ ====== -->
+    <h2 class="filter-heading">📂 Категории</h2>
     <div class="blog-filters" id="filterContainer">
         <button class="filter-btn active" data-filter="all">Все статьи</button>
     </div>
 
-    <!-- Сетка статей -->
+    <!-- ====== ПОПУЛЯРНЫЕ СТАТЬИ ====== -->
+    <section class="popular-section" id="popularSection" style="display: none;">
+        <h2 style="font-size: 1.4rem; text-align: center; margin-bottom: 8px;">🔥 Популярные статьи</h2>
+        <div class="popular-grid" id="popularGrid"></div>
+    </section>
+
+    <!-- ====== СЕТКА СТАТЕЙ ====== -->
     <div class="blog-grid" id="blogGrid">
         <div class="loading">Загрузка статей...</div>
     </div>
 
-    <!-- Пагинация -->
+    <!-- ====== ПАГИНАЦИЯ ====== -->
     <div class="pagination" id="pagination"></div>
+
+    <!-- ====== БЛОК CTA ====== -->
+    <div class="cta-block">
+        <h3>🔒 Хотите полную свободу в интернете?</h3>
+        <p>Личный VPN-сервер с технологией XHTTP+Reality — ваш трафик неотличим от обычного HTTPS, DPI не блокирует. Получите выделенный IP и максимальную скорость.</p>
+        <div>
+            <a href="/access.html" class="btn-primary">🚀 Получить свой сервер</a>
+            <a href="/index.html" class="btn-secondary">Узнать больше</a>
+        </div>
+    </div>
 
     <div class="footer">
         <p>© 2026 VPS-VPN — Ваш личный выделенный сервер. Серверы вне РФ, логи не хранятся.</p>
@@ -335,10 +351,9 @@
                 
                 updateArticleCount();
                 buildFilters();
+                renderPopularArticles();
                 renderArticles();
                 updateSchema(allArticles);
-                
-                // Настройка поиска
                 setupSearch();
                 
             } catch (error) {
@@ -354,39 +369,60 @@
             }
         }
 
+        // ========== ПОПУЛЯРНЫЕ СТАТЬИ ==========
+        function renderPopularArticles() {
+            const section = document.getElementById('popularSection');
+            const grid = document.getElementById('popularGrid');
+            if (!section || !grid) return;
+            
+            // Сортируем по просмотрам (views) и берём топ-4
+            const sorted = [...allArticles].sort((a, b) => (b.views || 0) - (a.views || 0));
+            const top = sorted.slice(0, 4);
+            
+            if (top.length === 0 || top.every(a => !a.views || a.views === 0)) {
+                section.style.display = 'none';
+                return;
+            }
+            
+            section.style.display = 'block';
+            grid.innerHTML = top.map(article => `
+                <a href="${getArticleUrl(article.id)}" class="popular-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="tag" itemprop="about">${escapeHtml(article.tag || 'Статья')}</div>
+                    <h4 itemprop="headline">${escapeHtml(article.title)}</h4>
+                    <p itemprop="description">${escapeHtml(article.excerpt ? article.excerpt.substring(0, 80) + '...' : '')}</p>
+                    <div style="font-size:0.8rem; opacity:0.6; margin-top:8px;">
+                        <i class="far fa-eye"></i> ${article.views || 0} просмотров
+                    </div>
+                </a>
+            `).join('');
+        }
+
         // ========== НАСТРОЙКА ПОИСКА ==========
         function setupSearch() {
             const searchInput = document.getElementById('searchInput');
             const searchClear = document.getElementById('searchClear');
             const searchResultsInfo = document.getElementById('searchResultsInfo');
-            
             if (!searchInput) return;
             
-            // Обработчик ввода
             searchInput.addEventListener('input', function() {
                 const query = this.value.trim();
                 searchQuery = query;
-                
-                // Показываем/скрываем кнопку очистки
                 if (query.length > 0) {
                     searchClear.classList.add('visible');
                 } else {
                     searchClear.classList.remove('visible');
                 }
-                
                 // Сбрасываем фильтр на "Все статьи" при поиске
                 if (query.length > 0) {
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     document.querySelector('[data-filter="all"]')?.classList.add('active');
                     currentFilter = 'all';
                 }
-                
                 currentPage = 1;
                 renderArticles();
                 updateSearchInfo(query);
             });
             
-            // Очистка поиска
             searchClear.addEventListener('click', function() {
                 searchInput.value = '';
                 searchQuery = '';
@@ -397,20 +433,16 @@
                 searchInput.focus();
             });
             
-            // Поиск по Enter (для удобства)
             searchInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    // Просто обновляем результаты
                 }
             });
         }
         
-        // ========== ОБНОВЛЕНИЕ ИНФОРМАЦИИ О ПОИСКЕ ==========
         function updateSearchInfo(query) {
             const infoEl = document.getElementById('searchResultsInfo');
             if (!infoEl) return;
-            
             if (query.length > 0) {
                 const filtered = getFilteredArticles();
                 const count = filtered.length;
@@ -422,7 +454,6 @@
             }
         }
 
-        // ========== ОБНОВЛЕНИЕ СЧЁТЧИКА ==========
         function updateArticleCount() {
             const countEl = document.getElementById('articleCount');
             if (countEl) {
@@ -430,7 +461,7 @@
             }
         }
 
-        // ========== ПОСТРОЕНИЕ ФИЛЬТРОВ ==========
+        // ========== ФИЛЬТРЫ ==========
         function buildFilters() {
             const tags = new Set();
             allArticles.forEach(a => { if (a.tag) tags.add(a.tag); });
@@ -441,7 +472,6 @@
             filterContainer.appendChild(allBtn);
             
             const sortedTags = Array.from(tags).sort();
-            
             sortedTags.forEach(tag => {
                 const btn = document.createElement('button');
                 btn.className = 'filter-btn';
@@ -460,7 +490,6 @@
                         document.getElementById('searchClear')?.classList.remove('visible');
                         updateSearchInfo('');
                     }
-                    
                     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentFilter = this.dataset.filter;
@@ -470,16 +499,12 @@
             });
         }
 
-        // ========== ФИЛЬТРАЦИЯ С УЧЁТОМ ПОИСКА ==========
+        // ========== ФИЛЬТРАЦИЯ ==========
         function getFilteredArticles() {
             let result = allArticles;
-            
-            // Фильтр по тегу
             if (currentFilter !== 'all') {
                 result = result.filter(a => a.tag === currentFilter);
             }
-            
-            // Поиск по заголовку и описанию
             if (searchQuery.length > 0) {
                 const query = searchQuery.toLowerCase();
                 result = result.filter(a => 
@@ -488,7 +513,6 @@
                     (a.tag && a.tag.toLowerCase().includes(query))
                 );
             }
-            
             return result;
         }
 
@@ -518,9 +542,9 @@
             
             grid.innerHTML = pageArticles.map(article => `
                 <a href="${getArticleUrl(article.id)}" class="blog-card" itemscope itemtype="https://schema.org/Article">
-                    <div class="card-image">
+                    <div class="card-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                         ${article.imageUrl ? 
-                            `<img src="${article.imageUrl}" alt="${escapeHtml(article.title)}" loading="lazy">` : 
+                            `<img src="${article.imageUrl}" alt="${escapeHtml(article.title)}" loading="lazy" itemprop="url">` : 
                             (article.image || '📄')
                         }
                     </div>
@@ -528,8 +552,8 @@
                     <h3 itemprop="headline">${escapeHtml(article.title)}</h3>
                     <p itemprop="description">${escapeHtml(article.excerpt || '')}</p>
                     <div class="card-footer">
-                        <span itemprop="datePublished"><i class="far fa-calendar-alt"></i> ${formatDate(article.date)}</span>
-                        <span><i class="far fa-eye"></i> ${article.views || 0}</span>
+                        <span itemprop="datePublished">${formatDate(article.date)}</span>
+                        <span itemprop="interactionCount">👁️ ${article.views || 0}</span>
                     </div>
                 </a>
             `).join('');
@@ -581,7 +605,7 @@
             });
         }
 
-        // ========== ФОРМАТ ДАТЫ ==========
+        // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
         function formatDate(dateStr) {
             if (!dateStr) return '';
             try {
@@ -592,7 +616,6 @@
             }
         }
 
-        // ========== ESCAPE HTML ==========
         function escapeHtml(text) {
             if (!text) return '';
             const div = document.createElement('div');
@@ -600,11 +623,10 @@
             return div.innerHTML;
         }
 
-        // ========== ОБНОВЛЕНИЕ SCHEMA.ORG ==========
+        // ========== ОБНОВЛЕНИЕ SCHEMA ==========
         function updateSchema(articles) {
             const schemaScript = document.getElementById('blogSchema');
             if (!schemaScript) return;
-            
             try {
                 const schemaData = JSON.parse(schemaScript.textContent);
                 const itemList = articles.slice(0, 20).map((article, index) => ({
@@ -615,7 +637,7 @@
                 schemaData.mainEntity.itemListElement = itemList;
                 schemaScript.textContent = JSON.stringify(schemaData, null, 2);
             } catch(e) {
-                console.log('[VPS-VPN] Ошибка обновления Schema:', e);
+                console.log('[VPS-VPN] Schema update error:', e);
             }
         }
 
