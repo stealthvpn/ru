@@ -48,5 +48,155 @@
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
   "date": "2026-07-23",
   "views": 0
+},
+{
+  "id": "otlichie-vpn-ot-proksi-servera",
+  "title": "Отличие VPN от прокси-сервера: что лучше для защиты и обхода DPI?",
+  "excerpt": "VPN vs прокси: в чём разница, что надёжнее, быстрее и безопаснее. Почему личный VPN на VPS с XHTTP+Reality в 1000 раз лучше массовых прокси и общих IP-адресов. Полный разбор.",
+  "tag": "Сравнение технологий",
+  "image": "🔍",
+  "imageUrl": "https://vps-vpn.ru/images/vpn-vs-proxy.jpg",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie",
+  "title": "Почему VPN перестали работать, и как я нашёл единственное рабочее решение на vps-vpn.ru",
+  "excerpt": "Личный опыт: почему DPI блокирует массовые VPN за минуты, а индивидуальные прокси не дают скорости. Как я, обычный айтишник, перестал играть в рулетку и купил личный сервер с XHTTP+Reality. Честный обзор vps-vpn.ru и почему его невозможно заблокировать.",
+  "tag": "Технологии",
+  "image": "🔒",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-06-15",
+  "views": 0
+},
+{
+  "id": "chto-takoe-tunnelirovanie-v-vpn",
+  "title": "Что такое туннелирование в VPN: виды, принцип работы, преимущества",
+  "excerpt": "Полное руководство по туннелированию в VPN: что это такое, как работает VPN-туннель, виды туннелей (L2TP, GRE, IP-in-IP), инкапсуляция данных. Почему технология XHTTP + Reality с имитацией браузера Chrome — это идеальный способ обхода DPI.",
+  "tag": "Технологии",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "kakie-dannye-zashchishchaet-vpn",
+  "title": "Какие данные защищает VPN: полный разбор защиты конфиденциальности",
+  "excerpt": "Узнайте, какие данные защищает VPN: IP-адрес, историю браузера, пароли, платежи и многое другое. Почему личный VPS с XHTTP+Reality надёжнее массовых VPN-сервисов.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "kakie-dannye-ne-skryvaet-vpn",
+  "title": "Какие данные не скрывает VPN — полный разбор + решение с XHTTP Reality",
+  "excerpt": "Узнайте, какие данные не скрывает VPN: IP, трафик, метаданные, DNS, активность в браузере. Почему личный VPN на VPS с XHTTP+Reality скрывает даже сам факт использования VPN и делает вас невидимым для DPI.",
+  "tag": "Технологии безопасности",
+  "image": "🔍",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "vliyanie-vpn-na-skorost-interneta",
+  "title": "Влияние VPN на скорость интернета: мифы и реальность",
+  "excerpt": "Разбираем, почему VPN замедляет интернет: шифрование, протоколы, удалённые серверы и загрузка. Сравниваем массовые VPN-сервисы и личный VPS. Узнайте, как технология XHTTP+Reality даёт максимальную скорость и полную невидимость для DPI. Честные замеры и практические выводы.",
+  "tag": "Технологии",
+  "image": "⚡",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "kak-vpn-izmenyaet-vash-ip-adres",
+  "title": "Как VPN изменяет ваш IP-адрес: полное руководство",
+  "excerpt": "Узнайте, как VPN подменяет ваш IP-адрес, скрывает местоположение и защищает данные. Почему личный VPS с XHTTP + Reality лучше массовых сервисов и даёт невидимость для DPI.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1286
+},
+{
+  "id": "chto-takoe-vpn-protokoly",
+  "title": "Что такое VPN-протоколы: полный обзор и сравнение",
+  "excerpt": "Подробный разбор VPN-протоколов: от устаревших PPTP и L2TP до современных WireGuard и XHTTP + Reality. Узнайте, как работают OpenVPN и новейшая технология маскировки трафика под браузер Chrome. Сравнение, таблица характеристик и рекомендации по выбору для разных задач.",
+  "tag": "Технологии",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 3128
+},
+{
+  "id": "zachem-nuzhna-autentifikaciya-v-vpn",
+  "title": "Зачем нужна аутентификация в VPN: виды, риски и современные решения",
+  "excerpt": "Разбираем, зачем нужна аутентификация в VPN. Какие бывают методы (пароль, сертификаты, 2FA) и почему личный VPN на VPS с XHTTP+Reality безопаснее массовых сервисов. Полное руководство по безопасности VPN-соединений.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "ponyatie-kil-svitch-v-vpn-klientah",
+  "title": "Кил-свитч в VPN: что это, зачем нужен и как работает",
+  "excerpt": "Что такое kill switch в VPN-клиентах, зачем он нужен и как защищает от утечек IP. Объясняем виды кил-свитча, его работу и почему важно использовать личный VPN на VPS с XHTTP+Reality.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "razdelnoe-tunnelirovanie-split-tunneling",
+  "title": "Раздельное туннелирование (Split Tunneling) на VPS — полный гайд 2026",
+  "excerpt": "Что такое раздельное туннелирование (Split Tunneling) в VPN, зачем оно нужно и как настроить на личном VPS с XHTTP+Reality. Обход DPI, гибкая маршрутизация и имитация браузера Chrome. Сравнение массовых VPN и личного сервера.",
+  "tag": "Технологии",
+  "image": "⚡",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "chto-takoe-dns-utechki-i-kak-ih-izbezhat",
+  "title": "Что такое DNS-утечки и как их избежать: полное руководство по защите приватности",
+  "excerpt": "Полное руководство: что такое DNS-утечки, чем они опасны, как их проверить и предотвратить. Узнайте, почему личный VPN на VPS с XHTTP + Reality — лучшая защита от утечек и DPI-блокировок.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "analiz-ugroz-bezopasnosti-v-vpn",
+  "title": "Анализ угроз безопасности в VPN: как DPI, утечки IP и логирование ставят под удар ваши данные",
+  "excerpt": "Полный разбор всех угроз VPN: DPI-фильтрация, утечки IP, логирование, блокировки. Почему массовые VPN не защищают, а личный сервер на VPS с XHTTP+Reality в 1000 раз надёжнее.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 3872
+},
+{
+  "id": "virtualnye-chastnye-seti-obzor-tehnologii",
+  "title": "Виртуальные частные сети (VPN): обзор технологии, протоколы и XHTTP+Reality",
+  "excerpt": "Полный обзор технологии виртуальных частных сетей: от классических протоколов до современных методов маскировки XHTTP + Reality. Узнайте, как работают VPN, почему массовые VPN устарели, и как личный VPS с имитацией браузера Chrome обеспечивает максимальную защиту.",
+  "tag": "Технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "sovremennye-metody-shirovaniya-trafica-ipsec-ssh-vpn-ssl-tls",
+  "title": "Современные методы шифрования трафика: IPsec, SSH, VPN, SSL/TLS",
+  "excerpt": "Полный обзор современных методов шифрования трафика: IPsec, SSH, VPN и SSL/TLS. Сравнение протоколов, принципы работы и рекомендации по выбору. Узнайте, почему личный VPN на VPS с XHTTP+Reality — это максимальная защита.",
+  "tag": "Кибербезопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 3281
 }
 ]
