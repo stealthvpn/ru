@@ -8,5 +8,15 @@
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
   "date": "2026-06-22",
   "views": 0
+},
+{
+  "id": "istoriya-razvitiya-vpn-tehnologiy",
+  "title": "История развития VPN-технологий: от PPTP до XHTTP + Reality",
+  "excerpt": "Полная история развития VPN: как технология прошла путь от простого PPTP до современных решений с XHTTP + Reality и имитацией браузера Chrome. Эволюция протоколов, борьба с DPI и почему личный VPN на VPS — это будущее.",
+  "tag": "Технологии",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-22",
+  "views": 0
 }
 ]
