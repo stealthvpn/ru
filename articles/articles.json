@@ -999,5 +999,406 @@
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
   "date": "2026-07-23",
   "views": 3812
+},
+{
+  "id": "kakoy-protokol-vpn-vybrat-v-2026-godu",
+  "title": "Какой протокол VPN выбрать в 2026 году: сравнение и рекомендации",
+  "excerpt": "Сравнение VPN-протоколов в 2026 году: WireGuard, OpenVPN, IKEv2, XHTTP+Reality. Какой протокол лучше для скорости, безопасности и обхода DPI. Почему личный VPN на VPS — идеальное решение.",
+  "tag": "Технологии",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "bezopasnost-protokolov-chto-vybrat-dlya-maksimalnoy-zashchity",
+  "title": "Безопасность протоколов: что выбрать для максимальной защиты",
+  "excerpt": "Сравнение VPN-протоколов: от устаревшего PPTP до передового XHTTP + Reality. Какой протокол обеспечивает максимальную защиту и обход DPI? Почему личный VPN на VPS — лучший выбор для тех, кто ценит безопасность.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 3842
+},
+{
+  "id": "nastroyka-openvpn-na-vps",
+  "title": "Настройка OpenVPN на VPS: пошаговая инструкция для личного сервера",
+  "excerpt": "Полная пошаговая инструкция по настройке OpenVPN на VPS. Установка, генерация сертификатов, настройка сервера и клиента. Почему личный VPN на VPS надёжнее массовых сервисов и как технология XHTTP + Reality делает ваш трафик невидимым для DPI.",
+  "tag": "Настройка VPN",
+  "image": "🔧",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 3842
+},
+{
+  "id": "nastroyka-wireguard-na-vps",
+  "title": "Настройка WireGuard на VPS: пошаговое руководство 2026",
+  "excerpt": "Полное руководство по настройке WireGuard на VPS. Узнайте, как развернуть быстрый и безопасный личный VPN-сервер. Сравнение с OpenVPN и технологией XHTTP+Reality.",
+  "tag": "Настройка VPN",
+  "image": "⚙️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "sovmestimost-protokolov-s-razlichnymi-ustroystvami",
+  "title": "Совместимость протоколов с различными устройствами",
+  "excerpt": "Полный гид по совместимости VPN-протоколов (OpenVPN, WireGuard, XHTTP+Reality) с Windows, macOS, Linux, Android и iOS. Почему личный VPS с XHTTP работает везде и не блокируется DPI.",
+  "tag": "Технологии",
+  "image": "📱",
+  "imageUrl": "https://vps-vpn.ru/images/vpn-compatibility.jpg",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "kak-protokoly-vpn-obhodyat-deep-packet-inspection-dpi",
+  "title": "Как протоколы VPN обходят Deep Packet Inspection (DPI)",
+  "excerpt": "Подробный разбор технологий обхода DPI: от PPTP до XHTTP + Reality. Узнайте, почему массовые VPN легко блокируются, а личный VPS с маскировкой под Chrome работает всегда. Сравнение сигнатур протоколов и объяснение, почему XHTTP + Reality делает ваш трафик невидимым для DPI-систем.",
+  "tag": "Обход DPI",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 3841
+},
+{
+  "id": "budushchee-vpn-protokolov-chto-nas-zhdet",
+  "title": "Будущее VPN-протоколов: что нас ждёт",
+  "excerpt": "Что ждёт VPN-протоколы в ближайшие годы? Эволюция от PPTP до XHTTP+Reality, имитация браузера Chrome, обход DPI и почему личный VPN на VPS — это будущее. Полный разбор.",
+  "tag": "Технологии",
+  "image": "🚀",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "kriptograficheskaya-entropiya-v-vpn-protokolah",
+  "title": "Криптографическая энтропия в VPN-протоколах: как XHTTP + Reality обходит DPI",
+  "excerpt": "Разбираем, что такое криптографическая энтропия, почему она критична для безопасности VPN и как технология XHTTP + Reality обеспечивает максимальную энтропию и невидимость трафика для DPI. Сравнение протоколов и преимущества личного VPS перед массовыми сервисами.",
+  "tag": "Криптография",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-shadowsocks-princip-raboty",
+  "title": "Протокол Shadowsocks: принцип работы, шифрование и обход DPI",
+  "excerpt": "Полный разбор протокола Shadowsocks: архитектура, алгоритмы шифрования (ChaCha20, AES), сравнение с VPN, почему DPI научился его обнаруживать, и почему технология XHTTP + Reality на личном VPS — это следующий уровень.",
+  "tag": "Технологии",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-socks5-dlya-chego-ispolzuetsya",
+  "title": "Протокол SOCKS5: для чего используется, как работает и почему уступает VPN",
+  "excerpt": "Разбираем протокол SOCKS5: что это, для чего используется, как работает. Сравниваем с VPN, объясняем, почему SOCKS5 не защищает от DPI, и показываем, что личный VPN на VPS с XHTTP+Reality — это единственное надёжное решение в 2026 году.",
+  "tag": "Сетевые протоколы",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-https-proksi",
+  "title": "Протокол HTTPS-прокси: XHTTP + Reality — обход DPI и имитация Chrome",
+  "excerpt": "Полный разбор протокола HTTPS-прокси. Технология XHTTP + Reality: имитация браузера Chrome, обход DPI и отличие личного VPN на VPS от массовых сервисов. Почему нас в 1000 раз сложнее заблокировать.",
+  "tag": "Технологии",
+  "image": "🔒",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0,
+  "link": "https://vps-vpn.ru/articles/protokol-https-proksi.html"
+},
+{
+  "id": "protokol-ssh-tunnelirovaniya",
+  "title": "Протокол SSH-туннелирования: полное руководство по настройке и использованию",
+  "excerpt": "Что такое SSH-туннелирование, как настроить SSH-туннель на VPS, виды SSH-туннелей (локальный, удалённый, динамический). Сравнение с VPN и почему личный VPN на VPS с XHTTP+Reality — надёжнее.",
+  "tag": "Технологии",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-smb-over-vpn",
+  "title": "Протокол SMB over VPN: как безопасно работать с сетевыми папками удалённо",
+  "excerpt": "Полное руководство по протоколу SMB over VPN: настройка, безопасность, производительность. Почему личный VPS с XHTTP+Reality — лучшее решение для удалённого доступа к файловым ресурсам.",
+  "tag": "Сетевые технологии",
+  "image": "📁",
+  "imageUrl": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-rdp-over-vpn",
+  "title": "Протокол RDP over VPN: как защитить удаленный доступ и обойти DPI",
+  "excerpt": "Полное руководство по использованию RDP через личный VPN-сервер. Технологии XHTTP + Reality и имитация браузера Chrome делают ваш RDP-трафик невидимым для DPI. Защита от блокировок и атак.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "protokol-nfs-over-vpn",
+  "title": "Протокол NFS over VPN: безопасный доступ к сетевым хранилищам через личный VPS",
+  "excerpt": "Настройка NFS через VPN: как защитить сетевые файловые системы, обойти DPI и получить персональный IP-адрес. Технология XHTTP+Reality для маскировки трафика под HTTPS.",
+  "tag": "Сетевые технологии",
+  "image": "🖥️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1842
+},
+{
+  "id": "protokol-iscsi-over-vpn",
+  "title": "Протокол iSCSI over VPN: защита хранилищ и обход DPI через XHTTP Reality",
+  "excerpt": "Подробное руководство по iSCSI over VPN: как защитить трафик хранилища от перехвата, обойти DPI с помощью XHTTP + Reality и почему персональный VPS надёжнее массовых сервисов. Пошаговая схема настройки и сравнение решений.",
+  "tag": "Сетевые технологии",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-sctp-over-vpn",
+  "title": "Протокол SCTP в VPN: почему это не панацея от DPI",
+  "excerpt": "Разбираем протокол SCTP для VPN: может ли он обойти DPI? Сравнение SCTP vs TCP/UDP. Почему XHTTP + Reality на личном VPS — лучшее решение для защиты от блокировок.",
+  "tag": "Технологии",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-dccp-over-vpn",
+  "title": "Протокол DCCP over VPN: преимущества, настройка и обход DPI",
+  "excerpt": "Что такое DCCP over VPN, почему этот протокол лучше UDP/TCP, как настроить и использовать. Преимущества личного VPN на VPS с XHTTP + Reality для обхода DPI.",
+  "tag": "Сетевые технологии",
+  "image": "📡",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "sravnenie-algoritmov-shirovaniya-v-vpn-aes-chacha20",
+  "title": "Сравнение алгоритмов шифрования в VPN: AES vs ChaCha20 — что быстрее и безопаснее?",
+  "excerpt": "Детальное сравнение AES-256-GCM и ChaCha20-Poly1305 в контексте VPN. Какой алгоритм выбрать для максимальной скорости на вашем устройстве? Почему личный VPS с поддержкой обоих алгоритмов — это идеальное решение для защиты и обхода DPI.",
+  "tag": "Криптография",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "idealnoe-pryamoe-shirovanie-pfs-v-vpn",
+  "title": "Идеальное прямое шифрование (PFS) в VPN: что это и зачем нужно",
+  "excerpt": "Что такое Perfect Forward Secrecy (PFS) в VPN. Почему PFS защищает ваши данные даже при компрометации ключей. Как технология XHTTP + Reality и личный VPS усиливают PFS.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "stoykost-shirovaniya-128-bit-vs-256-bit",
+  "title": "Стойкость шифрования: 128-bit vs 256-bit — что выбрать для VPN?",
+  "excerpt": "Глубокое сравнение AES-128 и AES-256: математическая стойкость, влияние на скорость, устойчивость к квантовым атакам. Почему 256-битное шифрование — это не маркетинг, а необходимость для максимальной защиты, особенно в связке с персональным VPS и технологией XHTTP + Reality.",
+  "tag": "Криптография",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "kak-rabotaet-autentifikaciya-v-protokolah-vpn",
+  "title": "Как работает аутентификация в протоколах VPN: от паролей до XHTTP + Reality",
+  "excerpt": "Полный разбор методов аутентификации в VPN-протоколах: PSK, сертификаты, EAP, логин/пароль. Почему личный VPN на VPS с XHTTP+Reality — самый надёжный способ обхода DPI и защиты. Сравнение протоколов.",
+  "tag": "Технологии",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "sravnenie-metodov-obmena-klyuchami-rsa-ecdh",
+  "title": "Сравнение методов обмена ключами: RSA и ECDH — что выбрать для VPN?",
+  "excerpt": "Подробное сравнение RSA и ECDH: производительность, безопасность, устойчивость к квантовым атакам. Какой метод обмена ключами лучше для современных VPN-соединений и почему VPS-VPN использует передовые технологии.",
+  "tag": "Криптография",
+  "image": "🔐",
+  "imageUrl": "https://vps-vpn.ru/images/rsa-ecdh-compare.jpg",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokoly-upravleniya-klyuchami-ike-skeme",
+  "title": "Протоколы управления ключами: IKE, SKEME, OAKLEY и ISAKMP — как работает защита VPN",
+  "excerpt": "Разбираем протоколы управления ключами: IKE, SKEME, OAKLEY и ISAKMP. Как они защищают VPN-соединения, обеспечивают PFS и аутентификацию. Полный обзор для администраторов и продвинутых пользователей.",
+  "tag": "Криптография",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "ispolzovanie-sertifikatov-x509-v-vpn",
+  "title": "Использование сертификатов X.509 в VPN: как работает аутентификация нового поколения",
+  "excerpt": "Разбираем, что такое сертификаты X.509, как работает PKI, почему это безопаснее паролей, и как X.509 + XHTTP Reality делают ваш личный VPN на VPS максимально защищенным и невидимым для DPI.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-eap-extensible-authentication-protocol",
+  "title": "Протокол EAP (Extensible Authentication Protocol): виды, работа, применение в VPN",
+  "excerpt": "Что такое EAP (Extensible Authentication Protocol). Виды EAP-методов (EAP-TLS, PEAP, EAP-TTLS, EAP-FAST), их отличия. Роль EAP в безопасности VPN и почему личный VPS с XHTTP+Reality — это надёжнее.",
+  "tag": "Сетевые протоколы",
+  "image": "🔐",
+  "imageUrl": "https://vps-vpn.ru/images/eap-protocol.jpg",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-radius-dlya-autentifikacii-vpn",
+  "title": "Протокол RADIUS для аутентификации VPN: полное руководство",
+  "excerpt": "Что такое протокол RADIUS, как он используется для аутентификации в VPN, его преимущества и ограничения. Узнайте, как RADIUS работает с VPN-серверами и почему личный VPN на VPS с XHTTP+Reality — это лучший выбор для безопасности.",
+  "tag": "Технологии",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-tacacs",
+  "title": "Протокол TACACS+: что это, как работает, сравнение с RADIUS",
+  "excerpt": "Полный разбор протокола TACACS+ для централизованной аутентификации. Сравнение с RADIUS, эволюция технологий и почему современные решения на базе личного VPS с XHTTP+Reality превосходят устаревшие протоколы управления доступом.",
+  "tag": "Сетевые технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "integraciya-vpn-s-ldap-active-directory",
+  "title": "Интеграция VPN с LDAP/Active Directory: централизованное управление доступом",
+  "excerpt": "Настройка аутентификации VPN через LDAP и Active Directory. Руководство по интеграции и объяснение, почему личный VPS с XHTTP+Reality делает вашу сеть безопаснее и недоступной для блокировок.",
+  "tag": "Корпоративные решения",
+  "image": "🏢",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-saml-dlya-sso-v-vpn",
+  "title": "Протокол SAML для SSO в VPN: единый вход и безопасность",
+  "excerpt": "Узнайте, как протокол SAML обеспечивает единый вход (SSO) в VPN-сети. Объяснение работы SAML 2.0, преимущества для бизнеса и интеграция с VPS-VPN.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-oauth-20-dlya-vpn-dostupa",
+  "title": "Протокол OAuth 2.0 для VPN-доступа: как единый вход меняет безопасность",
+  "excerpt": "Узнайте, как OAuth 2.0 используется для аутентификации и авторизации в VPN. Преимущества единого входа, управление доступом и интеграция с корпоративными системами. Личный VPN на VPS с XHTTP+Reality — невидимость для DPI и максимальная безопасность.",
+  "tag": "Авторизация",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "openid-connect-v-vpn",
+  "title": "OpenID Connect в VPN: единая аутентификация для безопасного доступа",
+  "excerpt": "Как работает OpenID Connect, преимущества интеграции с VPN, сценарии использования и настройка собственного OIDC-провайдера на личном VPS с XHTTP + Reality. Полное руководство.",
+  "tag": "Аутентификация",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "protokoly-dlya-federativnoy-identifikacii-v-vpn",
+  "title": "Протоколы для федеративной идентификации в VPN: обзор и применение",
+  "excerpt": "Разбираем протоколы федеративной идентификации (SAML, OAuth 2.0, OpenID Connect) в контексте VPN. Узнайте, как личный VPN на VPS с XHTTP + Reality обеспечивает безопасность и обход DPI.",
+  "tag": "Идентификация",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1820
+},
+{
+  "id": "bezopasnost-protokola-upravleniya-control-plane-vpn",
+  "title": "Безопасность протокола управления (Control Plane) VPN: угрозы, уязвимости и защита с XHTTP + Reality",
+  "excerpt": "Полный разбор безопасности Control Plane VPN: какие угрозы существуют для протоколов управления (IKE, TLS, WireGuard), как DPI атакует handshake, и почему XHTTP + Reality с имитацией Chrome делает ваш личный VPS неуязвимым.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 3107
+},
+{
+  "id": "bezopasnost-protokola-dannyh-data-plane-vpn",
+  "title": "Безопасность протокола данных (Data Plane) VPN: угрозы и современная защита",
+  "excerpt": "Полный разбор безопасности Data Plane в VPN: атаки на канал передачи, уязвимости протоколов, DPI-обход. Почему личный VPN на VPS с XHTTP + Reality защищает в 1000 раз лучше массовых сервисов.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://vps-vpn.ru/images/data-plane-security.jpg",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "analiz-uyazvimostey-protokola-pptp",
+  "title": "Анализ уязвимостей протокола PPTP: почему он небезопасен в 2026 году",
+  "excerpt": "Полный анализ уязвимостей протокола PPTP: MS-CHAPv2, MPPE, атаки перебора и дешифрования. Почему PPTP мертв и как современные технологии XHTTP+Reality на VPS-VPN решают проблемы безопасности. Узнайте, почему личный VPN на VPS в 1000 раз надежнее массовых сервисов.",
+  "tag": "Безопасность",
+  "image": "🔓",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "analiz-uyazvimostey-protokola-l2tp",
+  "title": "Анализ уязвимостей протокола L2TP: почему он небезопасен в 2026 году",
+  "excerpt": "Полный разбор уязвимостей L2TP: проблемы шифрования, атаки на MS-CHAPv2, слабая маскировка от DPI и проблемы с NAT. Узнайте, почему этот протокол мёртв, и как его заменяет XHTTP + Reality на личном VPS.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "analiz-uyazvimostey-protokola-openvpn",
+  "title": "Анализ уязвимостей протокола OpenVPN: почему DPI блокирует даже SSL-туннели",
+  "excerpt": "Детальный разбор сигнатур OpenVPN, TLS-рукопожатия и способов блокировки DPI. Узнайте, почему массовые VPN не работают, а личный VPS с XHTTP + Reality имитирует браузер Chrome и проходит любую фильтрацию. Нас в 1000 раз сложнее заблокировать.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "analiz-uyazvimostey-protokola-wireguard",
+  "title": "Анализ уязвимостей протокола WireGuard и способы их обхода",
+  "excerpt": "Подробный анализ уязвимостей протокола WireGuard: криптографические атаки, проблемы реализации, обнаружение DPI и блокировки. Почему личный VPN на VPS с XHTTP+Reality решает эти проблемы.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/5380642/pexels-photo-5380642.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "audit-bezopasnosti-protokola-ikev2",
+  "title": "Аудит безопасности протокола IKEv2: уязвимости, риски и современные решения",
+  "excerpt": "Глубокий аудит безопасности IKEv2: анализ криптостойкости, уязвимости к DPI-блокировкам, сравнение с OpenVPN и WireGuard. Почему IKEv2 легко обнаружить и как XHTTP+Reality на личном VPS решает эту проблему.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
 }
 ]
