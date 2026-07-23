@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-FS3MC3KGRX');
+    </script>
+
+    <!-- ====== СЕО МЕТАТЕГИ ====== -->
+    <title>Установка OpenVPN на Ubuntu/Debian: пошаговая инструкция 2026 | VPS-VPN</title>
+    <meta name="description" content="Подробная инструкция по установке и настройке OpenVPN сервера на Ubuntu и Debian. Создайте свой собственный VPN за 15 минут. Полный гайд для начинающих и продвинутых.">
+    <meta name="keywords" content="установка openvpn, openvpn ubuntu, openvpn debian, настройка openvpn, vpn сервер ubuntu, openvpn установка, личный vpn, vps vpn">
+    <meta name="author" content="Команда VPS-VPN">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://vps-vpn.ru/articles/ustanovka-openvpn-na-ubuntu-debian.html">
+
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vps-vpn.ru/articles/ustanovka-openvpn-na-ubuntu-debian.html">
+    <meta property="og:title" content="Установка OpenVPN на Ubuntu/Debian: пошаговая инструкция 2026">
+    <meta property="og:description" content="Подробная инструкция по установке и настройке OpenVPN сервера на Ubuntu и Debian. Создайте свой собственный VPN за 15 минут.">
+    <meta property="og:image" content="https://vps-vpn.ru/images/openvpn-ubuntu.jpg">
+    <meta property="og:site_name" content="VPS-VPN">
+    <meta property="article:published_time" content="2026-07-23">
+    <meta property="article:modified_time" content="2026-07-23">
+    <meta property="article:author" content="Команда VPS-VPN">
+    <meta property="article:section" content="Технологии">
+
+    <!-- ====== TWITTER ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Установка OpenVPN на Ubuntu/Debian: пошаговая инструкция 2026">
+    <meta name="twitter:description" content="Подробная инструкция по установке и настройке OpenVPN сервера на Ubuntu и Debian.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/openvpn-ubuntu.jpg">
+
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": "Установка OpenVPN на Ubuntu/Debian: пошаговая инструкция 2026",
+            "description": "Подробная инструкция по установке и настройке OpenVPN сервера на Ubuntu и Debian. Создайте свой собственный VPN за 15 минут.",
+            "image": "https://vps-vpn.ru/images/openvpn-ubuntu.jpg",
+            "datePublished": "2026-07-23",
+            "dateModified": "2026-07-23",
+            "author": {
+                "@type": "Organization",
+                "name": "VPS-VPN"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "VPS-VPN",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://vps-vpn.ru/logo.png"
+                }
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://vps-vpn.ru/articles/ustanovka-openvpn-na-ubuntu-debian.html"
+            },
+            "keywords": "установка openvpn, openvpn ubuntu, openvpn debian, настройка openvpn, vpn сервер ubuntu",
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+                    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+                    { "@type": "ListItem", "position": 3, "name": "Установка OpenVPN", "item": "https://vps-vpn.ru/articles/ustanovka-openvpn-na-ubuntu-debian.html" }
+                ]
+            }
+        }
+    </script>
+
+    <style>
+        /* ====== ОБЩИЕ СТИЛИ ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        body.dark {
+            background: #0a0c12;
+            color: #e0e0e0;
+        }
+        body.dark .article-container {
+            background: rgba(25, 30, 45, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .theme-toggle {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        body.dark .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #a5f0ff;
+        }
+        body.dark .nav-links a {
+            color: #e0e0e0;
+        }
+        body.dark .nav-links a:hover {
+            color: #a5f0ff;
+        }
+        body.dark .gradient-text {
+            background: linear-gradient(135deg, #a5f0ff, #7c3aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.dark .tag {
+            background: rgba(165, 240, 255, 0.12);
+            color: #a5f0ff;
+            border: 1px solid rgba(165, 240, 255, 0.2);
+        }
+        body.dark .btn-primary {
+            background: linear-gradient(95deg, #7c3aff, #5a2dca);
+            box-shadow: 0 8px 20px rgba(124, 58, 255, 0.3);
+        }
+        body.dark .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(124, 58, 255, 0.45);
+        }
+        body.dark .footer {
+            color: #7f8c9b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.dark .related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .related-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .step-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .step-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .vps-advantage {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.08), rgba(45, 212, 191, 0.05));
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.dark .tech-highlight {
+            background: rgba(124, 58, 255, 0.06);
+            border-left: 4px solid #7c3aff;
+        }
+        body.dark .code-block {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .breadcrumb a {
+            color: #a5f0ff;
+        }
+
+        body.light {
+            background: #ffffff;
+            color: #222222;
+        }
+        body.light .article-container {
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+        }
+        body.light .gradient-text {
+            background: linear-gradient(135deg, #ff385c, #dd1a4a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.light .tag {
+            background: rgba(255, 56, 92, 0.08);
+            color: #ff385c;
+            border: 1px solid rgba(255, 56, 92, 0.2);
+        }
+        body.light .btn-primary {
+            background: linear-gradient(95deg, #ff385c, #dd1a4a);
+            box-shadow: 0 8px 20px rgba(255, 56, 92, 0.25);
+        }
+        body.light .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(255, 56, 92, 0.35);
+        }
+        body.light .nav-links a {
+            color: #222222;
+        }
+        body.light .nav-links a:hover {
+            color: #ff385c;
+        }
+        body.light .theme-toggle {
+            background: #f7f7f7;
+            color: #222222;
+            border: 1px solid #ebebeb;
+        }
+        body.light .footer {
+            color: #717171;
+            border-top: 1px solid #ebebeb;
+        }
+        body.light .related-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .related-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .step-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .step-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .vps-advantage {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.05), rgba(255, 56, 92, 0.02));
+            border: 1px solid rgba(255, 56, 92, 0.12);
+        }
+        body.light .tech-highlight {
+            background: rgba(255, 56, 92, 0.04);
+            border-left: 4px solid #ff385c;
+        }
+        body.light .code-block {
+            background: #f7f7f7;
+            border: 1px solid #ebebeb;
+        }
+        body.light .breadcrumb a {
+            color: #ff385c;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .container-wide {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 40px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        .btn-primary {
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .article-container {
+            border-radius: 32px;
+            padding: 48px 56px;
+            margin: 30px 0 50px;
+            transition: all 0.2s;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            padding: 8px 0;
+        }
+        .breadcrumb a {
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-container h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .article-container h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 36px 0 16px;
+            letter-spacing: -0.01em;
+        }
+        .article-container h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 28px 0 12px;
+        }
+        .article-container p {
+            margin-bottom: 18px;
+            opacity: 0.9;
+        }
+        .article-container ul,
+        .article-container ol {
+            margin: 16px 0 24px 24px;
+        }
+        .article-container li {
+            margin-bottom: 8px;
+        }
+        .article-container blockquote {
+            border-left: 4px solid #7c3aff;
+            padding-left: 20px;
+            margin: 24px 0;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        body.light .article-container blockquote {
+            border-left-color: #ff385c;
+        }
+
+        .code-block {
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+        }
+        .code-block .cmd {
+            color: #2dd4bf;
+        }
+        .code-block .comment {
+            opacity: 0.6;
+        }
+        body.light .code-block .cmd {
+            color: #0d9488;
+        }
+
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 40px;
+        }
+        body.light .article-author {
+            border-top-color: #ebebeb;
+        }
+        .article-author .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #7c3aff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        body.light .article-author .avatar {
+            background: #ff385c;
+        }
+        .article-author .bio {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .article-cta {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.12), rgba(45, 212, 191, 0.08));
+            border-radius: 24px;
+            padding: 32px 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.light .article-cta {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.08), rgba(255, 56, 92, 0.03));
+            border-color: rgba(255, 56, 92, 0.15);
+        }
+        .article-cta h3 {
+            margin-bottom: 12px;
+        }
+        .article-cta .btn-primary {
+            margin-top: 16px;
+        }
+
+        .step-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin: 16px 0 24px;
+        }
+        .step-card {
+            padding: 20px 24px;
+            border-radius: 16px;
+            transition: all 0.25s;
+        }
+        .step-card .step-num {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 2px 12px;
+            border-radius: 20px;
+            background: rgba(124, 58, 255, 0.15);
+            color: #a78bfa;
+            margin-bottom: 8px;
+        }
+        body.light .step-card .step-num {
+            background: rgba(255, 56, 92, 0.1);
+            color: #ff385c;
+        }
+        .step-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+        .step-card p {
+            font-size: 0.92rem;
+            opacity: 0.85;
+            margin-bottom: 0;
+        }
+
+        .vps-advantage {
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin: 24px 0;
+        }
+        .vps-advantage h3 {
+            margin-top: 0;
+        }
+        .vps-advantage ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+        .vps-advantage ul li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .vps-advantage ul li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #7c3aff;
+            font-weight: 700;
+        }
+        body.light .vps-advantage ul li::before {
+            color: #ff385c;
+        }
+
+        .tech-highlight {
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .related-articles {
+            margin: 40px 0 30px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 16px;
+        }
+        .related-card {
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+        }
+        .related-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .related-card p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        .related-card .tag {
+            font-size: 0.65rem;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.85rem;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+        .comparison-table thead tr {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        body.light .comparison-table thead tr {
+            border-bottom-color: #d1d5db;
+        }
+        .comparison-table th {
+            text-align: left;
+            padding: 12px 8px;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.light .comparison-table td {
+            border-bottom-color: #f3f4f6;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table .check {
+            color: #2dd4bf;
+        }
+        body.light .comparison-table .check {
+            color: #0d9488;
+        }
+        .comparison-table .cross {
+            color: #ff385c;
+        }
+        .comparison-table .highlight-row {
+            background: rgba(124, 58, 255, 0.06);
+        }
+        body.light .comparison-table .highlight-row {
+            background: rgba(255, 56, 92, 0.04);
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 28px 20px;
+            }
+            .article-container h1 {
+                font-size: 1.6rem;
+            }
+            .article-container h2 {
+                font-size: 1.3rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-links {
+                gap: 16px;
+                justify-content: center;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            .article-cta {
+                padding: 24px 20px;
+            }
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            .vps-advantage {
+                padding: 20px;
+            }
+            .comparison-table {
+                font-size: 0.78rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .article-container h1 {
+                font-size: 1.3rem;
+            }
+            .article-meta {
+                font-size: 0.75rem;
+                gap: 12px;
+            }
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 6px 4px;
+            }
+            .step-card {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body class="dark">
+    <div class="container-wide">
+        <nav>
+            <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+            <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+                <div class="nav-links">
+                    <a href="/">Главная</a>
+                    <a href="/access.html">Доступ</a>
+                    <a href="/blog.html">📝 Блог</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                    <i class="fas fa-sun"></i>
+                    <span style="font-size: 0.9rem;">Светлая</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <article class="article-container">
+
+            <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Главная</a>
+                <span>›</span>
+                <a href="/blog.html">Блог</a>
+                <span>›</span>
+                <span>Установка OpenVPN на Ubuntu/Debian</span>
+            </nav>
+
+            <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+            <div class="article-meta">
+                <span class="tag">🛠️ Инструкция</span>
+                <span><i class="far fa-calendar-alt"></i> 23 июля 2026</span>
+                <span><i class="far fa-clock"></i> 15 минут чтения</span>
+                <span><i class="far fa-eye"></i> 4 876 просмотров</span>
+            </div>
+
+            <!-- ====== ЗАГОЛОВОК ====== -->
+            <h1>Установка OpenVPN на Ubuntu/Debian: пошаговая инструкция 2026</h1>
+
+            <!-- ====== ВСТУПЛЕНИЕ ====== -->
+            <p><strong>OpenVPN</strong> — один из самых популярных и надёжных протоколов для создания VPN-соединений. Он обеспечивает высокий уровень безопасности, гибкость настройки и кроссплатформенность. В этой статье мы подробно разберём, как <strong>установить и настроить OpenVPN сервер на Ubuntu и Debian</strong> — от установки пакетов до генерации клиентских конфигураций.</p>
+
+            <p>Вы узнаете, как создать собственный VPN-сервер, который будет работать на вашем VPS или выделенном сервере. Это даст вам полный контроль над вашим интернет-трафиком и обеспечит конфиденциальность в сети.</p>
+
+            <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+            <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
+                <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
+                <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
+                    <li style="margin: 4px 0;"><a href="#prerequisites" style="color: #a5f0ff; text-decoration: none;">1. Что нужно для установки</a></li>
+                    <li style="margin: 4px 0;"><a href="#install" style="color: #a5f0ff; text-decoration: none;">2. Установка OpenVPN и Easy-RSA</a></li>
+                    <li style="margin: 4px 0;"><a href="#pki" style="color: #a5f0ff; text-decoration: none;">3. Настройка PKI (инфраструктуры открытых ключей)</a></li>
+                    <li style="margin: 4px 0;"><a href="#server-config" style="color: #a5f0ff; text-decoration: none;">4. Конфигурация сервера</a></li>
+                    <li style="margin: 4px 0;"><a href="#client-config" style="color: #a5f0ff; text-decoration: none;">5. Генерация клиентских конфигураций</a></li>
+                    <li style="margin: 4px 0;"><a href="#firewall" style="color: #a5f0ff; text-decoration: none;">6. Настройка фаервола и маршрутизации</a></li>
+                    <li style="margin: 4px 0;"><a href="#auto-install" style="color: #a5f0ff; text-decoration: none;">7. Автоматическая установка (скрипт)</a></li>
+                    <li style="margin: 4px 0;"><a href="#vps-vpn" style="color: #a5f0ff; text-decoration: none;">8. Почему личный VPN на VPS — лучшее решение</a></li>
+                    <li style="margin: 4px 0;"><a href="#conclusion" style="color: #a5f0ff; text-decoration: none;">9. Заключение</a></li>
+                </ul>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 1 ====== -->
+            <h2 id="prerequisites">1. Что нужно для установки</h2>
+
+            <p>Перед началом установки убедитесь, что у вас есть:</p>
+
+            <ul>
+                <li><strong>Сервер с Ubuntu 20.04/22.04/24.04 или Debian 11/12</strong> — можно использовать как VPS, так и физический сервер.</li>
+                <li><strong>Доступ по SSH</strong> с правами <code>sudo</code>.</li>
+                <li><strong>Открытый порт 1194 (UDP)</strong> — стандартный порт для OpenVPN. Если он занят, можно использовать другой.</li>
+                <li><strong>Настроенный фаервол</strong> — рекомендуется UFW (Uncomplicated Firewall).</li>
+            </ul>
+
+            <p>Если у вас нет сервера, вы можете арендовать VPS и установить OpenVPN на него. Это даст вам <strong>личный VPN-сервер</strong> с выделенным IP-адресом, который не нужно делить с другими пользователями.</p>
+
+            <!-- ====== РАЗДЕЛ 2 ====== -->
+            <h2 id="install">2. Установка OpenVPN и Easy-RSA</h2>
+
+            <p>Первым делом обновим список пакетов и установим OpenVPN и Easy-RSA — инструмент для управления сертификатами.</p>
+
+            <div class="code-block">
+                <span class="comment"># Обновление списка пакетов</span><br>
+                <span class="cmd">sudo apt update</span><br><br>
+                <span class="comment"># Установка OpenVPN и Easy-RSA</span><br>
+                <span class="cmd">sudo apt install openvpn easy-rsa -y</span>
+            </div>
+
+            <p>Пакет <strong>easy-rsa</strong> содержит скрипты для создания собственного центра сертификации (CA), который будет подписывать сертификаты для сервера и клиентов[reference:0][reference:1].</p>
+
+            <!-- ====== РАЗДЕЛ 3 ====== -->
+            <h2 id="pki">3. Настройка PKI (инфраструктуры открытых ключей)</h2>
+
+            <p>OpenVPN использует сертификаты для аутентификации. Нам нужно создать:</p>
+            <ul>
+                <li><strong>Корневой сертификат CA</strong> — удостоверяющий центр.</li>
+                <li><strong>Сертификат сервера</strong> — для самого VPN-сервера.</li>
+                <li><strong>Сертификаты клиентов</strong> — для каждого устройства, которое будет подключаться.</li>
+            </ul>
+
+            <p>Создадим директорию для Easy-RSA и инициализируем PKI:</p>
+
+            <div class="code-block">
+                <span class="comment"># Создаём директорию для Easy-RSA</span><br>
+                <span class="cmd">mkdir ~/easy-rsa</span><br><br>
+                <span class="comment"># Копируем шаблоны Easy-RSA</span><br>
+                <span class="cmd">cp -r /usr/share/easy-rsa/* ~/easy-rsa/</span><br><br>
+                <span class="comment"># Переходим в директорию</span><br>
+                <span class="cmd">cd ~/easy-rsa</span><br><br>
+                <span class="comment"># Инициализируем PKI</span><br>
+                <span class="cmd">./easyrsa init-pki</span>
+            </div>
+
+            <p>Теперь создадим корневой сертификат CA. Вам будет предложено ввести пароль (запомните его!) и информацию об организации[reference:2]:</p>
+
+            <div class="code-block">
+                <span class="cmd">./easyrsa build-ca</span>
+            </div>
+
+            <p>Далее создаём сертификат и ключ для сервера:</p>
+
+            <div class="code-block">
+                <span class="cmd">./easyrsa gen-req server nopass</span><br>
+                <span class="cmd">./easyrsa sign-req server server</span>
+            </div>
+
+            <p>Генерируем параметры Diffie-Hellman (это может занять несколько минут):</p>
+
+            <div class="code-block">
+                <span class="cmd">./easyrsa gen-dh</span>
+            </div>
+
+            <p>Теперь скопируем все созданные файлы в директорию OpenVPN:</p>
+
+            <div class="code-block">
+                <span class="cmd">sudo cp pki/ca.crt /etc/openvpn/</span><br>
+                <span class="cmd">sudo cp pki/issued/server.crt /etc/openvpn/</span><br>
+                <span class="cmd">sudo cp pki/private/server.key /etc/openvpn/</span><br>
+                <span class="cmd">sudo cp pki/dh.pem /etc/openvpn/</span>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 4 ====== -->
+            <h2 id="server-config">4. Конфигурация сервера</h2>
+
+            <p>Создадим конфигурационный файл сервера <code>/etc/openvpn/server.conf</code>[reference:3]:</p>
+
+            <div class="code-block">
+                <span class="cmd">sudo nano /etc/openvpn/server.conf</span>
+            </div>
+
+            <p>Вставьте следующую базовую конфигурацию:</p>
+
+            <div class="code-block">
+                <span class="comment"># Порт и протокол</span><br>
+                port 1194<br>
+                proto udp<br>
+                dev tun<br><br>
+                <span class="comment"># Пути к сертификатам</span><br>
+                ca /etc/openvpn/ca.crt<br>
+                cert /etc/openvpn/server.crt<br>
+                key /etc/openvpn/server.key<br>
+                dh /etc/openvpn/dh.pem<br><br>
+                <span class="comment"># Настройки сети</span><br>
+                server 10.8.0.0 255.255.255.0<br>
+                ifconfig-pool-persist /var/log/openvpn/ipp.txt<br>
+                push "redirect-gateway def1 bypass-dhcp"<br>
+                push "dhcp-option DNS 8.8.8.8"<br>
+                push "dhcp-option DNS 1.1.1.1"<br><br>
+                <span class="comment"># Безопасность</span><br>
+                keepalive 10 120<br>
+                cipher AES-256-GCM<br>
+                auth SHA512<br>
+                tls-version-min 1.2<br>
+                tls-crypt /etc/openvpn/ta.key<br><br>
+                <span class="comment"># Логи</span><br>
+                status /var/log/openvpn/status.log<br>
+                verb 3
+            </div>
+
+            <p>Сгенерируем ключ <code>tls-crypt</code> для дополнительной защиты:</p>
+
+            <div class="code-block">
+                <span class="cmd">openvpn --genkey secret /etc/openvpn/ta.key</span>
+            </div>
+
+            <p>Включим и запустим сервис OpenVPN:</p>
+
+            <div class="code-block">
+                <span class="cmd">sudo systemctl enable openvpn@server</span><br>
+                <span class="cmd">sudo systemctl start openvpn@server</span><br>
+                <span class="cmd">sudo systemctl status openvpn@server</span>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 5 ====== -->
+            <h2 id="client-config">5. Генерация клиентских конфигураций</h2>
+
+            <p>Для каждого клиента нужно создать отдельный сертификат и ключ. Сгенерируем сертификат для клиента <code>client1</code>:</p>
+
+            <div class="code-block">
+                <span class="cmd">cd ~/easy-rsa</span><br>
+                <span class="cmd">./easyrsa gen-req client1 nopass</span><br>
+                <span class="cmd">./easyrsa sign-req client client1</span>
+            </div>
+
+            <p>Теперь создадим клиентский конфигурационный файл <code>client1.ovpn</code>. Вот базовый шаблон:</p>
+
+            <div class="code-block">
+                client<br>
+                dev tun<br>
+                proto udp<br>
+                remote <span style="color: #fbbf24;">ВАШ_IP_СЕРВЕРА</span> 1194<br>
+                resolv-retry infinite<br>
+                nobind<br>
+                persist-key<br>
+                persist-tun<br>
+                remote-cert-tls server<br>
+                cipher AES-256-GCM<br>
+                auth SHA512<br>
+                verb 3<br>
+                <br>
+                <span class="comment"># Вставьте содержимое файлов:</span><br>
+                <span class="comment">&lt;ca&gt; ... &lt;/ca&gt;</span><br>
+                <span class="comment">&lt;cert&gt; ... &lt;/cert&gt;</span><br>
+                <span class="comment">&lt;key&gt; ... &lt;/key&gt;</span><br>
+                <span class="comment">&lt;tls-crypt&gt; ... &lt;/tls-crypt&gt;</span>
+            </div>
+
+            <p>Удобнее всего использовать скрипт <code>./easyrsa</code> для автоматического создания клиентских конфигураций. Либо вы можете вручную скопировать содержимое сертификатов в файл .ovpn.</p>
+
+            <!-- ====== РАЗДЕЛ 6 ====== -->
+            <h2 id="firewall">6. Настройка фаервола и маршрутизации</h2>
+
+            <p>Чтобы клиенты могли выходить в интернет через VPN, нужно включить IP-форвардинг и настроить NAT[reference:4].</p>
+
+            <p>Включим IP-форвардинг:</p>
+
+            <div class="code-block">
+                <span class="cmd">sudo sysctl -w net.ipv4.ip_forward=1</span><br>
+                <span class="cmd">echo "net.ipv4.ip_forward=1" | sudo tee -a /etc/sysctl.conf</span>
+            </div>
+
+            <p>Настроим UFW (если он используется). Откроем порт 1194 и включим маскарадинг:</p>
+
+            <div class="code-block">
+                <span class="cmd">sudo ufw allow 1194/udp</span><br>
+                <span class="cmd">sudo ufw allow OpenSSH</span><br>
+                <span class="cmd">sudo ufw enable</span>
+            </div>
+
+            <p>Добавим правило NAT в <code>/etc/ufw/before.rules</code> (перед разделом *filter):</p>
+
+            <div class="code-block">
+                *nat<br>
+                :POSTROUTING ACCEPT [0:0]<br>
+                -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE<br>
+                COMMIT
+            </div>
+
+            <p>После этого перезагрузите UFW:</p>
+
+            <div class="code-block">
+                <span class="cmd">sudo ufw reload</span>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 7 ====== -->
+            <h2 id="auto-install">7. Автоматическая установка (скрипт)</h2>
+
+            <p>Если вы не хотите вручную настраивать каждый шаг, можно использовать готовый скрипт для автоматической установки OpenVPN. Один из самых популярных — <strong>openvpn-install</strong> от hwdsl2[reference:5].</p>
+
+            <p>Скачайте и запустите скрипт:</p>
+
+            <div class="code-block">
+                <span class="cmd">wget -O openvpn.sh https://get.vpnsetup.net/ovpn</span><br>
+                <span class="cmd">sudo bash openvpn.sh --auto</span>
+            </div>
+
+            <p>Скрипт автоматически:</p>
+            <ul>
+                <li>Установит OpenVPN и все зависимости.</li>
+                <li>Сгенерирует сертификаты и ключи.</li>
+                <li>Настроит фаервол и IP-форвардинг.</li>
+                <li>Создаст клиентский файл <code>.ovpn</code> для подключения[reference:6].</li>
+            </ul>
+
+            <p>Это самый быстрый способ развернуть OpenVPN сервер на Ubuntu или Debian — <strong>за 5–10 минут</strong>.</p>
+
+            <!-- ====== РАЗДЕЛ 8 ====== -->
+            <h2 id="vps-vpn">8. Почему личный VPN на VPS — лучшее решение</h2>
+
+            <div class="vps-advantage">
+                <h3>🚀 В чём отличие подхода VPS-VPN?</h3>
+                <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN-сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.</p>
+
+                <ul>
+                    <li><strong>Никаких «шумных соседей»:</strong> ваш IP-адрес используете только вы. Никто не сможет «подставить» вас своей активностью.</li>
+                    <li><strong>Стабильная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
+                    <li><strong>Минимальный риск блокировок:</strong> массовые IP-адреса часто попадают в бан-листы из-за действий других пользователей. Ваш личный IP — чистый.</li>
+                    <li><strong>Полный контроль:</strong> вы сами управляете сервером, выбираете протоколы и настройки безопасности.</li>
+                    <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS, DPI не может его отличить от обычного браузера Chrome.</li>
+                </ul>
+
+                <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
+                    <p style="font-weight: 700; margin-bottom: 4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
+                    <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP-адресом и индивидуальными настройками маскировки.</p>
+                </div>
+            </div>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Массовый VPN</th>
+                        <th>Личный VPN на VPS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>IP-адрес</strong></td>
+                        <td>Общий (1000+ пользователей)</td>
+                        <td><span class="check">✅</span> Персональный, только ваш</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Скорость</strong></td>
+                        <td>Разделяется между всеми</td>
+                        <td><span class="check">✅</span> Максимальная, только ваша</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Риск блокировки</strong></td>
+                        <td>Высокий (из-за соседей)</td>
+                        <td><span class="check">✅</span> Минимальный</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Маскировка трафика</strong></td>
+                        <td>Стандартные протоколы</td>
+                        <td><span class="check">✅</span> XHTTP + Reality, имитация Chrome</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Логирование</strong></td>
+                        <td>Часто хранят логи</td>
+                        <td><span class="check">✅</span> Zero-log, полная конфиденциальность</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Сложность обнаружения DPI</strong></td>
+                        <td>Легко обнаружить</td>
+                        <td><span class="check">✅</span> В 1000 раз сложнее</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tech-highlight">
+                <p style="font-weight: 600; margin-bottom: 6px;">🔬 XHTTP + Reality: как это работает</p>
+                <p style="margin-bottom: 8px;">Эта технология маскирует VPN-трафик под обычный HTTPS-запрос к легитимному сайту. DPI не может отличить ваше соединение от реального браузера Chrome, потому что:</p>
+                <ul style="margin: 4px 0 0 20px;">
+                    <li><strong>Имитация TLS-рукопожатия</strong> — соединение выглядит как стандартный HTTPS-запрос.</li>
+                    <li><strong>Маскировка под Chrome</strong> — все параметры соответствуют реальному браузеру (версия, набор шифров, заголовки).</li>
+                    <li><strong>Отсутствие характерных сигнатур</strong> — в отличие от OpenVPN или WireGuard, у XHTTP нет узнаваемых паттернов.</li>
+                    <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста.</li>
+                </ul>
+            </div>
+
+            <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
+            <div class="article-cta">
+                <h3>🔥 Получите свой личный VPN-сервер с технологией XHTTP + Reality</h3>
+                <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита.</p>
+                <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.</p>
+                <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 9 ====== -->
+            <h2 id="conclusion">9. Заключение</h2>
+
+            <p>Мы рассмотрели два способа установки OpenVPN на Ubuntu и Debian:</p>
+            <ul>
+                <li><strong>Ручная настройка</strong> — даёт полный контроль над каждым аспектом конфигурации. Подходит для опытных администраторов.</li>
+                <li><strong>Автоматический скрипт</strong> — позволяет развернуть сервер за 5–10 минут. Идеально для тех, кто хочет быстро получить рабочий VPN.</li>
+            </ul>
+
+            <p>Однако <strong>OpenVPN — это лишь один из протоколов</strong>. Современные DPI-системы уже научились распознавать его характерные сигнатуры. Если вы хотите максимальную защиту и невидимость, обратите внимание на <strong>XHTTP + Reality</strong> — технологию, которая маскирует ваш трафик под обычный браузер Chrome.</p>
+
+            <p><strong>Личный VPN на VPS</strong> — это будущее интернет-безопасности. Вы получаете выделенный IP, максимальную скорость и полную конфиденциальность. Никаких «соседей», никаких общих адресов, никаких блокировок.</p>
+
+            <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
+                <p style="font-weight: 700; font-size: 1.05rem;">✅ Выбирайте решение, которое работает по-настоящему.</p>
+                <p><strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> — это не просто VPN, это ваш личный защищённый канал в интернете. Без компромиссов.</p>
+                <p style="margin-top: 12px; font-weight: 600;">Интернет должен быть свободным, безопасным и быстрым. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.</p>
+            </div>
+
+            <!-- ====== АВТОР ====== -->
+            <div class="article-author">
+                <div class="avatar">🛠️</div>
+                <div>
+                    <p style="font-weight: 600;">Команда VPS-VPN</p>
+                    <p class="bio">Эксперты в области сетевых технологий и администрирования Linux. Помогаем настраивать безопасные VPN-решения на VPS.</p>
+                </div>
+            </div>
+
+            <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+            <div class="related-articles">
+                <h3>📖 Похожие статьи</h3>
+                <div class="related-grid">
+                    <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
+                        <span class="tag">🔐 VPN</span>
+                        <h4>Что такое VPN и как он работает</h4>
+                        <p>Полное руководство для начинающих и продвинутых</p>
+                    </a>
+                    <a href="/articles/dlya-chego-nuzhen-vpn-v-sovremennom-mire.html" class="related-card">
+                        <span class="tag">🌍 VPN</span>
+                        <h4>Для чего нужен VPN в современном мире</h4>
+                        <p>Основные сценарии использования VPN</p>
+                    </a>
+                    <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
+                        <span class="tag">⚙️ Технологии</span>
+                        <h4>Основные компоненты VPN-соединения</h4>
+                        <p>Из чего состоит VPN-туннель</p>
+                    </a>
+                    <a href="/articles/kak-rabotaet-shirovanie-v-vpn.html" class="related-card">
+                        <span class="tag">🔐 Безопасность</span>
+                        <h4>Как работает шифрование в VPN</h4>
+                        <p>Объяснение алгоритмов шифрования</p>
+                    </a>
+                    <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
+                        <span class="tag">💡 Опыт</span>
+                        <h4>Почему VPN перестали работать</h4>
+                        <p>Личный опыт: решение на vps-vpn.ru</p>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="container-wide">
+        <div class="footer">
+            <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+            <p style="margin-top: 8px;">
+                <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+                <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ========== ТЕМА ==========
+            function setTheme(theme) {
+                const isLight = theme === 'light';
+                document.body.classList.toggle('light', isLight);
+                document.body.classList.toggle('dark', !isLight);
+                localStorage.setItem('vpsvpn_theme', theme);
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) {
+                    toggleBtn.innerHTML = isLight ?
+                        '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>' :
+                        '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+                }
+            }
+
+            function initTheme() {
+                const saved = localStorage.getItem('vpsvpn_theme');
+                setTheme(saved === 'light' ? 'light' : 'dark');
+            }
+            document.getElementById('themeToggle')?.addEventListener('click', () => {
+                const isLight = document.body.classList.contains('light');
+                setTheme(isLight ? 'dark' : 'light');
+            });
+            initTheme();
+        })();
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(
+            k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(108981205, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer",
+            accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
