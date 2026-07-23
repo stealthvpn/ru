@@ -1400,5 +1400,206 @@
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
   "date": "2026-07-23",
   "views": 0
+},
+{
+  "id": "kak-protokoly-vpn-zashchishchayut-ot-atak-chelovek-poseredine",
+  "title": "Как VPN защищает от атак «Человек посередине» (MITM) и DPI",
+  "excerpt": "Полный разбор механизмов шифрования VPN против перехвата трафика и технологий маскировки XHTTP + Reality. Узнайте, почему личный VPS-сервер в 1000 раз надежнее массовых VPN-сервисов.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "zashchita-ot-replay-atak-v-vpn",
+  "title": "Защита от Replay-атак в VPN: Как технология XHTTP + Reality на VPS решает проблему",
+  "excerpt": "Что такое replay-атаки, почему они опасны для VPN и как технология XHTTP + Reality на личном VPS решает эту проблему. Узнайте, как VPS-VPN делает ваш трафик в 1000 раз безопаснее.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 3128
+},
+{
+  "id": "zashchita-ot-dos-atak-na-urovne-protokola",
+  "title": "Защита от DoS-атак на уровне протокола: методы и технологии",
+  "excerpt": "Полное руководство по защите от DoS-атак на уровне протокола. Узнайте о типах атак, методах обнаружения и почему личный VPN на VPS с XHTTP+Reality обеспечивает максимальную безопасность вашего сервера.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "nastroyka-parametrov-keep-alive-v-vpn-protokolah",
+  "title": "Настройка параметров keep-alive в VPN-протоколах",
+  "excerpt": "Полное руководство по настройке keep-alive для OpenVPN, WireGuard и XHTTP+Reality. Как избежать обрывов и сохранить стабильное VPN-соединение. Сравнение протоколов и рекомендации.",
+  "tag": "Настройка VPN",
+  "image": "⚙️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "nastroyka-taymautov-v-vpn-protokolah",
+  "title": "Настройка таймаутов в VPN-протоколах: полное руководство",
+  "excerpt": "Как правильно настраивать таймауты в OpenVPN, WireGuard и XHTTP+Reality для стабильной работы и обхода DPI. Полное руководство с практическими рекомендациями.",
+  "tag": "Настройка",
+  "image": "⏱️",
+  "imageUrl": "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "nastroyka-fragmentacii-paketov-v-vpn",
+  "title": "Настройка фрагментации пакетов в VPN: MTU, MSS и обход DPI",
+  "excerpt": "Полное руководство по настройке фрагментации пакетов в VPN: как правильно подобрать MTU и MSS, чтобы избежать обрывов и обойти DPI. Технологии XHTTP + Reality и имитация браузера Chrome. Личный VPN на VPS — нас в 1000 раз сложнее заблокировать.",
+  "tag": "Настройка VPN",
+  "image": "⚙️",
+  "imageUrl": "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "nastroyka-mtu-dlya-razlichnyh-vpn-protokolov",
+  "title": "Настройка MTU для различных VPN-протоколов: полное руководство",
+  "excerpt": "Подробное руководство по настройке MTU для PPTP, L2TP, OpenVPN, WireGuard и XHTTP + Reality. Узнайте, как оптимизировать MTU для обхода DPI и максимальной скорости на личном VPS.",
+  "tag": "Настройка VPN",
+  "image": "⚙️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "ispolzovanie-szhatiya-v-vpn-protokolah",
+  "title": "Использование сжатия в VPN-протоколах: как это работает и зачем нужно",
+  "excerpt": "Подробный разбор технологии сжатия в VPN-протоколах: как LZO, Snappy и Zstandard влияют на скорость и безопасность, когда их стоит включать и как это сочетается с XHTTP+Reality на личном VPS.",
+  "tag": "Технологии",
+  "image": "⚡",
+  "imageUrl": "https://images.pexels.com/photos/7977876/pexels-photo-7977876.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "vliyanie-szhatiya-na-bezopasnost-vpn",
+  "title": "Влияние сжатия на безопасность VPN: риски и современные решения",
+  "excerpt": "Как сжатие данных в VPN делает трафик уязвимым для DPI и атак CRIME/BREACH. Почему отказ от сжатия в пользу XHTTP + Reality с имитацией браузера Chrome — единственное надёжное решение. Сравнение массовых VPN и личного VPS с персональным IP.",
+  "tag": "Безопасность",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "proksi-protokoly-v-svyazke-s-vpn",
+  "title": "Прокси-протоколы в связке с VPN: как усилить анонимность и обойти DPI",
+  "excerpt": "Полный гид по прокси-протоколам в связке с VPN: SOCKS5, HTTP/HTTPS, SSH-туннели. Как комбинировать с XHTTP+Reality для максимальной защиты и обхода DPI. Личный VPN на VPS — преимущества.",
+  "tag": "Прокси & VPN",
+  "image": "🔐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1842
+},
+{
+  "id": "protokol-bgp-over-vpn",
+  "title": "Протокол BGP over VPN: маршрутизация интернета нового уровня",
+  "excerpt": "BGP over VPN — технология для безопасной и гибкой маршрутизации трафика. Объясняем, как работает BGP в VPN, зачем нужен личный VPS и как XHTTP + Reality обеспечивает максимальную защиту от DPI.",
+  "tag": "Сетевые технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-ospf-over-vpn",
+  "title": "Протокол OSPF over VPN: настройка динамической маршрутизации через VPN-туннель",
+  "excerpt": "OSPF over VPN — технология динамической маршрутизации поверх VPN-туннелей. Настройка OSPF через IPsec, OpenVPN, WireGuard. Примеры конфигураций, решение проблем с multicast и преимущества для Site-to-Site VPN.",
+  "tag": "Сетевые технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-rip-over-vpn",
+  "title": "Протокол RIP over VPN: полное руководство по динамической маршрутизации",
+  "excerpt": "Узнайте, как работает протокол RIP over VPN. Настройка динамической маршрутизации, преимущества и недостатки RIP в виртуальных частных сетях. Подробное руководство с примерами и сравнением с OSPF и BGP.",
+  "tag": "Сетевые технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1842
+},
+{
+  "id": "protokol-mpls-over-vpn",
+  "title": "Протокол MPLS over VPN: что это, как работает и почему личный VPS эффективнее",
+  "excerpt": "Полный разбор протокола MPLS over VPN: L3VPN, L2VPN, VPLS. Сравнение с современными решениями на базе XHTTP + Reality. Узнайте, почему личный VPN на VPS в 1000 раз эффективнее для обхода DPI.",
+  "tag": "Сетевые технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1847
+},
+{
+  "id": "protokol-vxlan-over-vpn",
+  "title": "Протокол VXLAN over VPN: что это, зачем нужен и как работает",
+  "excerpt": "Разбираем технологию VXLAN over VPN, её применение для изоляции трафика и почему личный VPN на VPS с XHTTP+Reality — идеальная платформа для передовых решений.",
+  "tag": "Технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-nvgre-over-vpn",
+  "title": "Протокол NVGRE over VPN: что это, как работает и зачем нужен",
+  "excerpt": "Разбираем протокол NVGRE (Network Virtualization using Generic Routing Encapsulation): принцип работы, сравнение с VXLAN, применение в VPN. Узнайте, почему для максимальной защиты лучше выбрать личный VPN на VPS с технологией XHTTP + Reality.",
+  "tag": "Сетевые технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
+},
+{
+  "id": "protokol-gre-over-ipsec",
+  "title": "Протокол GRE over IPsec: что это, как работает и зачем нужен",
+  "excerpt": "Подробный разбор протокола GRE over IPsec: архитектура, инкапсуляция, преимущества и недостатки. Почему классический GRE over IPsec уступает современному XHTTP + Reality на личном VPS.",
+  "tag": "Сетевые технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1827
+},
+{
+  "id": "protokol-ip-in-ip",
+  "title": "Протокол IP‑in‑IP: как работает инкапсуляция и почему это важно для VPN",
+  "excerpt": "Что такое протокол IP‑in‑IP, как работает инкапсуляция и где применяется. Разбираем туннелирование, отличия от GRE, роль в VPN и связь с XHTTP + Reality. Подробное руководство.",
+  "tag": "Сетевые технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0,
+  "url": "/articles/protokol-ip-in-ip.html"
+},
+{
+  "id": "protokol-fou-foo-over-udp",
+  "title": "Протокол FOU (Foo-over-UDP): что это, как работает и почему устарел",
+  "excerpt": "Подробный разбор протокола FOU (Foo-over-UDP): история, принцип работы, сравнение с современными технологиями XHTTP + Reality. Узнайте, почему личный VPN на VPS — лучшее решение.",
+  "tag": "Сетевые протоколы",
+  "image": "📡",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 1842
+},
+{
+  "id": "protokol-gue-generic-udp-encapsulation",
+  "title": "Протокол GUE (Generic UDP Encapsulation): что это, принцип работы и преимущества",
+  "excerpt": "Полное руководство по протоколу GUE: структура заголовка, преимущества, сравнение с IP-in-IP, GRE и VXLAN, а также роль в построении защищённых туннелей с маскировкой трафика.",
+  "tag": "Сетевые технологии",
+  "image": "🌐",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-23",
+  "views": 0
 }
 ]
