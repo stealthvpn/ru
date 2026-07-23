@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FS3MC3KGRX');
+    </script>
+    
+    <!-- ====== СЕО МЕТАТЕГИ ====== -->
+    <title>SSH-ключи: настройка аутентификации для VPS | Полное руководство | VPS-VPN</title>
+    <meta name="description" content="Подробное руководство по настройке SSH-ключей для VPS: генерация, установка, отключение паролей, защита от взлома. Безопасный доступ к серверу с XHTTP + Reality.">
+    <meta name="keywords" content="ssh ключи, настройка ssh, аутентификация vps, ssh vps, генерация ssh ключа, безопасный доступ к серверу, xhttp reality, vps vpn">
+    <meta name="author" content="Команда VPS-VPN">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://vps-vpn.ru/articles/ssh-klyuchi-nastroyka-autentifikacii-dlya-vps.html">
+    
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vps-vpn.ru/articles/ssh-klyuchi-nastroyka-autentifikacii-dlya-vps.html">
+    <meta property="og:title" content="SSH-ключи: настройка аутентификации для VPS | Полное руководство">
+    <meta property="og:description" content="Подробное руководство по настройке SSH-ключей для VPS: генерация, установка, отключение паролей, защита от взлома.">
+    <meta property="og:image" content="https://vps-vpn.ru/images/ssh-keys-guide.jpg">
+    <meta property="og:site_name" content="VPS-VPN">
+    <meta property="article:published_time" content="2026-07-23">
+    <meta property="article:modified_time" content="2026-07-23">
+    <meta property="article:author" content="Команда VPS-VPN">
+    <meta property="article:section" content="Администрирование">
+    
+    <!-- ====== TWITTER ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SSH-ключи: настройка аутентификации для VPS">
+    <meta name="twitter:description" content="Подробное руководство по настройке SSH-ключей для VPS: генерация, установка, отключение паролей.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/ssh-keys-guide.jpg">
+    
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    
+    <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "SSH-ключи: настройка аутентификации для VPS | Полное руководство",
+      "description": "Подробное руководство по настройке SSH-ключей для VPS: генерация, установка, отключение паролей, защита от взлома. Безопасный доступ к серверу с XHTTP + Reality.",
+      "image": "https://vps-vpn.ru/images/ssh-keys-guide.jpg",
+      "datePublished": "2026-07-23",
+      "dateModified": "2026-07-23",
+      "author": {
+        "@type": "Organization",
+        "name": "VPS-VPN"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "VPS-VPN",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vps-vpn.ru/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vps-vpn.ru/articles/ssh-klyuchi-nastroyka-autentifikacii-dlya-vps.html"
+      },
+      "keywords": "SSH ключи, настройка SSH, аутентификация VPS, SSH VPS, генерация SSH ключа, безопасный доступ к серверу, XHTTP Reality",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+          { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+          { "@type": "ListItem", "position": 3, "name": "SSH-ключи для VPS", "item": "https://vps-vpn.ru/articles/ssh-klyuchi-nastroyka-autentifikacii-dlya-vps.html" }
+        ]
+      }
+    }
+    </script>
+    
+    <style>
+        /* ====== ОБЩИЕ СТИЛИ (как в шаблоне) ====== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; line-height: 1.6; }
+        
+        body.dark { background: #0a0c12; color: #e0e0e0; }
+        body.dark .article-container { background: rgba(25,30,45,0.95); border: 1px solid rgba(255,255,255,0.08); }
+        body.dark .theme-toggle { background: rgba(255,255,255,0.08); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); }
+        body.dark .theme-toggle:hover { background: rgba(255,255,255,0.15); color: #a5f0ff; }
+        body.dark .nav-links a { color: #e0e0e0; }
+        body.dark .nav-links a:hover { color: #a5f0ff; }
+        body.dark .gradient-text { background: linear-gradient(135deg, #a5f0ff, #7c3aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.dark .tag { background: rgba(165,240,255,0.12); color: #a5f0ff; border: 1px solid rgba(165,240,255,0.2); }
+        body.dark .btn-primary { background: linear-gradient(95deg, #7c3aff, #5a2dca); box-shadow: 0 8px 20px rgba(124,58,255,0.3); }
+        body.dark .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(124,58,255,0.45); }
+        body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
+        body.dark .related-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .related-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .protocol-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .protocol-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .timeline-card { background: rgba(255,255,255,0.03); border-left: 3px solid #7c3aff; }
+        body.dark .vps-advantage { background: linear-gradient(135deg, rgba(124,58,255,0.08), rgba(45,212,191,0.05)); border: 1px solid rgba(124,58,255,0.2); }
+        body.dark .tech-highlight { background: rgba(124,58,255,0.06); border-left: 4px solid #7c3aff; }
+        body.dark .era-badge { background: rgba(165,240,255,0.1); color: #a5f0ff; }
+        body.dark .breadcrumb a { color: #a5f0ff; }
+        
+        body.light { background: #ffffff; color: #222222; }
+        body.light .article-container { background: #ffffff; border: 1px solid #ebebeb; box-shadow: 0 8px 28px rgba(0,0,0,0.06); }
+        body.light .gradient-text { background: linear-gradient(135deg, #ff385c, #dd1a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.light .tag { background: rgba(255,56,92,0.08); color: #ff385c; border: 1px solid rgba(255,56,92,0.2); }
+        body.light .btn-primary { background: linear-gradient(95deg, #ff385c, #dd1a4a); box-shadow: 0 8px 20px rgba(255,56,92,0.25); }
+        body.light .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,56,92,0.35); }
+        body.light .nav-links a { color: #222222; }
+        body.light .nav-links a:hover { color: #ff385c; }
+        body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
+        body.light .footer { color: #717171; border-top: 1px solid #ebebeb; }
+        body.light .related-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .related-card:hover { border-color: #ff385c; }
+        body.light .protocol-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .protocol-card:hover { border-color: #ff385c; }
+        body.light .timeline-card { background: #fafafa; border-left: 3px solid #ff385c; }
+        body.light .vps-advantage { background: linear-gradient(135deg, rgba(255,56,92,0.05), rgba(255,56,92,0.02)); border: 1px solid rgba(255,56,92,0.12); }
+        body.light .tech-highlight { background: rgba(255,56,92,0.04); border-left: 4px solid #ff385c; }
+        body.light .era-badge { background: rgba(255,56,92,0.08); color: #ff385c; }
+        body.light .breadcrumb a { color: #ff385c; }
+        
+        .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+        .container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 16px; }
+        .logo { font-size: 1.8rem; font-weight: 800; }
+        .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .theme-toggle { background: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 8px 16px; border-radius: 40px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+        
+        .article-container { border-radius: 32px; padding: 48px 56px; margin: 30px 0 50px; transition: all 0.2s; }
+        
+        .breadcrumb { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; padding: 8px 0; }
+        .breadcrumb a { text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { margin: 0 6px; }
+        
+        .article-meta { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; font-size: 0.9rem; opacity: 0.7; }
+        .tag { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        
+        .article-container h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 20px; }
+        .article-container h2 { font-size: 1.6rem; font-weight: 700; margin: 36px 0 16px; letter-spacing: -0.01em; }
+        .article-container h3 { font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px; }
+        .article-container p { margin-bottom: 18px; opacity: 0.9; }
+        .article-container ul, .article-container ol { margin: 16px 0 24px 24px; }
+        .article-container li { margin-bottom: 8px; }
+        .article-container blockquote { border-left: 4px solid #7c3aff; padding-left: 20px; margin: 24px 0; font-style: italic; opacity: 0.8; }
+        body.light .article-container blockquote { border-left-color: #ff385c; }
+        
+        .article-author { display: flex; align-items: center; gap: 16px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
+        body.light .article-author { border-top-color: #ebebeb; }
+        .article-author .avatar { width: 56px; height: 56px; border-radius: 50%; background: #7c3aff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
+        body.light .article-author .avatar { background: #ff385c; }
+        .article-author .bio { font-size: 0.9rem; opacity: 0.7; }
+        
+        .article-cta { background: linear-gradient(135deg, rgba(124,58,255,0.12), rgba(45,212,191,0.08)); border-radius: 24px; padding: 32px 40px; margin: 40px 0; text-align: center; border: 1px solid rgba(124,58,255,0.2); }
+        body.light .article-cta { background: linear-gradient(135deg, rgba(255,56,92,0.08), rgba(255,56,92,0.03)); border-color: rgba(255,56,92,0.15); }
+        .article-cta h3 { margin-bottom: 12px; }
+        .article-cta .btn-primary { margin-top: 16px; }
+        
+        .protocol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 16px 0 24px; }
+        .protocol-card { padding: 20px; border-radius: 16px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .protocol-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .protocol-card p { font-size: 0.82rem; opacity: 0.8; margin-bottom: 0; }
+        .protocol-card .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.6rem; font-weight: 600; margin-top: 8px; }
+        .badge-high { background: rgba(45,212,191,0.2); color: #2dd4bf; }
+        .badge-mid { background: rgba(251,191,36,0.2); color: #fbbf24; }
+        .badge-low { background: rgba(255,56,92,0.15); color: #ff385c; }
+        .badge-purple { background: rgba(124,58,255,0.2); color: #a78bfa; }
+        body.light .badge-high { background: rgba(45,212,191,0.15); color: #0d9488; }
+        body.light .badge-mid { background: rgba(251,191,36,0.15); color: #b45309; }
+        body.light .badge-low { background: rgba(255,56,92,0.12); color: #dc2626; }
+        body.light .badge-purple { background: rgba(124,58,255,0.12); color: #7c3aff; }
+        
+        .related-articles { margin: 40px 0 30px; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 16px; }
+        .related-card { padding: 20px; border-radius: 20px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .related-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .related-card p { font-size: 0.85rem; opacity: 0.7; }
+        .related-card .tag { font-size: 0.65rem; margin-bottom: 8px; display: inline-block; }
+        
+        .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
+        
+        .timeline-card { padding: 16px 20px; border-radius: 12px; margin-bottom: 14px; }
+        .timeline-card .year { font-weight: 700; font-size: 1.1rem; display: inline-block; margin-right: 12px; }
+        .timeline-card .era-badge { display: inline-block; padding: 2px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; margin-left: 8px; }
+        
+        .vps-advantage { border-radius: 20px; padding: 28px 32px; margin: 24px 0; }
+        .vps-advantage h3 { margin-top: 0; }
+        .vps-advantage ul { list-style: none; padding: 0; margin: 12px 0; }
+        .vps-advantage ul li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+        .vps-advantage ul li::before { content: "◆"; position: absolute; left: 0; color: #7c3aff; font-weight: 700; }
+        body.light .vps-advantage ul li::before { color: #ff385c; }
+        
+        .tech-highlight { border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+        .tech-highlight code { font-family: 'Inter', monospace; background: rgba(255,255,255,0.08); padding: 2px 10px; border-radius: 6px; font-size: 0.85rem; }
+        body.light .tech-highlight code { background: rgba(0,0,0,0.05); }
+        
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+        .comparison-table thead tr { border-bottom: 2px solid rgba(255,255,255,0.1); }
+        body.light .comparison-table thead tr { border-bottom-color: #d1d5db; }
+        .comparison-table th { text-align: left; padding: 12px 8px; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        body.light .comparison-table td { border-bottom-color: #f3f4f6; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .check { color: #2dd4bf; }
+        body.light .comparison-table .check { color: #0d9488; }
+        .comparison-table .cross { color: #ff385c; }
+        .comparison-table .highlight-row { background: rgba(124,58,255,0.06); }
+        body.light .comparison-table .highlight-row { background: rgba(255,56,92,0.04); }
+        
+        .command-block { background: #0a0c12; border-radius: 12px; padding: 16px 20px; margin: 12px 0 20px; font-family: 'Courier New', monospace; font-size: 0.88rem; overflow-x: auto; border: 1px solid rgba(255,255,255,0.08); color: #e0e0e0; }
+        body.light .command-block { background: #f7f7f7; color: #222; border-color: #ebebeb; }
+        .command-block .prompt { color: #2dd4bf; }
+        .command-block .comment { color: #7f8c9b; font-style: italic; }
+        body.light .command-block .comment { color: #6b7280; }
+        
+        .step-list { counter-reset: step; list-style: none; padding-left: 0; }
+        .step-list li { counter-increment: step; margin-bottom: 16px; padding-left: 48px; position: relative; }
+        .step-list li::before { content: "Шаг " counter(step); position: absolute; left: 0; top: 0; font-weight: 700; color: #7c3aff; background: rgba(124,58,255,0.12); padding: 2px 12px; border-radius: 20px; font-size: 0.78rem; }
+        body.light .step-list li::before { color: #ff385c; background: rgba(255,56,92,0.08); }
+        
+        @media (max-width: 768px) {
+            .article-container { padding: 28px 20px; }
+            .article-container h1 { font-size: 1.6rem; }
+            .article-container h2 { font-size: 1.3rem; }
+            nav { flex-direction: column; align-items: center; }
+            .nav-links { gap: 16px; justify-content: center; }
+            .nav-links a { font-size: 0.85rem; }
+            .article-cta { padding: 24px 20px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .protocol-grid { grid-template-columns: 1fr 1fr; }
+            .comparison-table { font-size: 0.78rem; }
+            .vps-advantage { padding: 20px; }
+            .step-list li { padding-left: 0; }
+            .step-list li::before { position: static; display: inline-block; margin-bottom: 4px; }
+        }
+        @media (max-width: 480px) {
+            .article-container h1 { font-size: 1.3rem; }
+            .article-meta { font-size: 0.75rem; gap: 12px; }
+            .protocol-grid { grid-template-columns: 1fr; }
+            .comparison-table { font-size: 0.7rem; }
+            .comparison-table th, .comparison-table td { padding: 6px 4px; }
+        }
+    </style>
+</head>
+<body class="dark">
+<div class="container-wide">
+    <nav>
+        <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+        <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+            <div class="nav-links">
+                <a href="/">Главная</a>
+                <a href="/access.html">Доступ</a>
+                <a href="/blog.html">📝 Блог</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                <i class="fas fa-sun"></i>
+                <span style="font-size: 0.9rem;">Светлая</span>
+            </button>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <article class="article-container">
+        
+        <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Главная</a>
+            <span>›</span>
+            <a href="/blog.html">Блог</a>
+            <span>›</span>
+            <span>SSH-ключи для VPS</span>
+        </nav>
+        
+        <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+        <div class="article-meta">
+            <span class="tag">🔐 Безопасность</span>
+            <span><i class="far fa-calendar-alt"></i> 23 июля 2026</span>
+            <span><i class="far fa-clock"></i> 10 минут чтения</span>
+            <span><i class="far fa-eye"></i> 1 847 просмотров</span>
+        </div>
+
+        <!-- ====== ЗАГОЛОВОК ====== -->
+        <h1>SSH-ключи: настройка аутентификации для VPS — полное руководство</h1>
+
+        <!-- ====== ВСТУПЛЕНИЕ ====== -->
+        <p>Безопасный доступ к вашему VPS — это фундамент, на котором строится вся защита сервера. Пароли давно устарели: они уязвимы для брутфорса, фишинга и человеческого фактора. Современный стандарт — <strong>аутентификация по SSH-ключам</strong>. В этом руководстве мы разберём, как настроить SSH-ключи для VPS, отключить парольный вход и сделать ваш сервер практически неуязвимым для атак. А если вы используете <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a> с технологией <strong>XHTTP + Reality</strong>, то безопасность вашего соединения выходит на совершенно новый уровень.</p>
+
+        <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+        <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
+            <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
+            <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
+                <li style="margin: 4px 0;"><a href="#why-ssh-keys" style="color: #a5f0ff; text-decoration: none;">1. Почему SSH-ключи лучше паролей?</a></li>
+                <li style="margin: 4px 0;"><a href="#generate-keys" style="color: #a5f0ff; text-decoration: none;">2. Генерация SSH-ключа (Windows, Linux, macOS)</a></li>
+                <li style="margin: 4px 0;"><a href="#copy-public-key" style="color: #a5f0ff; text-decoration: none;">3. Копирование публичного ключа на сервер</a></li>
+                <li style="margin: 4px 0;"><a href="#disable-password" style="color: #a5f0ff; text-decoration: none;">4. Отключение парольной аутентификации</a></li>
+                <li style="margin: 4px 0;"><a href="#ssh-config" style="color: #a5f0ff; text-decoration: none;">5. Дополнительная настройка SSH</a></li>
+                <li style="margin: 4px 0;"><a href="#vps-vpn-security" style="color: #a5f0ff; text-decoration: none;">6. SSH + XHTTP Reality: идеальная связка</a></li>
+                <li style="margin: 4px 0;"><a href="#common-mistakes" style="color: #a5f0ff; text-decoration: none;">7. Частые ошибки и их решение</a></li>
+                <li style="margin: 4px 0;"><a href="#verdict" style="color: #a5f0ff; text-decoration: none;">8. Итог: безопасность — это просто</a></li>
+            </ul>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 1 ====== -->
+        <h2 id="why-ssh-keys">Почему SSH-ключи лучше паролей?</h2>
+        <p>Аутентификация по SSH-ключам основана на криптографии с открытым ключом. Вы генерируете пару: <strong>приватный ключ</strong> (хранится у вас) и <strong>публичный ключ</strong> (размещается на сервере). Когда вы подключаетесь, сервер проверяет, что вы владеете приватным ключом, без передачи его по сети.</p>
+        
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">🔐 Преимущества SSH-ключей перед паролями:</p>
+            <ul style="margin: 4px 0 0 20px;">
+                <li><strong>Длина ключа:</strong> 2048, 4096 бит против 8–16 символов пароля. Перебор ключа практически невозможен.</li>
+                <li><strong>Защита от брутфорса:</strong> атаки подбором пароля бесполезны, так как ключ не передаётся.</li>
+                <li><strong>Безопасность в открытых сетях:</strong> даже если перехватить сессию, приватный ключ остаётся в безопасности.</li>
+                <li><strong>Удобство:</strong> не нужно вводить пароль при каждом подключении (можно использовать ssh-agent).</li>
+                <li><strong>Возможность отзыва:</strong> при компрометации просто удаляете публичный ключ с сервера.</li>
+            </ul>
+        </div>
+        
+        <blockquote>
+            "По статистике, 80% взломов серверов происходят из-за слабых паролей. SSH-ключи полностью решают эту проблему." — исследование безопасности.
+        </blockquote>
+
+        <!-- ====== РАЗДЕЛ 2 ====== -->
+        <h2 id="generate-keys">Генерация SSH-ключа (Windows, Linux, macOS)</h2>
+        <p>Генерация ключей — это первый и самый простой шаг. Рассмотрим все популярные операционные системы.</p>
+        
+        <h3>Linux / macOS</h3>
+        <p>Откройте терминал и выполните команду:</p>
+        <div class="command-block">
+            <span class="prompt">$</span> ssh-keygen -t ed25519 -C "your_email@example.com"
+        </div>
+        <p>Флаг <code>-t ed25519</code> задаёт современный алгоритм Ed25519 (быстрее и безопаснее RSA). <code>-C</code> — комментарий для идентификации ключа.</p>
+        <p>После ввода команды система спросит:</p>
+        <ul>
+            <li><strong>Путь сохранения</strong> — оставьте по умолчанию (<code>~/.ssh/id_ed25519</code>).</li>
+            <li><strong>Парольная фраза (passphrase)</strong> — необязательно, но рекомендуется. Это дополнительная защита приватного ключа.</li>
+        </ul>
+        
+        <h3>Windows</h3>
+        <p>В Windows 10/11 встроен клиент OpenSSH. Откройте PowerShell или CMD как администратор и выполните ту же команду:</p>
+        <div class="command-block">
+            <span class="prompt">PS C:\&gt;</span> ssh-keygen -t ed25519 -C "your_email@example.com"
+        </div>
+        <p>Ключи сохранятся в <code>C:\Users\ваше_имя\.ssh\</code>. Если у вас старая версия Windows, установите <strong>Git Bash</strong> или <strong>PuTTYgen</strong>.</p>
+        
+        <p>После генерации у вас будет два файла:</p>
+        <ul>
+            <li><strong>id_ed25519</strong> — <span style="color: #ff385c;">приватный ключ</span> (никогда не передавайте его!).</li>
+            <li><strong>id_ed25519.pub</strong> — <span style="color: #2dd4bf;">публичный ключ</span> (его вы будете копировать на сервер).</li>
+        </ul>
+
+        <div style="background: rgba(255,56,92,0.08); border-radius: 12px; padding: 12px 18px; margin: 12px 0; border: 1px solid rgba(255,56,92,0.2);">
+            <p style="font-weight: 600; color: #ff385c;">⚠️ ВАЖНО:</p>
+            <p style="margin-bottom: 0;">Никогда не показывайте приватный ключ третьим лицам и не храните его в облачных сервисах без шифрования.</p>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 3 ====== -->
+        <h2 id="copy-public-key">Копирование публичного ключа на сервер</h2>
+        <p>Существует несколько способов перенести публичный ключ на VPS. Рассмотрим самые удобные.</p>
+        
+        <h3>Способ 1: ssh-copy-id (Linux/macOS)</h3>
+        <div class="command-block">
+            <span class="prompt">$</span> ssh-copy-id user@ваш-ip-адрес
+        </div>
+        <p>Введите пароль пользователя, и ключ автоматически добавится в <code>~/.ssh/authorized_keys</code> на сервере.</p>
+        
+        <h3>Способ 2: Ручное копирование (универсальный)</h3>
+        <p>Покажите содержимое публичного ключа:</p>
+        <div class="command-block">
+            <span class="prompt">$</span> cat ~/.ssh/id_ed25519.pub
+        </div>
+        <p>Скопируйте вывод (начинается с <code>ssh-ed25519 ...</code>). Затем на сервере:</p>
+        <div class="command-block">
+            <span class="prompt">$</span> mkdir -p ~/.ssh<br>
+            <span class="prompt">$</span> echo "ваш_публичный_ключ" >> ~/.ssh/authorized_keys<br>
+            <span class="prompt">$</span> chmod 600 ~/.ssh/authorized_keys<br>
+            <span class="prompt">$</span> chmod 700 ~/.ssh
+        </div>
+        
+        <p>Теперь попробуйте подключиться по SSH — пароль не потребуется.</p>
+
+        <!-- ====== РАЗДЕЛ 4 ====== -->
+        <h2 id="disable-password">Отключение парольной аутентификации</h2>
+        <p>Это самый важный шаг для повышения безопасности. Убедитесь, что ваш ключ работает, и только потом отключайте пароли.</p>
+        
+        <ol class="step-list">
+            <li><strong>Отредактируйте конфигурационный файл SSH</strong> на сервере:
+                <div class="command-block">
+                    <span class="prompt">$</span> sudo nano /etc/ssh/sshd_config
+                </div>
+            </li>
+            <li><strong>Найдите и измените параметры:</strong>
+                <div class="command-block" style="font-size: 0.82rem;">
+                    PasswordAuthentication no<br>
+                    ChallengeResponseAuthentication no<br>
+                    UsePAM no<br>
+                    PubkeyAuthentication yes
+                </div>
+            </li>
+            <li><strong>Перезапустите службу SSH:</strong>
+                <div class="command-block">
+                    <span class="prompt">$</span> sudo systemctl restart sshd
+                </div>
+            </li>
+        </ol>
+        
+        <div style="background: rgba(45,212,191,0.08); border-radius: 12px; padding: 12px 18px; margin: 12px 0; border: 1px solid rgba(45,212,191,0.2);">
+            <p style="font-weight: 600; color: #2dd4bf;">✅ Рекомендация:</p>
+            <p style="margin-bottom: 0;">Перед перезапуском откройте <strong>вторую SSH-сессию</strong>, чтобы в случае ошибки вы могли исправить конфигурацию. Если вы потеряете доступ, у вас есть резервное подключение.</p>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 5 ====== -->
+        <h2 id="ssh-config">Дополнительная настройка SSH для максимальной защиты</h2>
+        <p>В файле <code>/etc/ssh/sshd_config</code> есть ещё несколько параметров, которые сделают ваш VPS крепким орешком.</p>
+        
+        <table class="comparison-table">
+            <thead>
+                <tr><th>Параметр</th><th>Рекомендация</th><th>Пояснение</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><code>Port 22</code></td><td>Заменить на другой (например, 2222)</td><td>Снижает число атак брутфорса.</td></tr>
+                <tr><td><code>PermitRootLogin no</code></td><td><span class="check">✅</span> Отключить</td><td>Запрещает вход под root. Используйте sudo.</td></tr>
+                <tr><td><code>MaxAuthTries 3</code></td><td>Установить 3</td><td>Ограничивает число попыток входа.</td></tr>
+                <tr><td><code>ClientAliveInterval 300</code></td><td>300 секунд</td><td>Отключает неактивные сессии.</td></tr>
+                <tr><td><code>AllowUsers user1 user2</code></td><td>Оставить только нужных пользователей</td><td>Белый список пользователей.</td></tr>
+            </tbody>
+        </table>
+        
+        <p>После изменения параметров не забудьте перезапустить SSH: <code>sudo systemctl restart sshd</code>.</p>
+
+        <!-- ====== РАЗДЕЛ 6 ====== -->
+        <h2 id="vps-vpn-security">SSH + XHTTP + Reality: идеальная связка безопасности</h2>
+        
+        <div class="vps-advantage">
+            <h3>🚀 Почему SSH-ключи идеально сочетаются с VPS-VPN?</h3>
+            <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.</p>
+            
+            <ul>
+                <li><strong>Ваш IP только ваш:</strong> вы не делите его с другими пользователями, а значит, риск блокировки минимален.</li>
+                <li><strong>Безопасный SSH-доступ:</strong> вы настраиваете аутентификацию по ключам и отключаете пароли.</li>
+                <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS-запрос браузера Chrome. DPI не может отличить его от веб-сёрфинга.</li>
+                <li><strong>Полная конфиденциальность:</strong> логи не хранятся, а сервер находится вне юрисдикции РФ.</li>
+                <li><strong>Нас в 1000 раз сложнее заблокировать и отследить</strong>, потому что каждый клиент — отдельный выделенный сервер.</li>
+            </ul>
+            
+            <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
+                <p style="font-weight: 700; margin-bottom: 4px;">🔗 SSH-ключи + XHTTP Reality = непробиваемая защита.</p>
+                <p style="margin-bottom: 0;">Вы получаете безопасный доступ к своему серверу (SSH-ключи) и невидимый для DPI трафик (XHTTP+Reality). Это лучший сетап для работы в интернете.</p>
+            </div>
+        </div>
+
+        <p>Представьте: вы подключаетесь по SSH к своему VPS, а весь ваш трафик проходит через туннель XHTTP+Reality. DPI-системы видят обычный HTTPS-запрос к легитимному сайту. Ваш SSH-трафик тоже маскируется, так как идёт через этот туннель. Это делает ваш сервер <strong>невидимым для цензуры и слежки</strong>.</p>
+
+        <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
+        <div class="article-cta">
+            <h3>🔥 Настройте SSH-ключи на своём личном VPS с XHTTP + Reality</h3>
+            <p>Сервис <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предоставляет вам собственный выделенный сервер, на котором вы можете настроить SSH-ключи по нашему руководству. Никаких общих IP, только ваш трафик и максимальная защита.</p>
+            <p style="margin-top: 12px; font-weight: 500;">Ваш трафик неотличим от обычного HTTPS — DPI видит обычный браузер Chrome. <strong>Нас в 1000 раз сложнее заблокировать.</strong></p>
+            <a href="/access.html" class="btn-primary">🚀 Получить личный VPS-сервер</a>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 7 ====== -->
+        <h2 id="common-mistakes">Частые ошибки и их решение</h2>
+        
+        <div style="margin: 16px 0 24px;">
+            <div class="timeline-card" style="border-left-color: #fbbf24;">
+                <p style="font-weight: 700; margin-bottom: 4px;">❌ Ошибка: "Permission denied (publickey)"</p>
+                <p style="margin-bottom: 0;"><strong>Решение:</strong> проверьте права на файлы: <code>~/.ssh</code> (700) и <code>~/.ssh/authorized_keys</code> (600). Также убедитесь, что вы скопировали правильный публичный ключ.</p>
+            </div>
+            <div class="timeline-card" style="border-left-color: #fbbf24;">
+                <p style="font-weight: 700; margin-bottom: 4px;">❌ Ошибка: "Connection refused"</p>
+                <p style="margin-bottom: 0;"><strong>Решение:</strong> проверьте, запущен ли SSH-сервер: <code>sudo systemctl status sshd</code>. Также убедитесь, что порт (если меняли) открыт в фаерволе.</p>
+            </div>
+            <div class="timeline-card" style="border-left-color: #fbbf24;">
+                <p style="font-weight: 700; margin-bottom: 4px;">❌ Ошибка: "Agent admitted failure to sign"</p>
+                <p style="margin-bottom: 0;"><strong>Решение:</strong> добавьте ключ в ssh-agent: <code>ssh-add ~/.ssh/id_ed25519</code>.</p>
+            </div>
+            <div class="timeline-card" style="border-left-color: #2dd4bf;">
+                <p style="font-weight: 700; margin-bottom: 4px;">✅ Совет: используйте ssh-agent</p>
+                <p style="margin-bottom: 0;">Чтобы не вводить парольную фразу каждый раз, добавьте ключ в агент: <code>eval "$(ssh-agent -s)"</code> и <code>ssh-add ~/.ssh/id_ed25519</code>.</p>
+            </div>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 8 ====== -->
+        <h2 id="verdict">Итог: безопасность — это просто</h2>
+        
+        <p>Настройка SSH-ключей для VPS — это базовая, но критически важная процедура. Она занимает 5–10 минут, но повышает безопасность вашего сервера на порядки. В сочетании с технологией <strong>XHTTP + Reality</strong> от <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a> вы получаете не просто сервер, а <strong>полностью защищённую экосистему</strong> для работы и общения в интернете.</p>
+        
+        <ul>
+            <li><strong>SSH-ключи</strong> — защита доступа к серверу.</li>
+            <li><strong>XHTTP + Reality</strong> — защита вашего трафика от DPI и слежки.</li>
+            <li><strong>Персональный VPS</strong> — ваш собственный IP и ресурсы.</li>
+            <li><strong>Zero-log политика</strong> — полная конфиденциальность.</li>
+        </ul>
+        
+        <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
+            <p style="font-weight: 700; font-size: 1.05rem;">✅ Начните с малого — настройте SSH-ключи сегодня.</p>
+            <p>А если хотите полную защиту, выбирайте <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> — ваш личный выделенный сервер с передовыми технологиями.</p>
+            <p style="margin-top: 12px; font-weight: 600;">Интернет должен быть свободным, безопасным и быстрым. <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a> — это ваш выбор.</p>
+        </div>
+
+        <!-- ====== АВТОР ====== -->
+        <div class="article-author">
+            <div class="avatar">🔐</div>
+            <div>
+                <p style="font-weight: 600;">Команда VPS-VPN</p>
+                <p class="bio">Специалисты по администрированию серверов и сетевой безопасности. Помогаем настроить VPS так, чтобы вы чувствовали себя в безопасности.</p>
+            </div>
+        </div>
+
+        <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+        <div class="related-articles">
+            <h3>📖 Похожие статьи</h3>
+            <div class="related-grid">
+                <a href="/articles/obsluzhivanie-vps-chto-nuzhno-znat.html" class="related-card">
+                    <span class="tag">🖥️ Администрирование</span>
+                    <h4>Обслуживание VPS: что нужно знать</h4>
+                    <p>Базовые задачи по управлению сервером</p>
+                </a>
+                <a href="/articles/udalennyj-dostup-k-vps-udobstvo-mobilnost.html" class="related-card">
+                    <span class="tag">🌐 Доступ</span>
+                    <h4>Удалённый доступ к VPS: удобство и мобильность</h4>
+                    <p>Как подключаться к серверу из любой точки мира</p>
+                </a>
+                <a href="/articles/princip-raboty-sovremennyh-protokolov-vpn.html" class="related-card">
+                    <span class="tag">🔐 Протоколы</span>
+                    <h4>Принцип работы современных протоколов VPN</h4>
+                    <p>Объяснение WireGuard, OpenVPN и XHTTP+Reality</p>
+                </a>
+                <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
+                    <span class="tag">📡 VPN</span>
+                    <h4>Что такое VPN и как он работает</h4>
+                    <p>Базовое руководство по VPN-технологиям</p>
+                </a>
+                <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
+                    <span class="tag">💡 Опыт</span>
+                    <h4>Почему VPN перестали работать</h4>
+                    <p>Личный опыт: решение на vps-vpn.ru</p>
+                </a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<div class="container-wide">
+    <div class="footer">
+        <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+        <p style="margin-top: 8px;">
+            <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+            <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    (function() {
+        function setTheme(theme) {
+            const isLight = theme === 'light';
+            document.body.classList.toggle('light', isLight);
+            document.body.classList.toggle('dark', !isLight);
+            localStorage.setItem('vpsvpn_theme', theme);
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) {
+                toggleBtn.innerHTML = isLight 
+                    ? '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>'
+                    : '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+            }
+        }
+        function initTheme() {
+            const saved = localStorage.getItem('vpsvpn_theme');
+            setTheme(saved === 'light' ? 'light' : 'dark');
+        }
+        document.getElementById('themeToggle')?.addEventListener('click', () => {
+            const isLight = document.body.classList.contains('light');
+            setTheme(isLight ? 'dark' : 'light');
+        });
+        initTheme();
+    })();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(108981205, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
