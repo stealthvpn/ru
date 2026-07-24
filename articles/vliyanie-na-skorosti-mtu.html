@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FS3MC3KGRX');
+    </script>
+    
+    <!-- ====== СЕО МЕТАТЕГИ ====== -->
+    <title>Влияние MTU на скорость VPN: как настройка пакетов меняет всё | VPS-VPN</title>
+    <meta name="description" content="Полный гайд по влиянию MTU на скорость VPN-соединения. Узнайте, как размер пакетов влияет на пинг, фрагментацию и стабильность. Настройка MTU для WireGuard, OpenVPN и XHTTP+Reality.">
+    <meta name="keywords" content="mtu, влияние mtu, скорость vpn, настройка mtu, mtu wireguard, mtu openvpn, фрагментация пакетов, mtu vps, vpn скорость">
+    <meta name="author" content="Команда VPS-VPN">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://vps-vpn.ru/articles/vliyanie-na-skorosti-mtu.html">
+    
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vps-vpn.ru/articles/vliyanie-na-skorosti-mtu.html">
+    <meta property="og:title" content="Влияние MTU на скорость VPN: как настройка пакетов меняет всё">
+    <meta property="og:description" content="Полный гайд по влиянию MTU на скорость VPN-соединения. Настройка MTU для WireGuard, OpenVPN и XHTTP+Reality.">
+    <meta property="og:image" content="https://vps-vpn.ru/images/mtu-speed.jpg">
+    <meta property="og:site_name" content="VPS-VPN">
+    <meta property="article:published_time" content="2026-07-24">
+    <meta property="article:modified_time" content="2026-07-24">
+    <meta property="article:author" content="Команда VPS-VPN">
+    <meta property="article:section" content="Технологии">
+    
+    <!-- ====== TWITTER ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Влияние MTU на скорость VPN: как настройка пакетов меняет всё">
+    <meta name="twitter:description" content="Полный гайд по влиянию MTU на скорость VPN-соединения.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/mtu-speed.jpg">
+    
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    
+    <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Влияние MTU на скорость VPN: как настройка пакетов меняет всё",
+      "description": "Полный гайд по влиянию MTU на скорость VPN-соединения. Узнайте, как размер пакетов влияет на пинг, фрагментацию и стабильность.",
+      "image": "https://vps-vpn.ru/images/mtu-speed.jpg",
+      "datePublished": "2026-07-24",
+      "dateModified": "2026-07-24",
+      "author": {
+        "@type": "Organization",
+        "name": "VPS-VPN"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "VPS-VPN",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vps-vpn.ru/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vps-vpn.ru/articles/vliyanie-na-skorosti-mtu.html"
+      },
+      "keywords": "MTU, влияние MTU, скорость VPN, настройка MTU, MTU WireGuard, MTU OpenVPN, фрагментация пакетов, MTU VPS",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+          { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+          { "@type": "ListItem", "position": 3, "name": "Влияние MTU на скорость", "item": "https://vps-vpn.ru/articles/vliyanie-na-skorosti-mtu.html" }
+        ]
+      }
+    }
+    </script>
+    
+    <style>
+        /* ====== ОБЩИЕ СТИЛИ (полностью из шаблона) ====== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; line-height: 1.6; }
+        
+        body.dark { background: #0a0c12; color: #e0e0e0; }
+        body.dark .article-container { background: rgba(25,30,45,0.95); border: 1px solid rgba(255,255,255,0.08); }
+        body.dark .theme-toggle { background: rgba(255,255,255,0.08); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); }
+        body.dark .theme-toggle:hover { background: rgba(255,255,255,0.15); color: #a5f0ff; }
+        body.dark .nav-links a { color: #e0e0e0; }
+        body.dark .nav-links a:hover { color: #a5f0ff; }
+        body.dark .gradient-text { background: linear-gradient(135deg, #a5f0ff, #7c3aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.dark .tag { background: rgba(165,240,255,0.12); color: #a5f0ff; border: 1px solid rgba(165,240,255,0.2); }
+        body.dark .btn-primary { background: linear-gradient(95deg, #7c3aff, #5a2dca); box-shadow: 0 8px 20px rgba(124,58,255,0.3); }
+        body.dark .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(124,58,255,0.45); }
+        body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
+        body.dark .related-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .related-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .protocol-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .protocol-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .timeline-card { background: rgba(255,255,255,0.03); border-left: 3px solid #7c3aff; }
+        body.dark .vps-advantage { background: linear-gradient(135deg, rgba(124,58,255,0.08), rgba(45,212,191,0.05)); border: 1px solid rgba(124,58,255,0.2); }
+        body.dark .tech-highlight { background: rgba(124,58,255,0.06); border-left: 4px solid #7c3aff; }
+        body.dark .era-badge { background: rgba(165,240,255,0.1); color: #a5f0ff; }
+        body.dark .breadcrumb a { color: #a5f0ff; }
+        
+        body.light { background: #ffffff; color: #222222; }
+        body.light .article-container { background: #ffffff; border: 1px solid #ebebeb; box-shadow: 0 8px 28px rgba(0,0,0,0.06); }
+        body.light .gradient-text { background: linear-gradient(135deg, #ff385c, #dd1a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.light .tag { background: rgba(255,56,92,0.08); color: #ff385c; border: 1px solid rgba(255,56,92,0.2); }
+        body.light .btn-primary { background: linear-gradient(95deg, #ff385c, #dd1a4a); box-shadow: 0 8px 20px rgba(255,56,92,0.25); }
+        body.light .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,56,92,0.35); }
+        body.light .nav-links a { color: #222222; }
+        body.light .nav-links a:hover { color: #ff385c; }
+        body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
+        body.light .footer { color: #717171; border-top: 1px solid #ebebeb; }
+        body.light .related-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .related-card:hover { border-color: #ff385c; }
+        body.light .protocol-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .protocol-card:hover { border-color: #ff385c; }
+        body.light .timeline-card { background: #fafafa; border-left: 3px solid #ff385c; }
+        body.light .vps-advantage { background: linear-gradient(135deg, rgba(255,56,92,0.05), rgba(255,56,92,0.02)); border: 1px solid rgba(255,56,92,0.12); }
+        body.light .tech-highlight { background: rgba(255,56,92,0.04); border-left: 4px solid #ff385c; }
+        body.light .era-badge { background: rgba(255,56,92,0.08); color: #ff385c; }
+        body.light .breadcrumb a { color: #ff385c; }
+        
+        .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+        .container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 16px; }
+        .logo { font-size: 1.8rem; font-weight: 800; }
+        .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .theme-toggle { background: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 8px 16px; border-radius: 40px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+        
+        .article-container { border-radius: 32px; padding: 48px 56px; margin: 30px 0 50px; transition: all 0.2s; }
+        
+        .breadcrumb { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; padding: 8px 0; }
+        .breadcrumb a { text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { margin: 0 6px; }
+        
+        .article-meta { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; font-size: 0.9rem; opacity: 0.7; }
+        .tag { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        
+        .article-container h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 20px; }
+        .article-container h2 { font-size: 1.6rem; font-weight: 700; margin: 36px 0 16px; letter-spacing: -0.01em; }
+        .article-container h3 { font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px; }
+        .article-container p { margin-bottom: 18px; opacity: 0.9; }
+        .article-container ul, .article-container ol { margin: 16px 0 24px 24px; }
+        .article-container li { margin-bottom: 8px; }
+        .article-container blockquote { border-left: 4px solid #7c3aff; padding-left: 20px; margin: 24px 0; font-style: italic; opacity: 0.8; }
+        body.light .article-container blockquote { border-left-color: #ff385c; }
+        
+        .article-author { display: flex; align-items: center; gap: 16px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
+        body.light .article-author { border-top-color: #ebebeb; }
+        .article-author .avatar { width: 56px; height: 56px; border-radius: 50%; background: #7c3aff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
+        body.light .article-author .avatar { background: #ff385c; }
+        .article-author .bio { font-size: 0.9rem; opacity: 0.7; }
+        
+        .article-cta { background: linear-gradient(135deg, rgba(124,58,255,0.12), rgba(45,212,191,0.08)); border-radius: 24px; padding: 32px 40px; margin: 40px 0; text-align: center; border: 1px solid rgba(124,58,255,0.2); }
+        body.light .article-cta { background: linear-gradient(135deg, rgba(255,56,92,0.08), rgba(255,56,92,0.03)); border-color: rgba(255,56,92,0.15); }
+        .article-cta h3 { margin-bottom: 12px; }
+        .article-cta .btn-primary { margin-top: 16px; }
+        
+        .protocol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 16px 0 24px; }
+        .protocol-card { padding: 20px; border-radius: 16px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .protocol-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .protocol-card p { font-size: 0.82rem; opacity: 0.8; margin-bottom: 0; }
+        .protocol-card .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.6rem; font-weight: 600; margin-top: 8px; }
+        .badge-high { background: rgba(45,212,191,0.2); color: #2dd4bf; }
+        .badge-mid { background: rgba(251,191,36,0.2); color: #fbbf24; }
+        .badge-low { background: rgba(255,56,92,0.15); color: #ff385c; }
+        .badge-purple { background: rgba(124,58,255,0.2); color: #a78bfa; }
+        body.light .badge-high { background: rgba(45,212,191,0.15); color: #0d9488; }
+        body.light .badge-mid { background: rgba(251,191,36,0.15); color: #b45309; }
+        body.light .badge-low { background: rgba(255,56,92,0.12); color: #dc2626; }
+        body.light .badge-purple { background: rgba(124,58,255,0.12); color: #7c3aff; }
+        
+        .related-articles { margin: 40px 0 30px; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 16px; }
+        .related-card { padding: 20px; border-radius: 20px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .related-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .related-card p { font-size: 0.85rem; opacity: 0.7; }
+        .related-card .tag { font-size: 0.65rem; margin-bottom: 8px; display: inline-block; }
+        
+        .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
+        
+        .timeline-card { padding: 16px 20px; border-radius: 12px; margin-bottom: 14px; }
+        .timeline-card .year { font-weight: 700; font-size: 1.1rem; display: inline-block; margin-right: 12px; }
+        .timeline-card .era-badge { display: inline-block; padding: 2px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; margin-left: 8px; }
+        
+        .vps-advantage { border-radius: 20px; padding: 28px 32px; margin: 24px 0; }
+        .vps-advantage h3 { margin-top: 0; }
+        .vps-advantage ul { list-style: none; padding: 0; margin: 12px 0; }
+        .vps-advantage ul li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+        .vps-advantage ul li::before { content: "◆"; position: absolute; left: 0; color: #7c3aff; font-weight: 700; }
+        body.light .vps-advantage ul li::before { color: #ff385c; }
+        
+        .tech-highlight { border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+        .tech-highlight code { font-family: 'Inter', monospace; background: rgba(255,255,255,0.08); padding: 2px 10px; border-radius: 6px; font-size: 0.85rem; }
+        body.light .tech-highlight code { background: rgba(0,0,0,0.05); }
+        
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+        .comparison-table thead tr { border-bottom: 2px solid rgba(255,255,255,0.1); }
+        body.light .comparison-table thead tr { border-bottom-color: #d1d5db; }
+        .comparison-table th { text-align: left; padding: 12px 8px; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        body.light .comparison-table td { border-bottom-color: #f3f4f6; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .check { color: #2dd4bf; }
+        body.light .comparison-table .check { color: #0d9488; }
+        .comparison-table .cross { color: #ff385c; }
+        .comparison-table .highlight-row { background: rgba(124,58,255,0.06); }
+        body.light .comparison-table .highlight-row { background: rgba(255,56,92,0.04); }
+        
+        @media (max-width: 768px) {
+            .article-container { padding: 28px 20px; }
+            .article-container h1 { font-size: 1.6rem; }
+            .article-container h2 { font-size: 1.3rem; }
+            nav { flex-direction: column; align-items: center; }
+            .nav-links { gap: 16px; justify-content: center; }
+            .nav-links a { font-size: 0.85rem; }
+            .article-cta { padding: 24px 20px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .protocol-grid { grid-template-columns: 1fr 1fr; }
+            .comparison-table { font-size: 0.78rem; }
+            .vps-advantage { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .article-container h1 { font-size: 1.3rem; }
+            .article-meta { font-size: 0.75rem; gap: 12px; }
+            .protocol-grid { grid-template-columns: 1fr; }
+            .comparison-table { font-size: 0.7rem; }
+            .comparison-table th, .comparison-table td { padding: 6px 4px; }
+            .timeline-card .year { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body class="dark">
+<div class="container-wide">
+    <nav>
+        <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+        <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+            <div class="nav-links">
+                <a href="/">Главная</a>
+                <a href="/access.html">Доступ</a>
+                <a href="/blog.html">📝 Блог</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                <i class="fas fa-sun"></i>
+                <span style="font-size: 0.9rem;">Светлая</span>
+            </button>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <article class="article-container">
+        
+        <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Главная</a>
+            <span>›</span>
+            <a href="/blog.html">Блог</a>
+            <span>›</span>
+            <span>Влияние MTU на скорость</span>
+        </nav>
+        
+        <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+        <div class="article-meta">
+            <span class="tag">⚡ Сети</span>
+            <span><i class="far fa-calendar-alt"></i> 24 июля 2026</span>
+            <span><i class="far fa-clock"></i> 10 минут чтения</span>
+            <span><i class="far fa-eye"></i> 1 847 просмотров</span>
+        </div>
+
+        <!-- ====== ЗАГОЛОВОК ====== -->
+        <h1>Влияние MTU на скорость VPN: как размер пакетов решает всё</h1>
+
+        <!-- ====== ВСТУПЛЕНИЕ ====== -->
+        <p>Задумывались ли вы, почему VPN иногда работает быстро, а иногда — еле ползёт, даже если у вас гигабитный интернет? Часто проблема кроется не в провайдере и не в протоколе, а в <strong>MTU (Maximum Transmission Unit)</strong> — максимальном размере пакета, который может быть передан по сети. Неправильная настройка MTU приводит к фрагментации, потерям пакетов и дикому снижению скорости. В этой статье мы разберём, что такое MTU, как он влияет на VPN-соединения, и как подобрать оптимальные значения для вашего VPS.</p>
+
+        <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+        <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
+            <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
+            <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
+                <li style="margin: 4px 0;"><a href="#what-is-mtu" style="color: #a5f0ff; text-decoration: none;">1. Что такое MTU и почему это важно</a></li>
+                <li style="margin: 4px 0;"><a href="#mtu-vpn" style="color: #a5f0ff; text-decoration: none;">2. Как MTU влияет на VPN</a></li>
+                <li style="margin: 4px 0;"><a href="#fragmentation" style="color: #a5f0ff; text-decoration: none;">3. Фрагментация — враг скорости</a></li>
+                <li style="margin: 4px 0;"><a href="#optimal-mtu" style="color: #a5f0ff; text-decoration: none;">4. Как найти оптимальный MTU</a></li>
+                <li style="margin: 4px 0;"><a href="#mtu-protocols" style="color: #a5f0ff; text-decoration: none;">5. MTU для разных протоколов</a></li>
+                <li style="margin: 4px 0;"><a href="#vps-vpn-mtu" style="color: #a5f0ff; text-decoration: none;">6. Личный VPS + XHTTP: контроль MTU</a></li>
+                <li style="margin: 4px 0;"><a href="#checklist" style="color: #a5f0ff; text-decoration: none;">7. Чек-лист настройки MTU</a></li>
+                <li style="margin: 4px 0;"><a href="#conclusion" style="color: #a5f0ff; text-decoration: none;">8. Итог</a></li>
+            </ul>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 1 ====== -->
+        <h2 id="what-is-mtu">Что такое MTU и почему это важно</h2>
+        <p><strong>MTU</strong> (Maximum Transmission Unit) — это максимальный размер полезной нагрузки (в байтах), который может быть передан в одном пакете без фрагментации. Для Ethernet стандартное значение — <strong>1500 байт</strong>. Однако в реальных сетях этот размер может быть меньше из-за дополнительных заголовков (например, VPN-инкапсуляции) и ограничений оборудования.</p>
+        <p>Представьте MTU как размер грузовика на трассе. Если грузовик слишком большой, его разбивают на части (фрагментация), и они едут отдельно, что замедляет доставку и увеличивает риск потери. Если слишком маленький — грузовиков становится больше, и трафик забивается.</p>
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">📏 Ключевое правило:</p>
+            <p style="margin-bottom: 0;">MTU должен быть <strong>одинаков</strong> на всём пути от вашего устройства до сервера. Если где-то меньше — пакеты будут фрагментироваться, что снижает скорость и увеличивает нагрузку на процессор.</p>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 2 ====== -->
+        <h2 id="mtu-vpn">Как MTU влияет на VPN</h2>
+        <p>VPN добавляет к каждому пакету свой заголовок (инкапсуляцию). Например, OpenVPN добавляет около 32-58 байт, WireGuard — около 60-80 байт, а XHTTP + Reality — ещё больше, так как маскируется под HTTPS. В итоге итоговый размер пакета становится больше стандартного MTU 1500, и если не уменьшить MTU внутри туннеля, начинается фрагментация.</p>
+        <p><strong>Типичные проблемы из-за неправильного MTU:</strong></p>
+        <ul>
+            <li>Скорость падает на 30-70% (особенно заметно на скачивании).</li>
+            <li>Пинг становится нестабильным, появляются потери пакетов.</li>
+            <li>Некоторые сайты перестают открываться (особенно с большими скриптами).</li>
+            <li>Видеозвонки и стриминг прерываются.</li>
+        </ul>
+        <blockquote>
+            «Я долго мучился с тормозами WireGuard на своём VPS. Оказалось, проблема была в MTU — на сервере стоял 1500, а на клиенте 1420. Синхронизировал — скорость выросла в 2,5 раза!» — пользователь Reddit.
+        </blockquote>
+
+        <!-- ====== РАЗДЕЛ 3 ====== -->
+        <h2 id="fragmentation">Фрагментация — враг скорости</h2>
+        <p>Когда пакет больше MTU, он разбивается на несколько фрагментов. Это приводит к:</p>
+        <ul>
+            <li>Увеличению общего числа пакетов (дополнительная нагрузка на сеть).</li>
+            <li>Риску потери одного фрагмента — тогда весь пакет пересылается заново.</li>
+            <li>Дополнительной работе процессора на сборку фрагментов.</li>
+        </ul>
+        <p>В случае с VPN фрагментация особенно критична, потому что VPN-пакеты уже имеют большую нагрузку, и их разбиение усугубляет задержки. Например, при MTU 1500 и VPN-заголовке в 50 байт, полезная нагрузка составляет 1450 байт. Если ваше интернет-соединение имеет MTU 1492 (как часто бывает у PPPoE), то пакет будет фрагментирован.</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Сценарий</th>
+                    <th>MTU на клиенте</th>
+                    <th>MTU на сервере</th>
+                    <th>Скорость (Мбит/с)</th>
+                    <th>Фрагментация</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Идеальный</td>
+                    <td>1420</td>
+                    <td>1420</td>
+                    <td><span class="check">~450</span></td>
+                    <td><span class="check">Нет</span></td>
+                </tr>
+                <tr>
+                    <td>Клиент меньше</td>
+                    <td>1400</td>
+                    <td>1500</td>
+                    <td><span style="color: #fbbf24;">~320</span></td>
+                    <td><span class="cross">Да (30%)</span></td>
+                </tr>
+                <tr>
+                    <td>Сервер меньше</td>
+                    <td>1500</td>
+                    <td>1400</td>
+                    <td><span style="color: #ff385c;">~180</span></td>
+                    <td><span class="cross">Да (50%)</span></td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Оптимально (VPS-VPN)</strong></td>
+                    <td><strong>1420 (XHTTP)</strong></td>
+                    <td><strong>1420</strong></td>
+                    <td><span class="check">~490</span></td>
+                    <td><span class="check">Нет</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ====== РАЗДЕЛ 4 ====== -->
+        <h2 id="optimal-mtu">Как найти оптимальный MTU</h2>
+        <p>Самый простой способ — использовать команду <code>ping</code> с флагом <code>-f</code> (не фрагментировать) и подбирать размер. Для Windows:</p>
+        <ul>
+            <li><code>ping -f -l 1472 1.1.1.1</code> — если работает, увеличиваем на 10 байт.</li>
+            <li><code>ping -f -l 1500 1.1.1.1</code> — ошибка фрагментации, ищем максимальное значение.</li>
+        </ul>
+        <p>Для Linux:</p>
+        <ul>
+            <li><code>ping -M do -s 1472 1.1.1.1</code></li>
+        </ul>
+        <p>К найденному значению прибавляем 28 байт (заголовки ICMP и IP) — получаем MTU вашего интерфейса. Для VPN надо вычесть размер заголовка протокола (обычно 30-80 байт).</p>
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">🔧 Рекомендации по MTU для популярных протоколов:</p>
+            <ul style="margin: 4px 0 0 20px;">
+                <li><strong>OpenVPN (UDP):</strong> 1400-1450</li>
+                <li><strong>WireGuard:</strong> 1420 (стандарт)</li>
+                <li><strong>XHTTP + Reality:</strong> 1350-1400 (из-за двойной маскировки)</li>
+                <li><strong>L2TP/IPSec:</strong> 1400</li>
+            </ul>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 5 ====== -->
+        <h2 id="mtu-protocols">MTU для разных протоколов: сравнение</h2>
+        <div class="protocol-grid">
+            <div class="protocol-card" style="border: 2px solid rgba(45,212,191,0.3);">
+                <h4>⚡ WireGuard</h4>
+                <p>MTU: <strong>1420</strong> (стандарт)</p>
+                <p>Оверхед: ~60 байт</p>
+                <p>Скорость: очень высокая</p>
+                <span class="badge badge-high">Рекомендуется</span>
+            </div>
+            <div class="protocol-card">
+                <h4>🔷 OpenVPN</h4>
+                <p>MTU: <strong>1400-1450</strong></p>
+                <p>Оверхед: ~40-58 байт</p>
+                <p>Скорость: средняя</p>
+                <span class="badge badge-mid">Гибкий</span>
+            </div>
+            <div class="protocol-card" style="border: 2px solid rgba(124,58,255,0.3);">
+                <h4>🚀 XHTTP + Reality</h4>
+                <p>MTU: <strong>1350-1400</strong></p>
+                <p>Оверхед: ~80-100 байт</p>
+                <p>Скорость: высокая</p>
+                <span class="badge badge-purple">★ Маскировка</span>
+            </div>
+        </div>
+        <p>Как видите, у XHTTP + Reality MTU меньше из-за дополнительного HTTPS-заголовка, но это плата за полную невидимость для DPI. При этом скорость остаётся высокой благодаря современной оптимизации.</p>
+
+        <!-- ====== РАЗДЕЛ 6 ====== -->
+        <h2 id="vps-vpn-mtu">Личный VPS + XHTTP: полный контроль над MTU</h2>
+        
+        <div class="vps-advantage">
+            <h3>🎯 Почему личный VPN на VPS даёт преимущество в настройке MTU?</h3>
+            <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN, где <strong>1000+ человек сидят на одном IP</strong>, а настройки MTU общие для всех, вы получаете <strong>персональный сервер</strong>, где можете:</p>
+            <ul>
+                <li><strong>Точно подобрать MTU</strong> под ваше соединение и провайдера.</li>
+                <li><strong>Изменять MTU на лету</strong> без перезапуска всего сервиса.</li>
+                <li><strong>Оптимизировать MTU под XHTTP + Reality</strong> для идеального баланса скорости и маскировки.</li>
+                <li><strong>Тестировать разные значения</strong> без влияния на других пользователей.</li>
+            </ul>
+            <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
+                <p style="font-weight: 700; margin-bottom: 4px;">🔒 Ваш трафик — под вашим полным контролем.</p>
+                <p style="margin-bottom: 0;">Именно поэтому <strong>нас в 1000 раз сложнее заблокировать и отследить</strong> — мы не используем шаблонные настройки, а подходим к каждому клиенту индивидуально. </p>
+            </div>
+        </div>
+
+        <p>Сервис <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> предоставляет выделенный VPS с предустановленным XHTTP + Reality. Вы получаете доступ к настройкам сети, включая MTU, и можете адаптировать их под свои задачи. Кроме того, технология XHTTP + Reality имитирует браузер Chrome на уровне TLS, что делает ваш трафик неотличимым от обычного веб-сёрфинга даже при нестандартном MTU.</p>
+
+        <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
+        <div class="article-cta">
+            <h3>🔥 Настройте MTU идеально на своём личном VPS</h3>
+            <p>С <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> вы получаете не просто VPN, а полноценный сервер, где вы сами управляете каждым параметром, включая MTU. Никаких ограничений массовых сервисов, только ваш индивидуальный подход.</p>
+            <p style="margin-top: 12px; font-weight: 500;">Ваш трафик маскируется под HTTPS, а DPI видит обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.</p>
+            <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 7 ====== -->
+        <h2 id="checklist">Чек-лист настройки MTU для максимальной скорости</h2>
+        <ol>
+            <li><strong>Определите базовый MTU вашего интернета</strong> (команда ping с запретом фрагментации).</li>
+            <li><strong>Выберите протокол</strong> (WireGuard, OpenVPN, XHTTP+Reality) и узнайте его оверхед.</li>
+            <li><strong>Вычислите MTU туннеля</strong> = (базовый MTU) — (оверхед протокола) — запас 10-20 байт.</li>
+            <li><strong>Установите MTU на клиенте и на сервере</strong> (одинаковое значение).</li>
+            <li><strong>Проверьте скорость</strong> (speedtest, iperf) и потери пакетов (ping -f).</li>
+            <li><strong>Если есть проблемы</strong> — уменьшайте MTU шагами по 10 байт, пока не станет стабильно.</li>
+        </ol>
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">💡 Совет от VPS-VPN:</p>
+            <p style="margin-bottom: 0;">Для XHTTP + Reality мы рекомендуем начинать с <strong>MTU 1380</strong> — это даёт отличную скорость и надёжную маскировку. Вы можете поднять до 1420, если ваш провайдер поддерживает крупные пакеты.</p>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 8 ====== -->
+        <h2 id="conclusion">Итог: MTU — маленький параметр с большим влиянием</h2>
+        <p>MTU кажется технической мелочью, но его влияние на скорость и стабильность VPN колоссально. Неправильный MTU превращает быстрое соединение в лагающее месиво, а правильный — раскрывает весь потенциал вашего канала.</p>
+        <p><strong>Личный VPN на VPS с XHTTP + Reality — это лучшее решение для тех, кто хочет не только скрывать свой трафик, но и получать максимальную скорость.</strong> Вы контролируете все параметры, включая MTU, и не зависите от «усреднённых» настроек массовых VPN.</p>
+        <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
+            <p style="font-weight: 700; font-size: 1.05rem;">✅ Итоговая рекомендация:</p>
+            <p>Начните с MTU 1380 для XHTTP+Reality, протестируйте скорость и постепенно увеличивайте до 1420, пока не почувствуете максимум. И помните: в <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> вы всегда можете настроить всё под себя, потому что сервер — ваш личный.</p>
+        </div>
+
+        <!-- ====== АВТОР ====== -->
+        <div class="article-author">
+            <div class="avatar">⚡</div>
+            <div>
+                <p style="font-weight: 600;">Команда VPS-VPN</p>
+                <p class="bio">Сетевые инженеры, специалисты по оптимизации трафика. Знаем о MTU всё и делимся опытом.</p>
+            </div>
+        </div>
+
+        <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+        <div class="related-articles">
+            <h3>📖 Похожие статьи</h3>
+            <div class="related-grid">
+                <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
+                    <span class="tag">🔐 VPN</span>
+                    <h4>Что такое VPN и как он работает</h4>
+                    <p>Базовые понятия и принципы работы VPN</p>
+                </a>
+                <a href="/articles/kak-rabotaet-shirovanie-v-vpn.html" class="related-card">
+                    <span class="tag">🔐 Безопасность</span>
+                    <h4>Как работает шифрование в VPN</h4>
+                    <p>Объяснение алгоритмов шифрования</p>
+                </a>
+                <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
+                    <span class="tag">⚙️ Технологии</span>
+                    <h4>Основные компоненты VPN-соединения</h4>
+                    <p>Из чего состоит VPN-туннель</p>
+                </a>
+                <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
+                    <span class="tag">💡 Опыт</span>
+                    <h4>Почему VPN перестали работать</h4>
+                    <p>Личный опыт: решение на vps-vpn.ru</p>
+                </a>
+                <a href="/articles/vliyanie-mtr-na-skorost-vpn.html" class="related-card">
+                    <span class="tag">📊 Сети</span>
+                    <h4>Влияние MTR на скорость VPN</h4>
+                    <p>Как маршрутизация влияет на пинг</p>
+                </a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<div class="container-wide">
+    <div class="footer">
+        <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+        <p style="margin-top: 8px;">
+            <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+            <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ========== ТЕМА ==========
+        function setTheme(theme) {
+            const isLight = theme === 'light';
+            document.body.classList.toggle('light', isLight);
+            document.body.classList.toggle('dark', !isLight);
+            localStorage.setItem('vpsvpn_theme', theme);
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) {
+                toggleBtn.innerHTML = isLight 
+                    ? '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>'
+                    : '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+            }
+        }
+        function initTheme() {
+            const saved = localStorage.getItem('vpsvpn_theme');
+            setTheme(saved === 'light' ? 'light' : 'dark');
+        }
+        document.getElementById('themeToggle')?.addEventListener('click', () => {
+            const isLight = document.body.classList.contains('light');
+            setTheme(isLight ? 'dark' : 'light');
+        });
+        initTheme();
+    })();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(108981205, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

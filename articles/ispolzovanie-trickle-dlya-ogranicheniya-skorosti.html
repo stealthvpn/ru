@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FS3MC3KGRX');
+    </script>
+    
+    <!-- ====== СЕО МЕТАТЕГИ ====== -->
+    <title>Использование Trickle для ограничения скорости: полное руководство | VPS-VPN</title>
+    <meta name="description" content="Подробное руководство по использованию Trickle для ограничения скорости в Linux. Настройка, примеры, практические сценарии и сравнение с аппаратными решениями.">
+    <meta name="keywords" content="trickle, ограничение скорости, лимитирование трафика, Linux, QOS, управление пропускной способностью, bandwidth control, vps vpn">
+    <meta name="author" content="Команда VPS-VPN">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="canonical" href="https://vps-vpn.ru/articles/ispolzovanie-trickle-dlya-ogranicheniya-skorosti.html">
+    
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vps-vpn.ru/articles/ispolzovanie-trickle-dlya-ogranicheniya-skorosti.html">
+    <meta property="og:title" content="Использование Trickle для ограничения скорости: полное руководство">
+    <meta property="og:description" content="Подробное руководство по использованию Trickle для ограничения скорости в Linux. Настройка, примеры, практические сценарии.">
+    <meta property="og:image" content="https://vps-vpn.ru/images/trickle-guide.jpg">
+    <meta property="og:site_name" content="VPS-VPN">
+    <meta property="article:published_time" content="2026-07-24">
+    <meta property="article:modified_time" content="2026-07-24">
+    <meta property="article:author" content="Команда VPS-VPN">
+    <meta property="article:section" content="Сети">
+    
+    <!-- ====== TWITTER ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Использование Trickle для ограничения скорости: полное руководство">
+    <meta name="twitter:description" content="Подробное руководство по использованию Trickle для ограничения скорости в Linux.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/trickle-guide.jpg">
+    
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    
+    <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Использование Trickle для ограничения скорости: полное руководство",
+      "description": "Подробное руководство по использованию Trickle для ограничения скорости в Linux. Настройка, примеры, практические сценарии.",
+      "image": "https://vps-vpn.ru/images/trickle-guide.jpg",
+      "datePublished": "2026-07-24",
+      "dateModified": "2026-07-24",
+      "author": {
+        "@type": "Organization",
+        "name": "VPS-VPN"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "VPS-VPN",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vps-vpn.ru/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vps-vpn.ru/articles/ispolzovanie-trickle-dlya-ogranicheniya-skorosti.html"
+      },
+      "keywords": "trickle, ограничение скорости, лимитирование трафика, Linux, QOS, управление пропускной способностью",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+          { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+          { "@type": "ListItem", "position": 3, "name": "Trickle для ограничения скорости", "item": "https://vps-vpn.ru/articles/ispolzovanie-trickle-dlya-ogranicheniya-skorosti.html" }
+        ]
+      }
+    }
+    </script>
+    
+    <style>
+        /* ====== ОБЩИЕ СТИЛИ (полностью сохранены из шаблона) ====== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; line-height: 1.6; }
+        
+        body.dark { background: #0a0c12; color: #e0e0e0; }
+        body.dark .article-container { background: rgba(25,30,45,0.95); border: 1px solid rgba(255,255,255,0.08); }
+        body.dark .theme-toggle { background: rgba(255,255,255,0.08); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); }
+        body.dark .theme-toggle:hover { background: rgba(255,255,255,0.15); color: #a5f0ff; }
+        body.dark .nav-links a { color: #e0e0e0; }
+        body.dark .nav-links a:hover { color: #a5f0ff; }
+        body.dark .gradient-text { background: linear-gradient(135deg, #a5f0ff, #7c3aff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.dark .tag { background: rgba(165,240,255,0.12); color: #a5f0ff; border: 1px solid rgba(165,240,255,0.2); }
+        body.dark .btn-primary { background: linear-gradient(95deg, #7c3aff, #5a2dca); box-shadow: 0 8px 20px rgba(124,58,255,0.3); }
+        body.dark .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(124,58,255,0.45); }
+        body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
+        body.dark .related-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .related-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .protocol-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .protocol-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .timeline-card { background: rgba(255,255,255,0.03); border-left: 3px solid #7c3aff; }
+        body.dark .vps-advantage { background: linear-gradient(135deg, rgba(124,58,255,0.08), rgba(45,212,191,0.05)); border: 1px solid rgba(124,58,255,0.2); }
+        body.dark .tech-highlight { background: rgba(124,58,255,0.06); border-left: 4px solid #7c3aff; }
+        body.dark .era-badge { background: rgba(165,240,255,0.1); color: #a5f0ff; }
+        body.dark .breadcrumb a { color: #a5f0ff; }
+        
+        body.light { background: #ffffff; color: #222222; }
+        body.light .article-container { background: #ffffff; border: 1px solid #ebebeb; box-shadow: 0 8px 28px rgba(0,0,0,0.06); }
+        body.light .gradient-text { background: linear-gradient(135deg, #ff385c, #dd1a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        body.light .tag { background: rgba(255,56,92,0.08); color: #ff385c; border: 1px solid rgba(255,56,92,0.2); }
+        body.light .btn-primary { background: linear-gradient(95deg, #ff385c, #dd1a4a); box-shadow: 0 8px 20px rgba(255,56,92,0.25); }
+        body.light .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,56,92,0.35); }
+        body.light .nav-links a { color: #222222; }
+        body.light .nav-links a:hover { color: #ff385c; }
+        body.light .theme-toggle { background: #f7f7f7; color: #222222; border: 1px solid #ebebeb; }
+        body.light .footer { color: #717171; border-top: 1px solid #ebebeb; }
+        body.light .related-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .related-card:hover { border-color: #ff385c; }
+        body.light .protocol-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .protocol-card:hover { border-color: #ff385c; }
+        body.light .timeline-card { background: #fafafa; border-left: 3px solid #ff385c; }
+        body.light .vps-advantage { background: linear-gradient(135deg, rgba(255,56,92,0.05), rgba(255,56,92,0.02)); border: 1px solid rgba(255,56,92,0.12); }
+        body.light .tech-highlight { background: rgba(255,56,92,0.04); border-left: 4px solid #ff385c; }
+        body.light .era-badge { background: rgba(255,56,92,0.08); color: #ff385c; }
+        body.light .breadcrumb a { color: #ff385c; }
+        
+        .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+        .container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+        
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 16px; }
+        .logo { font-size: 1.8rem; font-weight: 800; }
+        .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        .theme-toggle { background: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 8px 16px; border-radius: 40px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+        
+        .article-container { border-radius: 32px; padding: 48px 56px; margin: 30px 0 50px; transition: all 0.2s; }
+        
+        .breadcrumb { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; padding: 8px 0; }
+        .breadcrumb a { text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { margin: 0 6px; }
+        
+        .article-meta { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; font-size: 0.9rem; opacity: 0.7; }
+        .tag { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+        
+        .article-container h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 20px; }
+        .article-container h2 { font-size: 1.6rem; font-weight: 700; margin: 36px 0 16px; letter-spacing: -0.01em; }
+        .article-container h3 { font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px; }
+        .article-container p { margin-bottom: 18px; opacity: 0.9; }
+        .article-container ul, .article-container ol { margin: 16px 0 24px 24px; }
+        .article-container li { margin-bottom: 8px; }
+        .article-container blockquote { border-left: 4px solid #7c3aff; padding-left: 20px; margin: 24px 0; font-style: italic; opacity: 0.8; }
+        body.light .article-container blockquote { border-left-color: #ff385c; }
+        
+        .article-author { display: flex; align-items: center; gap: 16px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
+        body.light .article-author { border-top-color: #ebebeb; }
+        .article-author .avatar { width: 56px; height: 56px; border-radius: 50%; background: #7c3aff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
+        body.light .article-author .avatar { background: #ff385c; }
+        .article-author .bio { font-size: 0.9rem; opacity: 0.7; }
+        
+        .article-cta { background: linear-gradient(135deg, rgba(124,58,255,0.12), rgba(45,212,191,0.08)); border-radius: 24px; padding: 32px 40px; margin: 40px 0; text-align: center; border: 1px solid rgba(124,58,255,0.2); }
+        body.light .article-cta { background: linear-gradient(135deg, rgba(255,56,92,0.08), rgba(255,56,92,0.03)); border-color: rgba(255,56,92,0.15); }
+        .article-cta h3 { margin-bottom: 12px; }
+        .article-cta .btn-primary { margin-top: 16px; }
+        
+        .protocol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 16px 0 24px; }
+        .protocol-card { padding: 20px; border-radius: 16px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .protocol-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .protocol-card p { font-size: 0.82rem; opacity: 0.8; margin-bottom: 0; }
+        .protocol-card .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.6rem; font-weight: 600; margin-top: 8px; }
+        .badge-high { background: rgba(45,212,191,0.2); color: #2dd4bf; }
+        .badge-mid { background: rgba(251,191,36,0.2); color: #fbbf24; }
+        .badge-low { background: rgba(255,56,92,0.15); color: #ff385c; }
+        .badge-purple { background: rgba(124,58,255,0.2); color: #a78bfa; }
+        body.light .badge-high { background: rgba(45,212,191,0.15); color: #0d9488; }
+        body.light .badge-mid { background: rgba(251,191,36,0.15); color: #b45309; }
+        body.light .badge-low { background: rgba(255,56,92,0.12); color: #dc2626; }
+        body.light .badge-purple { background: rgba(124,58,255,0.12); color: #7c3aff; }
+        
+        .related-articles { margin: 40px 0 30px; }
+        .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 16px; }
+        .related-card { padding: 20px; border-radius: 20px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .related-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .related-card p { font-size: 0.85rem; opacity: 0.7; }
+        .related-card .tag { font-size: 0.65rem; margin-bottom: 8px; display: inline-block; }
+        
+        .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
+        
+        .timeline-card { padding: 16px 20px; border-radius: 12px; margin-bottom: 14px; }
+        .timeline-card .year { font-weight: 700; font-size: 1.1rem; display: inline-block; margin-right: 12px; }
+        .timeline-card .era-badge { display: inline-block; padding: 2px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; margin-left: 8px; }
+        
+        .vps-advantage { border-radius: 20px; padding: 28px 32px; margin: 24px 0; }
+        .vps-advantage h3 { margin-top: 0; }
+        .vps-advantage ul { list-style: none; padding: 0; margin: 12px 0; }
+        .vps-advantage ul li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+        .vps-advantage ul li::before { content: "◆"; position: absolute; left: 0; color: #7c3aff; font-weight: 700; }
+        body.light .vps-advantage ul li::before { color: #ff385c; }
+        
+        .tech-highlight { border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
+        .tech-highlight code { font-family: 'Inter', monospace; background: rgba(255,255,255,0.08); padding: 2px 10px; border-radius: 6px; font-size: 0.85rem; }
+        body.light .tech-highlight code { background: rgba(0,0,0,0.05); }
+        
+        .comparison-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
+        .comparison-table thead tr { border-bottom: 2px solid rgba(255,255,255,0.1); }
+        body.light .comparison-table thead tr { border-bottom-color: #d1d5db; }
+        .comparison-table th { text-align: left; padding: 12px 8px; font-weight: 600; }
+        .comparison-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        body.light .comparison-table td { border-bottom-color: #f3f4f6; }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .comparison-table .check { color: #2dd4bf; }
+        body.light .comparison-table .check { color: #0d9488; }
+        .comparison-table .cross { color: #ff385c; }
+        .comparison-table .highlight-row { background: rgba(124,58,255,0.06); }
+        body.light .comparison-table .highlight-row { background: rgba(255,56,92,0.04); }
+        
+        @media (max-width: 768px) {
+            .article-container { padding: 28px 20px; }
+            .article-container h1 { font-size: 1.6rem; }
+            .article-container h2 { font-size: 1.3rem; }
+            nav { flex-direction: column; align-items: center; }
+            .nav-links { gap: 16px; justify-content: center; }
+            .nav-links a { font-size: 0.85rem; }
+            .article-cta { padding: 24px 20px; }
+            .related-grid { grid-template-columns: 1fr; }
+            .protocol-grid { grid-template-columns: 1fr 1fr; }
+            .comparison-table { font-size: 0.78rem; }
+            .vps-advantage { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .article-container h1 { font-size: 1.3rem; }
+            .article-meta { font-size: 0.75rem; gap: 12px; }
+            .protocol-grid { grid-template-columns: 1fr; }
+            .comparison-table { font-size: 0.7rem; }
+            .comparison-table th, .comparison-table td { padding: 6px 4px; }
+            .timeline-card .year { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body class="dark">
+<div class="container-wide">
+    <nav>
+        <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+        <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+            <div class="nav-links">
+                <a href="/">Главная</a>
+                <a href="/access.html">Доступ</a>
+                <a href="/blog.html">📝 Блог</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                <i class="fas fa-sun"></i>
+                <span style="font-size: 0.9rem;">Светлая</span>
+            </button>
+        </div>
+    </nav>
+</div>
+
+<div class="container">
+    <article class="article-container">
+        
+        <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Главная</a>
+            <span>›</span>
+            <a href="/blog.html">Блог</a>
+            <span>›</span>
+            <span>Trickle для ограничения скорости</span>
+        </nav>
+        
+        <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+        <div class="article-meta">
+            <span class="tag">⚙️ Сетевые утилиты</span>
+            <span><i class="far fa-calendar-alt"></i> 24 июля 2026</span>
+            <span><i class="far fa-clock"></i> 8 минут чтения</span>
+            <span><i class="far fa-eye"></i> 1 824 просмотра</span>
+        </div>
+
+        <!-- ====== ЗАГОЛОВОК ====== -->
+        <h1>Использование Trickle для ограничения скорости: полное руководство</h1>
+
+        <!-- ====== ВСТУПЛЕНИЕ ====== -->
+        <p><strong>Trickle</strong> — это легковесная утилита для управления пропускной способностью в Linux, которая позволяет ограничивать скорость передачи данных для отдельных приложений. В отличие от громоздких систем QOS, Trickle работает на уровне пользовательского пространства и не требует прав суперпользователя. Это идеальное решение для тестирования приложений, эмуляции медленных каналов или просто для того, чтобы один прожорливый процесс не съедал весь трафик.</p>
+        
+        <p>В этой статье мы подробно разберём, как установить и использовать Trickle, покажем практические примеры и сравним его с альтернативными подходами. А в конце вы узнаете, как личный VPN-сервер на VPS с технологией XHTTP + Reality помогает обойти любые ограничения и оставаться невидимым для DPI.</p>
+
+        <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+        <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
+            <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
+            <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
+                <li style="margin: 4px 0;"><a href="#what-is-trickle" style="color: #a5f0ff; text-decoration: none;">1. Что такое Trickle</a></li>
+                <li style="margin: 4px 0;"><a href="#how-it-works" style="color: #a5f0ff; text-decoration: none;">2. Как работает Trickle</a></li>
+                <li style="margin: 4px 0;"><a href="#installation" style="color: #a5f0ff; text-decoration: none;">3. Установка</a></li>
+                <li style="margin: 4px 0;"><a href="#basic-usage" style="color: #a5f0ff; text-decoration: none;">4. Базовое использование</a></li>
+                <li style="margin: 4px 0;"><a href="#advanced-scenarios" style="color: #a5f0ff; text-decoration: none;">5. Продвинутые сценарии</a></li>
+                <li style="margin: 4px 0;"><a href="#alternatives" style="color: #a5f0ff; text-decoration: none;">6. Альтернативы Trickle</a></li>
+                <li style="margin: 4px 0;"><a href="#vpn-integration" style="color: #a5f0ff; text-decoration: none;">7. Trickle + VPN на VPS</a></li>
+                <li style="margin: 4px 0;"><a href="#conclusion" style="color: #a5f0ff; text-decoration: none;">8. Заключение</a></li>
+            </ul>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 1 ====== -->
+        <h2 id="what-is-trickle">Что такое Trickle</h2>
+        <p><strong>Trickle</strong> — это утилита командной строки для ограничения пропускной способности сетевых приложений. Она работает, перехватывая вызовы <code>send()</code> и <code>recv()</code> через библиотеку <code>libtrickle</code>, и искусственно задерживает передачу данных, чтобы соблюсти заданный лимит скорости.</p>
+        
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">🔑 Ключевые особенности Trickle:</p>
+            <ul style="margin: 4px 0 0 20px;">
+                <li><strong>Работа на уровне пользователя</strong> — не требует прав root.</li>
+                <li><strong>Поддержка динамической скорости</strong> — можно плавно менять лимит.</li>
+                <li><strong>Легковесность</strong> — минимальное влияние на производительность.</li>
+                <li><strong>Универсальность</strong> — работает с любыми приложениями, использующими сокеты.</li>
+            </ul>
+        </div>
+        
+        <p>Trickle особенно полезен, когда нужно протестировать, как ваше приложение ведёт себя в условиях ограниченной пропускной способности, или когда вы хотите справедливо распределить доступный трафик между несколькими программами.</p>
+
+        <!-- ====== РАЗДЕЛ 2 ====== -->
+        <h2 id="how-it-works">Как работает Trickle</h2>
+        <p>Trickle использует механизм <strong>интерпозиции библиотек</strong> (library interposition). При запуске приложения через Trickle, он подгружает свою библиотеку <code>libtrickle.so</code>, которая переопределяет стандартные функции работы с сокетами. Когда приложение пытается отправить или получить данные, Trickle вычисляет, сколько времени должно пройти, чтобы скорость не превысила заданный лимит, и вставляет необходимые задержки.</p>
+        
+        <blockquote>
+            "Trickle не изменяет само приложение — он просто замедляет его ввод-вывод, чтобы соблюсти ограничение. Это делает его невероятно удобным для быстрых экспериментов."
+        </blockquote>
+        
+        <p>Важно отметить, что Trickle работает только с приложениями, которые используют стандартный стек TCP/IP через системные вызовы <code>send()</code> и <code>recv()</code>. Приложения, использующие свои собственные механизмы ввода-вывода, могут не поддерживаться.</p>
+
+        <!-- ====== РАЗДЕЛ 3 ====== -->
+        <h2 id="installation">Установка Trickle</h2>
+        <p>Установить Trickle в большинстве дистрибутивов Linux можно из официальных репозиториев:</p>
+        
+        <div class="tech-highlight" style="background: rgba(45,212,191,0.04); border-left-color: #2dd4bf;">
+            <p style="font-weight: 600;">📦 Установка в разных дистрибутивах:</p>
+            <ul style="margin: 4px 0 0 20px;">
+                <li><strong>Debian/Ubuntu:</strong> <code>sudo apt install trickle</code></li>
+                <li><strong>CentOS/RHEL:</strong> <code>sudo yum install trickle</code> (или <code>dnf</code> для новых версий)</li>
+                <li><strong>Arch Linux:</strong> <code>sudo pacman -S trickle</code></li>
+                <li><strong>macOS (через Homebrew):</strong> <code>brew install trickle</code></li>
+            </ul>
+        </div>
+        
+        <p>После установки проверьте, что Trickle доступен в вашей системе:</p>
+        <pre style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; margin: 12px 0;">trickle --help</pre>
+
+        <!-- ====== РАЗДЕЛ 4 ====== -->
+        <h2 id="basic-usage">Базовое использование</h2>
+        <p>Самый простой способ использовать Trickle — указать лимит скорости в килобайтах в секунду (КБ/с) для отправки и получения данных.</p>
+        
+        <div class="tech-highlight" style="background: rgba(45,212,191,0.04); border-left-color: #2dd4bf;">
+            <p style="font-weight: 600;">📌 Синтаксис:</p>
+            <code style="display: block; padding: 8px 0;">trickle -d [download limit KB/s] -u [upload limit KB/s] [command]</code>
+        </div>
+        
+        <p>Примеры:</p>
+        <ul>
+            <li><strong>Ограничить загрузку (download) до 100 КБ/с:</strong> <code>trickle -d 100 curl https://example.com/bigfile.zip</code></li>
+            <li><strong>Ограничить отдачу (upload) до 50 КБ/с при отправке файла:</strong> <code>trickle -u 50 scp myfile.txt user@remote:/path/</code></li>
+            <li><strong>Ограничить и загрузку, и отдачу:</strong> <code>trickle -d 200 -u 100 wget https://example.com/largefile.iso</code></li>
+        </ul>
+        
+        <p>Вы также можете использовать Trickle в интерактивном режиме, запустив оболочку с ограничением скорости:</p>
+        <pre style="background: rgba(255,255,255,0.05); padding: 12px 16px; border-radius: 8px; overflow-x: auto; font-size: 0.9rem; margin: 12px 0;">trickle -d 300 -u 100 bash</pre>
+        <p>Теперь все команды, запущенные из этой оболочки, будут ограничены по скорости.</p>
+
+        <!-- ====== РАЗДЕЛ 5 ====== -->
+        <h2 id="advanced-scenarios">Продвинутые сценарии</h2>
+        
+        <h3>Динамическое изменение скорости</h3>
+        <p>Trickle позволяет плавно менять лимит скорости во время работы через сигнал <code>SIGUSR1</code> (увеличение) и <code>SIGUSR2</code> (уменьшение). Это полезно для эмуляции нестабильного соединения.</p>
+        
+        <h3>Ограничение нескольких приложений одновременно</h3>
+        <p>Вы можете запустить несколько экземпляров Trickle для разных приложений, распределяя между ними общую пропускную способность. Например, если у вас есть 1 МБ/с на загрузку, вы можете дать одному приложению 300 КБ/с, а другому — 700 КБ/с.</p>
+        
+        <h3>Использование с curl, wget, rsync и другими</h3>
+        <p>Trickle отлично работает с большинством консольных утилит. Особенно полезен он при работе с <code>rsync</code>, чтобы не перегружать канал во время бэкапов.</p>
+        
+        <div class="tech-highlight" style="background: rgba(45,212,191,0.04); border-left-color: #2dd4bf;">
+            <p style="font-weight: 600;">💡 Пример с rsync:</p>
+            <code style="display: block; padding: 8px 0;">trickle -d 500 -u 200 rsync -avz /data/ user@backup:/backup/</code>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 6 ====== -->
+        <h2 id="alternatives">Альтернативы Trickle</h2>
+        
+        <p>Хотя Trickle очень удобен, существуют и другие способы ограничения скорости в Linux:</p>
+        
+        <div class="protocol-grid">
+            <div class="protocol-card">
+                <h4>🌐 tc (Traffic Control)</h4>
+                <p>Мощный инструмент ядра Linux для QOS. Работает на уровне сети, требует root.</p>
+                <span class="badge badge-purple">Сложный</span>
+            </div>
+            <div class="protocol-card">
+                <h4>📦 netlimiter (GUI)</h4>
+                <p>Графические утилиты для управления скоростью. Удобны, но не для серверов.</p>
+                <span class="badge badge-mid">Визуальный</span>
+            </div>
+            <div class="protocol-card">
+                <h4>⚙️ wondershaper</h4>
+                <p>Обёртка над tc для упрощения настройки QOS.</p>
+                <span class="badge badge-mid">Упрощённый</span>
+            </div>
+            <div class="protocol-card" style="border: 2px solid rgba(45,212,191,0.3);">
+                <h4>🐚 Trickle</h4>
+                <p>Простой, не требует root, работает на уровне приложений.</p>
+                <span class="badge badge-high">★ Наш выбор</span>
+            </div>
+        </div>
+        
+        <p>В отличие от <code>tc</code>, Trickle не требует изменения сетевой конфигурации всей системы и не влияет на другие приложения, что делает его идеальным для быстрых задач и тестирования.</p>
+
+        <!-- ====== БЛОК С РЕКЛАМОЙ VPS-VPN (вставка в середину статьи) ====== -->
+        <div class="vps-advantage" style="margin: 32px 0;">
+            <h3>🚀 Почему личный VPN на VPS лучше любого ограничения скорости?</h3>
+            <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.</p>
+            <ul>
+                <li><strong>Никаких «шумных соседей»:</strong> ваш IP-адрес используете только вы. Никто не сможет «подставить» вас своей активностью.</li>
+                <li><strong>Стабильная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
+                <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS, DPI не может его отличить от обычного браузера Chrome.</li>
+                <li><strong>Нас в 1000 раз сложнее заблокировать и отследить.</strong></li>
+            </ul>
+            <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
+                <p style="font-weight: 700; margin-bottom: 4px;">🎯 Используйте Trickle для тестов, но для реальной свободы в интернете выбирайте VPS-VPN.</p>
+                <a href="/access.html" class="btn-primary" style="margin-top: 8px;">🔥 Заказать личный VPN-сервер</a>
+            </div>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 7 ====== -->
+        <h2 id="vpn-integration">Trickle + VPN на VPS: сценарии использования</h2>
+        
+        <p>Хотя Trickle и VPN-сервер решают разные задачи, они могут эффективно дополнять друг друга. Например, вы можете использовать Trickle для ограничения скорости отдельных приложений, которые работают через VPN-туннель, чтобы гарантировать, что ни один процесс не «съест» всю доступную пропускную способность.</p>
+        
+        <p>Вот несколько практических сценариев:</p>
+        <ul>
+            <li><strong>Тестирование приложений в условиях медленного интернета:</strong> Запустите ваш VPN-клиент через Trickle, чтобы эмулировать медленное соединение и проверить, как ваше приложение обрабатывает задержки.</li>
+            <li><strong>Ограничение фоновых загрузок:</strong> Если вы используете VPS для скачивания больших файлов через VPN, Trickle поможет ограничить скорость, чтобы не перегружать канал.</li>
+            <li><strong>Балансировка трафика между несколькими сервисами:</strong> Запустите несколько экземпляров Trickle для разных сервисов на вашем VPS, чтобы справедливо распределить пропускную способность.</li>
+        </ul>
+        
+        <div class="tech-highlight" style="background: rgba(124,58,255,0.06); border-left-color: #7c3aff;">
+            <p style="font-weight: 600;">💡 Важно:</p>
+            <p>Сам по себе Trickle не обеспечивает анонимности или обхода блокировок. Для этого вам нужен <strong>качественный VPN-сервис</strong>. А лучший VPN — это ваш личный сервер на VPS с технологией XHTTP + Reality, который мы предлагаем в <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.</p>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 8 ====== -->
+        <h2 id="conclusion">Заключение</h2>
+        
+        <p><strong>Trickle</strong> — это мощный и простой инструмент для ограничения скорости сетевых приложений в Linux. Он идеально подходит для тестирования, отладки и управления трафиком на уровне отдельных процессов. Благодаря своей лёгкости и отсутствию необходимости в правах root, он остаётся одним из лучших решений в своей нише.</p>
+        
+        <p>Однако, когда речь заходит о глобальной задаче — обеспечении приватности, обходе блокировок и стабильной скорости в интернете, — на первый план выходят <strong>личные VPN-серверы на VPS</strong>. В отличие от массовых VPN, где вы делите IP с тысячами других пользователей, <strong>VPS-VPN</strong> предоставляет вам выделенный сервер с уникальным IP и передовой технологией <strong>XHTTP + Reality</strong>, которая имитирует браузер Chrome и делает ваш трафик неотличимым от обычного веб-сёрфинга.</p>
+        
+        <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
+            <p style="font-weight: 700; font-size: 1.05rem;">✅ Итог: Trickle — для экспериментов, VPS-VPN — для свободы.</p>
+            <p>Используйте Trickle для технических задач, но для полноценной работы в интернете без ограничений и слежки выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>. Ваш персональный сервер, максимальная скорость и полная невидимость для DPI — это именно то, что нужно современному пользователю.</p>
+            <a href="/access.html" class="btn-primary" style="margin-top: 12px;">🚀 Получить личный VPN-сервер</a>
+        </div>
+
+        <!-- ====== АВТОР ====== -->
+        <div class="article-author">
+            <div class="avatar">⚙️</div>
+            <div>
+                <p style="font-weight: 600;">Команда VPS-VPN</p>
+                <p class="bio">Инженеры по сетевым технологиям и системным администраторам. Пишем о Linux, сетях и современных методах обхода ограничений.</p>
+            </div>
+        </div>
+
+        <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+        <div class="related-articles">
+            <h3>📖 Похожие статьи</h3>
+            <div class="related-grid">
+                <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
+                    <span class="tag">🔐 VPN</span>
+                    <h4>Что такое VPN и как он работает</h4>
+                    <p>Полное руководство для начинающих и продвинутых</p>
+                </a>
+                <a href="/articles/dlya-chego-nuzhen-vpn-v-sovremennom-mire.html" class="related-card">
+                    <span class="tag">🌍 VPN</span>
+                    <h4>Для чего нужен VPN в современном мире</h4>
+                    <p>Основные сценарии использования VPN</p>
+                </a>
+                <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
+                    <span class="tag">⚙️ Технологии</span>
+                    <h4>Основные компоненты VPN-соединения</h4>
+                    <p>Из чего состоит VPN-туннель</p>
+                </a>
+                <a href="/articles/kak-rabotaet-shirovanie-v-vpn.html" class="related-card">
+                    <span class="tag">🔐 Безопасность</span>
+                    <h4>Как работает шифрование в VPN</h4>
+                    <p>Объяснение алгоритмов шифрования</p>
+                </a>
+                <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
+                    <span class="tag">💡 Опыт</span>
+                    <h4>Почему VPN перестали работать</h4>
+                    <p>Личный опыт: решение на vps-vpn.ru</p>
+                </a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<div class="container-wide">
+    <div class="footer">
+        <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+        <p style="margin-top: 8px;">
+            <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+            <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ========== ТЕМА ==========
+        function setTheme(theme) {
+            const isLight = theme === 'light';
+            document.body.classList.toggle('light', isLight);
+            document.body.classList.toggle('dark', !isLight);
+            localStorage.setItem('vpsvpn_theme', theme);
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) {
+                toggleBtn.innerHTML = isLight 
+                    ? '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>'
+                    : '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+            }
+        }
+        function initTheme() {
+            const saved = localStorage.getItem('vpsvpn_theme');
+            setTheme(saved === 'light' ? 'light' : 'dark');
+        }
+        document.getElementById('themeToggle')?.addEventListener('click', () => {
+            const isLight = document.body.classList.contains('light');
+            setTheme(isLight ? 'dark' : 'light');
+        });
+        initTheme();
+    })();
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+    ym(108981205, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
