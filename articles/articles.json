@@ -3822,5 +3822,15 @@
   "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
   "date": "2026-07-23",
   "views": 0
+},
+{
+  "id": "zashchita-ot-atak-na-protokol-xray-s-naiveproxy",
+  "title": "Защита от атак на протокол Xray с NaiveProxy: полное руководство",
+  "excerpt": "Узнайте, как защитить протокол Xray от активных DPI-атак, троянизации и тайминговых атак. Настройка NaiveProxy, XHTTP + Reality и личного VPS от VPS-VPN для полной невидимости.",
+  "tag": "Безопасность",
+  "image": "🛡️",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
+  "date": "2026-07-24",
+  "views": 0
 }
 ]
