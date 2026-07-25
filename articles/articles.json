@@ -2069,7 +2069,7 @@
   "excerpt": "Полное руководство по подготовке VPS к установке VPN: выбор сервера, обновление ОС, настройка брандмауэра, SSH, оптимизация сети и установка XHTTP + Reality. Готовое решение от VPS‑VPN.",
   "tag": "Администрирование",
   "image": "🖥️",
-  "imageUrl": "",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
   "date": "2026-07-23",
   "views": 0
 },
@@ -2939,7 +2939,7 @@
   "excerpt": "Пошаговое руководство по настройке VPN на VPS с помощью Tailscale. Сравнение с традиционными VPN, преимущества личного сервера и технологии XHTTP+Reality для обхода DPI. Настройка за 10 минут.",
   "tag": "Настройка",
   "image": "⚙️",
-  "imageUrl": "",
+  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
   "date": "2026-07-23",
   "views": 0
 },
@@ -5430,7 +5430,7 @@
   "excerpt": "Подробный разбор влияния шифрования на скорость и производительность VPN. Сравнение алгоритмов AES-256, ChaCha20, протоколов OpenVPN, WireGuard и XHTTP + Reality. Почему личный VPN на VPS быстрее и надёжнее массовых сервисов.",
   "tag": "Технологии",
   "image": "⚡",
-  "imageUrl": "",
+  "imageUrl": "https://images.pexels.com/photos/442576/pexels-photo-442576.jpeg?w=800&h=450&fit=crop",
   "date": "2026-07-24",
   "views": 0
 },
