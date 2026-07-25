@@ -6845,16 +6845,6 @@
   "views": 0
 },
 {
-  "id": "obhod-blokirovok-s-pomoshchyu-xhttp-reality",
-  "title": "Обход блокировок с помощью XHTTP+Reality: технология, которая имитирует браузер Chrome и обходит DPI",
-  "excerpt": "Как XHTTP+Reality маскирует трафик под обычный HTTPS и имитирует браузер Chrome, обходя DPI. Почему личный VPN на VPS в 1000 раз сложнее заблокировать, чем массовые сервисы. Полный разбор технологии и настройка.",
-  "tag": "Технологии",
-  "image": "🚀",
-  "imageUrl": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?w=800&h=450&fit=crop",
-  "date": "2026-07-24",
-  "views": 3842
-},
-{
   "id": "obhod-blokirovok-s-pomoshchyu-ssh-tunnelya",
   "title": "Обход блокировок с помощью SSH-туннеля: пошаговое руководство",
   "excerpt": "Узнайте, как работает SSH-туннель для обхода блокировок. Пошаговая инструкция для Windows, macOS, Linux и почему XHTTP+Reality на личном VPS — это технология будущего, которая в 1000 раз надёжнее.",
