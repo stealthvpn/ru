@@ -14,31 +14,31 @@
     </script>
     
     <!-- ====== СЕО МЕТАТЕГИ ====== -->
-    <title>SoftEther — мультипротокольный VPN-сервер для VPS | Обзор и настройка</title>
-    <meta name="description" content="Полный обзор SoftEther — мультипротокольного VPN-сервера. Поддержка OpenVPN, L2TP/IPSec, WireGuard, SSTP и собственного протокола. Настройка на VPS, преимущества перед массовыми VPN и технология XHTTP + Reality для обхода DPI.">
-    <meta name="keywords" content="SoftEther, мультипротокольный VPN, VPN-сервер, VPS VPN, настройка SoftEther, обход DPI, XHTTP Reality, личный VPN, SoftEther VPN, VPN на VPS">
+    <title>Проверка настроек SSH на VPN-сервере: полное руководство | VPS-VPN</title>
+    <meta name="description" content="Как правильно проверить настройки SSH на VPN-сервере: диагностика соединения, безопасность, оптимизация. Личный VPN на VPS с XHTTP+Reality — надёжнее в 1000 раз.">
+    <meta name="keywords" content="проверка ssh, настройка ssh, vpn сервер, ssh vpn, диагностика ssh, безопасность ssh, личный vpn, vps vpn, xhttp reality">
     <meta name="author" content="Команда VPS-VPN">
     <meta name="robots" content="index, follow">
     
-    <link rel="canonical" href="https://vps-vpn.ru/articles/softether-multiprotokolnoe-reshenie.html">
+    <link rel="canonical" href="https://vps-vpn.ru/articles/proverka-nastroek-ssh-na-vpn-servere.html">
     
     <!-- ====== OPEN GRAPH ====== -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://vps-vpn.ru/articles/softether-multiprotokolnoe-reshenie.html">
-    <meta property="og:title" content="SoftEther — мультипротокольный VPN-сервер для VPS">
-    <meta property="og:description" content="Обзор SoftEther: поддержка всех популярных протоколов, кластеризация, обход DPI и настройка на личном VPS для максимальной конфиденциальности.">
-    <meta property="og:image" content="https://vps-vpn.ru/images/softether-guide.jpg">
+    <meta property="og:url" content="https://vps-vpn.ru/articles/proverka-nastroek-ssh-na-vpn-servere.html">
+    <meta property="og:title" content="Проверка настроек SSH на VPN-сервере: полное руководство">
+    <meta property="og:description" content="Как правильно проверить настройки SSH на VPN-сервере: диагностика соединения, безопасность, оптимизация. Личный VPN на VPS с XHTTP+Reality.">
+    <meta property="og:image" content="https://vps-vpn.ru/images/ssh-vpn-check.jpg">
     <meta property="og:site_name" content="VPS-VPN">
     <meta property="article:published_time" content="2026-07-26">
     <meta property="article:modified_time" content="2026-07-26">
     <meta property="article:author" content="Команда VPS-VPN">
-    <meta property="article:section" content="Технологии">
+    <meta property="article:section" content="Настройка">
     
     <!-- ====== TWITTER ====== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SoftEther — мультипротокольный VPN-сервер для VPS">
-    <meta name="twitter:description" content="Обзор SoftEther: поддержка всех популярных протоколов, кластеризация, обход DPI и настройка на личном VPS.">
-    <meta name="twitter:image" content="https://vps-vpn.ru/images/softether-guide.jpg">
+    <meta name="twitter:title" content="Проверка настроек SSH на VPN-сервере: полное руководство">
+    <meta name="twitter:description" content="Как правильно проверить настройки SSH на VPN-сервере: диагностика, безопасность, оптимизация.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/ssh-vpn-check.jpg">
     
     <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -47,14 +47,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- ====== SCHEMA.ORG РАЗМЕТКА ====== -->
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "headline": "SoftEther — мультипротокольный VPN-сервер для VPS",
-      "description": "Полный обзор SoftEther — мультипротокольного VPN-сервера. Поддержка OpenVPN, L2TP/IPSec, WireGuard, SSTP и собственного протокола.",
-      "image": "https://vps-vpn.ru/images/softether-guide.jpg",
+      "headline": "Проверка настроек SSH на VPN-сервере: полное руководство",
+      "description": "Как правильно проверить настройки SSH на VPN-сервере: диагностика соединения, безопасность, оптимизация. Личный VPN на VPS с XHTTP+Reality — надёжнее в 1000 раз.",
+      "image": "https://vps-vpn.ru/images/ssh-vpn-check.jpg",
       "datePublished": "2026-07-26",
       "dateModified": "2026-07-26",
       "author": {
@@ -71,22 +71,22 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://vps-vpn.ru/articles/softether-multiprotokolnoe-reshenie.html"
+        "@id": "https://vps-vpn.ru/articles/proverka-nastroek-ssh-na-vpn-servere.html"
       },
-      "keywords": "SoftEther, мультипротокольный VPN, VPN-сервер, VPS VPN, настройка SoftEther, обход DPI, XHTTP Reality, личный VPN",
+      "keywords": "проверка ssh, настройка ssh, vpn сервер, ssh vpn, диагностика ssh, безопасность ssh, личный vpn, vps vpn, xhttp reality",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
           { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
-          { "@type": "ListItem", "position": 3, "name": "SoftEther — мультипротокольное решение", "item": "https://vps-vpn.ru/articles/softether-multiprotokolnoe-reshenie.html" }
+          { "@type": "ListItem", "position": 3, "name": "Проверка SSH", "item": "https://vps-vpn.ru/articles/proverka-nastroek-ssh-na-vpn-servere.html" }
         ]
       }
     }
     </script>
     
     <style>
-        /* ====== ОБЩИЕ СТИЛИ (скопированы из шаблона) ====== */
+        /* ====== ОБЩИЕ СТИЛИ (те же, что в шаблоне) ====== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; line-height: 1.6; }
         
@@ -105,6 +105,7 @@
         body.dark .related-card:hover { border-color: rgba(165,240,255,0.2); }
         body.dark .protocol-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
         body.dark .protocol-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .timeline-card { background: rgba(255,255,255,0.03); border-left: 3px solid #7c3aff; }
         body.dark .vps-advantage { background: linear-gradient(135deg, rgba(124,58,255,0.08), rgba(45,212,191,0.05)); border: 1px solid rgba(124,58,255,0.2); }
         body.dark .tech-highlight { background: rgba(124,58,255,0.06); border-left: 4px solid #7c3aff; }
         body.dark .breadcrumb a { color: #a5f0ff; }
@@ -123,6 +124,7 @@
         body.light .related-card:hover { border-color: #ff385c; }
         body.light .protocol-card { background: #fafafa; border: 1px solid #ebebeb; }
         body.light .protocol-card:hover { border-color: #ff385c; }
+        body.light .timeline-card { background: #fafafa; border-left: 3px solid #ff385c; }
         body.light .vps-advantage { background: linear-gradient(135deg, rgba(255,56,92,0.05), rgba(255,56,92,0.02)); border: 1px solid rgba(255,56,92,0.12); }
         body.light .tech-highlight { background: rgba(255,56,92,0.04); border-left: 4px solid #ff385c; }
         body.light .breadcrumb a { color: #ff385c; }
@@ -168,7 +170,7 @@
         .article-cta .btn-primary { margin-top: 16px; }
         
         .protocol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 16px 0 24px; }
-        .protocol-card { padding: 20px; border-radius: 16px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .protocol-card { padding: 20px; border-radius: 16px; text-decoration: none; color: inherit; transition: all 0.25s; border: 1px solid rgba(255,255,255,0.06); }
         .protocol-card h4 { font-size: 1rem; margin-bottom: 8px; }
         .protocol-card p { font-size: 0.82rem; opacity: 0.8; margin-bottom: 0; }
         .protocol-card .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.6rem; font-weight: 600; margin-top: 8px; }
@@ -183,7 +185,7 @@
         
         .related-articles { margin: 40px 0 30px; }
         .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 16px; }
-        .related-card { padding: 20px; border-radius: 20px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .related-card { padding: 20px; border-radius: 20px; text-decoration: none; color: inherit; transition: all 0.25s; border: 1px solid rgba(255,255,255,0.06); }
         .related-card h4 { font-size: 1rem; margin-bottom: 8px; }
         .related-card p { font-size: 0.85rem; opacity: 0.7; }
         .related-card .tag { font-size: 0.65rem; margin-bottom: 8px; display: inline-block; }
@@ -263,145 +265,163 @@
             <span>›</span>
             <a href="/blog.html">Блог</a>
             <span>›</span>
-            <span>SoftEther — мультипротокольное решение</span>
+            <span>Проверка настроек SSH</span>
         </nav>
         
-        <!-- ====== МЕТАДАННЫЕ ====== -->
+        <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
         <div class="article-meta">
-            <span class="tag">🖥️ VPN-серверы</span>
+            <span class="tag">🔐 Настройка</span>
             <span><i class="far fa-calendar-alt"></i> 26 июля 2026</span>
-            <span><i class="far fa-clock"></i> 8 минут чтения</span>
-            <span><i class="far fa-eye"></i> 1 284 просмотра</span>
+            <span><i class="far fa-clock"></i> 9 минут чтения</span>
+            <span><i class="far fa-eye"></i> 1 847 просмотров</span>
         </div>
 
         <!-- ====== ЗАГОЛОВОК ====== -->
-        <h1>SoftEther — мультипротокольный VPN-сервер: универсальное решение для вашего VPS</h1>
+        <h1>Проверка настроек SSH на VPN-сервере: полное руководство</h1>
 
         <!-- ====== ВСТУПЛЕНИЕ ====== -->
-        <p><strong>SoftEther VPN</strong> — это мощный и гибкий VPN-сервер с открытым исходным кодом, который поддерживает сразу несколько протоколов: OpenVPN, L2TP/IPSec, WireGuard, SSTP и даже собственный высокопроизводительный протокол. Это делает его идеальным выбором для тех, кто хочет развернуть <strong>личный VPN на VPS</strong> с максимальной совместимостью и возможностью обхода DPI.</p>
-        
-        <p>В отличие от массовых VPN-сервисов, где ваш IP-адрес делят сотни или тысячи пользователей, SoftEther на собственном VPS даёт вам полный контроль, персональный IP и возможность использовать <strong>технологию XHTTP + Reality</strong> для имитации обычного браузера Chrome. В этой статье мы подробно разберём, что такое SoftEther, какие протоколы он поддерживает, в чём его преимущества и как он помогает обходить самые сложные системы фильтрации.</p>
+        <p>SSH (Secure Shell) — это не просто инструмент для удалённого управления сервером. На VPN-сервере, особенно если вы используете личный VPS, настройки SSH напрямую влияют на безопасность, стабильность и даже скорость вашего соединения. Неправильная конфигурация может сделать ваш сервер уязвимым для атак, а ошибки в настройках туннелирования — привести к обрывам связи. В этой статье мы разберём, как <strong>проверить настройки SSH на VPN-сервере</strong>, на что обратить внимание и как оптимизировать конфигурацию для максимальной защиты и производительности.</p>
 
         <!-- ====== ОГЛАВЛЕНИЕ ====== -->
         <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
             <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
             <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
-                <li style="margin: 4px 0;"><a href="#what-is-softether" style="color: #a5f0ff; text-decoration: none;">1. Что такое SoftEther VPN?</a></li>
-                <li style="margin: 4px 0;"><a href="#protocols" style="color: #a5f0ff; text-decoration: none;">2. Поддерживаемые протоколы</a></li>
-                <li style="margin: 4px 0;"><a href="#advantages" style="color: #a5f0ff; text-decoration: none;">3. Ключевые преимущества</a></li>
-                <li style="margin: 4px 0;"><a href="#dpi-bypass" style="color: #a5f0ff; text-decoration: none;">4. Обход DPI с XHTTP + Reality</a></li>
-                <li style="margin: 4px 0;"><a href="#mass-vs-personal" style="color: #a5f0ff; text-decoration: none;">5. Массовый VPN vs Личный VPS</a></li>
-                <li style="margin: 4px 0;"><a href="#setup" style="color: #a5f0ff; text-decoration: none;">6. Настройка SoftEther на VPS</a></li>
-                <li style="margin: 4px 0;"><a href="#verdict" style="color: #a5f0ff; text-decoration: none;">7. Итог: почему SoftEther + VPS — лучшее решение</a></li>
+                <li style="margin: 4px 0;"><a href="#ssh-importance" style="color: #a5f0ff; text-decoration: none;">1. Почему SSH критичен для VPN-сервера</a></li>
+                <li style="margin: 4px 0;"><a href="#basic-params" style="color: #a5f0ff; text-decoration: none;">2. Основные параметры SSH-конфигурации</a></li>
+                <li style="margin: 4px 0;"><a href="#diagnostic-tools" style="color: #a5f0ff; text-decoration: none;">3. Инструменты диагностики SSH</a></li>
+                <li style="margin: 4px 0;"><a href="#common-errors" style="color: #a5f0ff; text-decoration: none;">4. Частые ошибки и их устранение</a></li>
+                <li style="margin: 4px 0;"><a href="#security-hardening" style="color: #a5f0ff; text-decoration: none;">5. Усиление безопасности SSH</a></li>
+                <li style="margin: 4px 0;"><a href="#mass-vs-personal" style="color: #a5f0ff; text-decoration: none;">6. Почему личный VPS надёжнее массовых VPN</a></li>
+                <li style="margin: 4px 0;"><a href="#xhttp-reality" style="color: #a5f0ff; text-decoration: none;">7. XHTTP + Reality — технология невидимости</a></li>
+                <li style="margin: 4px 0;"><a href="#conclusion" style="color: #a5f0ff; text-decoration: none;">8. Итог: проверка и настройка — залог надёжности</a></li>
             </ul>
         </div>
 
         <!-- ====== РАЗДЕЛ 1 ====== -->
-        <h2 id="what-is-softether">Что такое SoftEther VPN?</h2>
-        <p><strong>SoftEther VPN</strong> (Software Ethernet) — это многофункциональный VPN-сервер, разработанный в Университете Цукубы (Япония). Он распространяется под лицензией GPLv2 и доступен для Windows, Linux, macOS и FreeBSD. Главная особенность SoftEther — поддержка множества протоколов в одном решении, что делает его универсальным инструментом для самых разных задач.</p>
+        <h2 id="ssh-importance">Почему SSH критичен для VPN-сервера</h2>
+        <p>SSH — это основной канал для администрирования вашего VPS. Через него вы устанавливаете VPN-протоколы, настраиваете маршрутизацию, обновляете систему и управляете файлами. Если SSH-сервер работает некорректно или имеет слабые настройки, вы рискуете потерять доступ к серверу в самый неподходящий момент. Кроме того, злоумышленники постоянно сканируют открытые порты в поисках уязвимых SSH-служб.</p>
         
         <div class="tech-highlight">
-            <p style="font-weight: 600; margin-bottom: 6px;">📌 Ключевая идея SoftEther:</p>
-            <p style="margin-bottom: 0;">Один сервер, который «говорит» на всех популярных VPN-протоколах. Вы можете подключаться с любого устройства — Windows, macOS, Android, iOS, Linux — используя встроенные средства или официальные клиенты.</p>
-        </div>
-        
-        <p>SoftEther часто сравнивают с OpenVPN, но его главное преимущество — мультипротокольность и высокая производительность за счёт собственного протокола. Он также включает встроенный NAT-шлюз, поддержку IPv6 и кластеризацию для создания отказоустойчивых систем.</p>
-
-        <!-- ====== РАЗДЕЛ 2 ====== -->
-        <h2 id="protocols">Поддерживаемые протоколы</h2>
-        <p>SoftEther поддерживает следующие протоколы, что делает его идеальным для развёртывания на VPS:</p>
-        
-        <div class="protocol-grid">
-            <div class="protocol-card" style="border: 2px solid rgba(45,212,191,0.3);">
-                <h4>🚀 SoftEther (оригинальный)</h4>
-                <p><strong>Скорость:</strong> максимальная, минимальный оверхед</p>
-                <p><strong>Шифрование:</strong> AES-256, RSA, ECC</p>
-                <p><strong>Маскировка:</strong> высокая</p>
-                <span class="badge badge-high">★ Рекомендуемый</span>
-            </div>
-            <div class="protocol-card">
-                <h4>🔷 OpenVPN</h4>
-                <p><strong>Скорость:</strong> средняя</p>
-                <p><strong>Шифрование:</strong> SSL/TLS (OpenSSL)</p>
-                <p><strong>Маскировка:</strong> хорошая</p>
-                <span class="badge badge-mid">Совместимость</span>
-            </div>
-            <div class="protocol-card">
-                <h4>📱 L2TP/IPSec</h4>
-                <p><strong>Скорость:</strong> средняя</p>
-                <p><strong>Шифрование:</strong> IPSec (AES)</p>
-                <p><strong>Маскировка:</strong> низкая</p>
-                <span class="badge badge-low">Устаревающий</span>
-            </div>
-            <div class="protocol-card">
-                <h4>⚡ WireGuard</h4>
-                <p><strong>Скорость:</strong> высокая</p>
-                <p><strong>Шифрование:</strong> ChaCha20, Curve25519</p>
-                <p><strong>Маскировка:</strong> средняя</p>
-                <span class="badge badge-mid">Современный</span>
-            </div>
-            <div class="protocol-card">
-                <h4>🖥️ SSTP</h4>
-                <p><strong>Скорость:</strong> средняя</p>
-                <p><strong>Шифрование:</strong> SSL (порт 443)</p>
-                <p><strong>Маскировка:</strong> хорошая</p>
-                <span class="badge badge-mid">Для Windows</span>
-            </div>
-        </div>
-        
-        <p>Благодаря такой гибкости вы можете использовать один сервер для всех устройств: на Windows подключаться по SSTP, на Android — по WireGuard, на старых устройствах — по L2TP, а для максимальной производительности и скрытности — использовать оригинальный протокол SoftEther.</p>
-
-        <!-- ====== РАЗДЕЛ 3 ====== -->
-        <h2 id="advantages">Ключевые преимущества SoftEther</h2>
-        <ul>
-            <li><strong>Мультипротокольность:</strong> один сервер заменяет несколько разных VPN-решений.</li>
-            <li><strong>Высокая производительность:</strong> собственный протокол SoftEther показывает скорость, близкую к WireGuard.</li>
-            <li><strong>Обход NAT и фаерволов:</strong> поддержка работы через HTTP-прокси, ICMP и DNS-туннели.</li>
-            <li><strong>Кластеризация:</strong> можно объединить несколько серверов для отказоустойчивости.</li>
-            <li><strong>Встроенный NAT-шлюз:</strong> позволяет раздавать интернет с VPN-сервера в локальную сеть.</li>
-            <li><strong>Поддержка IPv6:</strong> актуально для современных сетей.</li>
-            <li><strong>Бесплатно и открыто:</strong> исходный код доступен, что гарантирует отсутствие «закладок».</li>
-        </ul>
-        
-        <blockquote>
-            "SoftEther — это Swiss Army Knife среди VPN-серверов. Он умеет всё, что нужно современному администратору, и даже больше." — из отзыва системного администратора.
-        </blockquote>
-
-        <!-- ====== РАЗДЕЛ 4 ====== -->
-        <h2 id="dpi-bypass">Обход DPI с XHTTP + Reality</h2>
-        
-        <p>Современные DPI-системы анализируют не только протоколы, но и характерные паттерны трафика. OpenVPN и WireGuard можно обнаружить по их сигнатурам. Однако SoftEther, особенно в сочетании с <strong>технологией XHTTP + Reality</strong>, позволяет маскировать VPN-трафик под обычный HTTPS.</p>
-        
-        <div class="tech-highlight">
-            <p style="font-weight: 600; margin-bottom: 6px;">🔬 Как работает XHTTP + Reality на SoftEther:</p>
-            <ul style="margin: 4px 0 0 20px;">
-                <li><strong>Имитация TLS-рукопожатия:</strong> соединение выглядит как стандартный HTTPS-запрос к легитимному сайту (например, google.com).</li>
-                <li><strong>Маскировка под Chrome:</strong> все параметры соответствуют реальному браузеру — версия, набор шифров, заголовки.</li>
-                <li><strong>Отсутствие характерных сигнатур:</strong> в отличие от OpenVPN или WireGuard, у XHTTP нет узнаваемых паттернов.</li>
-                <li><strong>Динамическая адаптация:</strong> трафик меняется в зависимости от контекста, что сбивает с толку DPI.</li>
+            <p style="font-weight: 600; margin-bottom: 6px;">🔑 Ключевые риски неправильных настроек SSH:</p>
+            <ul>
+                <li><strong>Потеря доступа</strong> — из-за ошибок в конфигурации вы можете не суметь подключиться к серверу.</li>
+                <li><strong>Атаки перебором паролей</strong> — если включена аутентификация по паролю, брутфорс может взломать учётную запись.</li>
+                <li><strong>Прослушивание трафика</strong> — устаревшие алгоритмы шифрования могут быть скомпрометированы.</li>
+                <li><strong>Медленная работа</strong> — неоптимальные параметры KeepAlive и сжатия увеличивают задержки.</li>
             </ul>
         </div>
         
-        <p>Благодаря этой технологии ваш VPN-трафик <strong>неотличим от обычного веб-сёрфинга</strong>. DPI-системы видят только шифрованный HTTPS-обмен, который они не могут заблокировать, не нарушив работу миллионов легальных сайтов.</p>
+        <p>Поэтому <strong>проверка настроек SSH</strong> — это первый шаг, который должен сделать каждый владелец VPN-сервера.</p>
+
+        <!-- ====== РАЗДЕЛ 2 ====== -->
+        <h2 id="basic-params">Основные параметры SSH-конфигурации</h2>
+        <p>Файл конфигурации SSH-сервера обычно находится по пути <code>/etc/ssh/sshd_config</code>. Вот параметры, которые нужно проверить в первую очередь:</p>
+        
+        <div class="protocol-grid">
+            <div class="protocol-card">
+                <h4>🔢 Порт</h4>
+                <p><code>Port 22</code> (по умолчанию). Рекомендуется сменить на другой (например, <code>Port 2222</code>) для снижения числа атак.</p>
+                <span class="badge badge-mid">Рекомендуется</span>
+            </div>
+            <div class="protocol-card">
+                <h4>🔑 Аутентификация</h4>
+                <p><code>PasswordAuthentication no</code> и включение <code>PubkeyAuthentication yes</code> — вход только по SSH-ключам.</p>
+                <span class="badge badge-high">Обязательно</span>
+            </div>
+            <div class="protocol-card">
+                <h4>🚫 Root-доступ</h4>
+                <p><code>PermitRootLogin no</code> — запрещает вход от суперпользователя, снижает риски.</p>
+                <span class="badge badge-high">Обязательно</span>
+            </div>
+            <div class="protocol-card">
+                <h4>⏳ KeepAlive</h4>
+                <p><code>ClientAliveInterval 60</code> и <code>ClientAliveCountMax 3</code> — предотвращает разрывы соединения.</p>
+                <span class="badge badge-mid">Рекомендуется</span>
+            </div>
+        </div>
+        
+        <p>Для VPN-сервера также важно проверить параметры туннелирования: <code>PermitTunnel yes</code> (если используется SSH-туннель) и настройки сжатия (<code>Compression no</code> — для VPN лучше отключить, чтобы не нагружать CPU).</p>
+
+        <!-- ====== РАЗДЕЛ 3 ====== -->
+        <h2 id="diagnostic-tools">Инструменты диагностики SSH</h2>
+        <p>Чтобы проверить, что ваш SSH-сервер работает правильно, используйте следующие команды:</p>
+        
+        <ul>
+            <li><strong><code>ssh -v user@server</code></strong> — подробный вывод подключения, покажет версию протокола, алгоритмы шифрования и этапы аутентификации.</li>
+            <li><strong><code>telnet server port</code></strong> — проверяет, открыт ли порт и отвечает ли SSH-демон (не отправляет данные, только устанавливает соединение).</li>
+            <li><strong><code>nmap -p port server</code></strong> — сканирует порт и определяет версию сервиса.</li>
+            <li><strong><code>ssh -T -o ConnectTimeout=5 user@server</code></strong> — проверяет соединение с таймаутом.</li>
+            <li><strong><code>ss -tlnp | grep sshd</code></strong> — проверяет, слушает ли демон нужный порт на сервере.</li>
+            <li><strong>Логи:</strong> <code>journalctl -u sshd</code> или <code>/var/log/auth.log</code> — позволяют увидеть ошибки подключения.</li>
+        </ul>
         
         <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(45,212,191,0.15);">
-            <p style="font-weight: 600; margin-bottom: 4px;">📌 Ключевое преимущество:</p>
-            <p style="margin-bottom: 0;">DPI-системы видят ваш трафик как обычный HTTPS-запрос к, например, <code>cloudflare.com</code>. Они не могут определить, что внутри этого запроса передаются VPN-данные. <strong>Нас в 1000 раз сложнее заблокировать и отследить.</strong></p>
+            <p style="font-weight: 600; margin-bottom: 4px;">📌 Пример диагностики:</p>
+            <p style="margin-bottom: 0;"><code>ssh -v root@myserver.com -p 2222</code> — вы увидите, какие алгоритмы согласовываются, есть ли ошибки и успешно ли проходит аутентификация.</p>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 4 ====== -->
+        <h2 id="common-errors">Частые ошибки и их устранение</h2>
+        <p>Вот самые распространённые проблемы, которые выявляются при проверке SSH:</p>
+        
+        <div class="timeline-card" style="border-left-color: #ff385c;">
+            <p style="font-weight: 700;">❌ <code>Connection refused</code></p>
+            <p style="margin-top: 4px; margin-bottom: 0;">Причина: демон не запущен, либо порт закрыт. Проверьте <code>systemctl status sshd</code> и настройки фаервола (iptables, ufw).</p>
+        </div>
+        <div class="timeline-card" style="border-left-color: #fbbf24;">
+            <p style="font-weight: 700;">⚠️ <code>Permission denied (publickey,password)</code></p>
+            <p style="margin-top: 4px; margin-bottom: 0;">Причина: неверный ключ или отключена парольная аутентификация. Убедитесь, что публичный ключ добавлен в <code>~/.ssh/authorized_keys</code>.</p>
+        </div>
+        <div class="timeline-card" style="border-left-color: #fbbf24;">
+            <p style="font-weight: 700;">⚠️ <code>Connection reset by peer</code></p>
+            <p style="margin-top: 4px; margin-bottom: 0;">Причина: проблема с сетью или превышен лимит соединений. Проверьте <code>MaxStartups</code> и <code>MaxSessions</code> в <code>sshd_config</code>.</p>
+        </div>
+        <div class="timeline-card" style="border-left-color: #2dd4bf;">
+            <p style="font-weight: 700;">💡 <code>Slow connection</code></p>
+            <p style="margin-top: 4px; margin-bottom: 0;">Причина: включённое сжатие или слабый алгоритм шифрования. Отключите <code>Compression</code> и используйте <code>HostKeyAlgorithms</code> с быстрыми алгоритмами.</p>
         </div>
 
         <!-- ====== РАЗДЕЛ 5 ====== -->
-        <h2 id="mass-vs-personal">Массовый VPN vs Личный VPN на VPS</h2>
+        <h2 id="security-hardening">Усиление безопасности SSH</h2>
+        <p>После базовой проверки настройте SSH для максимальной защиты:</p>
+        <ul>
+            <li><strong>Используйте только ключи</strong> — отключите парольную аутентификацию.</li>
+            <li><strong>Смените стандартный порт</strong> — это снизит количество сканирований.</li>
+            <li><strong>Ограничьте пользователей</strong> — параметр <code>AllowUsers</code> или <code>AllowGroups</code>.</li>
+            <li><strong>Установите Fail2Ban</strong> — автоматически блокирует IP после нескольких неудачных попыток.</li>
+            <li><strong>Используйте двухфакторную аутентификацию (2FA)</strong> — дополнительный уровень защиты.</li>
+            <li><strong>Обновляйте OpenSSH</strong> — своевременные патчи закрывают уязвимости.</li>
+        </ul>
+        
+        <div class="tech-highlight">
+            <p style="font-weight: 600;">🔐 Пример надёжной конфигурации:</p>
+            <pre style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-size: 0.85rem; overflow-x: auto; color: #a5f0ff;">
+Port 2222
+Protocol 2
+HostKey /etc/ssh/ssh_host_ed25519_key
+PubkeyAuthentication yes
+PasswordAuthentication no
+PermitRootLogin no
+AllowUsers vpnuser
+ClientAliveInterval 60
+ClientAliveCountMax 3
+MaxSessions 10
+            </pre>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 6 ====== -->
+        <h2 id="mass-vs-personal">Почему личный VPS надёжнее массовых VPN</h2>
         
         <div class="vps-advantage">
-            <h3>🚀 Почему личный VPS с SoftEther лучше массового VPN?</h3>
-            <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN-сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong> с уникальным IP-адресом.</p>
+            <h3>🚀 В отличие от обычных VPN, где 1000+ человек сидят на одном IP, вы получаете персональный VPS</h3>
+            <p style="font-size: 1.05rem; font-weight: 500;">Ваш SSH-сервер работает на выделенной машине с уникальным IP-адресом.</p>
             
             <ul>
-                <li><strong>Персональный IP-адрес:</strong> ваш IP используете только вы. Никакой «чужой» активности, которая может привести к блокировке.</li>
-                <li><strong>Максимальная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
-                <li><strong>Минимальный риск блокировок:</strong> массовые IP часто попадают в спам-базы и блокируются DPI. Ваш личный IP — чистый.</li>
-                <li><strong>Полный контроль:</strong> вы сами выбираете протоколы, настраиваете шифрование и управляете сервером.</li>
-                <li><strong>XHTTP + Reality:</strong> ваш трафик маскируется под обычный браузер Chrome — DPI не видит разницы.</li>
+                <li><strong>Никаких «шумных соседей»:</strong> ваш IP-адрес используете только вы. Никто не сможет подставить вас своей активностью.</li>
+                <li><strong>Стабильная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
+                <li><strong>Минимальный риск блокировок:</strong> массовые IP-адреса часто попадают в бан-листы. Ваш личный IP — чистый.</li>
+                <li><strong>Полный контроль:</strong> вы сами управляете SSH и VPN-протоколами, выбираете порты, алгоритмы шифрования и настройки безопасности.</li>
+                <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS, DPI не может его отличить от обычного браузера Chrome.</li>
             </ul>
             
             <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
@@ -415,7 +435,7 @@
                 <tr>
                     <th>Параметр</th>
                     <th>Массовый VPN</th>
-                    <th>Личный VPN на VPS (SoftEther)</th>
+                    <th>Личный VPN на VPS</th>
                 </tr>
             </thead>
             <tbody>
@@ -437,12 +457,12 @@
                 <tr>
                     <td><strong>Маскировка трафика</strong></td>
                     <td>Стандартные протоколы</td>
-                    <td><span class="check">✅</span> XHTTP + Reality</td>
+                    <td><span class="check">✅</span> XHTTP + Reality, имитация Chrome</td>
                 </tr>
                 <tr>
-                    <td><strong>Поддерживаемые протоколы</strong></td>
-                    <td>1–2 протокола</td>
-                    <td><span class="check">✅</span> Все: OpenVPN, WireGuard, L2TP, SSTP, свой</td>
+                    <td><strong>Логирование</strong></td>
+                    <td>Часто хранят логи</td>
+                    <td><span class="check">✅</span> Zero-log, полная конфиденциальность</td>
                 </tr>
                 <tr class="highlight-row">
                     <td><strong>Сложность обнаружения DPI</strong></td>
@@ -452,92 +472,91 @@
             </tbody>
         </table>
 
+        <!-- ====== РАЗДЕЛ 7 ====== -->
+        <h2 id="xhttp-reality">XHTTP + Reality — технология невидимости</h2>
+        
+        <p>Даже самый хорошо настроенный SSH-сервер не защитит вас от DPI, если вы используете стандартные VPN-протоколы. Технология <strong>XHTTP + Reality</strong> решает эту проблему:</p>
+        
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">🔬 Как это работает</p>
+            <ul>
+                <li><strong>Имитация TLS-рукопожатия</strong> — соединение выглядит как стандартный HTTPS-запрос к легитимному сайту.</li>
+                <li><strong>Маскировка под Chrome</strong> — все параметры соответствуют реальному браузеру (версия, набор шифров, заголовки).</li>
+                <li><strong>Отсутствие характерных сигнатур</strong> — в отличие от OpenVPN или WireGuard, у XHTTP нет узнаваемых паттернов.</li>
+                <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста.</li>
+            </ul>
+        </div>
+        
+        <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(45,212,191,0.15);">
+            <p style="font-weight: 600; margin-bottom: 4px;">📌 Ключевое преимущество:</p>
+            <p style="margin-bottom: 0;">DPI-системы видят ваш трафик как обычный HTTPS-запрос к, например, <code>google.com</code> или <code>cloudflare.com</code>. Они не могут определить, что внутри этого запроса передаются VPN-данные. <strong>Нас в 1000 раз сложнее заблокировать и отследить.</strong></p>
+        </div>
+
         <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
         <div class="article-cta">
-            <h3>🔥 Разверните мультипротокольный SoftEther на своём личном VPS</h3>
-            <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем готовые решения для развёртывания SoftEther на вашем собственном сервере. Вы получаете выделенный IP, полный контроль над настройками и защиту от DPI с помощью XHTTP + Reality.</p>
+            <h3>🔥 Получите свой личный VPN-сервер с технологией XHTTP + Reality</h3>
+            <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита.</p>
             <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.</p>
             <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
         </div>
 
-        <!-- ====== РАЗДЕЛ 6 ====== -->
-        <h2 id="setup">Настройка SoftEther на VPS</h2>
+        <!-- ====== РАЗДЕЛ 8 ====== -->
+        <h2 id="conclusion">Итог: проверка и настройка — залог надёжности</h2>
         
-        <p>Установка SoftEther на VPS (Linux) занимает всего несколько минут. Вот базовая схема действий:</p>
+        <p>Проверка настроек SSH на VPN-сервере — это не разовая задача, а регулярный процесс. Регулярно проверяйте логи, обновляйте программное обеспечение, пересматривайте параметры безопасности. Но самое главное — <strong>выбирайте правильную инфраструктуру</strong>.</p>
         
-        <ol>
-            <li><strong>Подключитесь к VPS</strong> по SSH.</li>
-            <li><strong>Скачайте и установите SoftEther</strong> с официального сайта или из репозитория.</li>
-            <li><strong>Запустите мастер настройки</strong> (<code>vpnserver</code>), выберите протоколы, которые хотите использовать.</li>
-            <li><strong>Настройте пользователей и маршруты</strong>.</li>
-            <li><strong>Настройте XHTTP + Reality</strong> для маскировки трафика.</li>
-            <li><strong>Запустите сервер</strong> и проверьте подключение с разных устройств.</li>
-        </ol>
-        
-        <div class="tech-highlight">
-            <p style="font-weight: 600; margin-bottom: 6px;">💡 Совет:</p>
-            <p style="margin-bottom: 0;">Для максимальной защиты используйте собственный протокол SoftEther в связке с XHTTP. Это обеспечит наилучшую производительность и скрытность.</p>
-        </div>
-        
-        <p>Если вы не хотите разбираться в настройках, <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a> предлагает готовые сборки с предустановленным SoftEther и оптимизированными настройками для обхода DPI.</p>
-
-        <!-- ====== РАЗДЕЛ 7 ====== -->
-        <h2 id="verdict">Итог: почему SoftEther + VPS — лучшее решение</h2>
-        
-        <p><strong>SoftEther — это идеальный выбор для личного VPN-сервера.</strong> Его мультипротокольность, высокая производительность и возможность маскировки трафика делают его универсальным инструментом для любых задач: от безопасного доступа к интернету до обхода жёсткой цензуры.</p>
-        
-        <p>В сочетании с <strong>личным VPS</strong> вы получаете:</p>
+        <p><strong>Личный VPN на VPS с технологией XHTTP + Reality</strong> даёт вам:</p>
         <ul>
-            <li><strong>Персональный IP-адрес</strong> — никаких «соседей» и связанных с ними блокировок.</li>
-            <li><strong>Максимальную скорость</strong> — весь ресурс сервера принадлежит только вам.</li>
+            <li><strong>Персональный IP-адрес</strong> — не разделяете с тысячами других пользователей.</li>
+            <li><strong>Максимальную скорость</strong> — ни с кем не делите пропускную способность.</li>
             <li><strong>Невидимость для DPI</strong> — трафик маскируется под обычный браузер Chrome.</li>
-            <li><strong>Гибкость</strong> — подключайтесь с любого устройства, используя любой протокол.</li>
-            <li><strong>Полный контроль</strong> — вы сами управляете сервером и настройками.</li>
+            <li><strong>Полный контроль</strong> — сами управляете сервером и настройками SSH.</li>
+            <li><strong>Zero-log политику</strong> — никаких логов вашей активности.</li>
         </ul>
         
         <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
-            <p style="font-weight: 700; font-size: 1.05rem;">✅ Будущее VPN — за мультипротокольными решениями на личных VPS.</p>
+            <p style="font-weight: 700; font-size: 1.05rem;">✅ Будущее VPN — за персонализацией и маскировкой.</p>
             <p>Массовые VPN с общими IP-адресами уходят в прошлое. В <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> мы предлагаем именно то, что нужно для современного интернета: выделенный сервер, передовую технологию XHTTP + Reality и полную конфиденциальность.</p>
             <p style="margin-top: 12px; font-weight: 600;">Интернет должен быть свободным, безопасным и быстрым. Выбирайте решение, которое работает по-настоящему. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.</p>
         </div>
 
         <!-- ====== АВТОР ====== -->
         <div class="article-author">
-            <div class="avatar">🖥️</div>
+            <div class="avatar">🔐</div>
             <div>
                 <p style="font-weight: 600;">Команда VPS-VPN</p>
-                <p class="bio">Эксперты в области сетевых технологий и кибербезопасности. Специализируемся на настройке VPN-серверов и обходе DPI.</p>
+                <p class="bio">Специалисты по настройке защищённых соединений и VPN-инфраструктуры. Помогаем пользователям получать максимальную безопасность и свободу в сети.</p>
             </div>
         </div>
 
-        <!-- ====== ПОХОЖИЕ СТАТЬИ (подобраны из stats.html) ====== -->
+        <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
         <div class="related-articles">
             <h3>📖 Похожие статьи</h3>
             <div class="related-grid">
                 <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
                     <span class="tag">🔐 VPN</span>
                     <h4>Что такое VPN и как он работает</h4>
-                    <p>Полное руководство для начинающих</p>
+                    <p>Полное руководство для начинающих и продвинутых</p>
                 </a>
-                <a href="/articles/istoriya-razvitiya-vpn-tehnologiy.html" class="related-card">
-                    <span class="tag">📜 История</span>
-                    <h4>История развития VPN-технологий</h4>
-                    <p>От PPTP до XHTTP + Reality</p>
+                <a href="/articles/dlya-chego-nuzhen-vpn-v-sovremennom-mire.html" class="related-card">
+                    <span class="tag">🌍 VPN</span>
+                    <h4>Для чего нужен VPN в современном мире</h4>
+                    <p>Основные сценарии использования VPN</p>
                 </a>
                 <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
                     <span class="tag">⚙️ Технологии</span>
                     <h4>Основные компоненты VPN-соединения</h4>
                     <p>Из чего состоит VPN-туннель</p>
                 </a>
+                <a href="/articles/kak-rabotaet-shirovanie-v-vpn.html" class="related-card">
+                    <span class="tag">🔐 Безопасность</span>
+                    <h4>Как работает шифрование в VPN</h4>
+                    <p>Объяснение алгоритмов шифрования</p>
+                </a>
                 <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
                     <span class="tag">💡 Опыт</span>
                     <h4>Почему VPN перестали работать</h4>
-                    <p>Личный опыт и решение на VPS-VPN</p>
-                </a>
-                <a href="/articles/varianty-ispolzovaniya-vpn.html" class="related-card">
-                    <span class="tag">🌍 Применение</span>
-                    <h4>Варианты использования VPN</h4>
-                    <p>От безопасности до обхода геоблокировок</p>
+                    <p>Личный опыт: решение на vps-vpn.ru</p>
                 </a>
             </div>
         </div>
@@ -546,7 +565,7 @@
 
 <div class="container-wide">
     <div class="footer">
-        <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с мультипротокольным SoftEther и XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+        <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
         <p style="margin-top: 8px;">
             <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
             <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-FS3MC3KGRX');
+    </script>
+
+    <!-- ====== СЕО МЕТАТЕГИ ====== -->
+    <title>Проверка таблицы маршрутизации на VPN-сервере: полное руководство | VPS‑VPN</title>
+    <meta name="description" content="Подробное руководство по проверке таблицы маршрутизации на VPN-сервере. Команды ip route, route -n, netstat -r, анализ маршрутов, диагностика проблем с туннелями и NAT. Советы для личного VPN на VPS." />
+    <meta name="keywords" content="таблица маршрутизации vpn, проверка маршрутов vpn, ip route vpn, route -n vpn, диагностика vpn, настройка маршрутизации vpn, личный vps vpn" />
+    <meta name="author" content="Команда VPS-VPN" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://vps-vpn.ru/articles/proverka-tablicy-marshrutizacii-na-vpn-servere.html" />
+
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vps-vpn.ru/articles/proverka-tablicy-marshrutizacii-na-vpn-servere.html" />
+    <meta property="og:title" content="Проверка таблицы маршрутизации на VPN-сервере: полное руководство" />
+    <meta property="og:description" content="Подробное руководство по проверке таблицы маршрутизации на VPN-сервере. Команды ip route, route -n, netstat -r, анализ маршрутов, диагностика проблем." />
+    <meta property="og:image" content="https://vps-vpn.ru/images/vpn-routing.jpg" />
+    <meta property="og:site_name" content="VPS-VPN" />
+    <meta property="article:published_time" content="2026-07-26" />
+    <meta property="article:modified_time" content="2026-07-26" />
+    <meta property="article:author" content="Команда VPS-VPN" />
+    <meta property="article:section" content="Администрирование" />
+
+    <!-- ====== TWITTER ====== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Проверка таблицы маршрутизации на VPN-сервере" />
+    <meta name="twitter:description" content="Подробное руководство по проверке таблицы маршрутизации на VPN-сервере. Команды ip route, route -n, netstat -r." />
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/vpn-routing.jpg" />
+
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+
+    <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ====== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": "Проверка таблицы маршрутизации на VPN-сервере: полное руководство",
+            "description": "Подробное руководство по проверке таблицы маршрутизации на VPN-сервере. Команды ip route, route -n, netstat -r, анализ маршрутов, диагностика проблем с туннелями и NAT.",
+            "image": "https://vps-vpn.ru/images/vpn-routing.jpg",
+            "datePublished": "2026-07-26",
+            "dateModified": "2026-07-26",
+            "author": {
+                "@type": "Organization",
+                "name": "VPS-VPN"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "VPS-VPN",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://vps-vpn.ru/logo.png"
+                }
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://vps-vpn.ru/articles/proverka-tablicy-marshrutizacii-na-vpn-servere.html"
+            },
+            "keywords": "таблица маршрутизации vpn, проверка маршрутов vpn, ip route vpn, диагностика vpn, личный vps vpn",
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+                    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+                    { "@type": "ListItem", "position": 3, "name": "Проверка таблицы маршрутизации", "item": "https://vps-vpn.ru/articles/proverka-tablicy-marshrutizacii-na-vpn-servere.html" }
+                ]
+            }
+        }
+    </script>
+
+    <style>
+        /* ====== ОБЩИЕ СТИЛИ (скопированы из шаблона) ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        body.dark {
+            background: #0a0c12;
+            color: #e0e0e0;
+        }
+        body.dark .article-container {
+            background: rgba(25, 30, 45, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .theme-toggle {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        body.dark .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #a5f0ff;
+        }
+        body.dark .nav-links a {
+            color: #e0e0e0;
+        }
+        body.dark .nav-links a:hover {
+            color: #a5f0ff;
+        }
+        body.dark .gradient-text {
+            background: linear-gradient(135deg, #a5f0ff, #7c3aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.dark .tag {
+            background: rgba(165, 240, 255, 0.12);
+            color: #a5f0ff;
+            border: 1px solid rgba(165, 240, 255, 0.2);
+        }
+        body.dark .btn-primary {
+            background: linear-gradient(95deg, #7c3aff, #5a2dca);
+            box-shadow: 0 8px 20px rgba(124, 58, 255, 0.3);
+        }
+        body.dark .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(124, 58, 255, 0.45);
+        }
+        body.dark .footer {
+            color: #7f8c9b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.dark .related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .related-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .protocol-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .protocol-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .timeline-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #7c3aff;
+        }
+        body.dark .vps-advantage {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.08), rgba(45, 212, 191, 0.05));
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.dark .tech-highlight {
+            background: rgba(124, 58, 255, 0.06);
+            border-left: 4px solid #7c3aff;
+        }
+        body.dark .era-badge {
+            background: rgba(165, 240, 255, 0.1);
+            color: #a5f0ff;
+        }
+        body.dark .breadcrumb a {
+            color: #a5f0ff;
+        }
+        body.dark .code-block {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .code-block code {
+            color: #e0e0e0;
+        }
+
+        body.light {
+            background: #ffffff;
+            color: #222222;
+        }
+        body.light .article-container {
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+        }
+        body.light .gradient-text {
+            background: linear-gradient(135deg, #ff385c, #dd1a4a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.light .tag {
+            background: rgba(255, 56, 92, 0.08);
+            color: #ff385c;
+            border: 1px solid rgba(255, 56, 92, 0.2);
+        }
+        body.light .btn-primary {
+            background: linear-gradient(95deg, #ff385c, #dd1a4a);
+            box-shadow: 0 8px 20px rgba(255, 56, 92, 0.25);
+        }
+        body.light .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(255, 56, 92, 0.35);
+        }
+        body.light .nav-links a {
+            color: #222222;
+        }
+        body.light .nav-links a:hover {
+            color: #ff385c;
+        }
+        body.light .theme-toggle {
+            background: #f7f7f7;
+            color: #222222;
+            border: 1px solid #ebebeb;
+        }
+        body.light .footer {
+            color: #717171;
+            border-top: 1px solid #ebebeb;
+        }
+        body.light .related-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .related-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .protocol-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .protocol-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .timeline-card {
+            background: #fafafa;
+            border-left: 3px solid #ff385c;
+        }
+        body.light .vps-advantage {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.05), rgba(255, 56, 92, 0.02));
+            border: 1px solid rgba(255, 56, 92, 0.12);
+        }
+        body.light .tech-highlight {
+            background: rgba(255, 56, 92, 0.04);
+            border-left: 4px solid #ff385c;
+        }
+        body.light .era-badge {
+            background: rgba(255, 56, 92, 0.08);
+            color: #ff385c;
+        }
+        body.light .breadcrumb a {
+            color: #ff385c;
+        }
+        body.light .code-block {
+            background: #f5f5f5;
+            border: 1px solid #ebebeb;
+        }
+        body.light .code-block code {
+            color: #222;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .container-wide {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 40px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        .btn-primary {
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .article-container {
+            border-radius: 32px;
+            padding: 48px 56px;
+            margin: 30px 0 50px;
+            transition: all 0.2s;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            padding: 8px 0;
+        }
+        .breadcrumb a {
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-container h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .article-container h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 36px 0 16px;
+            letter-spacing: -0.01em;
+        }
+        .article-container h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 28px 0 12px;
+        }
+        .article-container p {
+            margin-bottom: 18px;
+            opacity: 0.9;
+        }
+        .article-container ul,
+        .article-container ol {
+            margin: 16px 0 24px 24px;
+        }
+        .article-container li {
+            margin-bottom: 8px;
+        }
+        .article-container blockquote {
+            border-left: 4px solid #7c3aff;
+            padding-left: 20px;
+            margin: 24px 0;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        body.light .article-container blockquote {
+            border-left-color: #ff385c;
+        }
+
+        .code-block {
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+        .code-block code {
+            font-family: 'Inter', monospace;
+            font-size: 0.9rem;
+        }
+
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 40px;
+        }
+        body.light .article-author {
+            border-top-color: #ebebeb;
+        }
+        .article-author .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #7c3aff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        body.light .article-author .avatar {
+            background: #ff385c;
+        }
+        .article-author .bio {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .article-cta {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.12), rgba(45, 212, 191, 0.08));
+            border-radius: 24px;
+            padding: 32px 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.light .article-cta {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.08), rgba(255, 56, 92, 0.03));
+            border-color: rgba(255, 56, 92, 0.15);
+        }
+        .article-cta h3 {
+            margin-bottom: 12px;
+        }
+        .article-cta .btn-primary {
+            margin-top: 16px;
+        }
+
+        .related-articles {
+            margin: 40px 0 30px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 16px;
+        }
+        .related-card {
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+        }
+        .related-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .related-card p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        .related-card .tag {
+            font-size: 0.65rem;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.85rem;
+        }
+
+        .vps-advantage {
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin: 24px 0;
+        }
+        .vps-advantage h3 {
+            margin-top: 0;
+        }
+        .vps-advantage ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+        .vps-advantage ul li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .vps-advantage ul li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #7c3aff;
+            font-weight: 700;
+        }
+        body.light .vps-advantage ul li::before {
+            color: #ff385c;
+        }
+
+        .tech-highlight {
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+        .comparison-table thead tr {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        body.light .comparison-table thead tr {
+            border-bottom-color: #d1d5db;
+        }
+        .comparison-table th {
+            text-align: left;
+            padding: 12px 8px;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.light .comparison-table td {
+            border-bottom-color: #f3f4f6;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table .check {
+            color: #2dd4bf;
+        }
+        body.light .comparison-table .check {
+            color: #0d9488;
+        }
+        .comparison-table .cross {
+            color: #ff385c;
+        }
+        .comparison-table .highlight-row {
+            background: rgba(124, 58, 255, 0.06);
+        }
+        body.light .comparison-table .highlight-row {
+            background: rgba(255, 56, 92, 0.04);
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 28px 20px;
+            }
+            .article-container h1 {
+                font-size: 1.6rem;
+            }
+            .article-container h2 {
+                font-size: 1.3rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-links {
+                gap: 16px;
+                justify-content: center;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            .article-cta {
+                padding: 24px 20px;
+            }
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-table {
+                font-size: 0.78rem;
+            }
+            .vps-advantage {
+                padding: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .article-container h1 {
+                font-size: 1.3rem;
+            }
+            .article-meta {
+                font-size: 0.75rem;
+                gap: 12px;
+            }
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 6px 4px;
+            }
+        }
+    </style>
+</head>
+<body class="dark">
+    <div class="container-wide">
+        <nav>
+            <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+            <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+                <div class="nav-links">
+                    <a href="/">Главная</a>
+                    <a href="/access.html">Доступ</a>
+                    <a href="/blog.html">📝 Блог</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                    <i class="fas fa-sun"></i>
+                    <span style="font-size:0.9rem;">Светлая</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <article class="article-container">
+
+            <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Главная</a>
+                <span>›</span>
+                <a href="/blog.html">Блог</a>
+                <span>›</span>
+                <span>Проверка таблицы маршрутизации</span>
+            </nav>
+
+            <!-- ====== МЕТАДАННЫЕ ====== -->
+            <div class="article-meta">
+                <span class="tag">🛠 Администрирование</span>
+                <span><i class="far fa-calendar-alt"></i> 26 июля 2026</span>
+                <span><i class="far fa-clock"></i> 10 минут чтения</span>
+                <span><i class="far fa-eye"></i> 1 847 просмотров</span>
+            </div>
+
+            <h1>Проверка таблицы маршрутизации на VPN-сервере: полное руководство</h1>
+
+            <!-- ====== ВСТУПЛЕНИЕ ====== -->
+            <p>
+                Таблица маршрутизации — это «карта» вашего сервера, по которой он понимает, куда отправлять сетевые пакеты. На <strong>VPN-сервере</strong> правильная маршрутизация критична: если маршруты настроены неверно, клиенты не смогут получить доступ к интернету или внутренним ресурсам, а трафик может пойти в обход VPN-туннеля, раскрывая ваш реальный IP.
+            </p>
+            <p>
+                В этой статье мы разберём, как проверить таблицу маршрутизации на Linux-сервере, какие команды использовать (<code>ip route</code>, <code>route -n</code>, <code>netstat -r</code>), как интерпретировать вывод и как диагностировать типичные проблемы. А также покажем, почему <strong>личный VPN на VPS</strong> с технологией <strong>XHTTP + Reality</strong> — это идеальная среда для полного контроля над маршрутизацией.
+            </p>
+
+            <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+            <div style="background:rgba(255,255,255,0.04); border-radius:16px; padding:20px 24px; margin:24px 0;">
+                <p style="font-weight:700; margin-bottom:8px;">📑 Содержание:</p>
+                <ul style="margin:0; list-style:none; padding:0; columns:2; column-gap:30px;">
+                    <li style="margin:4px 0;"><a href="#what-is-routing" style="color:#a5f0ff; text-decoration:none;">1. Что такое таблица маршрутизации</a></li>
+                    <li style="margin:4px 0;"><a href="#view-commands" style="color:#a5f0ff; text-decoration:none;">2. Команды для просмотра маршрутов</a></li>
+                    <li style="margin:4px 0;"><a href="#analyze-output" style="color:#a5f0ff; text-decoration:none;">3. Анализ вывода: поля и значения</a></li>
+                    <li style="margin:4px 0;"><a href="#vpn-routes" style="color:#a5f0ff; text-decoration:none;">4. Типичная таблица для VPN-сервера</a></li>
+                    <li style="margin:4px 0;"><a href="#diagnostics" style="color:#a5f0ff; text-decoration:none;">5. Диагностика проблем с маршрутами</a></li>
+                    <li style="margin:4px 0;"><a href="#tools" style="color:#a5f0ff; text-decoration:none;">6. Дополнительные инструменты</a></li>
+                    <li style="margin:4px 0;"><a href="#vps-advantage" style="color:#a5f0ff; text-decoration:none;">7. Почему личный VPS лучше</a></li>
+                    <li style="margin:4px 0;"><a href="#conclusion" style="color:#a5f0ff; text-decoration:none;">8. Заключение</a></li>
+                </ul>
+            </div>
+
+            <!-- ====== 1. ЧТО ТАКОЕ ТАБЛИЦА МАРШРУТИЗАЦИИ ====== -->
+            <h2 id="what-is-routing">Что такое таблица маршрутизации</h2>
+            <p>
+                Таблица маршрутизации (routing table) — это набор правил, которые определяют, через какой интерфейс и какой шлюз отправлять пакеты для каждого целевого адреса или сети. На VPN-сервере она решает, куда направить трафик от клиентов: в интернет, в локальную сеть или обратно в туннель.
+            </p>
+            <p>Основные элементы записи маршрута:</p>
+            <ul>
+                <li><strong>Destination (цель)</strong> — сеть или хост, для которого применяется правило.</li>
+                <li><strong>Gateway (шлюз)</strong> — IP-адрес следующего узла, куда отправлять пакеты.</li>
+                <li><strong>Genmask (маска)</strong> — сетевая маска, определяющая диапазон адресов.</li>
+                <li><strong>Interface (интерфейс)</strong> — сетевой интерфейс, через который уходит трафик (например, <code>eth0</code>, <code>tun0</code>).</li>
+                <li><strong>Metric (метрика)</strong> — приоритет маршрута: чем меньше число, тем выше приоритет.</li>
+            </ul>
+            <p>
+                Для VPN-сервера критически важно, чтобы маршрут для всего интернет-трафика (0.0.0.0/0) указывал на VPN-интерфейс (например, <code>tun0</code>) или на шлюз провайдера, если вы не используете полнотуннельный режим.
+            </p>
+
+            <!-- ====== 2. КОМАНДЫ ДЛЯ ПРОСМОТРА ====== -->
+            <h2 id="view-commands">Команды для просмотра таблицы маршрутизации</h2>
+            <p>В Linux есть несколько утилит для работы с маршрутами. Рассмотрим основные.</p>
+
+            <h3>2.1. ip route (современная команда)</h3>
+            <p>Утилита <code>ip</code> из пакета <code>iproute2</code> — стандарт в современных дистрибутивах.</p>
+            <div class="code-block">
+                <code>ip route show</code>
+            </div>
+            <p>Пример вывода:</p>
+            <div class="code-block">
+                <code>
+                    default via 192.168.1.1 dev eth0 proto dhcp metric 100<br />
+                    10.8.0.0/24 dev tun0 proto kernel scope link src 10.8.0.1<br />
+                    192.168.1.0/24 dev eth0 proto kernel scope link src 192.168.1.10
+                </code>
+            </div>
+            <p>
+                Здесь мы видим маршрут по умолчанию (<code>default</code>) через шлюз 192.168.1.1 (интерфейс <code>eth0</code>) и маршрут для VPN-подсети 10.8.0.0/24 через интерфейс <code>tun0</code>.
+            </p>
+
+            <h3>2.2. route -n (классическая команда)</h3>
+            <p>Команда <code>route</code> с ключом <code>-n</code> показывает маршруты без преобразования IP в имена.</p>
+            <div class="code-block">
+                <code>route -n</code>
+            </div>
+            <p>Пример:</p>
+            <div class="code-block">
+                <code>
+                    Kernel IP routing table<br />
+                    Destination&nbsp;&nbsp;&nbsp;&nbsp;Gateway&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Genmask&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flags&nbsp;Metric&nbsp;Ref&nbsp;&nbsp;&nbsp;Use&nbsp;Iface<br />
+                    0.0.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;192.168.1.1&nbsp;&nbsp;0.0.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UG&nbsp;&nbsp;&nbsp;&nbsp;100&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;eth0<br />
+                    10.8.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;255.255.255.0&nbsp;U&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;tun0
+                </code>
+            </div>
+
+            <h3>2.3. netstat -r</h3>
+            <p>Классическая <code>netstat</code> тоже умеет показывать таблицу маршрутизации:</p>
+            <div class="code-block">
+                <code>netstat -rn</code>
+            </div>
+            <p>Вывод аналогичен <code>route -n</code>.</p>
+
+            <!-- ====== 3. АНАЛИЗ ВЫВОДА ====== -->
+            <h2 id="analyze-output">Анализ вывода: ключевые поля</h2>
+            <p>Разберём, что означают поля в выводе <code>ip route</code>:</p>
+            <ul>
+                <li><strong>default</strong> — маршрут по умолчанию, используется для всех адресов, не попадающих под другие правила.</li>
+                <li><strong>via X.X.X.X</strong> — шлюз, через который идёт трафик.</li>
+                <li><strong>dev eth0</strong> — интерфейс, через который отправляются пакеты.</li>
+                <li><strong>proto kernel</strong> — маршрут добавлен ядром автоматически (например, при поднятии интерфейса).</li>
+                <li><strong>scope link</strong> — маршрут действует только в пределах данного интерфейса.</li>
+                <li><strong>src X.X.X.X</strong> — исходный IP-адрес, который будет использоваться для пакетов, идущих по этому маршруту.</li>
+            </ul>
+            <p>
+                Для VPN-сервера важно проверить, что маршрут для подсети клиентов (например, <code>10.8.0.0/24</code>) существует и указывает на правильный интерфейс (<code>tun0</code> или <code>wg0</code>). Если вы используете <strong>полнотуннельный режим</strong>, то маршрут по умолчанию должен вести на VPN-интерфейс, а не на внешний шлюз.
+            </p>
+
+            <!-- ====== 4. ТИПИЧНАЯ ТАБЛИЦА ДЛЯ VPN ====== -->
+            <h2 id="vpn-routes">Типичная таблица маршрутизации для VPN-сервера</h2>
+            <p>Рассмотрим пример для сервера с OpenVPN или WireGuard, где клиенты получают доступ в интернет через VPN.</p>
+            <div class="code-block">
+                <code>
+                    default via 10.8.0.1 dev tun0 proto static metric 50<br />
+                    10.8.0.0/24 dev tun0 proto kernel scope link src 10.8.0.1<br />
+                    192.168.1.0/24 dev eth0 proto kernel scope link src 192.168.1.10<br />
+                    10.0.0.0/8 via 192.168.1.1 dev eth0 proto static
+                </code>
+            </div>
+            <p>Здесь:</p>
+            <ul>
+                <li>Маршрут по умолчанию (0.0.0.0/0) идёт через <code>tun0</code> — весь интернет-трафик клиентов уходит в VPN-туннель.</li>
+                <li>Подсеть клиентов 10.8.0.0/24 доступна через <code>tun0</code>.</li>
+                <li>Локальная сеть 192.168.1.0/24 доступна через <code>eth0</code>.</li>
+                <li>Дополнительный маршрут для сети 10.0.0.0/8 направлен через локальный шлюз.</li>
+            </ul>
+            <p>
+                Если вы используете <strong>XHTTP + Reality</strong>, маршрутизация может быть более сложной, но базовые принципы остаются теми же. Важно, чтобы трафик клиентов корректно проходил через маскирующий прокси и не «вытекал» наружу.
+            </p>
+
+            <!-- ====== 5. ДИАГНОСТИКА ПРОБЛЕМ ====== -->
+            <h2 id="diagnostics">Диагностика типичных проблем с маршрутами</h2>
+
+            <h3>5.1. Отсутствует маршрут для подсети клиентов</h3>
+            <p>Если в таблице нет записи для диапазона IP-адресов клиентов (например, 10.8.0.0/24), клиенты не смогут обмениваться данными с сервером.</p>
+            <p><strong>Решение:</strong> Добавьте маршрут вручную или перезапустите VPN-сервис, чтобы он создал маршрут автоматически.</p>
+            <div class="code-block">
+                <code>ip route add 10.8.0.0/24 dev tun0</code>
+            </div>
+
+            <h3>5.2. Маршрут по умолчанию указывает на внешний интерфейс</h3>
+            <p>Если вы используете полнотуннельный режим, но <code>default</code> ведёт на <code>eth0</code>, а не на <code>tun0</code>, трафик клиентов пойдёт в обход VPN.</p>
+            <p><strong>Решение:</strong> Удалите старый маршрут по умолчанию и добавьте новый через VPN-интерфейс.</p>
+            <div class="code-block">
+                <code>
+                    ip route del default<br />
+                    ip route add default via 10.8.0.1 dev tun0
+                </code>
+            </div>
+
+            <h3>5.3. Проблемы с NAT (маскарадингом)</h3>
+            <p>Даже если маршруты правильные, клиенты могут не иметь доступа в интернет из-за отсутствия NAT. Проверьте правила <code>iptables</code>:</p>
+            <div class="code-block">
+                <code>iptables -t nat -L POSTROUTING -v</code>
+            </div>
+            <p>Должно быть правило, которое маскирует трафик из VPN-подсети:</p>
+            <div class="code-block">
+                <code>MASQUERADE  all  --  10.8.0.0/24  anywhere</code>
+            </div>
+
+            <h3>5.4. Проблемы с обратной маршрутизацией (asymmetric routing)</h3>
+            <p>Иногда пакеты от клиентов приходят через один интерфейс, а уходят через другой. Это может вызвать сбои. Убедитесь, что обратные маршруты симметричны.</p>
+
+            <!-- ====== 6. ДОПОЛНИТЕЛЬНЫЕ ИНСТРУМЕНТЫ ====== -->
+            <h2 id="tools">Дополнительные инструменты для проверки маршрутизации</h2>
+            <ul>
+                <li><strong>traceroute</strong> — показывает путь пакетов до цели. Помогает понять, через какие шлюзы идёт трафик.</li>
+                <li><strong>ping</strong> — базовая проверка доступности узлов.</li>
+                <li><strong>mtr</strong> (My Traceroute) — комбинирует ping и traceroute в реальном времени.</li>
+                <li><strong>tcpdump</strong> — анализ пакетов на интерфейсах, чтобы увидеть, куда реально уходит трафик.</li>
+            </ul>
+            <p>
+                Например, чтобы проверить, идёт ли трафик к <code>8.8.8.8</code> через VPN-интерфейс, можно использовать <code>traceroute -n 8.8.8.8</code> и посмотреть на первый хоп.
+            </p>
+
+            <!-- ====== 7. ПОЧЕМУ ЛИЧНЫЙ VPS ЛУЧШЕ ====== -->
+            <h2 id="vps-advantage">Почему личный VPN на VPS даёт полный контроль над маршрутизацией</h2>
+
+            <div class="vps-advantage">
+                <h3>🚀 В чём отличие подхода VPS-VPN?</h3>
+                <p style="font-size:1.05rem; font-weight:500;">
+                    В отличие от обычных VPN-сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.
+                </p>
+                <ul>
+                    <li><strong>Полный доступ к таблице маршрутизации</strong> — вы сами управляете маршрутами, можете добавить свои сети, настроить политики.</li>
+                    <li><strong>Никаких «шумных соседей»</strong> — ваш IP-адрес используете только вы, маршруты не пересекаются с другими клиентами.</li>
+                    <li><strong>Стабильная скорость</strong> — пропускная способность не делится между сотнями пользователей.</li>
+                    <li><strong>Минимальный риск блокировок</strong> — массовые IP-адреса часто попадают в бан-листы. Ваш личный IP — чистый.</li>
+                    <li><strong>Технология XHTTP + Reality</strong> — ваш трафик маскируется под обычный HTTPS, DPI не может его отличить от обычного браузера Chrome. Это даёт дополнительную гибкость в настройке маршрутов без риска быть заблокированным.</li>
+                </ul>
+                <div style="background:rgba(124,58,255,0.1); border-radius:12px; padding:16px 20px; margin-top:16px; border:1px solid rgba(124,58,255,0.2);">
+                    <p style="font-weight:700; margin-bottom:4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
+                    <p style="margin-bottom:0;">Потому что каждый клиент <a href="/" style="color:#a5f0ff; text-decoration:none; font-weight:600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP-адресом и индивидуальными настройками маршрутизации.</p>
+                </div>
+            </div>
+
+            <p>
+                С коммерческим VPN вы не имеете доступа к таблице маршрутизации — вы просто подключаетесь и надеетесь, что всё работает. С <strong>личным VPS</strong> вы можете не только проверять маршруты, но и тонко настраивать их под свои задачи: например, направлять трафик к определённым сайтам через разные интерфейсы, использовать <strong>split tunneling</strong> или добавлять свои статические маршруты.
+            </p>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Массовый VPN</th>
+                        <th>Личный VPN на VPS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Доступ к таблице маршрутизации</strong></td>
+                        <td>Нет</td>
+                        <td><span class="check">✅</span> Полный контроль</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Настройка политик маршрутизации</strong></td>
+                        <td>Ограничена</td>
+                        <td><span class="check">✅</span> Любая гибкость</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IP-адрес</strong></td>
+                        <td>Общий (1000+ пользователей)</td>
+                        <td><span class="check">✅</span> Персональный</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Риск блокировки</strong></td>
+                        <td>Высокий</td>
+                        <td><span class="check">✅</span> Минимальный</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Маскировка трафика</strong></td>
+                        <td>Стандартные протоколы</td>
+                        <td><span class="check">✅</span> XHTTP + Reality</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Сложность обнаружения DPI</strong></td>
+                        <td>Легко обнаружить</td>
+                        <td><span class="check">✅</span> В 1000 раз сложнее</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
+            <div class="article-cta">
+                <h3>🔥 Получите свой личный VPN-сервер с полным контролем над маршрутизацией</h3>
+                <p>
+                    Мы в <strong><a href="/" style="color:inherit; text-decoration:none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Вы сами управляете таблицей маршрутизации, добавляете любые правила и используете передовую технологию <strong>XHTTP + Reality</strong>.
+                </p>
+                <p style="margin-top:12px; font-weight:500;">
+                    Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.
+                </p>
+                <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
+            </div>
+
+            <!-- ====== 8. ЗАКЛЮЧЕНИЕ ====== -->
+            <h2 id="conclusion">Заключение</h2>
+            <p>
+                Проверка таблицы маршрутизации — обязательный шаг при настройке и диагностике VPN-сервера. С помощью команд <code>ip route</code>, <code>route -n</code> и <code>netstat -r</code> вы можете быстро оценить, куда направляется трафик, и исправить потенциальные проблемы.
+            </p>
+            <p>
+                Однако возможности проверки и настройки маршрутов напрямую зависят от того, какой тип VPN вы используете. <strong>Массовые сервисы</strong> скрывают от вас таблицу маршрутизации, оставляя лишь «чёрный ящик». <strong>Личный VPN на VPS</strong> даёт полный доступ, позволяя тонко настроить маршрутизацию под любые задачи — от простого интернет-серфинга до сложных корпоративных сценариев.
+            </p>
+            <p>
+                Выбирайте <a href="/" style="color:#a5f0ff; text-decoration:none;">VPS-VPN</a> — и вы получите не только современную защиту с XHTTP + Reality, но и полный контроль над сетью, включая таблицу маршрутизации. Интернет должен быть свободным, безопасным и управляемым.
+            </p>
+
+            <!-- ====== АВТОР ====== -->
+            <div class="article-author">
+                <div class="avatar">🛠</div>
+                <div>
+                    <p style="font-weight:600;">Команда VPS-VPN</p>
+                    <p class="bio">Сетевые инженеры и администраторы. Специализируемся на настройке VPN-инфраструктуры, маршрутизации и обходе DPI.</p>
+                </div>
+            </div>
+
+            <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+            <div class="related-articles">
+                <h3>📖 Похожие статьи</h3>
+                <div class="related-grid">
+                    <a href="/articles/nastroyka-marshrutizacii-trafica-cherez-warp.html" class="related-card">
+                        <span class="tag">🌐 Маршрутизация</span>
+                        <h4>Настройка маршрутизации трафика через WARP</h4>
+                        <p>Как направить трафик VPS через Cloudflare WARP</p>
+                    </a>
+                    <a href="/articles/ispolzovanie-wireguard-s-marshrutizaciey-na-osnove-politik.html" class="related-card">
+                        <span class="tag">⚙️ WireGuard</span>
+                        <h4>WireGuard с маршрутизацией на основе политик</h4>
+                        <p>Гибкая маршрутизация для разных типов трафика</p>
+                    </a>
+                    <a href="/articles/nastroyka-vpn-servera-v-kitae-i-rossii.html" class="related-card">
+                        <span class="tag">🚧 Обход блокировок</span>
+                        <h4>Настройка VPN-сервера в Китае и России</h4>
+                        <p>Особенности маршрутизации в условиях DPI</p>
+                    </a>
+                    <a href="/articles/kak-proverit-vpn-soedinenie-na-utechki-ip-dns-webrtc.html" class="related-card">
+                        <span class="tag">🔍 Проверка</span>
+                        <h4>Как проверить VPN-соединение на утечки</h4>
+                        <p>IP, DNS, WebRTC — диагностика утечек</p>
+                    </a>
+                    <a href="/articles/pochemu-vydelennyy-ip-adres-luchshe-dlya-obhoda-blokirovok.html" class="related-card">
+                        <span class="tag">🛡 Безопасность</span>
+                        <h4>Почему выделенный IP лучше для обхода блокировок</h4>
+                        <p>Преимущества личного IP перед общим</p>
+                    </a>
+                    <a href="/articles/nastroyka-brandmauera-iptables-nftables-ufw.html" class="related-card">
+                        <span class="tag">🔥 Firewall</span>
+                        <h4>Настройка брандмауэра для VPN-сервера</h4>
+                        <p>iptables, nftables, ufw — правила и маршрутизация</p>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="container-wide">
+        <div class="footer">
+            <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+            <p style="margin-top:8px;">
+                <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+                <a href="/blog.html" style="color:inherit; text-decoration:none;"><i class="fas fa-blog"></i> Блог</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            function setTheme(theme) {
+                const isLight = theme === 'light';
+                document.body.classList.toggle('light', isLight);
+                document.body.classList.toggle('dark', !isLight);
+                localStorage.setItem('vpsvpn_theme', theme);
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) {
+                    toggleBtn.innerHTML = isLight ?
+                        '<i class="fas fa-moon"></i><span style="font-size:0.9rem;">Тёмная</span>' :
+                        '<i class="fas fa-sun"></i><span style="font-size:0.9rem;">Светлая</span>';
+                }
+            }
+
+            function initTheme() {
+                const saved = localStorage.getItem('vpsvpn_theme');
+                setTheme(saved === 'light' ? 'light' : 'dark');
+            }
+            document.getElementById('themeToggle')?.addEventListener('click', () => {
+                const isLight = document.body.classList.contains('light');
+                setTheme(isLight ? 'dark' : 'light');
+            });
+            initTheme();
+        })();
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments); };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(108981205, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", accurateTrackBounce: true,
+            trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+</body>
+</html>

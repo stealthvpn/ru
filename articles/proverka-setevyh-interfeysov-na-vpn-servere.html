@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-FS3MC3KGRX');
+    </script>
+
+    <!-- ====== СЕО МЕТАТЕГИ ====== -->
+    <title>Проверка сетевых интерфейсов на VPN-сервере: полное руководство | VPS-VPN</title>
+    <meta name="description" content="Подробное руководство по проверке сетевых интерфейсов на VPN-сервере: lo, eth0, tun0, wg0. Диагностика, маршрутизация, устранение неполадок. Советы для личного VPN на VPS с XHTTP+Reality.">
+    <meta name="keywords" content="проверка сетевых интерфейсов, VPN сервер, сетевые интерфейсы Linux, ip link, ifconfig, диагностика VPN, маршрутизация, tun0, wg0, XHTTP Reality, VPS VPN">
+    <meta name="author" content="Команда VPS-VPN">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://vps-vpn.ru/articles/proverka-setevyh-interfeysov-na-vpn-servere.html">
+
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vps-vpn.ru/articles/proverka-setevyh-interfeysov-na-vpn-servere.html">
+    <meta property="og:title" content="Проверка сетевых интерфейсов на VPN-сервере: полное руководство">
+    <meta property="og:description" content="Подробное руководство по проверке сетевых интерфейсов на VPN-сервере: lo, eth0, tun0, wg0. Диагностика, маршрутизация, устранение неполадок.">
+    <meta property="og:image" content="https://vps-vpn.ru/images/vpn-network-interfaces.jpg">
+    <meta property="og:site_name" content="VPS-VPN">
+    <meta property="article:published_time" content="2026-07-26">
+    <meta property="article:modified_time" content="2026-07-26">
+    <meta property="article:author" content="Команда VPS-VPN">
+    <meta property="article:section" content="Администрирование">
+
+    <!-- ====== TWITTER ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Проверка сетевых интерфейсов на VPN-сервере: полное руководство">
+    <meta name="twitter:description" content="Подробное руководство по проверке сетевых интерфейсов на VPN-сервере: lo, eth0, tun0, wg0. Диагностика, маршрутизация, устранение неполадок.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/vpn-network-interfaces.jpg">
+
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": "Проверка сетевых интерфейсов на VPN-сервере: полное руководство",
+            "description": "Подробное руководство по проверке сетевых интерфейсов на VPN-сервере: lo, eth0, tun0, wg0. Диагностика, маршрутизация, устранение неполадок.",
+            "image": "https://vps-vpn.ru/images/vpn-network-interfaces.jpg",
+            "datePublished": "2026-07-26",
+            "dateModified": "2026-07-26",
+            "author": {
+                "@type": "Organization",
+                "name": "VPS-VPN"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "VPS-VPN",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://vps-vpn.ru/logo.png"
+                }
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://vps-vpn.ru/articles/proverka-setevyh-interfeysov-na-vpn-servere.html"
+            },
+            "keywords": "проверка сетевых интерфейсов, VPN сервер, сетевые интерфейсы Linux, ip link, ifconfig, диагностика VPN, маршрутизация, tun0, wg0, XHTTP Reality",
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+                    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+                    { "@type": "ListItem", "position": 3, "name": "Проверка сетевых интерфейсов", "item": "https://vps-vpn.ru/articles/proverka-setevyh-interfeysov-na-vpn-servere.html" }
+                ]
+            }
+        }
+    </script>
+
+    <style>
+        /* ====== ОБЩИЕ СТИЛИ ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        body.dark {
+            background: #0a0c12;
+            color: #e0e0e0;
+        }
+        body.dark .article-container {
+            background: rgba(25, 30, 45, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .theme-toggle {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        body.dark .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #a5f0ff;
+        }
+        body.dark .nav-links a {
+            color: #e0e0e0;
+        }
+        body.dark .nav-links a:hover {
+            color: #a5f0ff;
+        }
+        body.dark .gradient-text {
+            background: linear-gradient(135deg, #a5f0ff, #7c3aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.dark .tag {
+            background: rgba(165, 240, 255, 0.12);
+            color: #a5f0ff;
+            border: 1px solid rgba(165, 240, 255, 0.2);
+        }
+        body.dark .btn-primary {
+            background: linear-gradient(95deg, #7c3aff, #5a2dca);
+            box-shadow: 0 8px 20px rgba(124, 58, 255, 0.3);
+        }
+        body.dark .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(124, 58, 255, 0.45);
+        }
+        body.dark .footer {
+            color: #7f8c9b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.dark .related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .related-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .protocol-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .protocol-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .timeline-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #7c3aff;
+        }
+        body.dark .vps-advantage {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.08), rgba(45, 212, 191, 0.05));
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.dark .tech-highlight {
+            background: rgba(124, 58, 255, 0.06);
+            border-left: 4px solid #7c3aff;
+        }
+        body.dark .era-badge {
+            background: rgba(165, 240, 255, 0.1);
+            color: #a5f0ff;
+        }
+        body.dark .breadcrumb a {
+            color: #a5f0ff;
+        }
+        body.dark code {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        body.light {
+            background: #ffffff;
+            color: #222222;
+        }
+        body.light .article-container {
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+        }
+        body.light .gradient-text {
+            background: linear-gradient(135deg, #ff385c, #dd1a4a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.light .tag {
+            background: rgba(255, 56, 92, 0.08);
+            color: #ff385c;
+            border: 1px solid rgba(255, 56, 92, 0.2);
+        }
+        body.light .btn-primary {
+            background: linear-gradient(95deg, #ff385c, #dd1a4a);
+            box-shadow: 0 8px 20px rgba(255, 56, 92, 0.25);
+        }
+        body.light .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(255, 56, 92, 0.35);
+        }
+        body.light .nav-links a {
+            color: #222222;
+        }
+        body.light .nav-links a:hover {
+            color: #ff385c;
+        }
+        body.light .theme-toggle {
+            background: #f7f7f7;
+            color: #222222;
+            border: 1px solid #ebebeb;
+        }
+        body.light .footer {
+            color: #717171;
+            border-top: 1px solid #ebebeb;
+        }
+        body.light .related-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .related-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .protocol-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .protocol-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .timeline-card {
+            background: #fafafa;
+            border-left: 3px solid #ff385c;
+        }
+        body.light .vps-advantage {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.05), rgba(255, 56, 92, 0.02));
+            border: 1px solid rgba(255, 56, 92, 0.12);
+        }
+        body.light .tech-highlight {
+            background: rgba(255, 56, 92, 0.04);
+            border-left: 4px solid #ff385c;
+        }
+        body.light .era-badge {
+            background: rgba(255, 56, 92, 0.08);
+            color: #ff385c;
+        }
+        body.light .breadcrumb a {
+            color: #ff385c;
+        }
+        body.light code {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .container-wide {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 40px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        .btn-primary {
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .article-container {
+            border-radius: 32px;
+            padding: 48px 56px;
+            margin: 30px 0 50px;
+            transition: all 0.2s;
+        }
+
+        /* Хлебные крошки */
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            padding: 8px 0;
+        }
+        .breadcrumb a {
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-container h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .article-container h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 36px 0 16px;
+            letter-spacing: -0.01em;
+        }
+        .article-container h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 28px 0 12px;
+        }
+        .article-container p {
+            margin-bottom: 18px;
+            opacity: 0.9;
+        }
+        .article-container ul,
+        .article-container ol {
+            margin: 16px 0 24px 24px;
+        }
+        .article-container li {
+            margin-bottom: 8px;
+        }
+        .article-container blockquote {
+            border-left: 4px solid #7c3aff;
+            padding-left: 20px;
+            margin: 24px 0;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        body.light .article-container blockquote {
+            border-left-color: #ff385c;
+        }
+
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 40px;
+        }
+        body.light .article-author {
+            border-top-color: #ebebeb;
+        }
+        .article-author .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #7c3aff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        body.light .article-author .avatar {
+            background: #ff385c;
+        }
+        .article-author .bio {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .article-cta {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.12), rgba(45, 212, 191, 0.08));
+            border-radius: 24px;
+            padding: 32px 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.light .article-cta {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.08), rgba(255, 56, 92, 0.03));
+            border-color: rgba(255, 56, 92, 0.15);
+        }
+        .article-cta h3 {
+            margin-bottom: 12px;
+        }
+        .article-cta .btn-primary {
+            margin-top: 16px;
+        }
+
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 16px 0 24px;
+        }
+        .protocol-card {
+            padding: 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+        }
+        .protocol-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .protocol-card p {
+            font-size: 0.82rem;
+            opacity: 0.8;
+            margin-bottom: 0;
+        }
+        .protocol-card .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .badge-high {
+            background: rgba(45, 212, 191, 0.2);
+            color: #2dd4bf;
+        }
+        .badge-mid {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+        .badge-low {
+            background: rgba(255, 56, 92, 0.15);
+            color: #ff385c;
+        }
+        .badge-purple {
+            background: rgba(124, 58, 255, 0.2);
+            color: #a78bfa;
+        }
+        body.light .badge-high {
+            background: rgba(45, 212, 191, 0.15);
+            color: #0d9488;
+        }
+        body.light .badge-mid {
+            background: rgba(251, 191, 36, 0.15);
+            color: #b45309;
+        }
+        body.light .badge-low {
+            background: rgba(255, 56, 92, 0.12);
+            color: #dc2626;
+        }
+        body.light .badge-purple {
+            background: rgba(124, 58, 255, 0.12);
+            color: #7c3aff;
+        }
+
+        .related-articles {
+            margin: 40px 0 30px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 16px;
+        }
+        .related-card {
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+        }
+        .related-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .related-card p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        .related-card .tag {
+            font-size: 0.65rem;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.85rem;
+        }
+
+        .timeline-card {
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+        }
+        .timeline-card .year {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-right: 12px;
+        }
+        .timeline-card .era-badge {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .vps-advantage {
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin: 24px 0;
+        }
+        .vps-advantage h3 {
+            margin-top: 0;
+        }
+        .vps-advantage ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+        .vps-advantage ul li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .vps-advantage ul li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #7c3aff;
+            font-weight: 700;
+        }
+        body.light .vps-advantage ul li::before {
+            color: #ff385c;
+        }
+
+        .tech-highlight {
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .tech-highlight code {
+            font-family: 'Inter', monospace;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        body.light .tech-highlight code {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+        .comparison-table thead tr {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        body.light .comparison-table thead tr {
+            border-bottom-color: #d1d5db;
+        }
+        .comparison-table th {
+            text-align: left;
+            padding: 12px 8px;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.light .comparison-table td {
+            border-bottom-color: #f3f4f6;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table .check {
+            color: #2dd4bf;
+        }
+        body.light .comparison-table .check {
+            color: #0d9488;
+        }
+        .comparison-table .cross {
+            color: #ff385c;
+        }
+        .comparison-table .highlight-row {
+            background: rgba(124, 58, 255, 0.06);
+        }
+        body.light .comparison-table .highlight-row {
+            background: rgba(255, 56, 92, 0.04);
+        }
+
+        .command-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin: 16px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.light .command-block {
+            background: #f1f3f5;
+            border-color: #e9ecef;
+        }
+        .command-block .prompt {
+            color: #2dd4bf;
+        }
+        body.light .command-block .prompt {
+            color: #0d9488;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 28px 20px;
+            }
+            .article-container h1 {
+                font-size: 1.6rem;
+            }
+            .article-container h2 {
+                font-size: 1.3rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-links {
+                gap: 16px;
+                justify-content: center;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            .article-cta {
+                padding: 24px 20px;
+            }
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            .protocol-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .comparison-table {
+                font-size: 0.78rem;
+            }
+            .vps-advantage {
+                padding: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .article-container h1 {
+                font-size: 1.3rem;
+            }
+            .article-meta {
+                font-size: 0.75rem;
+                gap: 12px;
+            }
+            .protocol-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 6px 4px;
+            }
+            .timeline-card .year {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark">
+    <div class="container-wide">
+        <nav>
+            <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+            <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+                <div class="nav-links">
+                    <a href="/">Главная</a>
+                    <a href="/access.html">Доступ</a>
+                    <a href="/blog.html">📝 Блог</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                    <i class="fas fa-sun"></i>
+                    <span style="font-size: 0.9rem;">Светлая</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <article class="article-container">
+
+            <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Главная</a>
+                <span>›</span>
+                <a href="/blog.html">Блог</a>
+                <span>›</span>
+                <span>Проверка сетевых интерфейсов на VPN-сервере</span>
+            </nav>
+
+            <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+            <div class="article-meta">
+                <span class="tag">🖥️ Администрирование</span>
+                <span><i class="far fa-calendar-alt"></i> 26 июля 2026</span>
+                <span><i class="far fa-clock"></i> 10 минут чтения</span>
+                <span><i class="far fa-eye"></i> 1 845 просмотров</span>
+            </div>
+
+            <!-- ====== ЗАГОЛОВОК ====== -->
+            <h1>Проверка сетевых интерфейсов на VPN-сервере: полное руководство</h1>
+
+            <!-- ====== ВСТУПЛЕНИЕ ====== -->
+            <p>Сетевые интерфейсы — это основа любой сетевой коммуникации. На VPN-сервере они играют критическую роль: именно через них проходит весь зашифрованный трафик, и именно от их корректной настройки зависит стабильность, скорость и безопасность вашего VPN-соединения. В этом руководстве мы подробно разберём, <strong>как проверить сетевые интерфейсы на VPN-сервере</strong>, какие интерфейсы существуют, как диагностировать проблемы и почему <strong>личный VPN на VPS</strong> с технологией <strong>XHTTP + Reality</strong> даёт вам полный контроль над всей сетевой инфраструктурой.</p>
+
+            <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+            <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
+                <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
+                <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
+                    <li style="margin: 4px 0;"><a href="#what-are-interfaces" style="color: #a5f0ff; text-decoration: none;">1. Что такое сетевые интерфейсы</a></li>
+                    <li style="margin: 4px 0;"><a href="#main-interfaces" style="color: #a5f0ff; text-decoration: none;">2. Основные интерфейсы VPN-сервера</a></li>
+                    <li style="margin: 4px 0;"><a href="#check-commands" style="color: #a5f0ff; text-decoration: none;">3. Команды для проверки интерфейсов</a></li>
+                    <li style="margin: 4px 0;"><a href="#routing-check" style="color: #a5f0ff; text-decoration: none;">4. Проверка маршрутизации и IP</a></li>
+                    <li style="margin: 4px 0;"><a href="#diagnostics" style="color: #a5f0ff; text-decoration: none;">5. Диагностика проблем</a></li>
+                    <li style="margin: 4px 0;"><a href="#vps-advantage" style="color: #a5f0ff; text-decoration: none;">6. Почему личный VPS лучше</a></li>
+                    <li style="margin: 4px 0;"><a href="#xhttp-reality" style="color: #a5f0ff; text-decoration: none;">7. XHTTP + Reality: маскировка</a></li>
+                    <li style="margin: 4px 0;"><a href="#conclusion" style="color: #a5f0ff; text-decoration: none;">8. Заключение</a></li>
+                </ul>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 1 ====== -->
+            <h2 id="what-are-interfaces">Что такое сетевые интерфейсы</h2>
+            <p><strong>Сетевой интерфейс</strong> — это программно-аппаратная точка подключения устройства к сети. В контексте Linux-сервера (а большинство VPS работают именно на Linux) интерфейс — это виртуальное или физическое устройство, через которое пакеты отправляются и принимаются.</p>
+            <p>Каждый интерфейс имеет:</p>
+            <ul>
+                <li><strong>Имя</strong> — например, <code>eth0</code>, <code>lo</code>, <code>tun0</code>, <code>wg0</code>.</li>
+                <li><strong>IP-адрес</strong> — может быть статическим или динамическим.</li>
+                <li><strong>MAC-адрес</strong> — для физических интерфейсов.</li>
+                <li><strong>Состояние</strong> — <code>UP</code> (активен) или <code>DOWN</code> (отключён).</li>
+                <li><strong>MTU</strong> — максимальный размер передаваемого пакета.</li>
+            </ul>
+            <p>Для VPN-сервера критически важно, чтобы все нужные интерфейсы были активны и правильно сконфигурированы. Ошибка в настройках может привести к тому, что клиенты не смогут подключиться, трафик будет теряться или маршрутизироваться неверно.</p>
+
+            <!-- ====== РАЗДЕЛ 2 ====== -->
+            <h2 id="main-interfaces">Основные сетевые интерфейсы на VPN-сервере</h2>
+
+            <div class="protocol-grid">
+                <div class="protocol-card" style="border: 2px solid rgba(45,212,191,0.3);">
+                    <h4>🔄 lo (loopback)</h4>
+                    <p>Внутренний интерфейс с IP <code>127.0.0.1</code>. Используется для связи процессов внутри сервера. Всегда должен быть <code>UP</code>.</p>
+                </div>
+                <div class="protocol-card">
+                    <h4>🌐 eth0 / ens3 / enp0s3</h4>
+                    <p>Основной физический (или виртуальный) сетевой интерфейс, через который сервер общается с внешним миром. Имеет публичный IP-адрес.</p>
+                </div>
+                <div class="protocol-card">
+                    <h4>🔷 tun0 (OpenVPN)</h4>
+                    <p>Виртуальный интерфейс, создаваемый OpenVPN. Работает на уровне IP (TUN) или Ethernet (TAP). Через него проходит трафик VPN-клиентов.</p>
+                </div>
+                <div class="protocol-card">
+                    <h4>⚡ wg0 (WireGuard)</h4>
+                    <p>Интерфейс WireGuard. Работает на уровне IP, имеет свой приватный и публичный ключи. Обеспечивает быстрое и безопасное соединение.</p>
+                </div>
+                <div class="protocol-card">
+                    <h4>🔒 xray / v2ray</h4>
+                    <p>В случае с XHTTP + Reality отдельного интерфейса может не быть — трафик маскируется под HTTPS и идёт через основной интерфейс, но с особыми правилами маршрутизации.</p>
+                </div>
+            </div>
+
+            <p>Понимание того, какие интерфейсы создаются вашим VPN-протоколом, — первый шаг к успешной диагностике.</p>
+
+            <!-- ====== РАЗДЕЛ 3 ====== -->
+            <h2 id="check-commands">Команды для проверки сетевых интерфейсов</h2>
+            <p>В Linux существует несколько утилит для просмотра состояния интерфейсов. Вот основные из них:</p>
+
+            <h3>1. <code>ip link</code> — список всех интерфейсов</h3>
+            <div class="command-block">
+                <span class="prompt">root@vps:~#</span> ip link<br>
+                1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000<br>
+                2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP mode DEFAULT group default qlen 1000<br>
+                3: tun0: &lt;POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UNKNOWN mode DEFAULT group default qlen 500<br>
+                4: wg0: &lt;POINTOPOINT,NOARP,UP,LOWER_UP&gt; mtu 1420 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+            </div>
+            <p>Обратите внимание на состояние <code>UP</code> — это значит, что интерфейс активен.</p>
+
+            <h3>2. <code>ip addr</code> — IP-адреса интерфейсов</h3>
+            <div class="command-block">
+                <span class="prompt">root@vps:~#</span> ip addr<br>
+                1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;inet 127.0.0.1/8 scope host lo<br>
+                2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;inet 45.67.89.10/24 brd 45.67.89.255 scope global eth0<br>
+                3: tun0: &lt;POINTOPOINT,MULTICAST,NOARP,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UNKNOWN group default qlen 500<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;inet 10.8.0.1/24 scope global tun0
+            </div>
+            <p>Здесь мы видим, что <code>tun0</code> имеет IP <code>10.8.0.1</code> — это адрес VPN-шлюза для клиентов.</p>
+
+            <h3>3. <code>ifconfig</code> — классическая утилита</h3>
+            <p>Хотя <code>ifconfig</code> считается устаревшей, она всё ещё широко используется:</p>
+            <div class="command-block">
+                <span class="prompt">root@vps:~#</span> ifconfig -a
+            </div>
+
+            <h3>4. <code>ss -tulpn</code> — проверка прослушиваемых портов</h3>
+            <p>Это поможет понять, слушает ли ваш VPN-сервер нужные порты (например, 443 для XHTTP + Reality или 51820 для WireGuard).</p>
+
+            <!-- ====== РАЗДЕЛ 4 ====== -->
+            <h2 id="routing-check">Проверка маршрутизации и IP-адресов</h2>
+            <p>Мало просто увидеть интерфейсы — нужно убедиться, что трафик идёт по правильным маршрутам.</p>
+
+            <h3>Таблица маршрутизации</h3>
+            <div class="command-block">
+                <span class="prompt">root@vps:~#</span> ip route<br>
+                default via 45.67.89.1 dev eth0 proto dhcp src 45.67.89.10 metric 100<br>
+                10.8.0.0/24 dev tun0 proto kernel scope link src 10.8.0.1<br>
+                45.67.89.0/24 dev eth0 proto kernel scope link src 45.67.89.10
+            </div>
+            <p>Здесь видно, что трафик для сети <code>10.8.0.0/24</code> направляется через <code>tun0</code>, а весь остальной — через <code>eth0</code>.</p>
+
+            <h3>Проверка доступности интерфейсов</h3>
+            <p>Используйте <code>ping</code> для проверки:</p>
+            <ul>
+                <li><code>ping -c 4 127.0.0.1</code> — проверка loopback.</li>
+                <li><code>ping -c 4 45.67.89.10</code> — проверка внешнего интерфейса.</li>
+                <li><code>ping -c 4 10.8.0.1</code> — проверка VPN-интерфейса.</li>
+            </ul>
+            <p>Если пинг не проходит, возможно, интерфейс неактивен или есть проблемы с маршрутизацией.</p>
+
+            <!-- ====== РАЗДЕЛ 5 ====== -->
+            <h2 id="diagnostics">Диагностика проблем с сетевыми интерфейсами</h2>
+
+            <div class="timeline-card">
+                <span class="year">⚠️</span>
+                <span class="era-badge">Проблема</span>
+                <p style="margin-top: 8px; margin-bottom: 0;"><strong>Интерфейс DOWN</strong> — проверьте, не отключили ли вы его командой <code>ip link set dev tun0 down</code>. Поднимите: <code>ip link set dev tun0 up</code>.</p>
+            </div>
+            <div class="timeline-card">
+                <span class="year">⚠️</span>
+                <span class="era-badge">Проблема</span>
+                <p style="margin-top: 8px; margin-bottom: 0;"><strong>Нет IP-адреса</strong> — возможно, DHCP не сработал или статический адрес не назначен. Проверьте конфигурацию в <code>/etc/netplan/</code> или <code>/etc/network/interfaces</code>.</p>
+            </div>
+            <div class="timeline-card">
+                <span class="year">⚠️</span>
+                <span class="era-badge">Проблема</span>
+                <p style="margin-top: 8px; margin-bottom: 0;"><strong>Маршруты не добавляются</strong> — убедитесь, что в конфигурации VPN (OpenVPN, WireGuard) прописаны правильные <code>push "route ..."</code> или <code>AllowedIPs</code>.</p>
+            </div>
+            <div class="timeline-card">
+                <span class="year">⚠️</span>
+                <span class="era-badge">Проблема</span>
+                <p style="margin-top: 8px; margin-bottom: 0;"><strong>Высокая потеря пакетов</strong> — проверьте MTU. Для WireGuard часто используют <code>mtu = 1420</code>, для OpenVPN — <code>1500</code>.</p>
+            </div>
+
+            <blockquote>
+                "Самый частый источник проблем на VPN-сервере — неправильная маршрутизация. Всегда проверяйте таблицу маршрутов после изменения конфигурации."
+            </blockquote>
+
+            <!-- ====== РАЗДЕЛ 6 ====== -->
+            <h2 id="vps-advantage">Почему личный VPS даёт полный контроль над интерфейсами</h2>
+
+            <div class="vps-advantage">
+                <h3>🚀 В отличие от массовых VPN-сервисов</h3>
+                <p style="font-size: 1.05rem; font-weight: 500;">В обычных VPN <strong>1000+ человек сидят на одном IP</strong>, и вы не имеете никакого контроля над сетевыми интерфейсами. Вы просто подключаетесь к готовому серверу и надеетесь, что он работает.</p>
+                <p>С <strong>личным VPN на VPS</strong> от <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> вы получаете:</p>
+                <ul>
+                    <li><strong>Полный доступ к серверу</strong> — вы можете видеть все интерфейсы, менять их настройки, добавлять маршруты.</li>
+                    <li><strong>Персональный IP-адрес</strong> — ваш интерфейс <code>eth0</code> имеет уникальный публичный IP, который не используется никем другим.</li>
+                    <li><strong>Свобода выбора протокола</strong> — хотите OpenVPN? WireGuard? Или XHTTP + Reality? Всё в ваших руках.</li>
+                    <li><strong>Никаких «шумных соседей»</strong> — вы не делите пропускную способность и не рискуете попасть в бан-лист из-за действий других пользователей.</li>
+                </ul>
+                <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
+                    <p style="font-weight: 700; margin-bottom: 4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
+                    <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP и индивидуальными настройками.</p>
+                </div>
+            </div>
+
+            <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
+            <div class="article-cta">
+                <h3>🔥 Получите свой личный VPN-сервер с полным контролем</h3>
+                <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Вы сами управляете сетевыми интерфейсами, маршрутизацией и протоколами. Никаких общих IP, никаких ограничений.</p>
+                <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. <strong>Нас в 1000 раз сложнее заблокировать.</strong></p>
+                <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 7 ====== -->
+            <h2 id="xhttp-reality">XHTTP + Reality: маскировка на уровне интерфейсов</h2>
+
+            <div class="tech-highlight">
+                <p style="font-weight: 600; margin-bottom: 6px;">🔬 Как XHTTP + Reality работает с сетевыми интерфейсами</p>
+                <p style="margin-bottom: 8px;">Технология <strong>XHTTP + Reality</strong> не создаёт отдельного виртуального интерфейса вроде <code>tun0</code> или <code>wg0</code>. Вместо этого она:</p>
+                <ul style="margin: 4px 0 0 20px;">
+                    <li><strong>Использует основной интерфейс</strong> (<code>eth0</code>) для отправки трафика, но маскирует его под обычный HTTPS.</li>
+                    <li><strong>Имитирует TLS-рукопожатие</strong> — DPI видит стандартный браузер Chrome.</li>
+                    <li><strong>Не оставляет характерных сигнатур</strong> — в отличие от OpenVPN или WireGuard, у XHTTP нет узнаваемых паттернов.</li>
+                    <li><strong>Работает на уровне приложений</strong> — вам не нужно настраивать дополнительные интерфейсы, всё происходит прозрачно.</li>
+                </ul>
+            </div>
+
+            <p>Это означает, что вы можете проверить работу XHTTP + Reality, просто наблюдая за трафиком на <code>eth0</code> и убедившись, что он выглядит как обычный HTTPS-трафик. Никаких подозрительных интерфейсов, никаких лишних маршрутов.</p>
+
+            <!-- ====== РАЗДЕЛ 8 ====== -->
+            <h2 id="conclusion">Заключение</h2>
+
+            <p><strong>Проверка сетевых интерфейсов на VPN-сервере</strong> — это базовая, но крайне важная задача для любого администратора. Умение быстро диагностировать состояние интерфейсов, маршрутов и IP-адресов поможет вам избежать многих проблем и обеспечить стабильную работу VPN.</p>
+
+            <p>Используйте команды <code>ip link</code>, <code>ip addr</code>, <code>ip route</code> и <code>ping</code> для регулярного мониторинга. А если вы хотите получить полный контроль над своим VPN-сервером — выбирайте <strong>личный VPS</strong> вместо массовых сервисов.</p>
+
+            <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
+                <p style="font-weight: 700; font-size: 1.05rem;">✅ Будущее VPN — за персонализацией и маскировкой.</p>
+                <p>Массовые VPN с общими IP-адресами уходят в прошлое. В <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> мы предлагаем именно то, что нужно для современного интернета: выделенный сервер, передовую технологию XHTTP + Reality и полную конфиденциальность.</p>
+                <p style="margin-top: 12px; font-weight: 600;">Интернет должен быть свободным, безопасным и быстрым. Выбирайте решение, которое работает по-настоящему. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.</p>
+            </div>
+
+            <!-- ====== АВТОР ====== -->
+            <div class="article-author">
+                <div class="avatar">🖥️</div>
+                <div>
+                    <p style="font-weight: 600;">Команда VPS-VPN</p>
+                    <p class="bio">Эксперты в области сетевых технологий и администрирования Linux. Помогаем настраивать и диагностировать VPN-серверы любой сложности.</p>
+                </div>
+            </div>
+
+            <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+            <div class="related-articles">
+                <h3>📖 Похожие статьи</h3>
+                <div class="related-grid">
+                    <a href="/articles/kak-proverit-vpn-soedinenie-na-utechki-ip-dns-webrtc.html" class="related-card">
+                        <span class="tag">🔍 Диагностика</span>
+                        <h4>Как проверить VPN-соединение на утечки</h4>
+                        <p>IP, DNS, WebRTC — полная проверка</p>
+                    </a>
+                    <a href="/articles/nastroyka-firewall-ufw-iptables-nftables-dlya-vpn-servera.html" class="related-card">
+                        <span class="tag">🛡️ Безопасность</span>
+                        <h4>Настройка брандмауэра для VPN-сервера</h4>
+                        <p>UFW, iptables, nftables — защита интерфейсов</p>
+                    </a>
+                    <a href="/articles/nastroyka-marshrutizacii-trafica-cherez-warp.html" class="related-card">
+                        <span class="tag">🌐 Маршрутизация</span>
+                        <h4>Настройка маршрутизации через WARP</h4>
+                        <p>Как перенаправить трафик</p>
+                    </a>
+                    <a href="/articles/pochemu-vydelennyy-ip-adres-luchshe-dlya-obhoda-blokirovok.html" class="related-card">
+                        <span class="tag">🔑 IP-адреса</span>
+                        <h4>Почему выделенный IP лучше для обхода</h4>
+                        <p>Преимущества личного IP</p>
+                    </a>
+                    <a href="/articles/nastroyka-vpn-na-vps-s-ispolzovaniem-wireguard.html" class="related-card">
+                        <span class="tag">⚡ WireGuard</span>
+                        <h4>Настройка WireGuard на VPS</h4>
+                        <p>Пошаговое руководство</p>
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="container-wide">
+        <div class="footer">
+            <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+            <p style="margin-top: 8px;">
+                <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+                <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ========== ТЕМА ==========
+            function setTheme(theme) {
+                const isLight = theme === 'light';
+                document.body.classList.toggle('light', isLight);
+                document.body.classList.toggle('dark', !isLight);
+                localStorage.setItem('vpsvpn_theme', theme);
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) {
+                    toggleBtn.innerHTML = isLight ?
+                        '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>' :
+                        '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+                }
+            }
+
+            function initTheme() {
+                const saved = localStorage.getItem('vpsvpn_theme');
+                setTheme(saved === 'light' ? 'light' : 'dark');
+            }
+            document.getElementById('themeToggle')?.addEventListener('click', () => {
+                const isLight = document.body.classList.contains('light');
+                setTheme(isLight ? 'dark' : 'light');
+            });
+            initTheme();
+        })();
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k,
+            a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(108981205, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer",
+            accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
