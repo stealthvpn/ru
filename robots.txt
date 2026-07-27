@@ -1,28 +1,3 @@
-# robots.txt для VPS-VPN
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /tmp/
-Disallow: /logs/
-Disallow: /backup/
-Disallow: /includes/
-Disallow: /config/
-Disallow: /article-template.html
-
-# Sitemap
 Sitemap: https://vps-vpn.ru/sitemap.xml
-
-# Яндекс
-User-agent: Yandex
-Allow: /
-Disallow: /admin/
-Disallow: /tmp/
-Host: https://vps-vpn.ru
-Crawl-delay: 5
-
-# Google
-User-agent: Googlebot
-Allow: /
-Disallow: /admin/
-Disallow: /tmp/
-Crawl-delay: 5
