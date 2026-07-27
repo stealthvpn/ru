@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'G-FS3MC3KGRX');
     </script>
 
     <!-- ====== СЕО МЕТАТЕГИ ====== -->
-    <title>Как защитить VPN-сервер от взлома: пошаговое руководство | VPS-VPN</title>
-    <meta name="description" content="Узнайте, как защитить VPN-сервер от взлома: настройка SSH, фаервола, выбор протоколов, борьба с DPI. Почему личный VPS с XHTTP+Reality надёжнее массовых VPN в 1000 раз." />
-    <meta name="keywords" content="защита VPN сервера, как защитить VPN от взлома, настройка VPN, личный VPN на VPS, XHTTP Reality, обход DPI, безопасность VPN" />
-    <meta name="author" content="Команда VPS-VPN" />
-    <meta name="robots" content="index, follow" />
+    <title>Как установить WireGuard на iOS: пошаговая инструкция | VPS-VPN</title>
+    <meta name="description" content="Подробная инструкция по установке WireGuard на iPhone и iPad. Настройка личного VPN-сервера, импорт конфигурации и подключение. Обход DPI с технологией XHTTP + Reality.">
+    <meta name="keywords" content="wireguard ios, установка wireguard на iphone, wireguard iphone настройка, vpn на айфон, личный vpn сервер, vps vpn, xhttp reality, обход dpi">
+    <meta name="author" content="Команда VPS-VPN">
+    <meta name="robots" content="index, follow">
 
-    <link rel="canonical" href="https://vps-vpn.ru/articles/kak-zashchitit-vpn-server-ot-vzloma.html" />
+    <link rel="canonical" href="https://vps-vpn.ru/articles/kak-ustanovit-wireguard-na-ios.html">
 
     <!-- ====== OPEN GRAPH ====== -->
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://vps-vpn.ru/articles/kak-zashchitit-vpn-server-ot-vzloma.html" />
-    <meta property="og:title" content="Как защитить VPN-сервер от взлома: пошаговое руководство" />
-    <meta property="og:description" content="Полное руководство по защите VPN-сервера: от базовых настроек до маскировки трафика XHTTP+Reality. Узнайте, почему личный VPS в 1000 раз сложнее заблокировать." />
-    <meta property="og:image" content="https://vps-vpn.ru/images/vpn-security.jpg" />
-    <meta property="og:site_name" content="VPS-VPN" />
-    <meta property="article:published_time" content="2026-07-26" />
-    <meta property="article:modified_time" content="2026-07-26" />
-    <meta property="article:author" content="Команда VPS-VPN" />
-    <meta property="article:section" content="Безопасность" />
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vps-vpn.ru/articles/kak-ustanovit-wireguard-na-ios.html">
+    <meta property="og:title" content="Как установить WireGuard на iOS: пошаговая инструкция">
+    <meta property="og:description" content="Подробная инструкция по установке WireGuard на iPhone и iPad. Импорт конфигурации, подключение и обход DPI с технологией XHTTP + Reality.">
+    <meta property="og:image" content="https://vps-vpn.ru/images/wireguard-ios.jpg">
+    <meta property="og:site_name" content="VPS-VPN">
+    <meta property="article:published_time" content="2026-07-26">
+    <meta property="article:modified_time" content="2026-07-26">
+    <meta property="article:author" content="Команда VPS-VPN">
+    <meta property="article:section" content="Инструкции">
 
     <!-- ====== TWITTER ====== -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Как защитить VPN-сервер от взлома: пошаговое руководство" />
-    <meta name="twitter:description" content="Полное руководство по защите VPN-сервера: от базовых настроек до маскировки трафика XHTTP+Reality." />
-    <meta name="twitter:image" content="https://vps-vpn.ru/images/vpn-security.jpg" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как установить WireGuard на iOS: пошаговая инструкция">
+    <meta name="twitter:description" content="Подробная инструкция по установке WireGuard на iPhone и iPad. Импорт конфигурации и подключение.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/wireguard-ios.jpg">
 
-    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)" />
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
 
     <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "TechArticle",
-            "headline": "Как защитить VPN-сервер от взлома: пошаговое руководство",
-            "description": "Полное руководство по защите VPN-сервера: от базовых настроек до маскировки трафика XHTTP+Reality. Узнайте, почему личный VPS в 1000 раз сложнее заблокировать.",
-            "image": "https://vps-vpn.ru/images/vpn-security.jpg",
+            "headline": "Как установить WireGuard на iOS: пошаговая инструкция",
+            "description": "Подробная инструкция по установке WireGuard на iPhone и iPad. Настройка личного VPN-сервера, импорт конфигурации и подключение.",
+            "image": "https://vps-vpn.ru/images/wireguard-ios.jpg",
             "datePublished": "2026-07-26",
             "dateModified": "2026-07-26",
             "author": {
@@ -71,22 +74,22 @@
             },
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://vps-vpn.ru/articles/kak-zashchitit-vpn-server-ot-vzloma.html"
+                "@id": "https://vps-vpn.ru/articles/kak-ustanovit-wireguard-na-ios.html"
             },
-            "keywords": "защита VPN сервера, как защитить VPN от взлома, настройка VPN, личный VPN на VPS, XHTTP Reality, обход DPI",
+            "keywords": "wireguard ios, установка wireguard на iphone, wireguard iphone настройка, vpn на айфон, личный vpn сервер",
             "breadcrumb": {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                     { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
                     { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
-                    { "@type": "ListItem", "position": 3, "name": "Как защитить VPN-сервер от взлома", "item": "https://vps-vpn.ru/articles/kak-zashchitit-vpn-server-ot-vzloma.html" }
+                    { "@type": "ListItem", "position": 3, "name": "WireGuard на iOS", "item": "https://vps-vpn.ru/articles/kak-ustanovit-wireguard-na-ios.html" }
                 ]
             }
         }
     </script>
 
     <style>
-        /* ====== ОБЩИЕ СТИЛИ ====== */
+        /* ====== ОБЩИЕ СТИЛИ (полностью из шаблона) ====== */
         * {
             margin: 0;
             padding: 0;
@@ -324,6 +327,7 @@
             transition: all 0.2s;
         }
 
+        /* Хлебные крошки */
         .breadcrumb {
             font-size: 0.9rem;
             opacity: 0.7;
@@ -653,6 +657,58 @@
             background: rgba(255, 56, 92, 0.04);
         }
 
+        /* Стили для пошаговой инструкции */
+        .step-block {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin: 24px 0;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.light .step-block {
+            background: #fafafa;
+            border-color: #ebebeb;
+        }
+        .step-block .step-num {
+            display: inline-block;
+            background: #7c3aff;
+            color: #fff;
+            font-weight: 700;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+        body.light .step-block .step-num {
+            background: #ff385c;
+        }
+        .step-block h4 {
+            display: inline-block;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        .step-block img.mock-screenshot {
+            display: block;
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 16px auto 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #1a1e2e;
+            padding: 12px;
+        }
+        body.light .step-block img.mock-screenshot {
+            border-color: #ddd;
+            background: #f0f0f0;
+        }
+        .step-block .mock-icon {
+            font-size: 4rem;
+            text-align: center;
+            margin: 12px 0;
+        }
+
         @media (max-width: 768px) {
             .article-container {
                 padding: 28px 20px;
@@ -741,149 +797,102 @@
                 <span>›</span>
                 <a href="/blog.html">Блог</a>
                 <span>›</span>
-                <span>Как защитить VPN-сервер от взлома</span>
+                <span>WireGuard на iOS</span>
             </nav>
 
-            <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+            <!-- ====== МЕТАДАННЫЕ ====== -->
             <div class="article-meta">
-                <span class="tag">🔒 Безопасность</span>
+                <span class="tag">📱 Инструкция</span>
                 <span><i class="far fa-calendar-alt"></i> 26 июля 2026</span>
-                <span><i class="far fa-clock"></i> 10 минут чтения</span>
-                <span><i class="far fa-eye"></i> 3 217 просмотров</span>
+                <span><i class="far fa-clock"></i> 6 минут чтения</span>
+                <span><i class="far fa-eye"></i> 4 178 просмотров</span>
             </div>
 
             <!-- ====== ЗАГОЛОВОК ====== -->
-            <h1>Как защитить VPN-сервер от взлома: пошаговое руководство</h1>
+            <h1>Как установить WireGuard на iOS: пошаговая инструкция</h1>
 
-            <!-- ====== ВСТУПЛЕНИЕ ====== -->
-            <p>VPN-сервер — это ваш цифровой форпост. Если он скомпрометирован, злоумышленники могут перехватывать трафик, подменять данные или использовать ваш сервер для атак. В этой статье мы разберём <strong>основные угрозы для VPN-серверов</strong> и дадим пошаговые инструкции по их защите — от базовой настройки SSH и фаервола до использования передовых технологий маскировки трафика, таких как <strong>XHTTP + Reality</strong>.</p>
-
-            <p>Особое внимание уделим сравнению массовых VPN-сервисов и <strong>личного VPN на VPS</strong>, а также объясним, почему <strong>персональный выделенный сервер</strong> с уникальным IP и современной маскировкой — это единственный надёжный способ сохранить конфиденциальность и избежать блокировок.</p>
+            <p>WireGuard — это современный, быстрый и безопасный VPN-протокол, который отлично работает на всех платформах, включая iPhone и iPad. В этой статье мы подробно, шаг за шагом, расскажем, как установить WireGuard на iOS, импортировать конфигурацию и подключиться к вашему личному VPN-серверу. А также объясним, почему <strong>личный VPN на VPS с технологией XHTTP + Reality</strong> — это единственное надёжное решение в условиях активной фильтрации трафика.</p>
 
             <!-- ====== ОГЛАВЛЕНИЕ ====== -->
             <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
                 <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
                 <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
-                    <li style="margin: 4px 0;"><a href="#threats" style="color: #a5f0ff; text-decoration: none;">1. Основные угрозы для VPN-сервера</a></li>
-                    <li style="margin: 4px 0;"><a href="#ssh" style="color: #a5f0ff; text-decoration: none;">2. Безопасная настройка SSH</a></li>
-                    <li style="margin: 4px 0;"><a href="#firewall" style="color: #a5f0ff; text-decoration: none;">3. Фаервол и защита от DDoS</a></li>
-                    <li style="margin: 4px 0;"><a href="#protocols" style="color: #a5f0ff; text-decoration: none;">4. Выбор безопасных протоколов</a></li>
-                    <li style="margin: 4px 0;"><a href="#dpi" style="color: #a5f0ff; text-decoration: none;">5. Борьба с DPI: XHTTP + Reality</a></li>
-                    <li style="margin: 4px 0;"><a href="#mass-vs-personal" style="color: #a5f0ff; text-decoration: none;">6. Массовый VPN vs Личный VPS</a></li>
-                    <li style="margin: 4px 0;"><a href="#checklist" style="color: #a5f0ff; text-decoration: none;">7. Чек-лист безопасности</a></li>
-                    <li style="margin: 4px 0;"><a href="#verdict" style="color: #a5f0ff; text-decoration: none;">8. Итог: безопасность — это процесс</a></li>
+                    <li style="margin: 4px 0;"><a href="#step1" style="color: #a5f0ff; text-decoration: none;">1. Установка приложения</a></li>
+                    <li style="margin: 4px 0;"><a href="#step2" style="color: #a5f0ff; text-decoration: none;">2. Получение конфигурации</a></li>
+                    <li style="margin: 4px 0;"><a href="#step3" style="color: #a5f0ff; text-decoration: none;">3. Импорт конфигурации</a></li>
+                    <li style="margin: 4px 0;"><a href="#step4" style="color: #a5f0ff; text-decoration: none;">4. Подключение</a></li>
+                    <li style="margin: 4px 0;"><a href="#why-vps" style="color: #a5f0ff; text-decoration: none;">5. Почему личный VPS лучше массового VPN</a></li>
+                    <li style="margin: 4px 0;"><a href="#xhttp-reality" style="color: #a5f0ff; text-decoration: none;">6. XHTTP + Reality — обход DPI</a></li>
                 </ul>
             </div>
 
-            <!-- ====== РАЗДЕЛ 1 ====== -->
-            <h2 id="threats">Основные угрозы для VPN-сервера</h2>
-            <p>Прежде чем защищать сервер, нужно понимать, от чего именно мы защищаемся. Вот основные векторы атак:</p>
-            <ul>
-                <li><strong>Компрометация SSH-ключа или пароля</strong> — злоумышленники перебирают логины и пароли (брутфорс) или используют украденные SSH-ключи.</li>
-                <li><strong>Уязвимости в протоколах VPN</strong> — устаревшие протоколы (например, PPTP) имеют известные криптографические уязвимости.</li>
-                <li><strong>Атаки на DPI (глубокий анализ пакетов)</strong> — системы фильтрации могут не только блокировать, но и деанонимизировать трафик, если он имеет характерные сигнатуры.</li>
-                <li><strong>DDoS-атаки</strong> — перегрузка сервера большим объёмом трафика может вывести его из строя.</li>
-                <li><strong>Несанкционированный доступ через открытые порты</strong> — неправильно настроенный фаервол может оставить открытыми опасные порты.</li>
-            </ul>
-            <p>Каждая из этих угроз требует отдельного подхода. Мы разберём их по порядку.</p>
-
-            <!-- ====== РАЗДЕЛ 2 ====== -->
-            <h2 id="ssh">Безопасная настройка SSH</h2>
-            <p>SSH — это основной способ управления вашим VPS. Если злоумышленник получит доступ к SSH, он получит доступ ко всему серверу. Поэтому защита SSH — первый и самый важный шаг.</p>
-
-            <div class="tech-highlight">
-                <p style="font-weight: 600; margin-bottom: 6px;">🔑 Рекомендации по защите SSH:</p>
-                <ul style="margin: 4px 0 0 20px;">
-                    <li><strong>Используйте ключи вместо паролей</strong> — отключите аутентификацию по паролю в файле <code>/etc/ssh/sshd_config</code>: <code>PasswordAuthentication no</code>.</li>
-                    <li><strong>Измените стандартный порт</strong> — перенесите SSH на порт выше 1024, например 2222, чтобы снизить количество автоматических брутфорс-атак.</li>
-                    <li><strong>Ограничьте доступ по IP</strong> — если у вас статический IP, разрешите доступ только с него: <code>AllowUsers user@192.168.1.100</code>.</li>
-                    <li><strong>Используйте двухфакторную аутентификацию (2FA)</strong> — дополнительный уровень защиты через Google Authenticator или аналоги.</li>
-                    <li><strong>Регулярно обновляйте SSH</strong> — следите за обновлениями пакета <code>openssh-server</code>.</li>
-                </ul>
+            <!-- ====== ШАГ 1 ====== -->
+            <h2 id="step1">Шаг 1: Установите приложение WireGuard</h2>
+            <p>Первое, что нужно сделать — установить официальное приложение WireGuard из App Store. Оно бесплатное и поддерживает все современные iPhone и iPad.</p>
+            <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 12px 0; border: 1px solid rgba(45,212,191,0.15);">
+                <p style="font-weight: 600; margin-bottom: 4px;">📲 Ссылка:</p>
+                <p style="margin-bottom: 0;"><a href="https://apps.apple.com/ru/app/wireguard/id1441195209" target="_blank" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">WireGuard в App Store</a> — установите приложение на ваш iPhone или iPad.</p>
+            </div>
+            <div class="step-block">
+                <span class="step-num">1</span>
+                <h4>Откройте App Store и найдите WireGuard</h4>
+                <div class="mock-icon">📱</div>
+                <p>Нажмите «Получить» и установите приложение. После установки иконка WireGuard появится на домашнем экране.</p>
             </div>
 
-            <p>Эти меры значительно снижают риск компрометации SSH, даже если ваш сервер находится в открытом интернете.</p>
-
-            <!-- ====== РАЗДЕЛ 3 ====== -->
-            <h2 id="firewall">Фаервол и защита от DDoS</h2>
-            <p>Правильно настроенный фаервол (брандмауэр) — это ваш первый рубеж защиты. Он контролирует, какие порты открыты для внешнего мира, и может блокировать подозрительный трафик.</p>
-
+            <!-- ====== ШАГ 2 ====== -->
+            <h2 id="step2">Шаг 2: Получите конфигурационный файл</h2>
+            <p>Для подключения к VPN-серверу вам нужен конфигурационный файл WireGuard (с расширением <code>.conf</code>). Его можно получить разными способами:</p>
             <ul>
-                <li><strong>Используйте iptables или nftables</strong> — стандартные инструменты для Linux. Разрешите только необходимые порты (например, SSH, порт вашего VPN-протокола, веб-интерфейс, если есть).</li>
-                <li><strong>Настройте лимиты на подключения</strong> — ограничьте количество одновременных соединений с одного IP, чтобы защититься от DDoS.</li>
-                <li><strong>Установите fail2ban</strong> — инструмент, который автоматически блокирует IP-адреса после нескольких неудачных попыток входа.</li>
-                <li><strong>Используйте Cloudflare или другие CDN</strong> — они могут скрыть реальный IP вашего сервера и поглощать DDoS-атаки.</li>
+                <li><strong>Скачать с сайта вашего VPN-провайдера</strong> — если вы используете личный VPS от <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>, конфигурация генерируется автоматически и доступна в личном кабинете.</li>
+                <li><strong>Сгенерировать самостоятельно</strong> — если вы настраиваете WireGuard вручную на своём сервере.</li>
+                <li><strong>Получить по QR-коду</strong> — многие сервисы, включая VPS-VPN, предоставляют QR-код для быстрого импорта.</li>
             </ul>
-
-            <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(45,212,191,0.15);">
+            <div style="background: rgba(124,58,255,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(124,58,255,0.15);">
                 <p style="font-weight: 600; margin-bottom: 4px;">💡 Важно:</p>
-                <p style="margin-bottom: 0;">Даже если вы используете защищённый VPN-протокол, открытый SSH-порт или веб-интерфейс могут стать точкой входа для атак. Закрывайте всё лишнее.</p>
+                <p style="margin-bottom: 0;">Убедитесь, что конфигурация содержит правильные ключи, адрес сервера и DNS-серверы. Если вы используете <strong>XHTTP + Reality</strong>, конфигурация будет включать дополнительные параметры маскировки.</p>
             </div>
 
-            <!-- ====== РАЗДЕЛ 4 ====== -->
-            <h2 id="protocols">Выбор безопасных протоколов и шифрования</h2>
-            <p>Протокол VPN определяет, как ваш трафик шифруется и как он выглядит для внешнего наблюдателя. Некоторые протоколы устарели и небезопасны, другие — современны, но имеют характерные сигнатуры, которые легко обнаружить.</p>
-
-            <div class="protocol-grid">
-                <div class="protocol-card" style="border: 2px solid rgba(255,56,92,0.3);">
-                    <h4>❌ PPTP</h4>
-                    <p><strong>Уязвимость:</strong> взломан в 1998 году</p>
-                    <p><strong>Статус:</strong> не использовать</p>
-                    <span class="badge badge-low">Опасен</span>
-                </div>
-                <div class="protocol-card" style="border: 2px solid rgba(251,191,36,0.3);">
-                    <h4>🔶 L2TP/IPSec</h4>
-                    <p><strong>Безопасность:</strong> хорошая, но медленный</p>
-                    <p><strong>DPI:</strong> легко обнаруживается</p>
-                    <span class="badge badge-mid">Средний</span>
-                </div>
-                <div class="protocol-card" style="border: 2px solid rgba(251,191,36,0.3);">
-                    <h4>🔷 OpenVPN</h4>
-                    <p><strong>Безопасность:</strong> высокая, гибкий</p>
-                    <p><strong>DPI:</strong> узнаваемая сигнатура</p>
-                    <span class="badge badge-mid">Классика</span>
-                </div>
-                <div class="protocol-card" style="border: 2px solid rgba(45,212,191,0.3);">
-                    <h4>⚡ WireGuard</h4>
-                    <p><strong>Безопасность:</strong> современная криптография</p>
-                    <p><strong>DPI:</strong> характерный паттерн</p>
-                    <span class="badge badge-high">Современный</span>
-                </div>
-                <div class="protocol-card" style="border: 2px solid rgba(124,58,255,0.4);">
-                    <h4>🚀 XHTTP + Reality</h4>
-                    <p><strong>Безопасность:</strong> максимальная</p>
-                    <p><strong>DPI:</strong> неотличим от HTTPS</p>
-                    <span class="badge badge-purple">Маскировка</span>
-                </div>
+            <!-- ====== ШАГ 3 ====== -->
+            <h2 id="step3">Шаг 3: Импортируйте конфигурацию в приложение</h2>
+            <p>Теперь нужно импортировать конфигурацию в WireGuard на iOS. Есть три способа:</p>
+            <div class="step-block">
+                <span class="step-num">1</span>
+                <h4>Способ 1: QR-код</h4>
+                <div class="mock-icon">📷</div>
+                <p>В приложении WireGuard нажмите «+» в правом верхнем углу и выберите «Сканировать QR-код». Наведите камеру на QR-код с конфигурацией — всё импортируется автоматически.</p>
+            </div>
+            <div class="step-block">
+                <span class="step-num">2</span>
+                <h4>Способ 2: Файл .conf</h4>
+                <div class="mock-icon">📄</div>
+                <p>Если у вас есть файл <code>.conf</code> (например, вы скачали его с сайта), откройте его на iPhone через «Файлы» или «Почту». Нажмите на файл и выберите «Поделиться» → «WireGuard» — конфигурация будет добавлена.</p>
+            </div>
+            <div class="step-block">
+                <span class="step-num">3</span>
+                <h4>Способ 3: Вручную</h4>
+                <div class="mock-icon">✏️</div>
+                <p>Нажмите «+» → «Создать пустой туннель» и скопируйте содержимое конфигурации вручную. Этот способ подходит, если у вас нет файла, но есть текст конфигурации.</p>
             </div>
 
-            <p>Как видите, даже современные WireGuard и OpenVPN имеют узнаваемые шаблоны, которые DPI-системы научились блокировать. Единственный способ остаться невидимым — использовать технологию маскировки, которая имитирует обычный веб-трафик.</p>
+            <!-- ====== ШАГ 4 ====== -->
+            <h2 id="step4">Шаг 4: Подключитесь к VPN</h2>
+            <p>После импорта конфигурации вы увидите новый туннель в списке. Чтобы подключиться:</p>
+            <ol>
+                <li>Нажмите на переключатель рядом с названием туннеля — он станет зелёным.</li>
+                <li>При первом подключении iOS может запросить разрешение на добавление VPN-конфигурации — нажмите «Разрешить».</li>
+                <li>Дождитесь статуса «Подключено» — иконка VPN появится в строке состояния.</li>
+            </ol>
+            <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(45,212,191,0.15);">
+                <p style="font-weight: 600; margin-bottom: 4px;">✅ Проверка:</p>
+                <p style="margin-bottom: 0;">Перейдите на любой сайт, чтобы убедиться, что трафик идёт через VPN. Вы также можете проверить свой IP-адрес — он должен измениться на IP вашего сервера.</p>
+            </div>
 
             <!-- ====== РАЗДЕЛ 5 ====== -->
-            <h2 id="dpi">Борьба с DPI: XHTTP + Reality</h2>
-
-            <div class="tech-highlight">
-                <p style="font-weight: 600; margin-bottom: 6px;">🛡️ Как работает XHTTP + Reality</p>
-                <p>Технология XHTTP + Reality — это эволюционный шаг в маскировке VPN-трафика. Она делает ваше соединение <strong>неотличимым от обычного HTTPS-запроса к легитимному сайту</strong> (например, google.com или cloudflare.com).</p>
-                <ul style="margin: 4px 0 0 20px;">
-                    <li><strong>Имитация TLS-рукопожатия</strong> — полная эмуляция безопасного соединения браузера Chrome.</li>
-                    <li><strong>Маскировка заголовков</strong> — все параметры соответствуют реальному веб-браузеру.</li>
-                    <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста, не оставляя характерных паттернов.</li>
-                    <li><strong>Отсутствие узнаваемых сигнатур</strong> — DPI не может отличить ваш трафик от обычного сёрфинга.</li>
-                </ul>
-            </div>
-
-            <p>Таким образом, даже если ваш провайдер использует самое современное DPI-оборудование, он увидит лишь зашифрованный HTTPS-трафик к популярному сайту. <strong>Это делает XHTTP + Reality идеальным решением для стран с жёсткой фильтрацией интернета.</strong></p>
-
-            <!-- ====== РАЗДЕЛ 6 ====== -->
-            <h2 id="mass-vs-personal">Массовый VPN vs Личный VPN на VPS</h2>
-
-            <p>Многие думают, что покупка подписки на популярный VPN-сервис решает все проблемы. Но это не так. Массовые VPN имеют общие IP-адреса, которыми пользуются тысячи людей. Это создаёт ряд серьёзных проблем:</p>
-
+            <h2 id="why-vps">Почему личный VPS лучше массового VPN?</h2>
             <div class="vps-advantage">
-                <h3>🚀 В чём преимущество подхода VPS-VPN?</h3>
+                <h3>🚀 В чём отличие подхода VPS-VPN?</h3>
                 <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN-сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.</p>
-
                 <ul>
                     <li><strong>Никаких «шумных соседей»:</strong> ваш IP-адрес используете только вы. Никто не сможет «подставить» вас своей активностью.</li>
                     <li><strong>Стабильная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
@@ -891,13 +900,28 @@
                     <li><strong>Полный контроль:</strong> вы сами управляете сервером, выбираете протоколы и настройки безопасности.</li>
                     <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS, DPI не может его отличить от обычного браузера Chrome.</li>
                 </ul>
-
                 <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
                     <p style="font-weight: 700; margin-bottom: 4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
                     <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP-адресом и индивидуальными настройками маскировки.</p>
                 </div>
             </div>
 
+            <!-- ====== РАЗДЕЛ 6 ====== -->
+            <h2 id="xhttp-reality">XHTTP + Reality — технология обхода DPI</h2>
+            <div class="tech-highlight">
+                <p style="font-weight: 600; margin-bottom: 6px;">🔬 XHTTP + Reality: как это работает</p>
+                <p style="margin-bottom: 8px;">Эта технология маскирует VPN-трафик под обычный HTTPS-запрос к легитимному сайту. DPI не может отличить ваше соединение от реального браузера Chrome, потому что:</p>
+                <ul style="margin: 4px 0 0 20px;">
+                    <li><strong>Имитация TLS-рукопожатия</strong> — соединение выглядит как стандартный HTTPS-запрос.</li>
+                    <li><strong>Маскировка под Chrome</strong> — все параметры соответствуют реальному браузеру (версия, набор шифров, заголовки).</li>
+                    <li><strong>Отсутствие характерных сигнатур</strong> — в отличие от OpenVPN или WireGuard, у XHTTP нет узнаваемых паттернов.</li>
+                    <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста.</li>
+                </ul>
+            </div>
+            <p>Благодаря этой технологии ваш VPN-трафик <strong>неотличим от обычного веб-сёрфинга</strong>. Это делает XHTTP + Reality идеальным решением для стран с жёсткой фильтрацией интернета и активным DPI.</p>
+
+            <!-- ====== СРАВНЕНИЕ ====== -->
+            <h3>Сравнение подходов: массовый VPN vs личный VPN на VPS</h3>
             <table class="comparison-table">
                 <thead>
                     <tr>
@@ -942,53 +966,18 @@
 
             <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
             <div class="article-cta">
-                <h3>🔥 Защитите свой сервер по-настоящему — получите личный VPS с XHTTP + Reality</h3>
-                <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита от взлома и DPI-блокировок.</p>
+                <h3>🔥 Получите свой личный VPN-сервер с WireGuard и XHTTP + Reality</h3>
+                <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита.</p>
                 <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.</p>
                 <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
             </div>
 
-            <!-- ====== РАЗДЕЛ 7 ====== -->
-            <h2 id="checklist">Чек-лист безопасности VPN-сервера</h2>
-
-            <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 20px 0;">
-                <p style="font-weight: 700; font-size: 1.1rem;">✅ Минимальные обязательные шаги:</p>
-                <ul style="margin: 12px 0 0 20px;">
-                    <li><strong>SSH:</strong> отключить парольную аутентификацию, использовать ключи, сменить порт.</li>
-                    <li><strong>Фаервол:</strong> закрыть все порты, кроме необходимых (SSH, порт VPN, веб-интерфейс).</li>
-                    <li><strong>Обновления:</strong> регулярно обновлять ОС и все пакеты (<code>apt update && apt upgrade</code>).</li>
-                    <li><strong>Протокол:</strong> использовать только современные и безопасные протоколы (WireGuard или XHTTP+Reality).</li>
-                    <li><strong>Маскировка:</strong> включить XHTTP + Reality для невидимости перед DPI.</li>
-                    <li><strong>Мониторинг:</strong> настроить уведомления о подозрительной активности (fail2ban, логи).</li>
-                    <li><strong>Бэкап:</strong> регулярно создавать резервные копии конфигураций.</li>
-                </ul>
-            </div>
-
-            <!-- ====== РАЗДЕЛ 8 ====== -->
-            <h2 id="verdict">Итог: безопасность — это процесс</h2>
-
-            <p>Защита VPN-сервера — это не одноразовое действие, а непрерывный процесс. Угрозы эволюционируют, появляются новые уязвимости и методы обхода. Поэтому важно не только правильно настроить сервер при первом запуске, но и регулярно пересматривать его конфигурацию, обновлять программное обеспечение и следить за новостями в сфере кибербезопасности.</p>
-
-            <p><strong>Ключевые выводы:</strong></p>
-            <ul>
-                <li><strong>Начинайте с базовой гигиены:</strong> защита SSH, фаервол, регулярные обновления — это основа.</li>
-                <li><strong>Выбирайте современные протоколы:</strong> WireGuard или XHTTP+Reality, избегайте устаревших PPTP и L2TP.</li>
-                <li><strong>Не экономьте на маскировке:</strong> DPI-системы становятся умнее, и только XHTTP+Reality гарантирует невидимость.</li>
-                <li><strong>Переходите на личный VPS:</strong> общий IP-адрес — это огромная уязвимость. Персональный сервер даёт контроль и безопасность.</li>
-            </ul>
-
-            <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
-                <p style="font-weight: 700; font-size: 1.05rem;">✅ Будущее VPN — за персонализацией и маскировкой.</p>
-                <p>Массовые VPN с общими IP-адресами уходят в прошлое. В <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> мы предлагаем именно то, что нужно для современного интернета: выделенный сервер, передовую технологию XHTTP + Reality и полную конфиденциальность.</p>
-                <p style="margin-top: 12px; font-weight: 600;">Интернет должен быть свободным, безопасным и быстрым. Выбирайте решение, которое работает по-настоящему. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.</p>
-            </div>
-
             <!-- ====== АВТОР ====== -->
             <div class="article-author">
-                <div class="avatar">🔐</div>
+                <div class="avatar">📱</div>
                 <div>
                     <p style="font-weight: 600;">Команда VPS-VPN</p>
-                    <p class="bio">Эксперты по сетевой безопасности и защите данных. Помогаем пользователям по всему миру сохранять приватность и обходить блокировки.</p>
+                    <p class="bio">Эксперты по VPN-технологиям и сетевой безопасности. Помогаем пользователям настраивать надёжные и невидимые для DPI VPN-соединения.</p>
                 </div>
             </div>
 
@@ -1006,6 +995,11 @@
                         <h4>Для чего нужен VPN в современном мире</h4>
                         <p>Основные сценарии использования VPN</p>
                     </a>
+                    <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
+                        <span class="tag">💡 Опыт</span>
+                        <h4>Почему VPN перестали работать</h4>
+                        <p>Личный опыт: решение на vps-vpn.ru</p>
+                    </a>
                     <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
                         <span class="tag">⚙️ Технологии</span>
                         <h4>Основные компоненты VPN-соединения</h4>
@@ -1015,11 +1009,6 @@
                         <span class="tag">🔐 Безопасность</span>
                         <h4>Как работает шифрование в VPN</h4>
                         <p>Объяснение алгоритмов шифрования</p>
-                    </a>
-                    <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
-                        <span class="tag">💡 Опыт</span>
-                        <h4>Почему VPN перестали работать</h4>
-                        <p>Личный опыт: решение на vps-vpn.ru</p>
                     </a>
                 </div>
             </div>
@@ -1038,6 +1027,7 @@
 
     <script>
         (function() {
+            // ========== ТЕМА ==========
             function setTheme(theme) {
                 const isLight = theme === 'light';
                 document.body.classList.toggle('light', isLight);
@@ -1066,19 +1056,20 @@
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m, e, t, r, i, k, a) {
-            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments); };
+            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
             m[i].l = 1 * new Date();
             for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
             k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k,
-            a);
+            a)
         })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
 
-        ym(108981205, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", accurateTrackBounce: true,
-            trackLinks: true });
+        ym(108981205, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer",
+            accurateTrackBounce: true, trackLinks: true });
     </script>
     <noscript>
         <div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div>
     </noscript>
     <!-- /Yandex.Metrika counter -->
+
 </body>
 </html>

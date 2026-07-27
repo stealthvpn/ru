@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-FS3MC3KGRX');
+    </script>
+
+    <!-- ====== СЕО МЕТАТЕГИ ====== -->
+    <title>Как создать ссылку на подписку для VPN-клиентов с помощью Google Диска | VPS-VPN</title>
+    <meta name="description" content="Пошаговая инструкция: как создать ссылку на подписку для VPN-клиентов через Google Диск. Быстрый способ раздавать файлы .ovpn, .conf, WireGuard конфиги. Сравнение с облачными решениями.">
+    <meta name="keywords" content="google диск ссылка на подписку, vpn подписка через google drive, раздача vpn конфигов, ссылка на ovpn файл, wireguard конфиг по ссылке, как дать доступ к vpn">
+    <meta name="author" content="Команда VPS-VPN">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://vps-vpn.ru/articles/kak-sozdat-ssylku-na-podpisku-dlya-vpn-klientov-s-pomoshchyu-google-diska.html">
+
+    <!-- ====== OPEN GRAPH ====== -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vps-vpn.ru/articles/kak-sozdat-ssylku-na-podpisku-dlya-vpn-klientov-s-pomoshchyu-google-diska.html">
+    <meta property="og:title" content="Как создать ссылку на подписку для VPN-клиентов с помощью Google Диска">
+    <meta property="og:description" content="Пошаговая инструкция по созданию ссылки для раздачи VPN-конфигов через Google Диск. Простой, надёжный и бесплатный способ.">
+    <meta property="og:image" content="https://vps-vpn.ru/images/vpn-google-drive.jpg">
+    <meta property="og:site_name" content="VPS-VPN">
+    <meta property="article:published_time" content="2026-07-26">
+    <meta property="article:modified_time" content="2026-07-26">
+    <meta property="article:author" content="Команда VPS-VPN">
+    <meta property="article:section" content="Инструкции">
+
+    <!-- ====== TWITTER ====== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Как создать ссылку на подписку для VPN-клиентов с помощью Google Диска">
+    <meta name="twitter:description" content="Пошаговая инструкция по созданию ссылки для раздачи VPN-конфигов через Google Диск. Простой, надёжный и бесплатный способ.">
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/vpn-google-drive.jpg">
+
+    <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": "Как создать ссылку на подписку для VPN-клиентов с помощью Google Диска",
+            "description": "Пошаговая инструкция: как создать ссылку на подписку для VPN-клиентов через Google Диск. Быстрый способ раздавать файлы .ovpn, .conf, WireGuard конфиги.",
+            "image": "https://vps-vpn.ru/images/vpn-google-drive.jpg",
+            "datePublished": "2026-07-26",
+            "dateModified": "2026-07-26",
+            "author": {
+                "@type": "Organization",
+                "name": "VPS-VPN"
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "VPS-VPN",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://vps-vpn.ru/logo.png"
+                }
+            },
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://vps-vpn.ru/articles/kak-sozdat-ssylku-na-podpisku-dlya-vpn-klientov-s-pomoshchyu-google-diska.html"
+            },
+            "keywords": "google диск ссылка на подписку, vpn подписка через google drive, раздача vpn конфигов, ссылка на ovpn файл",
+            "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+                    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+                    { "@type": "ListItem", "position": 3, "name": "Как создать ссылку на подписку через Google Диск", "item": "https://vps-vpn.ru/articles/kak-sozdat-ssylku-na-podpisku-dlya-vpn-klientov-s-pomoshchyu-google-diska.html" }
+                ]
+            }
+        }
+    </script>
+
+    <style>
+        /* ====== ОБЩИЕ СТИЛИ (все стили из шаблона) ====== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        body.dark {
+            background: #0a0c12;
+            color: #e0e0e0;
+        }
+        body.dark .article-container {
+            background: rgba(25, 30, 45, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        body.dark .theme-toggle {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        body.dark .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #a5f0ff;
+        }
+        body.dark .nav-links a {
+            color: #e0e0e0;
+        }
+        body.dark .nav-links a:hover {
+            color: #a5f0ff;
+        }
+        body.dark .gradient-text {
+            background: linear-gradient(135deg, #a5f0ff, #7c3aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.dark .tag {
+            background: rgba(165, 240, 255, 0.12);
+            color: #a5f0ff;
+            border: 1px solid rgba(165, 240, 255, 0.2);
+        }
+        body.dark .btn-primary {
+            background: linear-gradient(95deg, #7c3aff, #5a2dca);
+            box-shadow: 0 8px 20px rgba(124, 58, 255, 0.3);
+        }
+        body.dark .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(124, 58, 255, 0.45);
+        }
+        body.dark .footer {
+            color: #7f8c9b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.dark .related-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .related-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .protocol-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        body.dark .protocol-card:hover {
+            border-color: rgba(165, 240, 255, 0.2);
+        }
+        body.dark .timeline-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #7c3aff;
+        }
+        body.dark .vps-advantage {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.08), rgba(45, 212, 191, 0.05));
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.dark .tech-highlight {
+            background: rgba(124, 58, 255, 0.06);
+            border-left: 4px solid #7c3aff;
+        }
+        body.dark .era-badge {
+            background: rgba(165, 240, 255, 0.1);
+            color: #a5f0ff;
+        }
+        body.dark .breadcrumb a {
+            color: #a5f0ff;
+        }
+
+        body.light {
+            background: #ffffff;
+            color: #222222;
+        }
+        body.light .article-container {
+            background: #ffffff;
+            border: 1px solid #ebebeb;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+        }
+        body.light .gradient-text {
+            background: linear-gradient(135deg, #ff385c, #dd1a4a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        body.light .tag {
+            background: rgba(255, 56, 92, 0.08);
+            color: #ff385c;
+            border: 1px solid rgba(255, 56, 92, 0.2);
+        }
+        body.light .btn-primary {
+            background: linear-gradient(95deg, #ff385c, #dd1a4a);
+            box-shadow: 0 8px 20px rgba(255, 56, 92, 0.25);
+        }
+        body.light .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(255, 56, 92, 0.35);
+        }
+        body.light .nav-links a {
+            color: #222222;
+        }
+        body.light .nav-links a:hover {
+            color: #ff385c;
+        }
+        body.light .theme-toggle {
+            background: #f7f7f7;
+            color: #222222;
+            border: 1px solid #ebebeb;
+        }
+        body.light .footer {
+            color: #717171;
+            border-top: 1px solid #ebebeb;
+        }
+        body.light .related-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .related-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .protocol-card {
+            background: #fafafa;
+            border: 1px solid #ebebeb;
+        }
+        body.light .protocol-card:hover {
+            border-color: #ff385c;
+        }
+        body.light .timeline-card {
+            background: #fafafa;
+            border-left: 3px solid #ff385c;
+        }
+        body.light .vps-advantage {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.05), rgba(255, 56, 92, 0.02));
+            border: 1px solid rgba(255, 56, 92, 0.12);
+        }
+        body.light .tech-highlight {
+            background: rgba(255, 56, 92, 0.04);
+            border-left: 4px solid #ff385c;
+        }
+        body.light .era-badge {
+            background: rgba(255, 56, 92, 0.08);
+            color: #ff385c;
+        }
+        body.light .breadcrumb a {
+            color: #ff385c;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .container-wide {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 8px 16px;
+            border-radius: 40px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+        }
+        .btn-primary {
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .article-container {
+            border-radius: 32px;
+            padding: 48px 56px;
+            margin: 30px 0 50px;
+            transition: all 0.2s;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 20px;
+            padding: 8px 0;
+        }
+        .breadcrumb a {
+            text-decoration: none;
+        }
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-container h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+        .article-container h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin: 36px 0 16px;
+            letter-spacing: -0.01em;
+        }
+        .article-container h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 28px 0 12px;
+        }
+        .article-container p {
+            margin-bottom: 18px;
+            opacity: 0.9;
+        }
+        .article-container ul,
+        .article-container ol {
+            margin: 16px 0 24px 24px;
+        }
+        .article-container li {
+            margin-bottom: 8px;
+        }
+        .article-container blockquote {
+            border-left: 4px solid #7c3aff;
+            padding-left: 20px;
+            margin: 24px 0;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        body.light .article-container blockquote {
+            border-left-color: #ff385c;
+        }
+
+        .article-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            margin-top: 40px;
+        }
+        body.light .article-author {
+            border-top-color: #ebebeb;
+        }
+        .article-author .avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #7c3aff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+        }
+        body.light .article-author .avatar {
+            background: #ff385c;
+        }
+        .article-author .bio {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        .article-cta {
+            background: linear-gradient(135deg, rgba(124, 58, 255, 0.12), rgba(45, 212, 191, 0.08));
+            border-radius: 24px;
+            padding: 32px 40px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(124, 58, 255, 0.2);
+        }
+        body.light .article-cta {
+            background: linear-gradient(135deg, rgba(255, 56, 92, 0.08), rgba(255, 56, 92, 0.03));
+            border-color: rgba(255, 56, 92, 0.15);
+        }
+        .article-cta h3 {
+            margin-bottom: 12px;
+        }
+        .article-cta .btn-primary {
+            margin-top: 16px;
+        }
+
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 16px 0 24px;
+        }
+        .protocol-card {
+            padding: 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+        }
+        .protocol-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .protocol-card p {
+            font-size: 0.82rem;
+            opacity: 0.8;
+            margin-bottom: 0;
+        }
+        .protocol-card .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        .badge-high {
+            background: rgba(45, 212, 191, 0.2);
+            color: #2dd4bf;
+        }
+        .badge-mid {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+        .badge-low {
+            background: rgba(255, 56, 92, 0.15);
+            color: #ff385c;
+        }
+        .badge-purple {
+            background: rgba(124, 58, 255, 0.2);
+            color: #a78bfa;
+        }
+        body.light .badge-high {
+            background: rgba(45, 212, 191, 0.15);
+            color: #0d9488;
+        }
+        body.light .badge-mid {
+            background: rgba(251, 191, 36, 0.15);
+            color: #b45309;
+        }
+        body.light .badge-low {
+            background: rgba(255, 56, 92, 0.12);
+            color: #dc2626;
+        }
+        body.light .badge-purple {
+            background: rgba(124, 58, 255, 0.12);
+            color: #7c3aff;
+        }
+
+        .related-articles {
+            margin: 40px 0 30px;
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 16px;
+        }
+        .related-card {
+            padding: 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s;
+        }
+        .related-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .related-card p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        .related-card .tag {
+            font-size: 0.65rem;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.85rem;
+        }
+
+        .timeline-card {
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 14px;
+        }
+        .timeline-card .year {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-right: 12px;
+        }
+        .timeline-card .era-badge {
+            display: inline-block;
+            padding: 2px 12px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .vps-advantage {
+            border-radius: 20px;
+            padding: 28px 32px;
+            margin: 24px 0;
+        }
+        .vps-advantage h3 {
+            margin-top: 0;
+        }
+        .vps-advantage ul {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0;
+        }
+        .vps-advantage ul li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .vps-advantage ul li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: #7c3aff;
+            font-weight: 700;
+        }
+        body.light .vps-advantage ul li::before {
+            color: #ff385c;
+        }
+
+        .tech-highlight {
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+        .tech-highlight code {
+            font-family: 'Inter', monospace;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        body.light .tech-highlight code {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.92rem;
+        }
+        .comparison-table thead tr {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        body.light .comparison-table thead tr {
+            border-bottom-color: #d1d5db;
+        }
+        .comparison-table th {
+            text-align: left;
+            padding: 12px 8px;
+            font-weight: 600;
+        }
+        .comparison-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        body.light .comparison-table td {
+            border-bottom-color: #f3f4f6;
+        }
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        .comparison-table .check {
+            color: #2dd4bf;
+        }
+        body.light .comparison-table .check {
+            color: #0d9488;
+        }
+        .comparison-table .cross {
+            color: #ff385c;
+        }
+        .comparison-table .highlight-row {
+            background: rgba(124, 58, 255, 0.06);
+        }
+        body.light .comparison-table .highlight-row {
+            background: rgba(255, 56, 92, 0.04);
+        }
+        .step-number {
+            display: inline-block;
+            background: #7c3aff;
+            color: #fff;
+            font-weight: 700;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+        body.light .step-number {
+            background: #ff385c;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 28px 20px;
+            }
+            .article-container h1 {
+                font-size: 1.6rem;
+            }
+            .article-container h2 {
+                font-size: 1.3rem;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-links {
+                gap: 16px;
+                justify-content: center;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            .article-cta {
+                padding: 24px 20px;
+            }
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+            .protocol-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .comparison-table {
+                font-size: 0.78rem;
+            }
+            .vps-advantage {
+                padding: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .article-container h1 {
+                font-size: 1.3rem;
+            }
+            .article-meta {
+                font-size: 0.75rem;
+                gap: 12px;
+            }
+            .protocol-grid {
+                grid-template-columns: 1fr;
+            }
+            .comparison-table {
+                font-size: 0.7rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 6px 4px;
+            }
+            .timeline-card .year {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark">
+    <div class="container-wide">
+        <nav>
+            <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+            <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+                <div class="nav-links">
+                    <a href="/">Главная</a>
+                    <a href="/access.html">Доступ</a>
+                    <a href="/blog.html">📝 Блог</a>
+                </div>
+                <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                    <i class="fas fa-sun"></i>
+                    <span style="font-size: 0.9rem;">Светлая</span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <article class="article-container">
+
+            <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Главная</a>
+                <span>›</span>
+                <a href="/blog.html">Блог</a>
+                <span>›</span>
+                <span>Как создать ссылку на подписку через Google Диск</span>
+            </nav>
+
+            <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+            <div class="article-meta">
+                <span class="tag">📁 Инструкция</span>
+                <span><i class="far fa-calendar-alt"></i> 26 июля 2026</span>
+                <span><i class="far fa-clock"></i> 8 минут чтения</span>
+                <span><i class="far fa-eye"></i> 1 274 просмотра</span>
+            </div>
+
+            <!-- ====== ЗАГОЛОВОК ====== -->
+            <h1>Как создать ссылку на подписку для VPN-клиентов с помощью Google Диска</h1>
+
+            <!-- ====== ВСТУПЛЕНИЕ ====== -->
+            <p>Если вы используете собственный VPN-сервер и хотите раздавать конфигурационные файлы (<code>.ovpn</code>, <code>.conf</code> для WireGuard или другие) своим клиентам, вам нужен простой и надёжный способ публикации. <strong>Google Диск</strong> — один из самых удобных и бесплатных инструментов для этой задачи. В этой статье мы пошагово разберём, как создать ссылку на подписку для VPN-клиентов через Google Drive, настроить доступ и избежать типичных ошибок.</p>
+
+            <p>А в конце мы расскажем, почему даже самая удобная ссылка на конфиг не сделает ваш VPN по-настоящему защищённым, и как технология <strong>XHTTP + Reality</strong> от <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> решает все проблемы с блокировками и DPI.</p>
+
+            <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+            <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
+                <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
+                <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
+                    <li style="margin: 4px 0;"><a href="#why-google" style="color: #a5f0ff; text-decoration: none;">1. Почему Google Диск?</a></li>
+                    <li style="margin: 4px 0;"><a href="#step-by-step" style="color: #a5f0ff; text-decoration: none;">2. Пошаговая инструкция</a></li>
+                    <li style="margin: 4px 0;"><a href="#access-settings" style="color: #a5f0ff; text-decoration: none;">3. Настройка доступа</a></li>
+                    <li style="margin: 4px 0;"><a href="#security" style="color: #a5f0ff; text-decoration: none;">4. Безопасность ссылок</a></li>
+                    <li style="margin: 4px 0;"><a href="#comparison" style="color: #a5f0ff; text-decoration: none;">5. Альтернативы Google Диску</a></li>
+                    <li style="margin: 4px 0;"><a href="#vps-vpn" style="color: #a5f0ff; text-decoration: none;">6. Почему нужен личный VPN на VPS</a></li>
+                    <li style="margin: 4px 0;"><a href="#xhttp-reality" style="color: #a5f0ff; text-decoration: none;">7. XHTTP + Reality — защита на уровне трафика</a></li>
+                    <li style="margin: 4px 0;"><a href="#faq" style="color: #a5f0ff; text-decoration: none;">8. Часто задаваемые вопросы</a></li>
+                </ul>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 1 ====== -->
+            <h2 id="why-google">Почему Google Диск идеален для раздачи VPN-конфигов</h2>
+            <p><strong>Google Диск (Google Drive)</strong> — это облачное хранилище с простым механизмом генерации ссылок. Вот его главные преимущества:</p>
+            <ul>
+                <li><strong>Бесплатно</strong> — 15 ГБ хранилища хватит для тысяч конфигурационных файлов.</li>
+                <li><strong>Простота</strong> — ссылка создаётся в два клика, не нужно настраивать FTP или веб-сервер.</li>
+                <li><strong>Гибкий доступ</strong> — можно открыть ссылку для всех, только для определённых пользователей или с паролем.</li>
+                <li><strong>Стабильность</strong> — Google обеспечивает высокую доступность и скорость загрузки.</li>
+                <li><strong>Кроссплатформенность</strong> — клиенты могут скачать файл с любого устройства, даже с телефона.</li>
+            </ul>
+            <p>Для администраторов VPN, которые хотят быстро раздавать подписки (например, обновлённые конфиги или ключи), Google Диск — это золотой стандарт.</p>
+
+            <!-- ====== РАЗДЕЛ 2 ====== -->
+            <h2 id="step-by-step">Пошаговая инструкция: создаём ссылку на подписку</h2>
+
+            <div style="margin: 20px 0;">
+                <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+                    <span class="step-number">1</span>
+                    <div>
+                        <h3 style="margin: 0 0 4px 0; font-size: 1.05rem;">Загрузите конфигурационный файл на Google Диск</h3>
+                        <p style="margin-bottom: 0;">Перейдите на <a href="https://drive.google.com" target="_blank" rel="noopener noreferrer" style="color: #a5f0ff;">drive.google.com</a>, авторизуйтесь и нажмите «+ Создать» → «Загрузить файл». Выберите ваш файл (например, <code>client1.ovpn</code> или <code>wg0-client.conf</code>).</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+                    <span class="step-number">2</span>
+                    <div>
+                        <h3 style="margin: 0 0 4px 0; font-size: 1.05rem;">Откройте доступ к файлу</h3>
+                        <p style="margin-bottom: 0;">Кликните правой кнопкой по файлу, выберите «Открыть доступ» → «Настроить доступ». В появившемся окне выберите «Все, у кого есть ссылка».</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+                    <span class="step-number">3</span>
+                    <div>
+                        <h3 style="margin: 0 0 4px 0; font-size: 1.05rem;">Выберите уровень доступа</h3>
+                        <p style="margin-bottom: 0;">Рекомендуем установить «Просмотр» — так клиенты смогут только скачивать файл, но не редактировать его. Если хотите дополнительную защиту, включите «Запрос пароля» или ограничьте срок действия ссылки.</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+                    <span class="step-number">4</span>
+                    <div>
+                        <h3 style="margin: 0 0 4px 0; font-size: 1.05rem;">Скопируйте ссылку</h3>
+                        <p style="margin-bottom: 0;">Нажмите «Копировать ссылку» — вы получите URL вида <code>https://drive.google.com/file/d/.../view</code>. Это и есть ваша ссылка на подписку.</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: flex-start;">
+                    <span class="step-number">5</span>
+                    <div>
+                        <h3 style="margin: 0 0 4px 0; font-size: 1.05rem;">Отправьте ссылку клиентам</h3>
+                        <p style="margin-bottom: 0;">Теперь вы можете разослать эту ссылку всем, кому нужен доступ к VPN. Клиенты переходят по ссылке и скачивают файл для импорта в свой VPN-клиент (OpenVPN, WireGuard, Outline и т.д.).</p>
+                    </div>
+                </div>
+            </div>
+
+            <blockquote>💡 <strong>Совет:</strong> Если вы планируете обновлять конфиг, всегда загружайте новый файл с тем же именем и обновляйте ссылку. Или создайте отдельную папку и дайте доступ к ней — тогда клиенты сами увидят все актуальные файлы.</blockquote>
+
+            <!-- ====== РАЗДЕЛ 3 ====== -->
+            <h2 id="access-settings">Настройка доступа: что выбрать?</h2>
+            <p>Google Диск предлагает несколько уровней доступа. Для VPN-подписок чаще всего используются:</p>
+            <ul>
+                <li><strong>«Все, у кого есть ссылка»</strong> — самый простой вариант. Подходит для небольших групп, где ссылкой делятся только доверенные лица.</li>
+                <li><strong>«Ограниченный доступ»</strong> — только конкретные пользователи (по email). Идеально для корпоративных VPN.</li>
+                <li><strong>Ссылка с паролем</strong> — дополнительный слой безопасности. Хорошо, если вы публикуете ссылку в открытых каналах (Telegram, форумы).</li>
+                <li><strong>Ограничение по сроку</strong> — ссылка автоматически перестаёт работать через заданное время. Полезно для временных доступов.</li>
+            </ul>
+            <p>Выбирайте настройки исходя из вашей модели распространения подписок. Для массовой раздачи клиентам удобнее всего «ссылка для всех» + пароль.</p>
+
+            <!-- ====== РАЗДЕЛ 4 ====== -->
+            <h2 id="security">Безопасность ссылок на подписку</h2>
+            <p>Публикация конфигурационного файла в открытом доступе — это риск. Если ссылка попадёт в чужие руки, злоумышленник сможет подключиться к вашему VPN. Чтобы минимизировать угрозы:</p>
+            <ul>
+                <li><strong>Используйте пароль</strong> — даже если ссылку перехватят, без пароля файл не откроется.</li>
+                <li><strong>Регулярно обновляйте конфиги</strong> — при утечке старой ссылки создайте новый файл и смените ключи на сервере.</li>
+                <li><strong>Не публикуйте ссылки в публичных чатах</strong> — используйте личные сообщения или защищённые каналы.</li>
+                <li><strong>Включайте двухфакторную аутентификацию</strong> на своём Google-аккаунте, чтобы никто не получил доступ к вашим файлам.</li>
+            </ul>
+            <div class="tech-highlight">
+                <p style="font-weight: 600;">🔐 А что насчёт самого VPN?</p>
+                <p style="margin-bottom: 0;">Даже самая надёжная ссылка не защитит вас, если ваш VPN-сервер использует устаревший протокол или общий IP. Для максимальной безопасности нужен <strong>личный VPS с технологией XHTTP + Reality</strong>, о которой мы расскажем ниже.</p>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 5 ====== -->
+            <h2 id="comparison">Сравнение Google Диска с альтернативами</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Способ</th>
+                        <th>Бесплатность</th>
+                        <th>Простота</th>
+                        <th>Безопасность</th>
+                        <th>Скорость скачивания</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Google Диск</strong></td>
+                        <td><span class="check">✅</span> 15 ГБ</td>
+                        <td><span class="check">✅</span> Очень просто</td>
+                        <td><span class="check">✅</span> Пароль, срок действия</td>
+                        <td><span class="check">✅</span> Высокая</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dropbox</strong></td>
+                        <td><span class="check">✅</span> 2 ГБ</td>
+                        <td><span class="check">✅</span> Просто</td>
+                        <td><span class="check">✅</span> Ссылки с паролем</td>
+                        <td><span class="check">✅</span> Высокая</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FTP / SFTP</strong></td>
+                        <td><span class="check">✅</span> (зависит от хостинга)</td>
+                        <td><span class="cross">❌</span> Сложная настройка</td>
+                        <td><span class="check">✅</span> Высокая (SFTP)</td>
+                        <td><span class="check">✅</span> Зависит от сервера</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Облачные пасты (Pastebin)</strong></td>
+                        <td><span class="check">✅</span> Да</td>
+                        <td><span class="check">✅</span> Просто</td>
+                        <td><span class="cross">❌</span> Низкая (публичный доступ)</td>
+                        <td><span class="check">✅</span> Быстро</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>Собственный веб-сервер</strong></td>
+                        <td><span class="cross">❌</span> Нужен хостинг</td>
+                        <td><span class="cross">❌</span> Сложно</td>
+                        <td><span class="check">✅</span> Полный контроль</td>
+                        <td><span class="check">✅</span> Зависит от сервера</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="font-size: 0.9rem; opacity: 0.7;">Google Диск выигрывает по сочетанию «бесплатно + просто + надёжно» для 90% случаев.</p>
+
+            <!-- ====== БЛОК С РЕКЛАМОЙ VPS-VPN (ПЕРВЫЙ) ====== -->
+            <div class="article-cta">
+                <h3>🔥 Хотите по-настоящему надёжный VPN?</h3>
+                <p>Раздача конфигов через Google Диск — это удобно, но сам VPN должен быть <strong>невидимым для DPI и блокировок</strong>. Именно это даёт <a href="/" style="color: inherit; text-decoration: none; font-weight: 700;">VPS-VPN</a>:</p>
+                <ul style="text-align: left; max-width: 500px; margin: 12px auto;">
+                    <li>✅ <strong>Персональный VPS</strong> — ваш личный IP, не делите с 1000+ пользователями.</li>
+                    <li>✅ <strong>Технология XHTTP + Reality</strong> — трафик выглядит как обычный браузер Chrome.</li>
+                    <li>✅ <strong>Нас в 1000 раз сложнее заблокировать</strong>, чем массовые VPN.</li>
+                </ul>
+                <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 6 ====== -->
+            <h2 id="vps-vpn">Почему одного Google Диска недостаточно: нужен личный VPN на VPS</h2>
+            <p>Ссылка на конфиг — это лишь способ доставки файла. Но если вы используете <strong>массовый VPN-сервис</strong>, где сотни людей сидят на одном IP, ваша безопасность под угрозой:</p>
+            <ul>
+                <li>Провайдеры и DPI-системы легко обнаруживают массовые VPN по характерным признакам.</li>
+                <li>Если один пользователь с вашего IP нарушит правила, весь IP может попасть в бан-листы.</li>
+                <li>Скорость падает, потому что ресурсы делятся на всех.</li>
+            </ul>
+
+            <div class="vps-advantage">
+                <h3>🚀 В чём отличие подхода VPS-VPN?</h3>
+                <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN-сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.</p>
+
+                <ul>
+                    <li><strong>Никаких «шумных соседей»:</strong> ваш IP-адрес используете только вы. Никто не сможет «подставить» вас своей активностью.</li>
+                    <li><strong>Стабильная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
+                    <li><strong>Минимальный риск блокировок:</strong> массовые IP-адреса часто попадают в бан-листы из-за действий других пользователей. Ваш личный IP — чистый.</li>
+                    <li><strong>Полный контроль:</strong> вы сами управляете сервером, выбираете протоколы и настройки безопасности.</li>
+                </ul>
+
+                <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
+                    <p style="font-weight: 700; margin-bottom: 4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
+                    <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP-адресом и индивидуальными настройками маскировки.</p>
+                </div>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 7 ====== -->
+            <h2 id="xhttp-reality">Технология XHTTP + Reality — имитация браузера Chrome</h2>
+            <p>Современные DPI-системы анализируют не только IP-адреса, но и <strong>паттерны трафика</strong>. Даже если у вас личный VPS, но вы используете OpenVPN или WireGuard, DPI может заметить характерные признаки этих протоколов и заблокировать соединение.</p>
+
+            <div class="tech-highlight">
+                <p style="font-weight: 600; margin-bottom: 6px;">🔬 XHTTP + Reality: как это работает</p>
+                <p style="margin-bottom: 8px;">Эта технология маскирует VPN-трафик под обычный HTTPS-запрос к легитимному сайту. DPI не может отличить ваше соединение от реального браузера Chrome, потому что:</p>
+                <ul style="margin: 4px 0 0 20px;">
+                    <li><strong>Имитация TLS-рукопожатия</strong> — соединение выглядит как стандартный HTTPS-запрос.</li>
+                    <li><strong>Маскировка под Chrome</strong> — все параметры соответствуют реальному браузеру (версия, набор шифров, заголовки).</li>
+                    <li><strong>Отсутствие характерных сигнатур</strong> — в отличие от OpenVPN или WireGuard, у XHTTP нет узнаваемых паттернов.</li>
+                    <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста.</li>
+                </ul>
+            </div>
+
+            <p>Благодаря этой технологии ваш VPN-трафик <strong>неотличим от обычного веб-сёрфинга</strong>. Это делает XHTTP + Reality идеальным решением для стран с жёсткой фильтрацией интернета и активным DPI.</p>
+
+            <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(45,212,191,0.15);">
+                <p style="font-weight: 600; margin-bottom: 4px;">📌 Ключевое преимущество:</p>
+                <p style="margin-bottom: 0;">DPI-системы видят ваш трафик как обычный HTTPS-запрос к, например, <code>google.com</code> или <code>cloudflare.com</code>. Они не могут определить, что внутри этого запроса передаются VPN-данные. <strong>Нас в 1000 раз сложнее заблокировать и отследить.</strong></p>
+            </div>
+
+            <!-- ====== СРАВНИТЕЛЬНАЯ ТАБЛИЦА ====== -->
+            <h3 style="margin-top: 30px;">Сравнение технологий маскировки</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Технология</th>
+                        <th>Маскировка под HTTPS</th>
+                        <th>Имитация браузера</th>
+                        <th>Устойчивость к DPI</th>
+                        <th>Скорость</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>OpenVPN (обычный)</strong></td>
+                        <td><span class="cross">❌</span> Нет</td>
+                        <td><span class="cross">❌</span> Нет</td>
+                        <td><span class="cross">❌</span> Низкая</td>
+                        <td><span class="check">✅</span> Средняя</td>
+                    </tr>
+                    <tr>
+                        <td><strong>WireGuard</strong></td>
+                        <td><span class="cross">❌</span> Нет</td>
+                        <td><span class="cross">❌</span> Нет</td>
+                        <td><span class="cross">❌</span> Низкая</td>
+                        <td><span class="check">✅</span> Высокая</td>
+                    </tr>
+                    <tr>
+                        <td><strong>OpenVPN + obfuscation</strong></td>
+                        <td><span class="check">✅</span> Частично</td>
+                        <td><span class="cross">❌</span> Нет</td>
+                        <td><span class="badge-mid" style="display:inline-block; padding:2px 10px; border-radius:12px; font-size:0.7rem;">Средняя</span></td>
+                        <td><span class="check">✅</span> Средняя</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>XHTTP + Reality</strong></td>
+                        <td><span class="check">✅</span> Полная</td>
+                        <td><span class="check">✅</span> Chrome</td>
+                        <td><span class="check">✅</span> Максимальная</td>
+                        <td><span class="check">✅</span> Высокая</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ====== БЛОК С РЕКЛАМОЙ VPS-VPN (ВТОРОЙ) ====== -->
+            <div class="article-cta" style="background: linear-gradient(135deg, rgba(124,58,255,0.18), rgba(45,212,191,0.10)); border: 2px solid rgba(124,58,255,0.3);">
+                <h3>⚡ Получите свой личный VPN-сервер с XHTTP + Reality уже сегодня</h3>
+                <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита.</p>
+                <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. <strong>Нас в 1000 раз сложнее заблокировать.</strong></p>
+                <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
+            </div>
+
+            <!-- ====== РАЗДЕЛ 8 ====== -->
+            <h2 id="faq">Часто задаваемые вопросы (FAQ)</h2>
+
+            <div style="margin: 16px 0;">
+                <p style="font-weight: 700;">Можно ли использовать Google Диск для автоматической подписки (обновления конфигов)?</p>
+                <p>Нет, Google Диск не поддерживает автоматическую синхронизацию по ссылке для VPN-клиентов. Для автоматического обновления конфигов лучше использовать собственный веб-сервер или специализированные решения (например, Outline Manager). Google Диск подходит для ручной раздачи.</p>
+
+                <p style="font-weight: 700; margin-top: 20px;">Безопасно ли хранить конфиги на Google Диске?</p>
+                <p>Да, если вы используете пароль на ссылку и ограничиваете доступ. Дополнительно шифруйте файлы (например, ZIP с паролем) перед загрузкой.</p>
+
+                <p style="font-weight: 700; margin-top: 20px;">Что делать, если ссылка попала в открытый доступ?</p>
+                <p>Немедленно удалите файл с Google Диска, создайте новый конфиг на сервере (с новыми ключами) и загрузите его как новый файл с новой ссылкой.</p>
+
+                <p style="font-weight: 700; margin-top: 20px;">Почему мой VPN блокируют, даже если я использую ссылку из Google Диска?</p>
+                <p>Блокировка происходит не из-за способа распространения конфига, а из-за самого VPN-протокола. Если ваш сервер использует OpenVPN или WireGuard без маскировки, DPI его обнаружит. Решение — <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a> с XHTTP + Reality.</p>
+            </div>
+
+            <!-- ====== ИТОГ ====== -->
+            <h2 style="margin-top: 40px;">Итог: ссылка — это просто инструмент, главное — сам VPN</h2>
+            <p>Google Диск предоставляет удобный и бесплатный способ делиться конфигурационными файлами VPN. С помощью нашей пошаговой инструкции вы за 5 минут создадите надёжную ссылку на подписку для своих клиентов.</p>
+            <p><strong>Но помните:</strong> как бы удобно вы ни раздавали конфиги, сам VPN должен быть <strong>невидимым для DPI и блокировок</strong>. Только личный VPS с технологией XHTTP + Reality гарантирует, что ваш трафик останется незамеченным, а доступ в интернет — свободным.</p>
+
+            <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
+                <p style="font-weight: 700; font-size: 1.05rem;">✅ Вывод:</p>
+                <p>Для раздачи конфигов используйте Google Диск — это быстро и просто. А для самого VPN выбирайте <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> — персональный выделенный сервер с передовой технологией маскировки. <strong>Нас в 1000 раз сложнее заблокировать и отследить.</strong></p>
+            </div>
+
+            <!-- ====== АВТОР ====== -->
+            <div class="article-author">
+                <div class="avatar">📁</div>
+                <div>
+                    <p style="font-weight: 600;">Команда VPS-VPN</p>
+                    <p class="bio">Инженеры сетевых решений и эксперты по обходу DPI. Пишем инструкции, которые действительно работают в условиях жёсткой фильтрации.</p>
+                </div>
+            </div>
+
+            <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+            <div class="related-articles">
+                <h3>📖 Похожие статьи</h3>
+                <div class="related-grid">
+                    <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
+                        <span class="tag">🔐 VPN</span>
+                        <h4>Что такое VPN и как он работает</h4>
+                        <p>Полное руководство для начинающих и продвинутых</p>
+                    </a>
+                    <a href="/articles/dlya-chego-nuzhen-vpn-v-sovremennom-mire.html" class="related-card">
+                        <span class="tag">🌍 VPN</span>
+                        <h4>Для чего нужен VPN в современном мире</h4>
+                        <p>Основные сценарии использования VPN</p>
+                    </a>
+                    <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
+                        <span class="tag">⚙️ Технологии</span>
+                        <h4>Основные компоненты VPN-соединения</h4>
+                        <p>Из чего состоит VPN-туннель</p>
+                    </a>
+                    <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
+                        <span class="tag">💡 Опыт</span>
+                        <h4>Почему VPN перестали работать</h4>
+                        <p>Личный опыт: решение на vps-vpn.ru</p>
+                    </a>
+                    <a href="/articles/istoriya-razvitiya-vpn-tehnologiy.html" class="related-card">
+                        <span class="tag">📜 История</span>
+                        <h4>История развития VPN-технологий</h4>
+                        <p>От PPTP до XHTTP + Reality</p>
+                    </a>
+                </div>
+            </div>
+
+        </article>
+    </div>
+
+    <div class="container-wide">
+        <div class="footer">
+            <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+            <p style="margin-top: 8px;">
+                <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+                <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ========== ТЕМА ==========
+            function setTheme(theme) {
+                const isLight = theme === 'light';
+                document.body.classList.toggle('light', isLight);
+                document.body.classList.toggle('dark', !isLight);
+                localStorage.setItem('vpsvpn_theme', theme);
+                const toggleBtn = document.getElementById('themeToggle');
+                if (toggleBtn) {
+                    toggleBtn.innerHTML = isLight ?
+                        '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>' :
+                        '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
+                }
+            }
+
+            function initTheme() {
+                const saved = localStorage.getItem('vpsvpn_theme');
+                setTheme(saved === 'light' ? 'light' : 'dark');
+            }
+            document.getElementById('themeToggle')?.addEventListener('click', () => {
+                const isLight = document.body.classList.contains('light');
+                setTheme(isLight ? 'dark' : 'light');
+            });
+            initTheme();
+        })();
+    </script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m, e, t, r, i, k, a) {
+            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k,
+            a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+
+        ym(108981205, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer",
+            accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</body>
+</html>

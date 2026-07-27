@@ -14,31 +14,31 @@
     </script>
 
     <!-- ====== СЕО МЕТАТЕГИ ====== -->
-    <title>Как защитить VPN-сервер от взлома: пошаговое руководство | VPS-VPN</title>
-    <meta name="description" content="Узнайте, как защитить VPN-сервер от взлома: настройка SSH, фаервола, выбор протоколов, борьба с DPI. Почему личный VPS с XHTTP+Reality надёжнее массовых VPN в 1000 раз." />
-    <meta name="keywords" content="защита VPN сервера, как защитить VPN от взлома, настройка VPN, личный VPN на VPS, XHTTP Reality, обход DPI, безопасность VPN" />
+    <title>Как сменить DNS на DoT (DNS-over-TLS) для VPN-сервера | Полная инструкция</title>
+    <meta name="description" content="Пошаговая инструкция по настройке DNS-over-TLS (DoT) на VPN-сервере. Защитите DNS-запросы от перехвата, повысьте приватность и обходите DPI с технологией XHTTP + Reality." />
+    <meta name="keywords" content="DNS-over-TLS, DoT, настройка DNS, VPN-сервер, защита DNS, шифрование DNS, приватность, XHTTP Reality, VPS VPN" />
     <meta name="author" content="Команда VPS-VPN" />
     <meta name="robots" content="index, follow" />
 
-    <link rel="canonical" href="https://vps-vpn.ru/articles/kak-zashchitit-vpn-server-ot-vzloma.html" />
+    <link rel="canonical" href="https://vps-vpn.ru/articles/kak-smenit-dns-na-dot-dns-over-tls-dlya-vpn-servera.html" />
 
     <!-- ====== OPEN GRAPH ====== -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://vps-vpn.ru/articles/kak-zashchitit-vpn-server-ot-vzloma.html" />
-    <meta property="og:title" content="Как защитить VPN-сервер от взлома: пошаговое руководство" />
-    <meta property="og:description" content="Полное руководство по защите VPN-сервера: от базовых настроек до маскировки трафика XHTTP+Reality. Узнайте, почему личный VPS в 1000 раз сложнее заблокировать." />
-    <meta property="og:image" content="https://vps-vpn.ru/images/vpn-security.jpg" />
+    <meta property="og:url" content="https://vps-vpn.ru/articles/kak-smenit-dns-na-dot-dns-over-tls-dlya-vpn-servera.html" />
+    <meta property="og:title" content="Как сменить DNS на DoT (DNS-over-TLS) для VPN-сервера" />
+    <meta property="og:description" content="Пошаговая инструкция по настройке DNS-over-TLS на VPN-сервере. Защита DNS-запросов, приватность, обход DPI." />
+    <meta property="og:image" content="https://vps-vpn.ru/images/dns-dot-vpn.jpg" />
     <meta property="og:site_name" content="VPS-VPN" />
     <meta property="article:published_time" content="2026-07-26" />
     <meta property="article:modified_time" content="2026-07-26" />
     <meta property="article:author" content="Команда VPS-VPN" />
-    <meta property="article:section" content="Безопасность" />
+    <meta property="article:section" content="Настройка VPN" />
 
     <!-- ====== TWITTER ====== -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Как защитить VPN-сервер от взлома: пошаговое руководство" />
-    <meta name="twitter:description" content="Полное руководство по защите VPN-сервера: от базовых настроек до маскировки трафика XHTTP+Reality." />
-    <meta name="twitter:image" content="https://vps-vpn.ru/images/vpn-security.jpg" />
+    <meta name="twitter:title" content="Как сменить DNS на DoT (DNS-over-TLS) для VPN-сервера" />
+    <meta name="twitter:description" content="Пошаговая инструкция по настройке DNS-over-TLS на VPN-сервере. Защита DNS-запросов, приватность, обход DPI." />
+    <meta name="twitter:image" content="https://vps-vpn.ru/images/dns-dot-vpn.jpg" />
 
     <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -47,14 +47,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-    <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
+    <!-- ====== SCHEMA.ORG РАЗМЕТКА ====== -->
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "TechArticle",
-            "headline": "Как защитить VPN-сервер от взлома: пошаговое руководство",
-            "description": "Полное руководство по защите VPN-сервера: от базовых настроек до маскировки трафика XHTTP+Reality. Узнайте, почему личный VPS в 1000 раз сложнее заблокировать.",
-            "image": "https://vps-vpn.ru/images/vpn-security.jpg",
+            "headline": "Как сменить DNS на DoT (DNS-over-TLS) для VPN-сервера",
+            "description": "Пошаговая инструкция по настройке DNS-over-TLS на VPN-сервере. Защитите DNS-запросы от перехвата, повысьте приватность и обходите DPI с технологией XHTTP + Reality.",
+            "image": "https://vps-vpn.ru/images/dns-dot-vpn.jpg",
             "datePublished": "2026-07-26",
             "dateModified": "2026-07-26",
             "author": {
@@ -71,22 +71,22 @@
             },
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://vps-vpn.ru/articles/kak-zashchitit-vpn-server-ot-vzloma.html"
+                "@id": "https://vps-vpn.ru/articles/kak-smenit-dns-na-dot-dns-over-tls-dlya-vpn-servera.html"
             },
-            "keywords": "защита VPN сервера, как защитить VPN от взлома, настройка VPN, личный VPN на VPS, XHTTP Reality, обход DPI",
+            "keywords": "DNS-over-TLS, DoT, настройка DNS, VPN-сервер, защита DNS, шифрование DNS, приватность, XHTTP Reality",
             "breadcrumb": {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                     { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
                     { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
-                    { "@type": "ListItem", "position": 3, "name": "Как защитить VPN-сервер от взлома", "item": "https://vps-vpn.ru/articles/kak-zashchitit-vpn-server-ot-vzloma.html" }
+                    { "@type": "ListItem", "position": 3, "name": "Настройка DNS на DoT для VPN", "item": "https://vps-vpn.ru/articles/kak-smenit-dns-na-dot-dns-over-tls-dlya-vpn-servera.html" }
                 ]
             }
         }
     </script>
 
     <style>
-        /* ====== ОБЩИЕ СТИЛИ ====== */
+        /* ====== ОБЩИЕ СТИЛИ (как в шаблоне) ====== */
         * {
             margin: 0;
             padding: 0;
@@ -158,10 +158,6 @@
         body.dark .protocol-card:hover {
             border-color: rgba(165, 240, 255, 0.2);
         }
-        body.dark .timeline-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-left: 3px solid #7c3aff;
-        }
         body.dark .vps-advantage {
             background: linear-gradient(135deg, rgba(124, 58, 255, 0.08), rgba(45, 212, 191, 0.05));
             border: 1px solid rgba(124, 58, 255, 0.2);
@@ -169,10 +165,6 @@
         body.dark .tech-highlight {
             background: rgba(124, 58, 255, 0.06);
             border-left: 4px solid #7c3aff;
-        }
-        body.dark .era-badge {
-            background: rgba(165, 240, 255, 0.1);
-            color: #a5f0ff;
         }
         body.dark .breadcrumb a {
             color: #a5f0ff;
@@ -235,10 +227,6 @@
         body.light .protocol-card:hover {
             border-color: #ff385c;
         }
-        body.light .timeline-card {
-            background: #fafafa;
-            border-left: 3px solid #ff385c;
-        }
         body.light .vps-advantage {
             background: linear-gradient(135deg, rgba(255, 56, 92, 0.05), rgba(255, 56, 92, 0.02));
             border: 1px solid rgba(255, 56, 92, 0.12);
@@ -246,10 +234,6 @@
         body.light .tech-highlight {
             background: rgba(255, 56, 92, 0.04);
             border-left: 4px solid #ff385c;
-        }
-        body.light .era-badge {
-            background: rgba(255, 56, 92, 0.08);
-            color: #ff385c;
         }
         body.light .breadcrumb a {
             color: #ff385c;
@@ -545,26 +529,6 @@
             font-size: 0.85rem;
         }
 
-        .timeline-card {
-            padding: 16px 20px;
-            border-radius: 12px;
-            margin-bottom: 14px;
-        }
-        .timeline-card .year {
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: inline-block;
-            margin-right: 12px;
-        }
-        .timeline-card .era-badge {
-            display: inline-block;
-            padding: 2px 12px;
-            border-radius: 12px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-left: 8px;
-        }
-
         .vps-advantage {
             border-radius: 20px;
             padding: 28px 32px;
@@ -708,12 +672,10 @@
             .comparison-table td {
                 padding: 6px 4px;
             }
-            .timeline-card .year {
-                font-size: 0.95rem;
-            }
         }
     </style>
 </head>
+
 <body class="dark">
     <div class="container-wide">
         <nav>
@@ -741,162 +703,227 @@
                 <span>›</span>
                 <a href="/blog.html">Блог</a>
                 <span>›</span>
-                <span>Как защитить VPN-сервер от взлома</span>
+                <span>Настройка DNS-over-TLS для VPN</span>
             </nav>
 
-            <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+            <!-- ====== МЕТАДАННЫЕ ====== -->
             <div class="article-meta">
-                <span class="tag">🔒 Безопасность</span>
+                <span class="tag">🔐 Безопасность</span>
                 <span><i class="far fa-calendar-alt"></i> 26 июля 2026</span>
                 <span><i class="far fa-clock"></i> 10 минут чтения</span>
-                <span><i class="far fa-eye"></i> 3 217 просмотров</span>
+                <span><i class="far fa-eye"></i> 1 842 просмотра</span>
             </div>
 
-            <!-- ====== ЗАГОЛОВОК ====== -->
-            <h1>Как защитить VPN-сервер от взлома: пошаговое руководство</h1>
+            <h1>Как сменить DNS на DoT (DNS-over-TLS) для VPN-сервера</h1>
 
             <!-- ====== ВСТУПЛЕНИЕ ====== -->
-            <p>VPN-сервер — это ваш цифровой форпост. Если он скомпрометирован, злоумышленники могут перехватывать трафик, подменять данные или использовать ваш сервер для атак. В этой статье мы разберём <strong>основные угрозы для VPN-серверов</strong> и дадим пошаговые инструкции по их защите — от базовой настройки SSH и фаервола до использования передовых технологий маскировки трафика, таких как <strong>XHTTP + Reality</strong>.</p>
-
-            <p>Особое внимание уделим сравнению массовых VPN-сервисов и <strong>личного VPN на VPS</strong>, а также объясним, почему <strong>персональный выделенный сервер</strong> с уникальным IP и современной маскировкой — это единственный надёжный способ сохранить конфиденциальность и избежать блокировок.</p>
+            <p>
+                <strong>DNS (Domain Name System)</strong> — это «телефонная книга» интернета. Именно с запроса к DNS-серверу начинается любое ваше посещение сайта. Однако в большинстве случаев эти запросы передаются в открытом виде, что делает их лёгкой добычей для провайдеров, DPI-систем и злоумышленников. Если вы используете <strong>VPN-сервер</strong>, но не шифруете DNS-трафик, вся ваша конфиденциальность оказывается под угрозой — ведь по DNS-запросам можно восстановить полную историю ваших посещений.
+            </p>
+            <p>
+                Решение этой проблемы — <strong>DNS-over-TLS (DoT)</strong>. В этой статье мы подробно разберём, что такое DoT, чем он отличается от обычного DNS и других протоколов, и <strong>как настроить DNS-over-TLS на вашем VPN-сервере</strong> — будь то Linux, Windows или macOS. А также расскажем, почему использование <strong>личного VPS</strong> с технологией <strong>XHTTP + Reality</strong> делает вашу защиту максимально надёжной.
+            </p>
 
             <!-- ====== ОГЛАВЛЕНИЕ ====== -->
             <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
                 <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
                 <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
-                    <li style="margin: 4px 0;"><a href="#threats" style="color: #a5f0ff; text-decoration: none;">1. Основные угрозы для VPN-сервера</a></li>
-                    <li style="margin: 4px 0;"><a href="#ssh" style="color: #a5f0ff; text-decoration: none;">2. Безопасная настройка SSH</a></li>
-                    <li style="margin: 4px 0;"><a href="#firewall" style="color: #a5f0ff; text-decoration: none;">3. Фаервол и защита от DDoS</a></li>
-                    <li style="margin: 4px 0;"><a href="#protocols" style="color: #a5f0ff; text-decoration: none;">4. Выбор безопасных протоколов</a></li>
-                    <li style="margin: 4px 0;"><a href="#dpi" style="color: #a5f0ff; text-decoration: none;">5. Борьба с DPI: XHTTP + Reality</a></li>
-                    <li style="margin: 4px 0;"><a href="#mass-vs-personal" style="color: #a5f0ff; text-decoration: none;">6. Массовый VPN vs Личный VPS</a></li>
-                    <li style="margin: 4px 0;"><a href="#checklist" style="color: #a5f0ff; text-decoration: none;">7. Чек-лист безопасности</a></li>
-                    <li style="margin: 4px 0;"><a href="#verdict" style="color: #a5f0ff; text-decoration: none;">8. Итог: безопасность — это процесс</a></li>
+                    <li style="margin: 4px 0;"><a href="#what-is-dot" style="color: #a5f0ff; text-decoration: none;">1. Что такое DNS-over-TLS (DoT)</a></li>
+                    <li style="margin: 4px 0;"><a href="#why-dot-for-vpn" style="color: #a5f0ff; text-decoration: none;">2. Зачем шифровать DNS на VPN-сервере</a></li>
+                    <li style="margin: 4px 0;"><a href="#dot-vs-doh" style="color: #a5f0ff; text-decoration: none;">3. DoT vs DoH: в чём разница</a></li>
+                    <li style="margin: 4px 0;"><a href="#setup-linux" style="color: #a5f0ff; text-decoration: none;">4. Настройка DoT на Linux (Ubuntu/Debian)</a></li>
+                    <li style="margin: 4px 0;"><a href="#setup-windows" style="color: #a5f0ff; text-decoration: none;">5. Настройка DoT на Windows 10/11</a></li>
+                    <li style="margin: 4px 0;"><a href="#setup-macos" style="color: #a5f0ff; text-decoration: none;">6. Настройка DoT на macOS</a></li>
+                    <li style="margin: 4px 0;"><a href="#vps-advantage" style="color: #a5f0ff; text-decoration: none;">7. Почему личный VPS — лучшее решение</a></li>
+                    <li style="margin: 4px 0;"><a href="#verdict" style="color: #a5f0ff; text-decoration: none;">8. Итог: полная приватность</a></li>
                 </ul>
             </div>
 
             <!-- ====== РАЗДЕЛ 1 ====== -->
-            <h2 id="threats">Основные угрозы для VPN-сервера</h2>
-            <p>Прежде чем защищать сервер, нужно понимать, от чего именно мы защищаемся. Вот основные векторы атак:</p>
-            <ul>
-                <li><strong>Компрометация SSH-ключа или пароля</strong> — злоумышленники перебирают логины и пароли (брутфорс) или используют украденные SSH-ключи.</li>
-                <li><strong>Уязвимости в протоколах VPN</strong> — устаревшие протоколы (например, PPTP) имеют известные криптографические уязвимости.</li>
-                <li><strong>Атаки на DPI (глубокий анализ пакетов)</strong> — системы фильтрации могут не только блокировать, но и деанонимизировать трафик, если он имеет характерные сигнатуры.</li>
-                <li><strong>DDoS-атаки</strong> — перегрузка сервера большим объёмом трафика может вывести его из строя.</li>
-                <li><strong>Несанкционированный доступ через открытые порты</strong> — неправильно настроенный фаервол может оставить открытыми опасные порты.</li>
-            </ul>
-            <p>Каждая из этих угроз требует отдельного подхода. Мы разберём их по порядку.</p>
+            <h2 id="what-is-dot">Что такое DNS-over-TLS (DoT)</h2>
+            <p>
+                <strong>DNS-over-TLS (DoT)</strong> — это протокол, который шифрует DNS-запросы с помощью <strong>Transport Layer Security (TLS)</strong>, того же самого протокола, который защищает ваши соединения с HTTPS-сайтами. В отличие от обычного DNS, который работает через UDP-порт 53 в открытом виде, DoT использует <strong>TCP-порт 853</strong> и создаёт зашифрованный туннель между вашим устройством и DNS-резолвером.
+            </p>
+            <div class="tech-highlight">
+                <p style="font-weight: 600; margin-bottom: 6px;">🔑 Ключевые преимущества DoT:</p>
+                <ul style="margin: 4px 0 0 20px;">
+                    <li><strong>Шифрование трафика</strong> — никто не может перехватить и прочитать ваши DNS-запросы.</li>
+                    <li><strong>Защита от подмены (DNS spoofing)</strong> — TLS-сертификаты гарантируют, что вы общаетесь именно с тем DNS-сервером, который указали.</li>
+                    <li><strong>Конфиденциальность</strong> — провайдер и DPI-системы не видят, какие сайты вы посещаете.</li>
+                    <li><strong>Совместимость</strong> — DoT поддерживается большинством современных DNS-резолверов (Cloudflare, Quad9, Google и др.).</li>
+                </ul>
+            </div>
+            <p>
+                DoT — это стандарт, определённый в <strong>RFC 7858</strong>, и он активно внедряется как на стороне клиентов, так и на стороне серверов.
+            </p>
 
             <!-- ====== РАЗДЕЛ 2 ====== -->
-            <h2 id="ssh">Безопасная настройка SSH</h2>
-            <p>SSH — это основной способ управления вашим VPS. Если злоумышленник получит доступ к SSH, он получит доступ ко всему серверу. Поэтому защита SSH — первый и самый важный шаг.</p>
-
-            <div class="tech-highlight">
-                <p style="font-weight: 600; margin-bottom: 6px;">🔑 Рекомендации по защите SSH:</p>
-                <ul style="margin: 4px 0 0 20px;">
-                    <li><strong>Используйте ключи вместо паролей</strong> — отключите аутентификацию по паролю в файле <code>/etc/ssh/sshd_config</code>: <code>PasswordAuthentication no</code>.</li>
-                    <li><strong>Измените стандартный порт</strong> — перенесите SSH на порт выше 1024, например 2222, чтобы снизить количество автоматических брутфорс-атак.</li>
-                    <li><strong>Ограничьте доступ по IP</strong> — если у вас статический IP, разрешите доступ только с него: <code>AllowUsers user@192.168.1.100</code>.</li>
-                    <li><strong>Используйте двухфакторную аутентификацию (2FA)</strong> — дополнительный уровень защиты через Google Authenticator или аналоги.</li>
-                    <li><strong>Регулярно обновляйте SSH</strong> — следите за обновлениями пакета <code>openssh-server</code>.</li>
-                </ul>
-            </div>
-
-            <p>Эти меры значительно снижают риск компрометации SSH, даже если ваш сервер находится в открытом интернете.</p>
+            <h2 id="why-dot-for-vpn">Зачем шифровать DNS на VPN-сервере</h2>
+            <p>
+                Многие пользователи ошибочно полагают, что если они подключены к VPN, то весь их трафик уже защищён. Это не совсем так. VPN шифрует только <strong>данные</strong>, которые вы передаёте, но <strong>DNS-запросы</strong> часто уходят по отдельному каналу — через DNS-сервер провайдера или общедоступный резолвер. В результате:
+            </p>
+            <ul>
+                <li>Ваш провайдер видит, какие домены вы запрашиваете (даже если сам трафик зашифрован).</li>
+                <li>DPI-системы могут анализировать DNS-запросы для блокировки или профилирования.</li>
+                <li>Злоумышленники могут подменить DNS-ответ и перенаправить вас на фишинговый сайт.</li>
+            </ul>
+            <p>
+                Именно поэтому <strong>настройка DNS-over-TLS на вашем VPN-сервере</strong> — это критически важный шаг для достижения полной приватности. Особенно если вы используете VPN для обхода блокировок или работы в странах с жёсткой интернет-цензурой.
+            </p>
+            <blockquote>
+                «DNS — это слабое звено в цепи конфиденциальности. Если вы не шифруете DNS, вы не шифруете ничего». — принцип современной сетевой безопасности.
+            </blockquote>
 
             <!-- ====== РАЗДЕЛ 3 ====== -->
-            <h2 id="firewall">Фаервол и защита от DDoS</h2>
-            <p>Правильно настроенный фаервол (брандмауэр) — это ваш первый рубеж защиты. Он контролирует, какие порты открыты для внешнего мира, и может блокировать подозрительный трафик.</p>
-
+            <h2 id="dot-vs-doh">DoT vs DoH: в чём разница</h2>
+            <p>
+                Часто путают два протокола: <strong>DNS-over-TLS (DoT)</strong> и <strong>DNS-over-HTTPS (DoH)</strong>. Оба шифруют DNS-запросы, но делают это по-разному:
+            </p>
+            <div class="protocol-grid">
+                <div class="protocol-card" style="border: 2px solid rgba(45,212,191,0.3);">
+                    <h4>🔒 DNS-over-TLS (DoT)</h4>
+                    <p><strong>Порт:</strong> 853 (TCP)</p>
+                    <p><strong>Отдельный канал</strong> — легко фильтруется, если нужно.</p>
+                    <p><strong>Меньше накладных расходов</strong> — быстрее DoH.</p>
+                    <span class="badge badge-high">✔ Рекомендуем для VPN</span>
+                </div>
+                <div class="protocol-card">
+                    <h4>🌐 DNS-over-HTTPS (DoH)</h4>
+                    <p><strong>Порт:</strong> 443 (HTTPS)</p>
+                    <p><strong>Маскируется под веб-трафик</strong> — сложнее обнаружить.</p>
+                    <p><strong>Чуть медленнее</strong> из-за HTTP-оверхеда.</p>
+                    <span class="badge badge-mid">Подходит для браузеров</span>
+                </div>
+            </div>
+            <p>
+                Для <strong>VPN-сервера</strong> мы рекомендуем именно <strong>DoT</strong>, потому что:
+            </p>
             <ul>
-                <li><strong>Используйте iptables или nftables</strong> — стандартные инструменты для Linux. Разрешите только необходимые порты (например, SSH, порт вашего VPN-протокола, веб-интерфейс, если есть).</li>
-                <li><strong>Настройте лимиты на подключения</strong> — ограничьте количество одновременных соединений с одного IP, чтобы защититься от DDoS.</li>
-                <li><strong>Установите fail2ban</strong> — инструмент, который автоматически блокирует IP-адреса после нескольких неудачных попыток входа.</li>
-                <li><strong>Используйте Cloudflare или другие CDN</strong> — они могут скрыть реальный IP вашего сервера и поглощать DDoS-атаки.</li>
+                <li>Он легче и быстрее — меньше задержек.</li>
+                <li>Его проще настраивать на уровне системы (не требуется браузер или прокси).</li>
+                <li>Он работает на уровне ОС, защищая все приложения, а не только браузер.</li>
             </ul>
 
-            <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(45,212,191,0.15);">
-                <p style="font-weight: 600; margin-bottom: 4px;">💡 Важно:</p>
-                <p style="margin-bottom: 0;">Даже если вы используете защищённый VPN-протокол, открытый SSH-порт или веб-интерфейс могут стать точкой входа для атак. Закрывайте всё лишнее.</p>
-            </div>
-
             <!-- ====== РАЗДЕЛ 4 ====== -->
-            <h2 id="protocols">Выбор безопасных протоколов и шифрования</h2>
-            <p>Протокол VPN определяет, как ваш трафик шифруется и как он выглядит для внешнего наблюдателя. Некоторые протоколы устарели и небезопасны, другие — современны, но имеют характерные сигнатуры, которые легко обнаружить.</p>
+            <h2 id="setup-linux">Настройка DoT на Linux (Ubuntu/Debian)</h2>
+            <p>
+                Настройка DNS-over-TLS на Linux обычно выполняется через <strong>systemd-resolved</strong> или <strong>Stubby</strong> (forwarder для DoT). Рассмотрим самый простой и современный способ — через systemd-resolved, который встроен в большинство дистрибутивов.
+            </p>
 
-            <div class="protocol-grid">
-                <div class="protocol-card" style="border: 2px solid rgba(255,56,92,0.3);">
-                    <h4>❌ PPTP</h4>
-                    <p><strong>Уязвимость:</strong> взломан в 1998 году</p>
-                    <p><strong>Статус:</strong> не использовать</p>
-                    <span class="badge badge-low">Опасен</span>
-                </div>
-                <div class="protocol-card" style="border: 2px solid rgba(251,191,36,0.3);">
-                    <h4>🔶 L2TP/IPSec</h4>
-                    <p><strong>Безопасность:</strong> хорошая, но медленный</p>
-                    <p><strong>DPI:</strong> легко обнаруживается</p>
-                    <span class="badge badge-mid">Средний</span>
-                </div>
-                <div class="protocol-card" style="border: 2px solid rgba(251,191,36,0.3);">
-                    <h4>🔷 OpenVPN</h4>
-                    <p><strong>Безопасность:</strong> высокая, гибкий</p>
-                    <p><strong>DPI:</strong> узнаваемая сигнатура</p>
-                    <span class="badge badge-mid">Классика</span>
-                </div>
-                <div class="protocol-card" style="border: 2px solid rgba(45,212,191,0.3);">
-                    <h4>⚡ WireGuard</h4>
-                    <p><strong>Безопасность:</strong> современная криптография</p>
-                    <p><strong>DPI:</strong> характерный паттерн</p>
-                    <span class="badge badge-high">Современный</span>
-                </div>
-                <div class="protocol-card" style="border: 2px solid rgba(124,58,255,0.4);">
-                    <h4>🚀 XHTTP + Reality</h4>
-                    <p><strong>Безопасность:</strong> максимальная</p>
-                    <p><strong>DPI:</strong> неотличим от HTTPS</p>
-                    <span class="badge badge-purple">Маскировка</span>
-                </div>
-            </div>
+            <h3>Шаг 1. Установка systemd-resolved (если не установлен)</h3>
+            <pre style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0;">
+                <code>sudo apt update
+                    sudo apt install systemd-resolved
+                </code>
+            </pre>
 
-            <p>Как видите, даже современные WireGuard и OpenVPN имеют узнаваемые шаблоны, которые DPI-системы научились блокировать. Единственный способ остаться невидимым — использовать технологию маскировки, которая имитирует обычный веб-трафик.</p>
+            <h3>Шаг 2. Настройка DNS-серверов с поддержкой DoT</h3>
+            <p>Отредактируйте файл <code>/etc/systemd/resolved.conf</code>:</p>
+            <pre style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0;">
+                <code>[Resolve]
+                    DNS=1.1.1.1#cloudflare-dns.com 9.9.9.9#dns.quad9.net
+                    DNSOverTLS=yes
+                    DNSSEC=yes
+                </code>
+            </pre>
+            <ul>
+                <li><strong>DNS=</strong> — указываем DNS-серверы с поддержкой DoT (формат <code>IP#hostname</code>).</li>
+                <li><strong>DNSOverTLS=yes</strong> — включаем шифрование.</li>
+                <li><strong>DNSSEC=yes</strong> — дополнительная проверка подлинности ответов.</li>
+            </ul>
+
+            <h3>Шаг 3. Перезапуск и проверка</h3>
+            <pre style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0;">
+                <code>sudo systemctl restart systemd-resolved
+                    sudo systemctl status systemd-resolved
+                    resolvectl status
+                </code>
+            </pre>
+            <p>
+                В выводе <code>resolvectl status</code> вы должны увидеть, что <strong>DNS Over TLS</strong> включён, а в секции <code>DNS Servers</code> отображаются ваши серверы.
+            </p>
 
             <!-- ====== РАЗДЕЛ 5 ====== -->
-            <h2 id="dpi">Борьба с DPI: XHTTP + Reality</h2>
+            <h2 id="setup-windows">Настройка DoT на Windows 10/11</h2>
+            <p>
+                В Windows 10 и 11 поддержка DNS-over-TLS появилась начиная с версии <strong>Windows 10 build 19628</strong>. Настройка выполняется через панель управления или PowerShell.
+            </p>
 
-            <div class="tech-highlight">
-                <p style="font-weight: 600; margin-bottom: 6px;">🛡️ Как работает XHTTP + Reality</p>
-                <p>Технология XHTTP + Reality — это эволюционный шаг в маскировке VPN-трафика. Она делает ваше соединение <strong>неотличимым от обычного HTTPS-запроса к легитимному сайту</strong> (например, google.com или cloudflare.com).</p>
-                <ul style="margin: 4px 0 0 20px;">
-                    <li><strong>Имитация TLS-рукопожатия</strong> — полная эмуляция безопасного соединения браузера Chrome.</li>
-                    <li><strong>Маскировка заголовков</strong> — все параметры соответствуют реальному веб-браузеру.</li>
-                    <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста, не оставляя характерных паттернов.</li>
-                    <li><strong>Отсутствие узнаваемых сигнатур</strong> — DPI не может отличить ваш трафик от обычного сёрфинга.</li>
-                </ul>
-            </div>
+            <h3>Способ 1. Через графический интерфейс</h3>
+            <ol>
+                <li>Откройте <strong>Параметры → Сеть и Интернет → Ethernet (или Wi-Fi) → Изменить параметры адаптера</strong>.</li>
+                <li>Выберите ваше сетевое подключение → <strong>Свойства</strong>.</li>
+                <li>Выберите <strong>Протокол Интернета версии 4 (TCP/IPv4)</strong> → <strong>Свойства</strong>.</li>
+                <li>В разделе «Использовать следующие адреса DNS-серверов» укажите:
+                    <ul>
+                        <li><strong>Предпочитаемый DNS:</strong> <code>1.1.1.1</code></li>
+                        <li><strong>Альтернативный DNS:</strong> <code>9.9.9.9</code></li>
+                    </ul>
+                </li>
+                <li>Нажмите <strong>OK</strong> и закройте все окна.</li>
+            </ol>
+            <p>
+                <strong>Важно:</strong> встроенный DoT в Windows включается автоматически, если DNS-сервер поддерживает этот протокол. Чтобы убедиться, что шифрование работает, выполните в PowerShell:
+            </p>
+            <pre style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0;">
+                <code>Get-DnsClient | Select-Object -ExpandProperty ServerAddresses</code>
+            </pre>
 
-            <p>Таким образом, даже если ваш провайдер использует самое современное DPI-оборудование, он увидит лишь зашифрованный HTTPS-трафик к популярному сайту. <strong>Это делает XHTTP + Reality идеальным решением для стран с жёсткой фильтрацией интернета.</strong></p>
+            <h3>Способ 2. Через PowerShell (для продвинутых)</h3>
+            <pre style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0;">
+                <code>Set-DnsClientServerAddress -InterfaceAlias "Ethernet" -ServerAddresses ("1.1.1.1", "9.9.9.9")
+                    Set-DnsClient -InterfaceAlias "Ethernet" -UseSuffixWhenRegistering $true
+                </code>
+            </pre>
 
             <!-- ====== РАЗДЕЛ 6 ====== -->
-            <h2 id="mass-vs-personal">Массовый VPN vs Личный VPN на VPS</h2>
+            <h2 id="setup-macos">Настройка DoT на macOS</h2>
+            <p>
+                В macOS DoT можно настроить через <strong>System Preferences → Network</strong>, либо через конфигурацию <strong>/etc/resolv.conf</strong>, но проще всего использовать утилиту <strong>scutil</strong>.
+            </p>
+            <ol>
+                <li>Откройте <strong>Terminal</strong>.</li>
+                <li>Выполните команду для добавления DNS-серверов (замените <code>Wi-Fi</code> на имя вашего интерфейса):
+                    <pre style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0;">
+                        <code>sudo networksetup -setdnsservers Wi-Fi 1.1.1.1 9.9.9.9</code>
+                    </pre>
+                </li>
+                <li>Проверьте:
+                    <pre style="background: rgba(255,255,255,0.05); padding: 16px; border-radius: 8px; overflow-x: auto; margin: 16px 0;">
+                        <code>sudo networksetup -getdnsservers Wi-Fi</code>
+                    </pre>
+                </li>
+            </ol>
+            <p>
+                <strong>Примечание:</strong> macOS <strong>не поддерживает DoT из коробки</strong> так же полноценно, как Windows или Linux. Для полноценной защиты рекомендуется использовать сторонние утилиты, например <strong>Stubby</strong> или <strong>dnscrypt-proxy</strong>.
+            </p>
 
-            <p>Многие думают, что покупка подписки на популярный VPN-сервис решает все проблемы. Но это не так. Массовые VPN имеют общие IP-адреса, которыми пользуются тысячи людей. Это создаёт ряд серьёзных проблем:</p>
+            <!-- ====== РАЗДЕЛ 7 ====== -->
+            <h2 id="vps-advantage">Почему личный VPS — лучшее решение для DoT и VPN</h2>
 
             <div class="vps-advantage">
-                <h3>🚀 В чём преимущество подхода VPS-VPN?</h3>
-                <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN-сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.</p>
-
+                <h3>🚀 В чём отличие подхода VPS-VPN?</h3>
+                <p style="font-size: 1.05rem; font-weight: 500;">
+                    В отличие от обычных VPN-сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.
+                </p>
                 <ul>
                     <li><strong>Никаких «шумных соседей»:</strong> ваш IP-адрес используете только вы. Никто не сможет «подставить» вас своей активностью.</li>
                     <li><strong>Стабильная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
                     <li><strong>Минимальный риск блокировок:</strong> массовые IP-адреса часто попадают в бан-листы из-за действий других пользователей. Ваш личный IP — чистый.</li>
-                    <li><strong>Полный контроль:</strong> вы сами управляете сервером, выбираете протоколы и настройки безопасности.</li>
+                    <li><strong>Полный контроль:</strong> вы сами управляете сервером, выбираете протоколы и настройки безопасности, включая <strong>DNS-over-TLS</strong>.</li>
                     <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS, DPI не может его отличить от обычного браузера Chrome.</li>
                 </ul>
-
                 <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
                     <p style="font-weight: 700; margin-bottom: 4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
-                    <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP-адресом и индивидуальными настройками маскировки.</p>
+                    <p style="margin-bottom: 0;">
+                        Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP-адресом, индивидуальными настройками маскировки и возможностью <strong>настроить собственный DoT-резолвер</strong>.
+                    </p>
                 </div>
             </div>
+
+            <p>
+                Если вы используете <strong>массовый VPN</strong>, вы не можете контролировать, какой DNS-сервер используется и шифруется ли трафик. Администратор сервиса может прослушивать ваши DNS-запросы или подменять ответы. С <strong>личным VPS</strong> вы сами решаете, какой DNS-резолвер использовать — и можете поставить свой собственный <strong>DoT-сервер</strong> (например, <strong>Unbound</strong> или <strong>Stubby</strong>), чтобы полностью замкнуть цепочку приватности.
+            </p>
 
             <table class="comparison-table">
                 <thead>
@@ -908,19 +935,19 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td><strong>Контроль над DNS</strong></td>
+                        <td>Нет (используется DNS провайдера)</td>
+                        <td><span class="check">✅</span> Полный, можно настроить DoT</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Шифрование DNS</strong></td>
+                        <td>Зависит от сервиса</td>
+                        <td><span class="check">✅</span> Гарантированно (DoT)</td>
+                    </tr>
+                    <tr>
                         <td><strong>IP-адрес</strong></td>
                         <td>Общий (1000+ пользователей)</td>
                         <td><span class="check">✅</span> Персональный, только ваш</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Скорость</strong></td>
-                        <td>Разделяется между всеми</td>
-                        <td><span class="check">✅</span> Максимальная, только ваша</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Риск блокировки</strong></td>
-                        <td>Высокий (из-за соседей)</td>
-                        <td><span class="check">✅</span> Минимальный</td>
                     </tr>
                     <tr>
                         <td><strong>Маскировка трафика</strong></td>
@@ -942,45 +969,41 @@
 
             <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
             <div class="article-cta">
-                <h3>🔥 Защитите свой сервер по-настоящему — получите личный VPS с XHTTP + Reality</h3>
-                <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита от взлома и DPI-блокировок.</p>
-                <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.</p>
+                <h3>🔥 Получите свой личный VPN-сервер с DoT и XHTTP + Reality</h3>
+                <p>
+                    Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита.
+                </p>
+                <p style="margin-top: 12px; font-weight: 500;">
+                    Ваш DNS будет защищён протоколом <strong>DNS-over-TLS</strong>, а весь трафик — маскироваться под обычный HTTPS с помощью <strong>XHTTP + Reality</strong>. DPI-системы увидят обычный браузер Chrome.
+                </p>
+                <p style="margin-top: 12px; font-weight: 600;">
+                    Нас в 1000 раз сложнее заблокировать и отследить.
+                </p>
                 <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
             </div>
 
-            <!-- ====== РАЗДЕЛ 7 ====== -->
-            <h2 id="checklist">Чек-лист безопасности VPN-сервера</h2>
-
-            <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 20px 0;">
-                <p style="font-weight: 700; font-size: 1.1rem;">✅ Минимальные обязательные шаги:</p>
-                <ul style="margin: 12px 0 0 20px;">
-                    <li><strong>SSH:</strong> отключить парольную аутентификацию, использовать ключи, сменить порт.</li>
-                    <li><strong>Фаервол:</strong> закрыть все порты, кроме необходимых (SSH, порт VPN, веб-интерфейс).</li>
-                    <li><strong>Обновления:</strong> регулярно обновлять ОС и все пакеты (<code>apt update && apt upgrade</code>).</li>
-                    <li><strong>Протокол:</strong> использовать только современные и безопасные протоколы (WireGuard или XHTTP+Reality).</li>
-                    <li><strong>Маскировка:</strong> включить XHTTP + Reality для невидимости перед DPI.</li>
-                    <li><strong>Мониторинг:</strong> настроить уведомления о подозрительной активности (fail2ban, логи).</li>
-                    <li><strong>Бэкап:</strong> регулярно создавать резервные копии конфигураций.</li>
-                </ul>
-            </div>
-
             <!-- ====== РАЗДЕЛ 8 ====== -->
-            <h2 id="verdict">Итог: безопасность — это процесс</h2>
-
-            <p>Защита VPN-сервера — это не одноразовое действие, а непрерывный процесс. Угрозы эволюционируют, появляются новые уязвимости и методы обхода. Поэтому важно не только правильно настроить сервер при первом запуске, но и регулярно пересматривать его конфигурацию, обновлять программное обеспечение и следить за новостями в сфере кибербезопасности.</p>
-
-            <p><strong>Ключевые выводы:</strong></p>
+            <h2 id="verdict">Итог: полная приватность — это комплексное решение</h2>
+            <p>
+                Настройка <strong>DNS-over-TLS (DoT)</strong> на вашем VPN-сервере — это важный, но не единственный шаг на пути к полной конфиденциальности. В идеале вы должны:
+            </p>
             <ul>
-                <li><strong>Начинайте с базовой гигиены:</strong> защита SSH, фаервол, регулярные обновления — это основа.</li>
-                <li><strong>Выбирайте современные протоколы:</strong> WireGuard или XHTTP+Reality, избегайте устаревших PPTP и L2TP.</li>
-                <li><strong>Не экономьте на маскировке:</strong> DPI-системы становятся умнее, и только XHTTP+Reality гарантирует невидимость.</li>
-                <li><strong>Переходите на личный VPS:</strong> общий IP-адрес — это огромная уязвимость. Персональный сервер даёт контроль и безопасность.</li>
+                <li>Использовать <strong>личный VPN-сервер на VPS</strong>, чтобы контролировать все настройки.</li>
+                <li>Включить <strong>DoT</strong> для шифрования DNS-запросов.</li>
+                <li>Применить технологию <strong>XHTTP + Reality</strong> для маскировки трафика под обычный HTTPS.</li>
+                <li>Настроить <strong>Zero-log политику</strong> — никаких логов вашей активности.</li>
             </ul>
-
+            <p>
+                Именно такой комплексный подход реализован в <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong>. Вы получаете не просто VPN, а <strong>полноценную инфраструктуру приватности</strong>, где каждый элемент работает на вашу защиту.
+            </p>
             <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
-                <p style="font-weight: 700; font-size: 1.05rem;">✅ Будущее VPN — за персонализацией и маскировкой.</p>
-                <p>Массовые VPN с общими IP-адресами уходят в прошлое. В <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> мы предлагаем именно то, что нужно для современного интернета: выделенный сервер, передовую технологию XHTTP + Reality и полную конфиденциальность.</p>
-                <p style="margin-top: 12px; font-weight: 600;">Интернет должен быть свободным, безопасным и быстрым. Выбирайте решение, которое работает по-настоящему. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.</p>
+                <p style="font-weight: 700; font-size: 1.05rem;">✅ Ваша приватность — в ваших руках.</p>
+                <p>
+                    Не полагайтесь на массовые VPN-сервисы, которые не дают гарантий. Выбирайте <strong>личный VPS</strong> с полным контролем, <strong>DoT</strong> для защиты DNS и <strong>XHTTP + Reality</strong> для обхода DPI.
+                </p>
+                <p style="margin-top: 12px; font-weight: 600;">
+                    Интернет должен быть свободным, безопасным и быстрым. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.
+                </p>
             </div>
 
             <!-- ====== АВТОР ====== -->
@@ -988,7 +1011,7 @@
                 <div class="avatar">🔐</div>
                 <div>
                     <p style="font-weight: 600;">Команда VPS-VPN</p>
-                    <p class="bio">Эксперты по сетевой безопасности и защите данных. Помогаем пользователям по всему миру сохранять приватность и обходить блокировки.</p>
+                    <p class="bio">Эксперты в области сетевой безопасности и конфиденциальности. Помогаем пользователям защитить свои данные с помощью личных VPN-серверов.</p>
                 </div>
             </div>
 
@@ -996,33 +1019,34 @@
             <div class="related-articles">
                 <h3>📖 Похожие статьи</h3>
                 <div class="related-grid">
-                    <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
-                        <span class="tag">🔐 VPN</span>
-                        <h4>Что такое VPN и как он работает</h4>
-                        <p>Полное руководство для начинающих и продвинутых</p>
-                    </a>
-                    <a href="/articles/dlya-chego-nuzhen-vpn-v-sovremennom-mire.html" class="related-card">
-                        <span class="tag">🌍 VPN</span>
-                        <h4>Для чего нужен VPN в современном мире</h4>
-                        <p>Основные сценарии использования VPN</p>
-                    </a>
-                    <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
-                        <span class="tag">⚙️ Технологии</span>
-                        <h4>Основные компоненты VPN-соединения</h4>
-                        <p>Из чего состоит VPN-туннель</p>
-                    </a>
-                    <a href="/articles/kak-rabotaet-shirovanie-v-vpn.html" class="related-card">
+                    <a href="/articles/chto-takoe-dns-utechki-i-kak-ih-izbezhat.html" class="related-card">
                         <span class="tag">🔐 Безопасность</span>
-                        <h4>Как работает шифрование в VPN</h4>
-                        <p>Объяснение алгоритмов шифрования</p>
+                        <h4>Что такое DNS-утечки и как их избежать</h4>
+                        <p>Как DNS-запросы могут раскрыть вашу активность</p>
                     </a>
-                    <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
-                        <span class="tag">💡 Опыт</span>
-                        <h4>Почему VPN перестали работать</h4>
-                        <p>Личный опыт: решение на vps-vpn.ru</p>
+                    <a href="/articles/nastroyka-dns-servera-na-vps-unbound-dnsmasq.html" class="related-card">
+                        <span class="tag">⚙️ Настройка</span>
+                        <h4>Настройка DNS-сервера на VPS (Unbound, dnsmasq)</h4>
+                        <p>Как поднять собственный DNS-резолвер</p>
+                    </a>
+                    <a href="/articles/kak-proverit-vpn-soedinenie-na-utechki-ip-dns-webrtc.html" class="related-card">
+                        <span class="tag">🛡️ Проверка</span>
+                        <h4>Как проверить VPN на утечки (IP, DNS, WebRTC)</h4>
+                        <p>Инструменты и методы диагностики</p>
+                    </a>
+                    <a href="/articles/preimushchestva-lichnogo-vpn-servera-pered-kommercheskimi-servisami.html" class="related-card">
+                        <span class="tag">📊 Сравнение</span>
+                        <h4>Преимущества личного VPN перед коммерческими сервисами</h4>
+                        <p>Почему VPS лучше массовых VPN</p>
+                    </a>
+                    <a href="/articles/nastroyka-vpn-na-vps-poshagovaya-instrukciya.html" class="related-card">
+                        <span class="tag">🛠️ Инструкция</span>
+                        <h4>Пошаговая настройка VPN на VPS</h4>
+                        <p>От выбора сервера до первого подключения</p>
                     </a>
                 </div>
             </div>
+
         </article>
     </div>
 
@@ -1038,6 +1062,7 @@
 
     <script>
         (function() {
+            // ========== ТЕМА ==========
             function setTheme(theme) {
                 const isLight = theme === 'light';
                 document.body.classList.toggle('light', isLight);
@@ -1055,10 +1080,12 @@
                 const saved = localStorage.getItem('vpsvpn_theme');
                 setTheme(saved === 'light' ? 'light' : 'dark');
             }
+
             document.getElementById('themeToggle')?.addEventListener('click', () => {
                 const isLight = document.body.classList.contains('light');
                 setTheme(isLight ? 'dark' : 'light');
             });
+
             initTheme();
         })();
     </script>
@@ -1069,16 +1096,14 @@
             m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments); };
             m[i].l = 1 * new Date();
             for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k,
-            a);
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
         })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
 
         ym(108981205, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", accurateTrackBounce: true,
             trackLinks: true });
     </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div>
-    </noscript>
+    <noscript><div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
+
 </body>
 </html>
