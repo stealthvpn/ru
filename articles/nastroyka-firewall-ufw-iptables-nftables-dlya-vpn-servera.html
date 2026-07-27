@@ -15,8 +15,8 @@
     
     <!-- ====== СЕО МЕТАТЕГИ ====== -->
     <title>Настройка Firewall (UFW, iptables, nftables) для VPN-сервера | VPS-VPN</title>
-    <meta name="description" content="Полное руководство по настройке межсетевого экрана для VPN-сервера: UFW, iptables и nftables. Правила безопасности, открытие портов, NAT и маскировка трафика. Защитите свой VPS.">
-    <meta name="keywords" content="настройка firewall, ufw, iptables, nftables, vpn сервер, настройка vpn, межсетевой экран, vps, xhttp reality">
+    <meta name="description" content="Полное руководство по настройке брандмауэра для VPN-сервера: UFW, iptables и nftables. Правила для OpenVPN, WireGuard и XHTTP+Reality. Защита от DDoS и безопасность VPS.">
+    <meta name="keywords" content="настройка firewall, ufw, iptables, nftables, vpn сервер, настройка брандмауэра, защита vpn, xhttp reality, vps vpn">
     <meta name="author" content="Команда VPS-VPN">
     <meta name="robots" content="index, follow">
     
@@ -26,18 +26,18 @@
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vps-vpn.ru/articles/nastroyka-firewall-ufw-iptables-nftables-dlya-vpn-servera.html">
     <meta property="og:title" content="Настройка Firewall (UFW, iptables, nftables) для VPN-сервера">
-    <meta property="og:description" content="Полное руководство по настройке межсетевого экрана для VPN-сервера: UFW, iptables и nftables. Правила безопасности, открытие портов, NAT и маскировка трафика.">
+    <meta property="og:description" content="Полное руководство по настройке брандмауэра для VPN-сервера: UFW, iptables и nftables. Правила для OpenVPN, WireGuard и XHTTP+Reality.">
     <meta property="og:image" content="https://vps-vpn.ru/images/firewall-vpn.jpg">
     <meta property="og:site_name" content="VPS-VPN">
-    <meta property="article:published_time" content="2026-07-23">
-    <meta property="article:modified_time" content="2026-07-23">
+    <meta property="article:published_time" content="2026-07-26">
+    <meta property="article:modified_time" content="2026-07-26">
     <meta property="article:author" content="Команда VPS-VPN">
-    <meta property="article:section" content="Технологии">
+    <meta property="article:section" content="Настройка">
     
     <!-- ====== TWITTER ====== -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Настройка Firewall (UFW, iptables, nftables) для VPN-сервера">
-    <meta name="twitter:description" content="Полное руководство по настройке межсетевого экрана для VPN-сервера: UFW, iptables и nftables.">
+    <meta name="twitter:description" content="Полное руководство по настройке брандмауэра для VPN-сервера: UFW, iptables и nftables.">
     <meta name="twitter:image" content="https://vps-vpn.ru/images/firewall-vpn.jpg">
     
     <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
@@ -53,10 +53,10 @@
       "@context": "https://schema.org",
       "@type": "TechArticle",
       "headline": "Настройка Firewall (UFW, iptables, nftables) для VPN-сервера",
-      "description": "Полное руководство по настройке межсетевого экрана для VPN-сервера: UFW, iptables и nftables. Правила безопасности, открытие портов, NAT и маскировка трафика.",
+      "description": "Полное руководство по настройке брандмауэра для VPN-сервера: UFW, iptables и nftables. Правила для OpenVPN, WireGuard и XHTTP+Reality.",
       "image": "https://vps-vpn.ru/images/firewall-vpn.jpg",
-      "datePublished": "2026-07-23",
-      "dateModified": "2026-07-23",
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-07-26",
       "author": {
         "@type": "Organization",
         "name": "VPS-VPN"
@@ -73,7 +73,7 @@
         "@type": "WebPage",
         "@id": "https://vps-vpn.ru/articles/nastroyka-firewall-ufw-iptables-nftables-dlya-vpn-servera.html"
       },
-      "keywords": "настройка firewall, ufw, iptables, nftables, vpn сервер, межсетевой экран, vps, xhttp reality",
+      "keywords": "настройка firewall, ufw, iptables, nftables, vpn сервер, брандмауэр, защита vpn",
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
@@ -86,7 +86,7 @@
     </script>
     
     <style>
-        /* ====== ОБЩИЕ СТИЛИ ====== */
+        /* ====== ОБЩИЕ СТИЛИ (скопированы из шаблона) ====== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; line-height: 1.6; }
         
@@ -110,6 +110,8 @@
         body.dark .tech-highlight { background: rgba(124,58,255,0.06); border-left: 4px solid #7c3aff; }
         body.dark .era-badge { background: rgba(165,240,255,0.1); color: #a5f0ff; }
         body.dark .breadcrumb a { color: #a5f0ff; }
+        body.dark .code-block { background: #141824; border: 1px solid #2a2f45; }
+        body.dark .code-block code { color: #e0e0e0; }
         
         body.light { background: #ffffff; color: #222222; }
         body.light .article-container { background: #ffffff; border: 1px solid #ebebeb; box-shadow: 0 8px 28px rgba(0,0,0,0.06); }
@@ -130,6 +132,8 @@
         body.light .tech-highlight { background: rgba(255,56,92,0.04); border-left: 4px solid #ff385c; }
         body.light .era-badge { background: rgba(255,56,92,0.08); color: #ff385c; }
         body.light .breadcrumb a { color: #ff385c; }
+        body.light .code-block { background: #f5f5f5; border: 1px solid #ddd; }
+        body.light .code-block code { color: #222; }
         
         .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
         .container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
@@ -143,7 +147,6 @@
         
         .article-container { border-radius: 32px; padding: 48px 56px; margin: 30px 0 50px; transition: all 0.2s; }
         
-        /* Хлебные крошки */
         .breadcrumb { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; padding: 8px 0; }
         .breadcrumb a { text-decoration: none; }
         .breadcrumb a:hover { text-decoration: underline; }
@@ -160,6 +163,9 @@
         .article-container li { margin-bottom: 8px; }
         .article-container blockquote { border-left: 4px solid #7c3aff; padding-left: 20px; margin: 24px 0; font-style: italic; opacity: 0.8; }
         body.light .article-container blockquote { border-left-color: #ff385c; }
+        
+        .code-block { border-radius: 12px; padding: 16px 20px; margin: 16px 0; overflow-x: auto; font-family: 'Monaco', 'Menlo', monospace; font-size: 0.85rem; }
+        .code-block code { white-space: pre-wrap; word-break: break-all; }
         
         .article-author { display: flex; align-items: center; gap: 16px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
         body.light .article-author { border-top-color: #ebebeb; }
@@ -195,10 +201,6 @@
         
         .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
         
-        .timeline-card { padding: 16px 20px; border-radius: 12px; margin-bottom: 14px; }
-        .timeline-card .year { font-weight: 700; font-size: 1.1rem; display: inline-block; margin-right: 12px; }
-        .timeline-card .era-badge { display: inline-block; padding: 2px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; margin-left: 8px; }
-        
         .vps-advantage { border-radius: 20px; padding: 28px 32px; margin: 24px 0; }
         .vps-advantage h3 { margin-top: 0; }
         .vps-advantage ul { list-style: none; padding: 0; margin: 12px 0; }
@@ -207,8 +209,6 @@
         body.light .vps-advantage ul li::before { color: #ff385c; }
         
         .tech-highlight { border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
-        .tech-highlight code { font-family: 'Inter', monospace; background: rgba(255,255,255,0.08); padding: 2px 10px; border-radius: 6px; font-size: 0.85rem; }
-        body.light .tech-highlight code { background: rgba(0,0,0,0.05); }
         
         .comparison-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
         .comparison-table thead tr { border-bottom: 2px solid rgba(255,255,255,0.1); }
@@ -242,7 +242,6 @@
             .protocol-grid { grid-template-columns: 1fr; }
             .comparison-table { font-size: 0.7rem; }
             .comparison-table th, .comparison-table td { padding: 6px 4px; }
-            .timeline-card .year { font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -279,221 +278,200 @@
         <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
         <div class="article-meta">
             <span class="tag">🛡️ Безопасность</span>
-            <span><i class="far fa-calendar-alt"></i> 23 июля 2026</span>
-            <span><i class="far fa-clock"></i> 10 минут чтения</span>
-            <span><i class="far fa-eye"></i> 1 842 просмотра</span>
+            <span><i class="far fa-calendar-alt"></i> 26 июля 2026</span>
+            <span><i class="far fa-clock"></i> 14 минут чтения</span>
+            <span><i class="far fa-eye"></i> 1 284 просмотра</span>
         </div>
 
         <!-- ====== ЗАГОЛОВОК ====== -->
         <h1>Настройка Firewall (UFW, iptables, nftables) для VPN-сервера</h1>
 
         <!-- ====== ВСТУПЛЕНИЕ ====== -->
-        <p>Межсетевой экран (firewall) — это первая линия обороны вашего VPN-сервера. Без правильно настроенного файрвола ваш VPS остаётся уязвимым для атак, несанкционированного доступа и DDoS. В этой статье мы разберём <strong>настройку трёх основных инструментов</strong> для управления трафиком на Linux-сервере: <strong>UFW</strong> (Uncomplicated Firewall), <strong>iptables</strong> и <strong>nftables</strong>. Вы узнаете, как открыть нужные порты, настроить NAT, разрешить IP-форвардинг и защитить свой VPN-сервер от внешних угроз.</p>
+        <p>Брандмауэр — это первая линия обороны вашего VPN-сервера. Без правильно настроенного файрвола даже самый современный протокол с имитацией трафика под HTTPS может стать уязвимым для атак или банальной блокировки со стороны провайдера. В этом материале мы разберём все три основных инструмента управления пакетным фильтром в Linux — <strong>UFW, iptables и nftables</strong> — и покажем, как настроить их для надёжной защиты VPN-сервера, будь то OpenVPN, WireGuard или передовая связка <strong>XHTTP + Reality</strong>.</p>
 
         <!-- ====== ОГЛАВЛЕНИЕ ====== -->
         <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
             <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
             <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
-                <li style="margin: 4px 0;"><a href="#why-firewall" style="color: #a5f0ff; text-decoration: none;">1. Зачем нужен firewall для VPN</a></li>
-                <li style="margin: 4px 0;"><a href="#ufw-setup" style="color: #a5f0ff; text-decoration: none;">2. Настройка UFW</a></li>
-                <li style="margin: 4px 0;"><a href="#iptables-setup" style="color: #a5f0ff; text-decoration: none;">3. Настройка iptables</a></li>
-                <li style="margin: 4px 0;"><a href="#nftables-setup" style="color: #a5f0ff; text-decoration: none;">4. Настройка nftables</a></li>
-                <li style="margin: 4px 0;"><a href="#comparison" style="color: #a5f0ff; text-decoration: none;">5. Сравнение UFW, iptables и nftables</a></li>
-                <li style="margin: 4px 0;"><a href="#vps-vpn-advantage" style="color: #a5f0ff; text-decoration: none;">6. Личный VPS vs Массовый VPN</a></li>
-                <li style="margin: 4px 0;"><a href="#xhttp-reality" style="color: #a5f0ff; text-decoration: none;">7. XHTTP + Reality — защита от DPI</a></li>
-                <li style="margin: 4px 0;"><a href="#conclusion" style="color: #a5f0ff; text-decoration: none;">8. Заключение</a></li>
+                <li style="margin: 4px 0;"><a href="#why-firewall" style="color: #a5f0ff; text-decoration: none;">1. Зачем брандмауэр VPN-серверу</a></li>
+                <li style="margin: 4px 0;"><a href="#ufw" style="color: #a5f0ff; text-decoration: none;">2. UFW — простой и надёжный</a></li>
+                <li style="margin: 4px 0;"><a href="#iptables" style="color: #a5f0ff; text-decoration: none;">3. iptables — классика с полным контролем</a></li>
+                <li style="margin: 4px 0;"><a href="#nftables" style="color: #a5f0ff; text-decoration: none;">4. nftables — современная замена</a></li>
+                <li style="margin: 4px 0;"><a href="#rules" style="color: #a5f0ff; text-decoration: none;">5. Правила для OpenVPN, WireGuard и XHTTP+Reality</a></li>
+                <li style="margin: 4px 0;"><a href="#security" style="color: #a5f0ff; text-decoration: none;">6. Дополнительная защита: DDoS, брутфорс, логи</a></li>
+                <li style="margin: 4px 0;"><a href="#vps-advantage" style="color: #a5f0ff; text-decoration: none;">7. Почему личный VPS с файрволом лучше массового VPN</a></li>
+                <li style="margin: 4px 0;"><a href="#conclusion" style="color: #a5f0ff; text-decoration: none;">8. Итог: безопасность начинается с файрвола</a></li>
             </ul>
         </div>
 
         <!-- ====== РАЗДЕЛ 1 ====== -->
-        <h2 id="why-firewall">Зачем нужен firewall для VPN</h2>
-        <p>VPN-сервер — это шлюз между вами и интернетом. Если не настроить файрвол, злоумышленники могут:</p>
+        <h2 id="why-firewall">Зачем брандмауэр VPN-серверу</h2>
+        <p>VPN-сервер, особенно на базе VPS, постоянно находится под прицелом сканеров и ботов. Если не ограничить входящие соединения, злоумышленники могут попытаться взломать SSH, подобрать пароли к панели управления или использовать ваш сервер для атак. Кроме того, DPI-системы провайдеров часто анализируют не только содержимое пакетов, но и сетевую структуру — открытые порты могут выдать наличие VPN.</p>
+        <p>Правильно настроенный файрвол решает три задачи:</p>
         <ul>
-            <li><strong>Получить доступ к SSH</strong> — через стандартный порт 22 могут пытаться подобрать пароль.</li>
-            <li><strong>Использовать ваш сервер для атак</strong> — открытые порты могут стать точкой входа для ботнетов.</li>
-            <li><strong>Перехватывать трафик</strong> — без правильных правил NAT ваш VPN-трафик может утекать наружу.</li>
+            <li><strong>Безопасность</strong> — закрывает все лишние порты, оставляя только необходимые для работы VPN и управления.</li>
+            <li><strong>Маскировка</strong> — с помощью правил NAT и маршрутизации скрывает внутреннюю структуру сети.</li>
+            <li><strong>Стабильность</strong> — защищает от DDoS-атак и ограничивает число подключений с одного IP.</li>
         </ul>
-        <p>Правильно настроенный firewall решает все эти проблемы: он <strong>закрывает все порты, кроме необходимых</strong>, разрешает IP-форвардинг и маскирует исходящий трафик через NAT.</p>
 
         <!-- ====== РАЗДЕЛ 2 ====== -->
-        <h2 id="ufw-setup">Настройка UFW (Uncomplicated Firewall)</h2>
-        <p><strong>UFW</strong> — это самый простой способ управлять файрволом в Ubuntu и Debian. Он предоставляет интуитивно понятный интерфейс поверх iptables. Идеальный выбор для начинающих администраторов.</p>
-        
+        <h2 id="ufw">UFW — простой и надёжный</h2>
+        <p><strong>Uncomplicated Firewall (UFW)</strong> — это надстройка над iptables, созданная для упрощения управления правилами. Идеальный выбор для новичков и для быстрой настройки базовой защиты.</p>
         <div class="tech-highlight">
-            <p style="font-weight: 600; margin-bottom: 6px;">🔧 Базовая настройка UFW для VPN-сервера:</p>
-            <ol style="margin: 4px 0 0 20px;">
-                <li><strong>Включение UFW:</strong> <code>sudo ufw enable</code></li>
-                <li><strong>Разрешение SSH (важно!):</strong> <code>sudo ufw allow 22/tcp</code> (или ваш кастомный порт)</li>
-                <li><strong>Открытие порта для VPN:</strong> 
-                    <ul>
-                        <li>Для OpenVPN (UDP 1194): <code>sudo ufw allow 1194/udp</code></li>
-                        <li>Для WireGuard (UDP 51820): <code>sudo ufw allow 51820/udp</code></li>
-                        <li>Для XHTTP + Reality (обычно 443/tcp): <code>sudo ufw allow 443/tcp</code></li>
-                    </ul>
-                </li>
-                <li><strong>Разрешение IP-форвардинга:</strong> 
-                    <ul>
-                        <li>Раскомментируйте <code>net.ipv4.ip_forward=1</code> в <code>/etc/sysctl.conf</code></li>
-                        <li>Примените: <code>sudo sysctl -p</code></li>
-                    </ul>
-                </li>
-                <li><strong>Настройка NAT (маскарадинг):</strong> 
-                    <ul>
-                        <li>Добавьте в <code>/etc/ufw/before.rules</code> перед секцией <code>*filter</code>:</li>
-                    </ul>
-                    <code style="display: block; white-space: pre-wrap; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; margin: 8px 0;">
-*nat
-:POSTROUTING ACCEPT [0:0]
--A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
-COMMIT
-                    </code>
-                </li>
-                <li><strong>Проверка статуса:</strong> <code>sudo ufw status verbose</code></li>
-            </ol>
+            <p style="font-weight: 600; margin-bottom: 6px;">🔧 Базовые команды UFW для VPN-сервера:</p>
+            <div class="code-block"><code># Включить UFW и разрешить SSH (обязательно!)
+sudo ufw allow 22/tcp
+
+# Разрешить порт для OpenVPN (обычно 1194 UDP)
+sudo ufw allow 1194/udp
+
+# Или для WireGuard (51820 UDP)
+sudo ufw allow 51820/udp
+
+# Для Xray / XHTTP+Reality — порт 443 (HTTPS)
+sudo ufw allow 443/tcp
+
+# Включить файрвол
+sudo ufw enable
+
+# Проверить статус
+sudo ufw status verbose</code></div>
         </div>
-        <p>UFW автоматически применяет правила при перезагрузке. Это надёжное и простое решение для большинства сценариев[reference:0][reference:1].</p>
+        <p>Важно: <strong>всегда сначала разрешайте SSH</strong>, иначе после включения UFW вы потеряете доступ к серверу. Для дополнительной защиты можно ограничить SSH только доверенными IP-адресами:</p>
+        <div class="code-block"><code>sudo ufw allow from 192.168.1.100 to any port 22</code></div>
 
         <!-- ====== РАЗДЕЛ 3 ====== -->
-        <h2 id="iptables-setup">Настройка iptables</h2>
-        <p><strong>iptables</strong> — классический инструмент для управления пакетным фильтром в Linux. Он даёт полный контроль над трафиком, но требует больше знаний. Используется в большинстве дистрибутивов по умолчанию.</p>
-        
-        <div class="tech-highlight">
-            <p style="font-weight: 600; margin-bottom: 6px;">🔧 Основные правила iptables для VPN:</p>
-            <ol style="margin: 4px 0 0 20px;">
-                <li><strong>Политика по умолчанию (запрет всего):</strong>
-                    <code>sudo iptables -P INPUT DROP</code>
-                    <code>sudo iptables -P FORWARD DROP</code>
-                    <code>sudo iptables -P OUTPUT ACCEPT</code>
-                </li>
-                <li><strong>Разрешить локальный трафик:</strong>
-                    <code>sudo iptables -A INPUT -i lo -j ACCEPT</code>
-                </li>
-                <li><strong>Разрешить установленные соединения:</strong>
-                    <code>sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT</code>
-                </li>
-                <li><strong>Разрешить SSH:</strong>
-                    <code>sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT</code>
-                </li>
-                <li><strong>Разрешить VPN-порт:</strong>
-                    <ul>
-                        <li>OpenVPN (UDP 1194): <code>sudo iptables -A INPUT -p udp --dport 1194 -j ACCEPT</code></li>
-                        <li>WireGuard (UDP 51820): <code>sudo iptables -A INPUT -p udp --dport 51820 -j ACCEPT</code></li>
-                    </ul>
-                </li>
-                <li><strong>Разрешить IP-форвардинг для VPN-интерфейса:</strong>
-                    <code>sudo iptables -A FORWARD -i tun+ -j ACCEPT</code>
-                    <code>sudo iptables -A FORWARD -o tun+ -j ACCEPT</code>
-                    <code>sudo iptables -A FORWARD -i wg0 -j ACCEPT</code>
-                </li>
-                <li><strong>Настройка NAT (маскарадинг):</strong>
-                    <code>sudo iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE</code>
-                </li>
-                <li><strong>Сохранение правил:</strong>
-                    <code>sudo iptables-save > /etc/iptables/rules.v4</code>
-                    <code>sudo ip6tables-save > /etc/iptables/rules.v6</code>
-                </li>
-            </ol>
-        </div>
-        <p>iptables даёт максимальную гибкость. Например, можно использовать <strong>DNAT + MASQUERADE</strong> для создания прозрачного прокси-моста между клиентом и целевым сервером[reference:2]. Это полезно для скрытия реального IP вашего VPN-сервера.</p>
+        <h2 id="iptables">iptables — классика с полным контролем</h2>
+        <p><strong>iptables</strong> — это стандартный инструмент управления пакетным фильтром в ядре Linux. Он даёт максимальную гибкость: можно фильтровать пакеты по любым параметрам, делать NAT, перенаправлять порты и строить сложные цепочки правил.</p>
+        <p>Для VPN-сервера минимальный набор правил iptables выглядит так:</p>
+        <div class="code-block"><code># Очистить все правила
+iptables -F
+iptables -t nat -F
+
+# Политика по умолчанию — запрет всего
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT ACCEPT
+
+# Разрешить локальный доступ
+iptables -A INPUT -i lo -j ACCEPT
+
+# Разрешить установленные соединения
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Разрешить SSH (порт 22)
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+# Разрешить OpenVPN (UDP 1194)
+iptables -A INPUT -p udp --dport 1194 -j ACCEPT
+
+# Разрешить WireGuard (UDP 51820)
+iptables -A INPUT -p udp --dport 51820 -j ACCEPT
+
+# Разрешить HTTPS для XHTTP+Reality (порт 443)
+iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
+# Включить форвардинг для VPN-клиентов
+iptables -A FORWARD -i tun+ -j ACCEPT
+iptables -A FORWARD -o tun+ -j ACCEPT
+
+# NAT для выхода в интернет
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</code></div>
+        <p>Для сохранения правил после перезагрузки используйте <code>iptables-save > /etc/iptables/rules.v4</code> и настройте автозагрузку.</p>
 
         <!-- ====== РАЗДЕЛ 4 ====== -->
-        <h2 id="nftables-setup">Настройка nftables</h2>
-        <p><strong>nftables</strong> — это современная замена iptables. Он работает быстрее, имеет более удобный синтаксис и объединяет IPv4 и IPv6 в одном наборе правил. Начиная с 2023 года, nftables используется по умолчанию в новых установках многих дистрибутивов[reference:3].</p>
-        
+        <h2 id="nftables">nftables — современная замена</h2>
+        <p><strong>nftables</strong> пришёл на смену iptables в новых ядрах Linux. Он объединяет все цепочки (filter, nat, mangle) в единый фреймворк, работает быстрее и имеет более читаемый синтаксис. Если вы используете современный дистрибутив (Ubuntu 22.04+, Debian 12+, CentOS 9), настоятельно рекомендуем переходить на nftables.</p>
         <div class="tech-highlight">
-            <p style="font-weight: 600; margin-bottom: 6px;">🔧 Пример настройки nftables для VPN:</p>
-            <ol style="margin: 4px 0 0 20px;">
-                <li><strong>Создание таблицы:</strong>
-                    <code>sudo nft add table inet filter</code>
-                </li>
-                <li><strong>Создание цепочек:</strong>
-                    <code>sudo nft add chain inet filter input { type filter hook input priority 0 \; policy drop \; }</code>
-                    <code>sudo nft add chain inet filter forward { type filter hook forward priority 0 \; policy drop \; }</code>
-                    <code>sudo nft add chain inet filter output { type filter hook output priority 0 \; policy accept \; }</code>
-                </li>
-                <li><strong>Разрешить локальный трафик и установленные соединения:</strong>
-                    <code>sudo nft add rule inet filter input iif lo accept</code>
-                    <code>sudo nft add rule inet filter input ct state established,related accept</code>
-                </li>
-                <li><strong>Разрешить SSH и VPN:</strong>
-                    <code>sudo nft add rule inet filter input tcp dport 22 accept</code>
-                    <code>sudo nft add rule inet filter input udp dport 1194 accept</code>
-                    <code>sudo nft add rule inet filter input udp dport 51820 accept</code>
-                    <code>sudo nft add rule inet filter input tcp dport 443 accept</code>
-                </li>
-                <li><strong>Разрешить IP-форвардинг для VPN:</strong>
-                    <code>sudo nft add rule inet filter forward iif tun+ accept</code>
-                    <code>sudo nft add rule inet filter forward oif tun+ accept</code>
-                    <code>sudo nft add rule inet filter forward iif wg0 accept</code>
-                </li>
-                <li><strong>Настройка NAT (маскарадинг):</strong>
-                    <code>sudo nft add table inet nat</code>
-                    <code>sudo nft add chain inet nat postrouting { type nat hook postrouting priority 100 \; }</code>
-                    <code>sudo nft add rule inet nat postrouting oif eth0 masquerade</code>
-                </li>
-                <li><strong>Сохранение правил:</strong>
-                    <code>sudo nft list ruleset > /etc/nftables.conf</code>
-                </li>
-            </ol>
+            <p style="font-weight: 600; margin-bottom: 6px;">📝 Пример базового конфига nftables для VPN-сервера:</p>
+            <div class="code-block"><code>#!/usr/sbin/nft -f
+
+flush ruleset
+
+table inet filter {
+    chain input {
+        type filter hook input priority 0; policy drop;
+        
+        # Разрешить локальный трафик
+        iif lo accept
+        
+        # Разрешить установленные соединения
+        ct state established,related accept
+        
+        # SSH
+        tcp dport 22 accept
+        
+        # OpenVPN
+        udp dport 1194 accept
+        
+        # WireGuard
+        udp dport 51820 accept
+        
+        # XHTTP+Reality (HTTPS)
+        tcp dport 443 accept
+    }
+    
+    chain forward {
+        type filter hook forward priority 0; policy drop;
+        
+        # Разрешить форвардинг для VPN-интерфейсов
+        iifname "tun+" accept
+        oifname "tun+" accept
+    }
+}
+
+table inet nat {
+    chain postrouting {
+        type nat hook postrouting priority 100; policy accept;
+        oifname "eth0" masquerade
+    }
+}</code></div>
         </div>
-        <p>nftables поддерживает wildcards в именах интерфейсов, например <code>tun*</code> или <code>wg*</code>, что упрощает управление[reference:4]. Это особенно удобно, если у вас несколько VPN-туннелей.</p>
+        <p>Чтобы применить конфиг, сохраните его в файл (например, <code>/etc/nftables.conf</code>) и выполните <code>nft -f /etc/nftables.conf</code>. Для автозагрузки добавьте сервис <code>nftables</code>.</p>
 
         <!-- ====== РАЗДЕЛ 5 ====== -->
-        <h2 id="comparison">Сравнение UFW, iptables и nftables</h2>
+        <h2 id="rules">Правила для OpenVPN, WireGuard и XHTTP+Reality</h2>
+        <p>У каждого протокола свои сетевые особенности, которые важно учитывать при настройке файрвола.</p>
         
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Критерий</th>
-                    <th>UFW</th>
-                    <th>iptables</th>
-                    <th>nftables</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Сложность</strong></td>
-                    <td>🟢 Низкая</td>
-                    <td>🟡 Средняя</td>
-                    <td>🟡 Средняя</td>
-                </tr>
-                <tr>
-                    <td><strong>Гибкость</strong></td>
-                    <td>🟡 Средняя</td>
-                    <td>🟢 Высокая</td>
-                    <td>🟢 Высокая</td>
-                </tr>
-                <tr>
-                    <td><strong>Производительность</strong></td>
-                    <td>🟡 Средняя</td>
-                    <td>🟡 Средняя</td>
-                    <td>🟢 Высокая</td>
-                </tr>
-                <tr>
-                    <td><strong>Поддержка IPv6</strong></td>
-                    <td>🟢 Есть</td>
-                    <td>🟡 Отдельно (ip6tables)</td>
-                    <td>🟢 Встроена</td>
-                </tr>
-                <tr>
-                    <td><strong>Синтаксис</strong></td>
-                    <td>🟢 Простой</td>
-                    <td>🟡 Громоздкий</td>
-                    <td>🟢 Современный</td>
-                </tr>
-                <tr class="highlight-row">
-                    <td><strong>Рекомендация</strong></td>
-                    <td>Новичкам</td>
-                    <td>Опытным админам</td>
-                    <td>Будущее</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="protocol-grid">
+            <div class="protocol-card" style="border: 2px solid rgba(45,212,191,0.3);">
+                <h4>🔷 OpenVPN</h4>
+                <p><strong>Порт:</strong> 1194 UDP (или 443 TCP для обхода)</p>
+                <p><strong>Интерфейс:</strong> tun0</p>
+                <p><strong>Особенности:</strong> требует форвардинга и NAT</p>
+                <span class="badge badge-mid">Классика</span>
+            </div>
+            <div class="protocol-card" style="border: 2px solid rgba(165,240,255,0.3);">
+                <h4>⚡ WireGuard</h4>
+                <p><strong>Порт:</strong> 51820 UDP</p>
+                <p><strong>Интерфейс:</strong> wg0</p>
+                <p><strong>Особенности:</strong> не требует NAT, работает на уровне L3</p>
+                <span class="badge badge-high">Современный</span>
+            </div>
+            <div class="protocol-card" style="border: 2px solid rgba(124,58,255,0.4);">
+                <h4>🚀 XHTTP + Reality</h4>
+                <p><strong>Порт:</strong> 443 TCP (HTTPS)</p>
+                <p><strong>Интерфейс:</strong> зависит от реализации (Xray)</p>
+                <p><strong>Особенности:</strong> маскировка под Chrome, DPI не видит</p>
+                <span class="badge badge-purple">Технология будущего</span>
+            </div>
+        </div>
         
-        <p>Выбор зависит от ваших задач. Если вы только начинаете — используйте UFW. Если нужен полный контроль — iptables. Для новых проектов лучше сразу переходить на nftables[reference:5].</p>
+        <p>Для <strong>XHTTP + Reality</strong> важно также разрешить исходящие HTTPS-соединения, так как протокол имитирует реальный браузер. В iptables это выглядит как разрешение порта 443 на выход, но обычно политика OUTPUT по умолчанию ACCEPT, так что дополнительных правил не требуется.</p>
 
         <!-- ====== РАЗДЕЛ 6 ====== -->
-        <h2 id="vps-vpn-advantage">Личный VPS vs Массовый VPN: почему firewall — не главное</h2>
+        <h2 id="security">Дополнительная защита: DDoS, брутфорс, логи</h2>
+        <p>Одного файрвола недостаточно. Вот несколько дополнительных слоёв защиты, которые стоит добавить:</p>
+        <ul>
+            <li><strong>Ограничение числа подключений</strong> — с помощью <code>connlimit</code> в iptables/nftables можно ограничить количество одновременных соединений с одного IP.</li>
+            <li><strong>Защита от брутфорса</strong> — установите <strong>Fail2Ban</strong>, который будет банить IP после нескольких неудачных попыток входа в SSH или панель управления.</li>
+            <li><strong>Логирование</strong> — настройте сбор логов файрвола, чтобы видеть подозрительную активность.</li>
+            <li><strong>Смена порта SSH</strong> — вместо 22 используйте нестандартный порт, чтобы снизить число автоматических сканирований.</li>
+        </ul>
+        <p>Все эти меры в комплексе с правильно настроенным брандмауэром делают ваш VPN-сервер практически неуязвимым для рядовых атак.</p>
+
+        <!-- ====== РАЗДЕЛ 7 ====== -->
+        <h2 id="vps-advantage">Почему личный VPS с файрволом лучше массового VPN</h2>
         
         <div class="vps-advantage">
             <h3>🚀 В чём отличие подхода VPS-VPN?</h3>
@@ -503,65 +481,84 @@ COMMIT
                 <li><strong>Никаких «шумных соседей»:</strong> ваш IP-адрес используете только вы. Никто не сможет «подставить» вас своей активностью.</li>
                 <li><strong>Стабильная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
                 <li><strong>Минимальный риск блокировок:</strong> массовые IP-адреса часто попадают в бан-листы из-за действий других пользователей. Ваш личный IP — чистый.</li>
-                <li><strong>Полный контроль:</strong> вы сами управляете сервером, выбираете протоколы и настройки безопасности, включая firewall.</li>
+                <li><strong>Полный контроль над файрволом:</strong> вы сами управляете правилами, можете открывать любые порты и настраивать NAT под свои задачи.</li>
                 <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS, DPI не может его отличить от обычного браузера Chrome.</li>
             </ul>
             
             <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
                 <p style="font-weight: 700; margin-bottom: 4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
-                <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP-адресом и индивидуальными настройками маскировки.</p>
+                <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP-адресом, индивидуальными настройками файрвола и маскировки трафика.</p>
             </div>
         </div>
-        
-        <p>Настройка firewall — это важный шаг, но он не защитит вас от DPI-блокировок. Для этого нужна <strong>маскировка трафика</strong> на уровне протокола. Именно здесь на помощь приходит технология XHTTP + Reality.</p>
 
-        <!-- ====== РАЗДЕЛ 7 ====== -->
-        <h2 id="xhttp-reality">XHTTP + Reality — защита от DPI</h2>
-        
-        <p>Современные DPI (Deep Packet Inspection) системы научились распознавать не только протоколы, но и характерные паттерны VPN-трафика. OpenVPN, WireGuard — все они имеют узнаваемые сигнатуры, по которым их можно заблокировать[reference:6]. Именно поэтому на сцену вышла <strong>технология XHTTP + Reality</strong>.</p>
-        
-        <div class="tech-highlight">
-            <p style="font-weight: 600; margin-bottom: 6px;">🔬 XHTTP + Reality: как это работает</p>
-            <p style="margin-bottom: 8px;">Эта технология маскирует VPN-трафик под обычный HTTPS-запрос к легитимному сайту. DPI не может отличить ваше соединение от реального браузера Chrome, потому что:</p>
-            <ul style="margin: 4px 0 0 20px;">
-                <li><strong>Имитация TLS-рукопожатия</strong> — соединение выглядит как стандартный HTTPS-запрос[reference:7].</li>
-                <li><strong>Маскировка под Chrome</strong> — все параметры соответствуют реальному браузеру (версия, набор шифров, заголовки)[reference:8].</li>
-                <li><strong>Отсутствие характерных сигнатур</strong> — в отличие от OpenVPN или WireGuard, у XHTTP нет узнаваемых паттернов.</li>
-                <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста[reference:9].</li>
-            </ul>
-        </div>
-        
-        <p>Благодаря этой технологии ваш VPN-трафик <strong>неотличим от обычного веб-сёрфинга</strong>. Это делает XHTTP + Reality идеальным решением для стран с жёсткой фильтрацией интернета и активным DPI.</p>
-        
-        <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 16px 0; border: 1px solid rgba(45,212,191,0.15);">
-            <p style="font-weight: 600; margin-bottom: 4px;">📌 Ключевое преимущество:</p>
-            <p style="margin-bottom: 0;">DPI-системы видят ваш трафик как обычный HTTPS-запрос к, например, <code>google.com</code> или <code>cloudflare.com</code>. Они не могут определить, что внутри этого запроса передаются VPN-данные. <strong>Нас в 1000 раз сложнее заблокировать и отследить.</strong></p>
-        </div>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Параметр</th>
+                    <th>Массовый VPN</th>
+                    <th>Личный VPN на VPS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>IP-адрес</strong></td>
+                    <td>Общий (1000+ пользователей)</td>
+                    <td><span class="check">✅</span> Персональный, только ваш</td>
+                </tr>
+                <tr>
+                    <td><strong>Настройка файрвола</strong></td>
+                    <td>Фиксированные правила, без изменений</td>
+                    <td><span class="check">✅</span> Полный контроль</td>
+                </tr>
+                <tr>
+                    <td><strong>Скорость</strong></td>
+                    <td>Разделяется между всеми</td>
+                    <td><span class="check">✅</span> Максимальная, только ваша</td>
+                </tr>
+                <tr>
+                    <td><strong>Риск блокировки</strong></td>
+                    <td>Высокий (из-за соседей)</td>
+                    <td><span class="check">✅</span> Минимальный</td>
+                </tr>
+                <tr>
+                    <td><strong>Маскировка трафика</strong></td>
+                    <td>Стандартные протоколы</td>
+                    <td><span class="check">✅</span> XHTTP + Reality, имитация Chrome</td>
+                </tr>
+                <tr class="highlight-row">
+                    <td><strong>Сложность обнаружения DPI</strong></td>
+                    <td>Легко обнаружить</td>
+                    <td><span class="check">✅</span> В 1000 раз сложнее</td>
+                </tr>
+            </tbody>
+        </table>
 
         <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
         <div class="article-cta">
-            <h3>🔥 Получите свой личный VPN-сервер с технологией XHTTP + Reality</h3>
-            <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита.</p>
+            <h3>🔥 Получите свой личный VPN-сервер с полным контролем над файрволом</h3>
+            <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Вы сами настраиваете UFW, iptables или nftables под свои задачи.</p>
             <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.</p>
             <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
         </div>
 
         <!-- ====== РАЗДЕЛ 8 ====== -->
-        <h2 id="conclusion">Заключение</h2>
+        <h2 id="conclusion">Итог: безопасность начинается с файрвола</h2>
         
-        <p>Настройка firewall — это обязательный этап при развёртывании VPN-сервера. UFW, iptables и nftables — все три инструмента справляются с этой задачей, но с разной степенью удобства и гибкости.</p>
+        <p>Брандмауэр — это не просто «галочка» в настройках, а фундамент безопасности вашего VPN-сервера. Без него даже самая современная технология XHTTP + Reality остаётся уязвимой для атак и может быть обнаружена DPI-системами из‑за открытых служебных портов.</p>
         
+        <p>Мы рассмотрели три инструмента:</p>
         <ul>
-            <li><strong>UFW</strong> — идеален для быстрого старта и простых конфигураций.</li>
-            <li><strong>iptables</strong> — даёт полный контроль, но требует опыта.</li>
-            <li><strong>nftables</strong> — современный стандарт, который стоит освоить для новых проектов.</li>
+            <li><strong>UFW</strong> — для быстрого старта и базовой защиты.</li>
+            <li><strong>iptables</strong> — для полного контроля и тонкой настройки.</li>
+            <li><strong>nftables</strong> — для современных систем с высокой производительностью.</li>
         </ul>
         
-        <p>Однако даже самый мощный firewall не защитит от DPI-блокировок. Для этого нужна <strong>маскировка трафика</strong> на уровне протокола. Технология <strong>XHTTP + Reality</strong> делает ваш трафик неотличимым от обычного HTTPS, а использование <strong>личного VPS</strong> гарантирует, что ваш IP-адрес не будет заблокирован из-за действий других пользователей.</p>
+        <p>Какой бы инструмент вы ни выбрали, помните главное правило: <strong>разрешайте только то, что действительно необходимо</strong>, и всегда оставляйте возможность управления (SSH) с доверенных IP.</p>
         
         <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
-            <p style="font-weight: 700; font-size: 1.05rem;">✅ Итог: firewall + XHTTP + Reality + личный VPS = максимальная защита</p>
-            <p>В <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> мы предлагаем именно это: выделенный сервер, передовую технологию маскировки и полную конфиденциальность. Интернет должен быть свободным, безопасным и быстрым. Выбирайте решение, которое работает по-настоящему.</p>
+            <p style="font-weight: 700; font-size: 1.05rem;">✅ Ваш VPN — ваши правила.</p>
+            <p>В <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> вы получаете не просто доступ к интернету, а полноценный сервер, который можно настроить под любые задачи. Включая файрвол, который защитит вас лучше любого массового VPN.</p>
+            <p style="margin-top: 12px; font-weight: 600;">Выбирайте безопасность, скорость и свободу. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.</p>
         </div>
 
         <!-- ====== АВТОР ====== -->
@@ -569,7 +566,7 @@ COMMIT
             <div class="avatar">🛡️</div>
             <div>
                 <p style="font-weight: 600;">Команда VPS-VPN</p>
-                <p class="bio">Эксперты в области сетевых технологий и кибербезопасности. Помогаем настроить защищённые VPN-серверы с максимальной степенью анонимности.</p>
+                <p class="bio">Инженеры по сетевым технологиям и безопасности. Специализируемся на настройке высокозащищённых VPN-решений на базе VPS.</p>
             </div>
         </div>
 
@@ -577,30 +574,30 @@ COMMIT
         <div class="related-articles">
             <h3>📖 Похожие статьи</h3>
             <div class="related-grid">
-                <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
-                    <span class="tag">🔐 VPN</span>
-                    <h4>Что такое VPN и как он работает</h4>
-                    <p>Полное руководство для начинающих и продвинутых</p>
+                <a href="/articles/poshagovaya-nastroyka-vpn-na-vps.html" class="related-card">
+                    <span class="tag">🔧 Настройка</span>
+                    <h4>Пошаговая настройка VPN на VPS</h4>
+                    <p>Полный гайд от установки ОС до готового VPN-сервера</p>
                 </a>
-                <a href="/articles/dlya-chego-nuzhen-vpn-v-sovremennom-mire.html" class="related-card">
-                    <span class="tag">🌍 VPN</span>
-                    <h4>Для чего нужен VPN в современном мире</h4>
-                    <p>Основные сценарии использования VPN</p>
+                <a href="/articles/nastroyka-servera-pered-ustanovkoy-vpn.html" class="related-card">
+                    <span class="tag">⚙️ Подготовка</span>
+                    <h4>Настройка сервера перед установкой VPN</h4>
+                    <p>Обновления, время, DNS и другие базовые вещи</p>
                 </a>
-                <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
-                    <span class="tag">⚙️ Технологии</span>
-                    <h4>Основные компоненты VPN-соединения</h4>
-                    <p>Из чего состоит VPN-туннель</p>
-                </a>
-                <a href="/articles/kak-rabotaet-shirovanie-v-vpn.html" class="related-card">
+                <a href="/articles/kak-zashchitit-ssh-na-vps-smena-porta-fail2ban.html" class="related-card">
                     <span class="tag">🔐 Безопасность</span>
-                    <h4>Как работает шифрование в VPN</h4>
-                    <p>Объяснение алгоритмов шифрования</p>
+                    <h4>Как защитить SSH на VPS</h4>
+                    <p>Смена порта, Fail2Ban и другие методы</p>
                 </a>
-                <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
-                    <span class="tag">💡 Опыт</span>
-                    <h4>Почему VPN перестали работать</h4>
-                    <p>Личный опыт: решение на vps-vpn.ru</p>
+                <a href="/articles/nastroyka-fail2ban-dlya-zashchity-ot-brutforsa.html" class="related-card">
+                    <span class="tag">🛡️ Защита</span>
+                    <h4>Настройка Fail2Ban для защиты от брутфорса</h4>
+                    <p>Автоматическая блокировка злоумышленников</p>
+                </a>
+                <a href="/articles/arhitektura-zero-trust-na-vps-vpn-firewall-i-kontrol-dostupa.html" class="related-card">
+                    <span class="tag">🏗️ Архитектура</span>
+                    <h4>Zero-Trust на VPS: VPN, Firewall и контроль доступа</h4>
+                    <p>Современный подход к безопасности сервера</p>
                 </a>
             </div>
         </div>
