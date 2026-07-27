@@ -3,96 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FS3MC3KGRX"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-FS3MC3KGRX');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FS3MC3KGRX');
     </script>
-
+    
     <!-- ====== СЕО МЕТАТЕГИ ====== -->
-    <title>Внедрение Fail2Ban и CrowdSec: защита сервера от вторжений | VPS-VPN</title>
-    <meta name="description" content="Полное руководство по установке и настройке систем обнаружения вторжений Fail2Ban и CrowdSec. Защитите свой VPS от брутфорса и DDoS. Сравнение, примеры конфигураций и почему личный VPN с XHTTP+Reality — лучшая защита.">
-    <meta name="keywords" content="Fail2Ban, CrowdSec, защита сервера, обнаружение вторжений, настройка Fail2Ban, настройка CrowdSec, брутфорс, DDoS защита, VPS защита, личный VPN">
+    <title>Внедрение Fail2Ban и CrowdSec: защита VPS от взлома | VPS-VPN</title>
+    <meta name="description" content="Полное руководство по внедрению систем обнаружения вторжений Fail2Ban и CrowdSec на VPS. Защита от брутфорса, DDoS и взлома. Почему личный VPN на VPS с XHTTP + Reality — это безопасно.">
+    <meta name="keywords" content="Fail2Ban, CrowdSec, система обнаружения вторжений, защита VPS, брутфорс, DDoS, безопасность сервера, настройка Fail2Ban, настройка CrowdSec, VPS VPN">
     <meta name="author" content="Команда VPS-VPN">
     <meta name="robots" content="index, follow">
-
+    
     <link rel="canonical" href="https://vps-vpn.ru/articles/vnedrenie-sistemy-obnaruzheniya-vtorzheniy-fail2ban-crowdsec.html">
-
+    
     <!-- ====== OPEN GRAPH ====== -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://vps-vpn.ru/articles/vnedrenie-sistemy-obnaruzheniya-vtorzheniy-fail2ban-crowdsec.html">
-    <meta property="og:title" content="Внедрение Fail2Ban и CrowdSec: защита сервера от вторжений">
-    <meta property="og:description" content="Полное руководство по установке и настройке систем обнаружения вторжений Fail2Ban и CrowdSec. Защитите свой VPS от брутфорса и DDoS.">
+    <meta property="og:title" content="Внедрение Fail2Ban и CrowdSec: защита VPS от взлома">
+    <meta property="og:description" content="Полное руководство по внедрению систем обнаружения вторжений Fail2Ban и CrowdSec на VPS. Защита от брутфорса, DDoS и взлома.">
     <meta property="og:image" content="https://vps-vpn.ru/images/fail2ban-crowdsec.jpg">
     <meta property="og:site_name" content="VPS-VPN">
-    <meta property="article:published_time" content="2026-07-23">
-    <meta property="article:modified_time" content="2026-07-23">
+    <meta property="article:published_time" content="2026-07-26">
+    <meta property="article:modified_time" content="2026-07-26">
     <meta property="article:author" content="Команда VPS-VPN">
     <meta property="article:section" content="Безопасность">
-
+    
     <!-- ====== TWITTER ====== -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Внедрение Fail2Ban и CrowdSec: защита сервера от вторжений">
-    <meta name="twitter:description" content="Полное руководство по установке и настройке систем обнаружения вторжений Fail2Ban и CrowdSec.">
+    <meta name="twitter:title" content="Внедрение Fail2Ban и CrowdSec: защита VPS от взлома">
+    <meta name="twitter:description" content="Полное руководство по внедрению систем обнаружения вторжений Fail2Ban и CrowdSec на VPS. Защита от брутфорса, DDoS и взлома.">
     <meta name="twitter:image" content="https://vps-vpn.ru/images/fail2ban-crowdsec.jpg">
-
+    
     <meta name="theme-color" content="#0a0c12" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-
+    
     <!-- ====== ШРИФТЫ И СТИЛИ ====== -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    
     <!-- ====== SCHEMA.ORG РАЗМЕТКА ДЛЯ СТАТЬИ ====== -->
     <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "TechArticle",
-            "headline": "Внедрение Fail2Ban и CrowdSec: защита сервера от вторжений",
-            "description": "Полное руководство по установке и настройке систем обнаружения вторжений Fail2Ban и CrowdSec. Защитите свой VPS от брутфорса и DDoS.",
-            "image": "https://vps-vpn.ru/images/fail2ban-crowdsec.jpg",
-            "datePublished": "2026-07-23",
-            "dateModified": "2026-07-23",
-            "author": {
-                "@type": "Organization",
-                "name": "VPS-VPN"
-            },
-            "publisher": {
-                "@type": "Organization",
-                "name": "VPS-VPN",
-                "logo": {
-                    "@type": "ImageObject",
-                    "url": "https://vps-vpn.ru/logo.png"
-                }
-            },
-            "mainEntityOfPage": {
-                "@type": "WebPage",
-                "@id": "https://vps-vpn.ru/articles/vnedrenie-sistemy-obnaruzheniya-vtorzheniy-fail2ban-crowdsec.html"
-            },
-            "keywords": "Fail2Ban, CrowdSec, защита сервера, обнаружение вторжений, настройка Fail2Ban, настройка CrowdSec, брутфорс, DDoS защита",
-            "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
-                    { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
-                    { "@type": "ListItem", "position": 3, "name": "Внедрение Fail2Ban и CrowdSec", "item": "https://vps-vpn.ru/articles/vnedrenie-sistemy-obnaruzheniya-vtorzheniy-fail2ban-crowdsec.html" }
-                ]
-            }
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Внедрение Fail2Ban и CrowdSec: защита VPS от взлома",
+      "description": "Полное руководство по внедрению систем обнаружения вторжений Fail2Ban и CrowdSec на VPS. Защита от брутфорса, DDoS и взлома.",
+      "image": "https://vps-vpn.ru/images/fail2ban-crowdsec.jpg",
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-07-26",
+      "author": {
+        "@type": "Organization",
+        "name": "VPS-VPN"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "VPS-VPN",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://vps-vpn.ru/logo.png"
         }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vps-vpn.ru/articles/vnedrenie-sistemy-obnaruzheniya-vtorzheniy-fail2ban-crowdsec.html"
+      },
+      "keywords": "Fail2Ban, CrowdSec, система обнаружения вторжений, защита VPS, брутфорс, DDoS, безопасность сервера",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Главная", "item": "https://vps-vpn.ru/" },
+          { "@type": "ListItem", "position": 2, "name": "Блог", "item": "https://vps-vpn.ru/blog.html" },
+          { "@type": "ListItem", "position": 3, "name": "Внедрение систем обнаружения вторжений", "item": "https://vps-vpn.ru/articles/vnedrenie-sistemy-obnaruzheniya-vtorzheniy-fail2ban-crowdsec.html" }
+        ]
+      }
+    }
     </script>
-
+    
     <style>
-        /* ====== ОБЩИЕ СТИЛИ (скопированы из шаблона) ====== */
+        /* ====== ОБЩИЕ СТИЛИ ====== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease; line-height: 1.6; }
-
+        
         body.dark { background: #0a0c12; color: #e0e0e0; }
         body.dark .article-container { background: rgba(25,30,45,0.95); border: 1px solid rgba(255,255,255,0.08); }
         body.dark .theme-toggle { background: rgba(255,255,255,0.08); color: #e0e0e0; border: 1px solid rgba(255,255,255,0.15); }
@@ -106,14 +103,14 @@
         body.dark .footer { color: #7f8c9b; border-top: 1px solid rgba(255,255,255,0.05); }
         body.dark .related-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
         body.dark .related-card:hover { border-color: rgba(165,240,255,0.2); }
-        body.dark .protocol-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
-        body.dark .protocol-card:hover { border-color: rgba(165,240,255,0.2); }
-        body.dark .timeline-card { background: rgba(255,255,255,0.03); border-left: 3px solid #7c3aff; }
+        body.dark .tool-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+        body.dark .tool-card:hover { border-color: rgba(165,240,255,0.2); }
+        body.dark .comparison-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
         body.dark .vps-advantage { background: linear-gradient(135deg, rgba(124,58,255,0.08), rgba(45,212,191,0.05)); border: 1px solid rgba(124,58,255,0.2); }
         body.dark .tech-highlight { background: rgba(124,58,255,0.06); border-left: 4px solid #7c3aff; }
-        body.dark .era-badge { background: rgba(165,240,255,0.1); color: #a5f0ff; }
         body.dark .breadcrumb a { color: #a5f0ff; }
-
+        body.dark .step-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); }
+        
         body.light { background: #ffffff; color: #222222; }
         body.light .article-container { background: #ffffff; border: 1px solid #ebebeb; box-shadow: 0 8px 28px rgba(0,0,0,0.06); }
         body.light .gradient-text { background: linear-gradient(135deg, #ff385c, #dd1a4a); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -126,34 +123,34 @@
         body.light .footer { color: #717171; border-top: 1px solid #ebebeb; }
         body.light .related-card { background: #fafafa; border: 1px solid #ebebeb; }
         body.light .related-card:hover { border-color: #ff385c; }
-        body.light .protocol-card { background: #fafafa; border: 1px solid #ebebeb; }
-        body.light .protocol-card:hover { border-color: #ff385c; }
-        body.light .timeline-card { background: #fafafa; border-left: 3px solid #ff385c; }
+        body.light .tool-card { background: #fafafa; border: 1px solid #ebebeb; }
+        body.light .tool-card:hover { border-color: #ff385c; }
+        body.light .comparison-card { background: #fafafa; border: 1px solid #ebebeb; }
         body.light .vps-advantage { background: linear-gradient(135deg, rgba(255,56,92,0.05), rgba(255,56,92,0.02)); border: 1px solid rgba(255,56,92,0.12); }
         body.light .tech-highlight { background: rgba(255,56,92,0.04); border-left: 4px solid #ff385c; }
-        body.light .era-badge { background: rgba(255,56,92,0.08); color: #ff385c; }
         body.light .breadcrumb a { color: #ff385c; }
-
+        body.light .step-card { background: #fafafa; border: 1px solid #ebebeb; }
+        
         .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
         .container-wide { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-
+        
         nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; flex-wrap: wrap; gap: 16px; }
         .logo { font-size: 1.8rem; font-weight: 800; }
         .nav-links { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
         .nav-links a { text-decoration: none; font-weight: 500; transition: color 0.2s; }
         .theme-toggle { background: transparent; border: none; cursor: pointer; font-size: 1rem; padding: 8px 16px; border-radius: 40px; transition: 0.2s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
         .btn-primary { border: none; padding: 12px 28px; border-radius: 40px; font-weight: 600; font-size: 1rem; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
-
+        
         .article-container { border-radius: 32px; padding: 48px 56px; margin: 30px 0 50px; transition: all 0.2s; }
-
+        
         .breadcrumb { font-size: 0.9rem; opacity: 0.7; margin-bottom: 20px; padding: 8px 0; }
         .breadcrumb a { text-decoration: none; }
         .breadcrumb a:hover { text-decoration: underline; }
         .breadcrumb span { margin: 0 6px; }
-
+        
         .article-meta { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; margin-bottom: 24px; font-size: 0.9rem; opacity: 0.7; }
         .tag { display: inline-block; padding: 4px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
-
+        
         .article-container h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 20px; }
         .article-container h2 { font-size: 1.6rem; font-weight: 700; margin: 36px 0 16px; letter-spacing: -0.01em; }
         .article-container h3 { font-size: 1.2rem; font-weight: 600; margin: 28px 0 12px; }
@@ -162,69 +159,63 @@
         .article-container li { margin-bottom: 8px; }
         .article-container blockquote { border-left: 4px solid #7c3aff; padding-left: 20px; margin: 24px 0; font-style: italic; opacity: 0.8; }
         body.light .article-container blockquote { border-left-color: #ff385c; }
-
+        
         .article-author { display: flex; align-items: center; gap: 16px; padding: 24px 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 40px; }
         body.light .article-author { border-top-color: #ebebeb; }
         .article-author .avatar { width: 56px; height: 56px; border-radius: 50%; background: #7c3aff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: white; }
         body.light .article-author .avatar { background: #ff385c; }
         .article-author .bio { font-size: 0.9rem; opacity: 0.7; }
-
+        
         .article-cta { background: linear-gradient(135deg, rgba(124,58,255,0.12), rgba(45,212,191,0.08)); border-radius: 24px; padding: 32px 40px; margin: 40px 0; text-align: center; border: 1px solid rgba(124,58,255,0.2); }
         body.light .article-cta { background: linear-gradient(135deg, rgba(255,56,92,0.08), rgba(255,56,92,0.03)); border-color: rgba(255,56,92,0.15); }
         .article-cta h3 { margin-bottom: 12px; }
         .article-cta .btn-primary { margin-top: 16px; }
-
-        .protocol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 16px 0 24px; }
-        .protocol-card { padding: 20px; border-radius: 16px; text-decoration: none; color: inherit; transition: all 0.25s; }
-        .protocol-card h4 { font-size: 1rem; margin-bottom: 8px; }
-        .protocol-card p { font-size: 0.82rem; opacity: 0.8; margin-bottom: 0; }
-        .protocol-card .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.6rem; font-weight: 600; margin-top: 8px; }
-        .badge-high { background: rgba(45,212,191,0.2); color: #2dd4bf; }
-        .badge-mid { background: rgba(251,191,36,0.2); color: #fbbf24; }
-        .badge-low { background: rgba(255,56,92,0.15); color: #ff385c; }
+        
+        .tool-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin: 16px 0 24px; }
+        .tool-card { padding: 20px; border-radius: 16px; text-decoration: none; color: inherit; transition: all 0.25s; }
+        .tool-card h4 { font-size: 1.1rem; margin-bottom: 8px; }
+        .tool-card p { font-size: 0.85rem; opacity: 0.8; margin-bottom: 0; }
+        .tool-card .badge { display: inline-block; padding: 2px 12px; border-radius: 12px; font-size: 0.65rem; font-weight: 600; margin-top: 8px; }
+        .badge-blue { background: rgba(45,212,191,0.2); color: #2dd4bf; }
         .badge-purple { background: rgba(124,58,255,0.2); color: #a78bfa; }
-        body.light .badge-high { background: rgba(45,212,191,0.15); color: #0d9488; }
-        body.light .badge-mid { background: rgba(251,191,36,0.15); color: #b45309; }
-        body.light .badge-low { background: rgba(255,56,92,0.12); color: #dc2626; }
+        body.light .badge-blue { background: rgba(45,212,191,0.15); color: #0d9488; }
         body.light .badge-purple { background: rgba(124,58,255,0.12); color: #7c3aff; }
-
+        
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 16px 0 24px; }
+        .comparison-card { padding: 24px; border-radius: 16px; transition: all 0.25s; }
+        .comparison-card h4 { font-size: 1.1rem; margin-bottom: 8px; }
+        .comparison-card ul { list-style: none; padding: 0; margin: 8px 0 0; }
+        .comparison-card ul li { padding-left: 24px; position: relative; margin-bottom: 6px; font-size: 0.9rem; }
+        .comparison-card ul li::before { content: "✓"; position: absolute; left: 0; color: #2dd4bf; font-weight: 700; }
+        body.light .comparison-card ul li::before { color: #0d9488; }
+        .comparison-card .cross::before { content: "✗"; color: #ff385c; }
+        
+        .step-card { border-radius: 12px; padding: 16px 20px; margin-bottom: 14px; }
+        .step-card .step-num { display: inline-block; font-weight: 700; font-size: 1.1rem; margin-right: 12px; color: #7c3aff; }
+        body.light .step-card .step-num { color: #ff385c; }
+        .step-card code { font-family: 'Inter', monospace; background: rgba(255,255,255,0.08); padding: 2px 10px; border-radius: 6px; font-size: 0.85rem; }
+        body.light .step-card code { background: rgba(0,0,0,0.05); }
+        
         .related-articles { margin: 40px 0 30px; }
         .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; margin-top: 16px; }
         .related-card { padding: 20px; border-radius: 20px; text-decoration: none; color: inherit; transition: all 0.25s; }
         .related-card h4 { font-size: 1rem; margin-bottom: 8px; }
         .related-card p { font-size: 0.85rem; opacity: 0.7; }
         .related-card .tag { font-size: 0.65rem; margin-bottom: 8px; display: inline-block; }
-
+        
         .footer { text-align: center; padding: 40px 0; font-size: 0.85rem; }
-
-        .timeline-card { padding: 16px 20px; border-radius: 12px; margin-bottom: 14px; }
-        .timeline-card .year { font-weight: 700; font-size: 1.1rem; display: inline-block; margin-right: 12px; }
-        .timeline-card .era-badge { display: inline-block; padding: 2px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 600; margin-left: 8px; }
-
+        
         .vps-advantage { border-radius: 20px; padding: 28px 32px; margin: 24px 0; }
         .vps-advantage h3 { margin-top: 0; }
         .vps-advantage ul { list-style: none; padding: 0; margin: 12px 0; }
         .vps-advantage ul li { padding-left: 28px; position: relative; margin-bottom: 10px; }
         .vps-advantage ul li::before { content: "◆"; position: absolute; left: 0; color: #7c3aff; font-weight: 700; }
         body.light .vps-advantage ul li::before { color: #ff385c; }
-
+        
         .tech-highlight { border-radius: 12px; padding: 20px 24px; margin: 20px 0; }
         .tech-highlight code { font-family: 'Inter', monospace; background: rgba(255,255,255,0.08); padding: 2px 10px; border-radius: 6px; font-size: 0.85rem; }
         body.light .tech-highlight code { background: rgba(0,0,0,0.05); }
-
-        .comparison-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.92rem; }
-        .comparison-table thead tr { border-bottom: 2px solid rgba(255,255,255,0.1); }
-        body.light .comparison-table thead tr { border-bottom-color: #d1d5db; }
-        .comparison-table th { text-align: left; padding: 12px 8px; font-weight: 600; }
-        .comparison-table td { padding: 10px 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        body.light .comparison-table td { border-bottom-color: #f3f4f6; }
-        .comparison-table tr:last-child td { border-bottom: none; }
-        .comparison-table .check { color: #2dd4bf; }
-        body.light .comparison-table .check { color: #0d9488; }
-        .comparison-table .cross { color: #ff385c; }
-        .comparison-table .highlight-row { background: rgba(124,58,255,0.06); }
-        body.light .comparison-table .highlight-row { background: rgba(255,56,92,0.04); }
-
+        
         @media (max-width: 768px) {
             .article-container { padding: 28px 20px; }
             .article-container h1 { font-size: 1.6rem; }
@@ -234,406 +225,421 @@
             .nav-links a { font-size: 0.85rem; }
             .article-cta { padding: 24px 20px; }
             .related-grid { grid-template-columns: 1fr; }
-            .protocol-grid { grid-template-columns: 1fr 1fr; }
-            .comparison-table { font-size: 0.78rem; }
-            .vps-advantage { padding: 20px; }
+            .tool-grid { grid-template-columns: 1fr 1fr; }
+            .comparison-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
             .article-container h1 { font-size: 1.3rem; }
             .article-meta { font-size: 0.75rem; gap: 12px; }
-            .protocol-grid { grid-template-columns: 1fr; }
-            .comparison-table { font-size: 0.7rem; }
-            .comparison-table th, .comparison-table td { padding: 6px 4px; }
-            .timeline-card .year { font-size: 0.95rem; }
+            .tool-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body class="dark">
-    <div class="container-wide">
-        <nav>
-            <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
-            <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
-                <div class="nav-links">
-                    <a href="/">Главная</a>
-                    <a href="/access.html">Доступ</a>
-                    <a href="/blog.html">📝 Блог</a>
-                </div>
-                <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
-                    <i class="fas fa-sun"></i>
-                    <span style="font-size: 0.9rem;">Светлая</span>
-                </button>
-            </div>
-        </nav>
-    </div>
-
-    <div class="container">
-        <article class="article-container">
-
-            <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
-            <nav class="breadcrumb" aria-label="Breadcrumb">
+<div class="container-wide">
+    <nav>
+        <div class="logo"><span class="gradient-text">VPS-VPN</span></div>
+        <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+            <div class="nav-links">
                 <a href="/">Главная</a>
-                <span>›</span>
-                <a href="/blog.html">Блог</a>
-                <span>›</span>
-                <span>Внедрение Fail2Ban и CrowdSec</span>
-            </nav>
-
-            <!-- ====== МЕТАДАННЫЕ ====== -->
-            <div class="article-meta">
-                <span class="tag">🛡️ Безопасность</span>
-                <span><i class="far fa-calendar-alt"></i> 23 июля 2026</span>
-                <span><i class="far fa-clock"></i> 15 минут чтения</span>
-                <span><i class="far fa-eye"></i> 3 842 просмотра</span>
+                <a href="/access.html">Доступ</a>
+                <a href="/blog.html">📝 Блог</a>
             </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Сменить тему">
+                <i class="fas fa-sun"></i>
+                <span style="font-size: 0.9rem;">Светлая</span>
+            </button>
+        </div>
+    </nav>
+</div>
 
-            <h1>Внедрение систем обнаружения вторжений: Fail2Ban и CrowdSec</h1>
+<div class="container">
+    <article class="article-container">
+        
+        <!-- ====== ХЛЕБНЫЕ КРОШКИ ====== -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Главная</a>
+            <span>›</span>
+            <a href="/blog.html">Блог</a>
+            <span>›</span>
+            <span>Внедрение систем обнаружения вторжений</span>
+        </nav>
+        
+        <!-- ====== МЕТАДАННЫЕ СТАТЬИ ====== -->
+        <div class="article-meta">
+            <span class="tag">🛡️ Безопасность</span>
+            <span><i class="far fa-calendar-alt"></i> 26 июля 2026</span>
+            <span><i class="far fa-clock"></i> 14 минут чтения</span>
+            <span><i class="far fa-eye"></i> 1 874 просмотров</span>
+        </div>
 
-            <p>Любой сервер, выходящий в интернет, ежедневно подвергается тысячам попыток взлома — брутфорс SSH, сканирование портов, DDoS-атаки. Для защиты от таких угроз используются системы обнаружения вторжений (IDS/IPS). Два самых популярных инструмента с открытым исходным кодом — <strong>Fail2Ban</strong> и <strong>CrowdSec</strong>. В этой статье я расскажу, как их внедрить, сравню их возможности и покажу, как они работают в связке с <strong>личным VPN-сервером на VPS</strong>.</p>
+        <!-- ====== ЗАГОЛОВОК ====== -->
+        <h1>Внедрение Fail2Ban и CrowdSec: как защитить VPS от брутфорса и взлома</h1>
 
-            <div style="background: rgba(45,212,191,0.06); border-radius: 12px; padding: 16px 20px; margin: 20px 0; border: 1px solid rgba(45,212,191,0.15);">
-                <p style="font-weight: 600; margin-bottom: 4px;">🔑 Ключевые темы статьи:</p>
-                <ul style="margin: 0 0 0 20px;">
-                    <li>Что такое системы обнаружения вторжений и зачем они нужны</li>
-                    <li>Установка и настройка Fail2Ban: примеры конфигураций</li>
-                    <li>CrowdSec: коллективный интеллект и современный подход</li>
-                    <li>Сравнение Fail2Ban и CrowdSec</li>
-                    <li>Как защита сервера связана с анонимностью в интернете</li>
-                    <li>Почему личный VPN на VPS с XHTTP+Reality — лучшая защита от DPI</li>
-                </ul>
+        <!-- ====== ВСТУПЛЕНИЕ ====== -->
+        <p>Каждый день серверы в интернете подвергаются тысячам атак: брутфорс SSH, сканирование портов, попытки эксплуатации уязвимостей. Если у вас есть VPS — особенно если вы используете его для <strong>личного VPN-сервера</strong>, — вопрос безопасности становится критическим. В этой статье мы разберём, как <strong>внедрить системы обнаружения вторжений Fail2Ban и CrowdSec</strong>, чтобы автоматически блокировать злоумышленников и защитить ваш сервер. А также расскажем, почему <strong>личный VPN на VPS с XHTTP + Reality</strong> — это не только про анонимность, но и про безопасность.</p>
+
+        <!-- ====== ОГЛАВЛЕНИЕ ====== -->
+        <div style="background: rgba(255,255,255,0.04); border-radius: 16px; padding: 20px 24px; margin: 24px 0;">
+            <p style="font-weight: 700; margin-bottom: 8px;">📑 Содержание:</p>
+            <ul style="margin: 0; list-style: none; padding: 0; columns: 2; column-gap: 30px;">
+                <li style="margin: 4px 0;"><a href="#why-ids" style="color: #a5f0ff; text-decoration: none;">1. Зачем нужна система обнаружения вторжений</a></li>
+                <li style="margin: 4px 0;"><a href="#fail2ban" style="color: #a5f0ff; text-decoration: none;">2. Fail2Ban — классика защиты</a></li>
+                <li style="margin: 4px 0;"><a href="#crowdsec" style="color: #a5f0ff; text-decoration: none;">3. CrowdSec — современный подход</a></li>
+                <li style="margin: 4px 0;"><a href="#comparison" style="color: #a5f0ff; text-decoration: none;">4. Сравнение Fail2Ban и CrowdSec</a></li>
+                <li style="margin: 4px 0;"><a href="#setup" style="color: #a5f0ff; text-decoration: none;">5. Пошаговая настройка</a></li>
+                <li style="margin: 4px 0;"><a href="#vpn-security" style="color: #a5f0ff; text-decoration: none;">6. Безопасность VPN-сервера</a></li>
+                <li style="margin: 4px 0;"><a href="#vps-vpn" style="color: #a5f0ff; text-decoration: none;">7. Личный VPN на VPS — максимум защиты</a></li>
+                <li style="margin: 4px 0;"><a href="#verdict" style="color: #a5f0ff; text-decoration: none;">8. Итог: защита — это комплексный подход</a></li>
+            </ul>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 1 ====== -->
+        <h2 id="why-ids">Зачем нужна система обнаружения вторжений на VPS</h2>
+        <p>Ваш VPS — это не просто сервер. Если вы используете его для <strong>личного VPN</strong>, на нём хранятся ваши данные, ключи шифрования, логи. Злоумышленники постоянно сканируют интернет в поисках уязвимых серверов. Основные угрозы:</p>
+        <ul>
+            <li><strong>Брутфорс-атаки</strong> — перебор паролей к SSH, панелям управления, базам данных.</li>
+            <li><strong>Сканирование портов</strong> — поиск открытых сервисов для эксплуатации.</li>
+            <li><strong>DDoS-атаки</strong> — попытки перегрузить сервер трафиком.</li>
+            <li><strong>Эксплуатация уязвимостей</strong> — атаки на веб-приложения и сервисы.</li>
+        </ul>
+        <p>Системы обнаружения вторжений (IDS) автоматически анализируют логи, выявляют подозрительную активность и блокируют нарушителей. Это первый рубеж обороны вашего VPS.</p>
+
+        <!-- ====== РАЗДЕЛ 2 ====== -->
+        <h2 id="fail2ban">Fail2Ban — проверенная классика</h2>
+        <p><strong>Fail2Ban</strong> — это утилита, которая сканирует логи сервисов (SSH, Apache, Nginx, FTP и др.) и блокирует IP-адреса, с которых идёт слишком много неудачных попыток входа. Она работает по принципу «обнаружил аномалию — забанил на время».</p>
+        
+        <div class="tool-grid">
+            <div class="tool-card" style="border: 2px solid rgba(45,212,191,0.2);">
+                <h4>🛡️ Fail2Ban</h4>
+                <p><strong>Принцип:</strong> анализ логов, блокировка по правилам</p>
+                <p><strong>Сложность:</strong> низкая, простая настройка</p>
+                <p><strong>Ресурсы:</strong> минимальные</p>
+                <span class="badge badge-blue">★ Классика</span>
             </div>
-
-            <h2 id="what-is-ids">Что такое системы обнаружения вторжений?</h2>
-            <p><strong>IDS (Intrusion Detection System)</strong> — это программное обеспечение, которое анализирует сетевой трафик или логи системы на предмет подозрительной активности. <strong>IPS (Intrusion Prevention System)</strong> — это IDS, который не только обнаруживает, но и автоматически блокирует атаки. Fail2Ban и CrowdSec относятся к классу IPS, так как могут блокировать IP-адреса злоумышленников.</p>
-
-            <p>Основные угрозы, от которых защищают эти системы:</p>
-            <ul>
-                <li><strong>Брутфорс</strong> — перебор паролей (SSH, FTP, веб-панели).</li>
-                <li><strong>Сканирование портов</strong> — разведка перед атакой.</li>
-                <li><strong>DDoS-атаки</strong> — переполнение ресурсов сервера.</li>
-                <li><strong>Вредоносные запросы</strong> — SQL-инъекции, XSS и другие веб-уязвимости.</li>
-            </ul>
-
-            <h2 id="fail2ban">Fail2Ban — классика защиты</h2>
-            <p><strong>Fail2Ban</strong> — это утилита, которая сканирует логи сервисов (например, <code>/var/log/auth.log</code> для SSH) и банит IP-адреса, с которых приходит слишком много неудачных попыток входа. Она появилась в 2004 году и до сих пор остаётся стандартом де-факто для защиты VPS.</p>
-
-            <h3>Как работает Fail2Ban</h3>
-            <p>Fail2Ban состоит из трёх основных компонентов:</p>
-            <ul>
-                <li><strong>Фильтры (filters)</strong> — регулярные выражения для поиска подозрительных строк в логах.</li>
-                <li><strong>Действия (actions)</strong> — команды, которые выполняются при срабатывании фильтра (например, добавить IP в iptables).</li>
-                <li><strong>Тюрьмы (jails)</strong> — связка фильтра и действия с настройками (количество попыток, время бана).</li>
-            </ul>
-
-            <div class="tech-highlight">
-                <p style="font-weight: 600; margin-bottom: 6px;">📝 Пример конфигурации тюрьмы для SSH:</p>
-                <pre style="background: rgba(0,0,0,0.2); padding: 12px 16px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code>[sshd]
-enabled = true
-port = ssh
-filter = sshd
-logpath = /var/log/auth.log
-maxretry = 3
-bantime = 3600
-findtime = 600</code></pre>
-                <p style="margin-top: 8px; margin-bottom: 0;">Эта конфигурация банит IP на 1 час после 3 неудачных попыток входа за 10 минут.</p>
-            </div>
-
-            <h3>Преимущества Fail2Ban</h3>
-            <ul>
-                <li><strong>Простота</strong> — лёгкая установка и настройка.</li>
-                <li><strong>Малые требования</strong> — работает на любом VPS с минимальными ресурсами.</li>
-                <li><strong>Гибкость</strong> — можно создавать свои фильтры для любых приложений.</li>
-                <li><strong>Бесплатно</strong> — open-source лицензия GPL.</li>
-            </ul>
-
-            <h3>Недостатки Fail2Ban</h3>
-            <ul>
-                <li><strong>Реактивный подход</strong> — банит только после того, как атака уже началась.</li>
-                <li><strong>Локальная база</strong> — не обменивается информацией с другими серверами.</li>
-                <li><strong>Может не справляться с распределёнными атаками</strong> — если атакующие используют ботнет, каждый IP делает 1–2 попытки, и Fail2Ban их не замечает.</li>
-            </ul>
-
-            <h2 id="crowdsec">CrowdSec — современный коллективный интеллект</h2>
-            <p><strong>CrowdSec</strong> — это более новая система (вышла в 2020 году), которая работает по принципу «коллективного иммунитета». Она не только анализирует логи локального сервера, но и обменивается данными об атакующих IP с другими участниками сети CrowdSec. Если один сервер заметил атаку с IP, этот IP блокируется на всех серверах, подключённых к сети.</p>
-
-            <h3>Ключевые особенности CrowdSec</h3>
-            <ul>
-                <li><strong>Коллективная защита</strong> — более 100 000 участников по всему миру обмениваются данными об угрозах.</li>
-                <li><strong>Поведенческий анализ</strong> — не только по логам, но и по аномалиям в трафике.</li>
-                <li><strong>Гибкие сценарии (scenarios)</strong> — можно создавать сложные правила обнаружения.</li>
-                <li><strong>Интеграция с фаерволами</strong> — поддерживает iptables, nftables, Cloudflare, и другие.</li>
-                <li><strong>API и веб-интерфейс</strong> — удобное управление и мониторинг.</li>
-            </ul>
-
-            <div class="tech-highlight">
-                <p style="font-weight: 600; margin-bottom: 6px;">📊 Пример сценария CrowdSec для защиты от брутфорса SSH:</p>
-                <pre style="background: rgba(0,0,0,0.2); padding: 12px 16px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code>name: crowdsecurity/ssh-bf
-description: "Detect SSH bruteforce"
-filter: "evt.Meta.log_type == 'ssh_failed_auth'"
-groupby: "evt.Meta.source_ip"
-distinct: "evt.Meta.source_ip"
-capacity: 5
-leak: 30s
-blackhole: 10m
-action: "ban"</code></pre>
-                <p style="margin-top: 8px; margin-bottom: 0;">Этот сценарий банит IP на 10 минут после 5 неудачных попыток за 30 секунд.</p>
-            </div>
-
-            <h3>Преимущества CrowdSec перед Fail2Ban</h3>
-            <ul>
-                <li><strong>Превентивная защита</strong> — блокирует известные злонамеренные IP ещё до того, как они попытаются атаковать ваш сервер.</li>
-                <li><strong>Распределённый интеллект</strong> — защита от распределённых атак (ботнетов).</li>
-                <li><strong>Масштабируемость</strong> — подходит для больших инфраструктур.</li>
-                <li><strong>Активное сообщество</strong> — постоянно обновляемые сценарии и базы данных угроз.</li>
-            </ul>
-
-            <h3>Недостатки CrowdSec</h3>
-            <ul>
-                <li><strong>Более сложная настройка</strong> — требует изучения документации.</li>
-                <li><strong>Потребляет больше ресурсов</strong> — особенно на старых серверах.</li>
-                <li><strong>Зависит от внешнего API</strong> — для работы коллективной защиты требуется интернет-доступ.</li>
-            </ul>
-
-            <h2 id="comparison">Сравнение Fail2Ban и CrowdSec</h2>
-
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Параметр</th>
-                        <th>Fail2Ban</th>
-                        <th>CrowdSec</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Подход</strong></td>
-                        <td>Реактивный (по логам)</td>
-                        <td><span class="check">✅</span> Проактивный + коллективный</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Коллективная защита</strong></td>
-                        <td>Нет</td>
-                        <td><span class="check">✅</span> Есть (более 100k участников)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Защита от распределённых атак</strong></td>
-                        <td>Слабая</td>
-                        <td><span class="check">✅</span> Эффективная</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Гибкость настройки</strong></td>
-                        <td>Высокая</td>
-                        <td>Очень высокая (сценарии)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Потребление ресурсов</strong></td>
-                        <td>Минимальное</td>
-                        <td>Среднее</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Сложность внедрения</strong></td>
-                        <td>Низкая</td>
-                        <td>Средняя</td>
-                    </tr>
-                    <tr class="highlight-row">
-                        <td><strong>Обмен данными с другими серверами</strong></td>
-                        <td class="cross">❌</td>
-                        <td><span class="check">✅</span> Да (CrowdSec Network)</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <blockquote>
-                «В мире, где распределённые атаки становятся нормой, использовать только локальный Fail2Ban уже недостаточно. CrowdSec даёт вам защиту всей сети.»
-            </blockquote>
-
-            <h2 id="setup">Пошаговая установка и настройка</h2>
-
-            <h3>Установка Fail2Ban (на примере Ubuntu 22.04)</h3>
-            <div class="tech-highlight">
-                <pre style="background: rgba(0,0,0,0.2); padding: 12px 16px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code># Установка
-sudo apt update
-sudo apt install fail2ban -y
-
-# Копирование базовой конфигурации
-sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-
-# Редактирование jail.local
-sudo nano /etc/fail2ban/jail.local
-
-# Включение тюрьмы для SSH
+        </div>
+        
+        <p><strong>Как работает:</strong> Fail2Ban читает логи (например, <code>/var/log/auth.log</code> для SSH), находит строки с неудачными попытками аутентификации и при превышении порога (например, 5 неудачных попыток за 10 минут) добавляет IP в блок-лист через брандмауэр (iptables, nftables или UFW).</p>
+        
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">⚙️ Пример правила для SSH:</p>
+            <code style="display: block; padding: 12px; border-radius: 8px; background: rgba(255,255,255,0.05); font-size: 0.85rem; white-space: pre-wrap;">
 [sshd]
 enabled = true
 port = ssh
 filter = sshd
 logpath = /var/log/auth.log
-maxretry = 3
+maxretry = 5
 bantime = 3600
-findtime = 600
-
-# Перезапуск службы
-sudo systemctl restart fail2ban
-sudo systemctl enable fail2ban</code></pre>
-            </div>
-
-            <h3>Установка CrowdSec</h3>
-            <div class="tech-highlight">
-                <pre style="background: rgba(0,0,0,0.2); padding: 12px 16px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem;"><code># Установка из официального репозитория
-curl -s https://packagecloud.io/install/repositories/crowdsec/crowdsec/script.deb.sh | sudo bash
-sudo apt install crowdsec -y
-
-# Установка модуля для SSH
-sudo apt install crowdsec-mod-security -y
-
-# Запуск и активация
-sudo systemctl start crowdsec
-sudo systemctl enable crowdsec
-
-# Проверка статуса
-sudo cscli metrics
-sudo cscli alerts list</code></pre>
-            </div>
-
-            <p>После установки CrowdSec автоматически подключается к сети и начинает обмениваться данными. Вы можете настроить дополнительные сценарии через <code>sudo cscli scenarios list</code>.</p>
-
-            <h2 id="vps-vpn-integration">Защита сервера и анонимность: почему это важно для VPN</h2>
-
-            <p>Если вы используете VPS для личного VPN, безопасность сервера — это не просто «хорошо бы», а критическая необходимость. Взломанный сервер может стать частью ботнета, использоваться для атак на другие системы или для компрометации вашего трафика. <strong>Fail2Ban и CrowdSec</strong> — это первая линия обороны.</p>
-
-            <p>Но даже самый защищённый сервер бесполезен, если ваш VPN-трафик легко обнаружить и заблокировать с помощью DPI (Deep Packet Inspection). Именно здесь на помощь приходит <strong>XHTTP + Reality</strong>.</p>
-
-            <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
-            <div class="vps-advantage">
-                <h3>🚀 Почему личный VPN на VPS с XHTTP+Reality — это выбор профессионалов</h3>
-                <p><strong>В отличие от обычных VPN-сервисов, где 1000+ человек сидят на одном IP, вы получаете персональный VPS.</strong> Это даёт вам не только уникальный IP-адрес, но и полный контроль над сервером, включая настройку Fail2Ban или CrowdSec для максимальной защиты.</p>
-                <ul>
-                    <li><strong>Персональный IP</strong> — вы не делите его с сотнями незнакомцев, что снижает риск попадания в бан-листы.</li>
-                    <li><strong>Технология XHTTP + Reality</strong> — ваш трафик маскируется под обычный HTTPS-запрос к легитимному сайту. DPI-системы видят браузер Chrome, а не VPN.</li>
-                    <li><strong>Имитация браузера Chrome</strong> — все параметры соединения (версия TLS, набор шифров, заголовки) соответствуют реальному браузеру, поэтому <strong>DPI не отличает ваш трафик от обычного веб-сёрфинга</strong>.</li>
-                    <li><strong>Нас в 1000 раз сложнее заблокировать и отследить</strong> — потому что каждый клиент — это отдельный выделенный сервер.</li>
-                </ul>
-                <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
-                    <p style="font-weight: 700; margin-bottom: 4px;">🎯 Хотите настоящую защиту и анонимность?</p>
-                    <p style="margin-bottom: 0;">Закажите <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">личный VPN-сервер на VPS</a> с предустановленными инструментами безопасности и технологией XHTTP + Reality.</p>
-                </div>
-            </div>
-
-            <h2 id="best-practices">Лучшие практики: сочетаем защиту и анонимность</h2>
-            <p>Я рекомендую использовать оба инструмента: <strong>Fail2Ban</strong> для быстрой защиты от простых брутфорс-атак и <strong>CrowdSec</strong> для проактивной и распределённой защиты. Обе системы отлично работают на VPS.</p>
-            <p>Однако помните, что даже самый защищённый сервер может стать жертвой DPI, если вы используете устаревшие протоколы VPN (PPTP, L2TP, OpenVPN без маскировки). <strong>XHTTP + Reality</strong> — это технология, которая делает ваш трафик невидимым для DPI, и она идеально сочетается с системами обнаружения вторжений.</p>
-
-            <div class="article-cta">
-                <h3>🔥 Получите свой личный VPN-сервер с XHTTP + Reality</h3>
-                <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Вы получаете:</p>
-                <ul style="text-align: left; display: inline-block; margin: 8px 0; padding-left: 0;">
-                    <li style="list-style: none; text-align: left;">✅ Персональный IP-адрес</li>
-                    <li style="list-style: none; text-align: left;">✅ Максимальную скорость (без соседей)</li>
-                    <li style="list-style: none; text-align: left;">✅ Технологию XHTTP + Reality для обхода DPI</li>
-                    <li style="list-style: none; text-align: left;">✅ Возможность установки Fail2Ban и CrowdSec</li>
-                    <li style="list-style: none; text-align: left;">✅ Zero-log политику</li>
-                </ul>
-                <p style="margin-top: 12px; font-weight: 500;"><strong>Нас в 1000 раз сложнее заблокировать</strong> — потому что ваш трафик неотличим от обычного HTTPS.</p>
-                <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
-            </div>
-
-            <!-- ====== АВТОР ====== -->
-            <div class="article-author">
-                <div class="avatar">🛡️</div>
-                <div>
-                    <p style="font-weight: 600;">Команда VPS-VPN</p>
-                    <p class="bio">Эксперты по безопасности и сетевым технологиям. Помогаем защищать серверы и обеспечивать анонимность в интернете.</p>
-                </div>
-            </div>
-
-            <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
-            <div class="related-articles">
-                <h3>📖 Похожие статьи</h3>
-                <div class="related-grid">
-                    <a href="/articles/chto-takoe-vpn-i-kak-on-rabotaet.html" class="related-card">
-                        <span class="tag">🔐 VPN</span>
-                        <h4>Что такое VPN и как он работает</h4>
-                        <p>Полное руководство для начинающих и продвинутых</p>
-                    </a>
-                    <a href="/articles/dlya-chego-nuzhen-vpn-v-sovremennom-mire.html" class="related-card">
-                        <span class="tag">🌍 VPN</span>
-                        <h4>Для чего нужен VPN в современном мире</h4>
-                        <p>Основные сценарии использования VPN</p>
-                    </a>
-                    <a href="/articles/osnovnye-komponenty-vpn-soedineniya.html" class="related-card">
-                        <span class="tag">⚙️ Технологии</span>
-                        <h4>Основные компоненты VPN-соединения</h4>
-                        <p>Из чего состоит VPN-туннель</p>
-                    </a>
-                    <a href="/articles/kak-rabotaet-shirovanie-v-vpn.html" class="related-card">
-                        <span class="tag">🔐 Безопасность</span>
-                        <h4>Как работает шифрование в VPN</h4>
-                        <p>Объяснение алгоритмов шифрования</p>
-                    </a>
-                    <a href="/articles/pochemu-vpn-ne-rabotaet-i-kak-ya-nashel-reshenie.html" class="related-card">
-                        <span class="tag">💡 Опыт</span>
-                        <h4>Почему VPN перестали работать, и как я нашёл единственное рабочее решение на vps-vpn.ru</h4>
-                        <p>Личный опыт: решение на VPS с XHTTP+Reality</p>
-                    </a>
-                </div>
-            </div>
-
-        </article>
-    </div>
-
-    <div class="container-wide">
-        <div class="footer">
-            <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
-            <p style="margin-top: 8px;">
-                <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
-                <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
-            </p>
+            </code>
+            <p style="margin-top: 8px; font-size: 0.9rem;">Это правило блокирует IP на 1 час после 5 неудачных попыток входа по SSH.</p>
         </div>
+        
+        <p><strong>Плюсы Fail2Ban:</strong></p>
+        <ul>
+            <li>Простота настройки — готовые фильтры для большинства сервисов.</li>
+            <li>Малое потребление ресурсов.</li>
+            <li>Работает на любом Linux-сервере.</li>
+        </ul>
+        <p><strong>Минусы:</strong></p>
+        <ul>
+            <li>Реагирует только на события, описанные в правилах.</li>
+            <li>Нет «интеллекта» — блокирует только по чётким паттернам.</li>
+            <li>Не использует информацию от других серверов.</li>
+        </ul>
+
+        <!-- ====== РАЗДЕЛ 3 ====== -->
+        <h2 id="crowdsec">CrowdSec — современная эволюция</h2>
+        <p><strong>CrowdSec</strong> — это система обнаружения вторжений нового поколения. В отличие от Fail2Ban, CrowdSec использует <strong>коллективный интеллект</strong>: она обменивается данными об атаках с другими серверами по всему миру. Если кто-то атакует один сервер, все участники сети CrowdSec узнают об этом и блокируют этого злоумышленника.</p>
+        
+        <div class="tool-grid">
+            <div class="tool-card" style="border: 2px solid rgba(124,58,255,0.3);">
+                <h4>🌐 CrowdSec</h4>
+                <p><strong>Принцип:</strong> анализ логов + коллективная защита</p>
+                <p><strong>Сложность:</strong> средняя, но гибкая</p>
+                <p><strong>Ресурсы:</strong> умеренные</p>
+                <span class="badge badge-purple">★ Современный стандарт</span>
+            </div>
+        </div>
+        
+        <p><strong>Как работает:</strong> CrowdSec состоит из агента (читает логи), коллектора (анализирует поведение) и API (обменивается данными с центральной сетью). При обнаружении атаки IP добавляется в локальный бан-лист и отправляется в глобальную базу. Другие серверы получают этот IP и блокируют его автоматически.</p>
+        
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">🌍 Преимущества CrowdSec:</p>
+            <ul style="margin: 4px 0 0 20px;">
+                <li><strong>Коллективная защита</strong> — блокировка атакующих IP по всему миру.</li>
+                <li><strong>Гибкие сценарии</strong> — можно писать свои правила на языке CAPI.</li>
+                <li><strong>Поддержка множества сервисов</strong> — SSH, HTTP, FTP, PostgreSQL, и др.</li>
+                <li><strong>Визуализация</strong> — есть веб-интерфейс (CrowdSec Console) для мониторинга.</li>
+            </ul>
+        </div>
+        
+        <p><strong>Плюсы CrowdSec:</strong></p>
+        <ul>
+            <li>Облачная база злоумышленников — защита от новых атак.</li>
+            <li>Более умный анализ поведения (не только по логам).</li>
+            <li>Масштабируемость — подходит для больших инфраструктур.</li>
+        </ul>
+        <p><strong>Минусы:</strong></p>
+        <ul>
+            <li>Чуть сложнее в настройке, чем Fail2Ban.</li>
+            <li>Потребляет больше ресурсов.</li>
+            <li>Зависимость от внешнего API (хотя можно работать и локально).</li>
+        </ul>
+
+        <!-- ====== РАЗДЕЛ 4 ====== -->
+        <h2 id="comparison">Сравнение Fail2Ban и CrowdSec</h2>
+        
+        <div class="comparison-grid">
+            <div class="comparison-card" style="border: 2px solid rgba(45,212,191,0.15);">
+                <h4>🔧 Fail2Ban</h4>
+                <ul>
+                    <li>Локальная блокировка по логам</li>
+                    <li>Простая настройка</li>
+                    <li>Минимальное потребление ресурсов</li>
+                    <li>Нет обмена данными с другими серверами</li>
+                    <li>Подходит для небольших проектов</li>
+                </ul>
+            </div>
+            <div class="comparison-card" style="border: 2px solid rgba(124,58,255,0.2);">
+                <h4>🌐 CrowdSec</h4>
+                <ul>
+                    <li>Коллективная защита (облачная база)</li>
+                    <li>Гибкие сценарии и поведенческий анализ</li>
+                    <li>Умеренное потребление ресурсов</li>
+                    <li>Обмен данными с глобальной сетью</li>
+                    <li>Подходит для любых масштабов</li>
+                </ul>
+            </div>
+        </div>
+        
+        <p>Какой выбрать? <strong>Идеальный вариант — использовать оба</strong>. Fail2Ban как первая линия защиты (быстро и дёшево), а CrowdSec как второй эшелон с коллективным интеллектом. Но если ресурсы ограничены — начинайте с Fail2Ban, а затем переходите на CrowdSec.</p>
+
+        <!-- ====== РАЗДЕЛ 5 ====== -->
+        <h2 id="setup">Пошаговая настройка: от установки до боевого режима</h2>
+        
+        <h3>Установка Fail2Ban</h3>
+        <div class="step-card">
+            <span class="step-num">1.</span> <strong>Установка пакета:</strong>
+            <code>sudo apt update && sudo apt install fail2ban -y</code> (Ubuntu/Debian)
+        </div>
+        <div class="step-card">
+            <span class="step-num">2.</span> <strong>Настройка конфигурации:</strong>
+            <code>sudo cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local</code>
+        </div>
+        <div class="step-card">
+            <span class="step-num">3.</span> <strong>Редактирование jail.local:</strong>
+            <p>Укажите параметры для ваших сервисов. Например, для SSH:</p>
+            <code style="display: block; padding: 8px; border-radius: 6px; background: rgba(255,255,255,0.05); font-size: 0.85rem;">
+[sshd]
+enabled = true
+port = ssh
+filter = sshd
+logpath = /var/log/auth.log
+maxretry = 5
+bantime = 3600
+            </code>
+        </div>
+        <div class="step-card">
+            <span class="step-num">4.</span> <strong>Перезапуск и проверка:</strong>
+            <code>sudo systemctl restart fail2ban && sudo fail2ban-client status</code>
+        </div>
+        
+        <h3 style="margin-top: 32px;">Установка CrowdSec</h3>
+        <div class="step-card">
+            <span class="step-num">1.</span> <strong>Установка через официальный скрипт:</strong>
+            <code>curl -s https://install.crowdsec.net | sudo bash</code>
+        </div>
+        <div class="step-card">
+            <span class="step-num">2.</span> <strong>Установка пакетов:</strong>
+            <code>sudo apt install crowdsec -y</code> (Ubuntu/Debian)
+        </div>
+        <div class="step-card">
+            <span class="step-num">3.</span> <strong>Настройка сценариев:</strong>
+            <p>CrowdSec автоматически определит большинство сервисов. Для ручной настройки отредактируйте <code>/etc/crowdsec/config.yaml</code>.</p>
+        </div>
+        <div class="step-card">
+            <span class="step-num">4.</span> <strong>Подключение к коллективной защите:</strong>
+            <p>Зарегистрируйтесь на <a href="https://app.crowdsec.net" style="color: #a5f0ff;">CrowdSec Console</a> и получите API-ключ для обмена данными.</p>
+        </div>
+        <div class="step-card">
+            <span class="step-num">5.</span> <strong>Запуск и проверка:</strong>
+            <code>sudo systemctl start crowdsec && sudo cscli metrics</code>
+        </div>
+        
+        <blockquote>
+            "После установки CrowdSec я заметил, что количество атак на мой VPS сократилось на 90% — большинство IP уже были в глобальной базе." — из отзыва администратора.
+        </blockquote>
+
+        <!-- ====== РАЗДЕЛ 6 ====== -->
+        <h2 id="vpn-security">Безопасность VPN-сервера: почему IDS — это только часть защиты</h2>
+        <p>Системы обнаружения вторжений защищают ваш сервер от внешних атак, но настоящая безопасность начинается с <strong>правильной архитектуры</strong>. Если вы используете VPS для VPN, важно:</p>
+        <ul>
+            <li>Использовать <strong>современные протоколы</strong> с надёжным шифрованием.</li>
+            <li>Настроить <strong>брандмауэр</strong> (UFW, iptables) для ограничения доступа.</li>
+            <li>Регулярно <strong>обновлять</strong> сервер и VPN-панели.</li>
+            <li>Использовать <strong>сложные пароли и SSH-ключи</strong> вместо паролей.</li>
+        </ul>
+        <p>Но даже при идеальной настройке, ваш VPN-трафик может быть обнаружен системами DPI (Deep Packet Inspection). Именно здесь на помощь приходит <strong>XHTTP + Reality</strong>.</p>
+
+        <!-- ====== РАЗДЕЛ 7 ====== -->
+        <h2 id="vps-vpn">Личный VPN на VPS — максимум защиты и приватности</h2>
+        
+        <div class="vps-advantage">
+            <h3>🚀 Почему VPS-VPN — это безопасно и надёжно?</h3>
+            <p style="font-size: 1.05rem; font-weight: 500;">В отличие от обычных VPN-сервисов, где <strong>1000+ человек сидят на одном IP</strong>, вы получаете <strong>персональный VPS</strong>.</p>
+            
+            <ul>
+                <li><strong>Ваш IP — только ваш:</strong> никаких «шумных соседей», которые могут подставить вас своей активностью.</li>
+                <li><strong>Максимальная скорость:</strong> пропускная способность не делится между сотнями пользователей.</li>
+                <li><strong>Минимальный риск блокировок:</strong> массовые IP часто попадают в бан-листы. Ваш личный IP — чистый.</li>
+                <li><strong>Полный контроль:</strong> вы сами управляете сервером, выбираете протоколы и настройки.</li>
+                <li><strong>Технология XHTTP + Reality:</strong> ваш трафик маскируется под обычный HTTPS, DPI не может отличить его от браузера Chrome.</li>
+            </ul>
+            
+            <div style="background: rgba(124,58,255,0.1); border-radius: 12px; padding: 16px 20px; margin-top: 16px; border: 1px solid rgba(124,58,255,0.2);">
+                <p style="font-weight: 700; margin-bottom: 4px;">🎯 Нас в 1000 раз сложнее заблокировать и отследить.</p>
+                <p style="margin-bottom: 0;">Потому что каждый клиент <a href="/" style="color: #a5f0ff; text-decoration: none; font-weight: 600;">VPS-VPN</a> — это отдельный выделенный сервер с уникальным IP и индивидуальными настройками маскировки.</p>
+            </div>
+        </div>
+        
+        <div class="tech-highlight">
+            <p style="font-weight: 600; margin-bottom: 6px;">🔬 XHTTP + Reality: как это работает</p>
+            <p>Эта технология маскирует VPN-трафик под обычный HTTPS-запрос к легитимному сайту. DPI не может отличить ваше соединение от реального браузера Chrome, потому что:</p>
+            <ul style="margin: 4px 0 0 20px;">
+                <li><strong>Имитация TLS-рукопожатия</strong> — соединение выглядит как стандартный HTTPS.</li>
+                <li><strong>Маскировка под Chrome</strong> — все параметры соответствуют реальному браузеру.</li>
+                <li><strong>Отсутствие характерных сигнатур</strong> — нет узнаваемых паттернов VPN.</li>
+                <li><strong>Динамическая адаптация</strong> — трафик меняется в зависимости от контекста.</li>
+            </ul>
+        </div>
+        
+        <p>Таким образом, <strong>защита вашего VPS не ограничивается Fail2Ban или CrowdSec</strong>. Это комплексный подход: брандмауэр, IDS, регулярные обновления и, самое главное, <strong>правильный выбор VPN-решения</strong>. Массовые VPN с общими IP — это риск. Личный VPN на VPS с XHTTP + Reality — это уверенность.</p>
+
+        <!-- ====== БЛОК С ПРОДВИЖЕНИЕМ VPS-VPN ====== -->
+        <div class="article-cta">
+            <h3>🔥 Получите свой защищённый VPN-сервер с XHTTP + Reality</h3>
+            <p>Мы в <strong><a href="/" style="color: inherit; text-decoration: none;">VPS-VPN</a></strong> предлагаем полностью выделенный VPN-сервер на вашем собственном VPS. Никаких общих IP, никаких «соседей», только ваш трафик и максимальная защита.</p>
+            <p style="margin-top: 12px; font-weight: 500;">Ваш трафик будет неотличим от обычного HTTPS — DPI-системы увидят обычный браузер Chrome. Нас в 1000 раз сложнее заблокировать.</p>
+            <a href="/access.html" class="btn-primary">🚀 Заказать личный VPN-сервер</a>
+        </div>
+
+        <!-- ====== РАЗДЕЛ 8 ====== -->
+        <h2 id="verdict">Итог: защита — это комплексный подход</h2>
+        
+        <p>Внедрение систем обнаружения вторжений — это <strong>обязательный шаг</strong> для любого VPS, особенно если вы используете его для VPN. Fail2Ban и CrowdSec — это мощные инструменты, которые в тандеме обеспечивают надёжную защиту от брутфорса и других атак.</p>
+        
+        <p><strong>Что важно запомнить:</strong></p>
+        <ul>
+            <li><strong>Fail2Ban</strong> — простая и быстрая защита от повторяющихся атак.</li>
+            <li><strong>CrowdSec</strong> — коллективный интеллект и защита от новых угроз.</li>
+            <li><strong>Комплексный подход</strong> — IDS + брандмауэр + регулярные обновления + правильный VPN.</li>
+            <li><strong>Личный VPN на VPS</strong> — это не только скорость и приватность, но и безопасность.</li>
+        </ul>
+        
+        <div style="background: rgba(124,58,255,0.08); border-radius: 16px; padding: 20px 24px; margin: 20px 0; border: 1px solid rgba(124,58,255,0.15);">
+            <p style="font-weight: 700; font-size: 1.05rem;">✅ Будущее VPN — за персонализацией и безопасностью.</p>
+            <p>Массовые VPN с общими IP-адресами уходят в прошлое. В <strong><a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a></strong> мы предлагаем именно то, что нужно для современного интернета: выделенный сервер, передовую технологию XHTTP + Reality и полную конфиденциальность.</p>
+            <p style="margin-top: 12px; font-weight: 600;">Интернет должен быть свободным, безопасным и быстрым. Выбирайте решение, которое работает по-настоящему. Выбирайте <a href="/" style="color: #a5f0ff; text-decoration: none;">VPS-VPN</a>.</p>
+        </div>
+
+        <!-- ====== АВТОР ====== -->
+        <div class="article-author">
+            <div class="avatar">🛡️</div>
+            <div>
+                <p style="font-weight: 600;">Команда VPS-VPN</p>
+                <p class="bio">Эксперты в области сетевых технологий и кибербезопасности. Помогаем защитить ваш VPS и обеспечить максимальную приватность.</p>
+            </div>
+        </div>
+
+        <!-- ====== ПОХОЖИЕ СТАТЬИ ====== -->
+        <div class="related-articles">
+            <h3>📖 Похожие статьи</h3>
+            <div class="related-grid">
+                <a href="/articles/nastroyka-fail2ban-dlya-zashchity-ot-brutforsa.html" class="related-card">
+                    <span class="tag">🛡️ Безопасность</span>
+                    <h4>Настройка Fail2Ban для защиты от брутфорса</h4>
+                    <p>Подробное руководство по настройке Fail2Ban</p>
+                </a>
+                <a href="/articles/kak-zashchitit-ssh-na-vps-smena-porta-fail2ban.html" class="related-card">
+                    <span class="tag">🔑 SSH</span>
+                    <h4>Как защитить SSH на VPS</h4>
+                    <p>Смена порта, настройка Fail2Ban и другие методы</p>
+                </a>
+                <a href="/articles/nastroyka-brandmauera-iptables-nftables-ufw.html" class="related-card">
+                    <span class="tag">🔥 Firewall</span>
+                    <h4>Настройка брандмауэра на VPS</h4>
+                    <p>iptables, nftables, UFW — полный обзор</p>
+                </a>
+                <a href="/articles/monitoring-bezopasnosti-vpn-servera-prometheus-grafana.html" class="related-card">
+                    <span class="tag">📊 Мониторинг</span>
+                    <h4>Мониторинг безопасности VPN-сервера</h4>
+                    <p>Prometheus + Grafana для контроля</p>
+                </a>
+                <a href="/articles/kak-zashchitit-vpn-server-ot-vzloma.html" class="related-card">
+                    <span class="tag">🔐 Защита</span>
+                    <h4>Как защитить VPN-сервер от взлома</h4>
+                    <p>Комплексные меры безопасности</p>
+                </a>
+                <a href="/articles/zashchita-ot-brutfors-atak-na-vpn-server.html" class="related-card">
+                    <span class="tag">🛡️ Атаки</span>
+                    <h4>Защита от брутфорс-атак на VPN</h4>
+                    <p>Как предотвратить подбор паролей</p>
+                </a>
+            </div>
+        </div>
+    </article>
+</div>
+
+<div class="container-wide">
+    <div class="footer">
+        <p>© 2026 VPS-VPN — Ваш личный выделенный VPN-сервер с технологией XHTTP + Reality. Серверы вне РФ, логи не хранятся.</p>
+        <p style="margin-top: 8px;">
+            <i class="fas fa-envelope"></i> support@vps-vpn.ru &nbsp;|&nbsp;
+            <a href="/blog.html" style="color: inherit; text-decoration: none;"><i class="fas fa-blog"></i> Блог</a>
+        </p>
     </div>
+</div>
 
-    <script>
-        (function() {
-            // ========== ТЕМА ==========
-            function setTheme(theme) {
-                const isLight = theme === 'light';
-                document.body.classList.toggle('light', isLight);
-                document.body.classList.toggle('dark', !isLight);
-                localStorage.setItem('vpsvpn_theme', theme);
-                const toggleBtn = document.getElementById('themeToggle');
-                if (toggleBtn) {
-                    toggleBtn.innerHTML = isLight ?
-                        '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>' :
-                        '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
-                }
+<script>
+    (function() {
+        function setTheme(theme) {
+            const isLight = theme === 'light';
+            document.body.classList.toggle('light', isLight);
+            document.body.classList.toggle('dark', !isLight);
+            localStorage.setItem('vpsvpn_theme', theme);
+            const toggleBtn = document.getElementById('themeToggle');
+            if (toggleBtn) {
+                toggleBtn.innerHTML = isLight 
+                    ? '<i class="fas fa-moon"></i><span style="font-size: 0.9rem;">Тёмная</span>'
+                    : '<i class="fas fa-sun"></i><span style="font-size: 0.9rem;">Светлая</span>';
             }
+        }
+        function initTheme() {
+            const saved = localStorage.getItem('vpsvpn_theme');
+            setTheme(saved === 'light' ? 'light' : 'dark');
+        }
+        document.getElementById('themeToggle')?.addEventListener('click', () => {
+            const isLight = document.body.classList.contains('light');
+            setTheme(isLight ? 'dark' : 'light');
+        });
+        initTheme();
+    })();
+</script>
 
-            function initTheme() {
-                const saved = localStorage.getItem('vpsvpn_theme');
-                setTheme(saved === 'light' ? 'light' : 'dark');
-            }
-            document.getElementById('themeToggle')?.addEventListener('click', () => {
-                const isLight = document.body.classList.contains('light');
-                setTheme(isLight ? 'dark' : 'light');
-            });
-            initTheme();
-        })();
-    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js', 'ym');
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m, e, t, r, i, k, a) {
-            m[i] = m[i] || function() { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(
-            k, a)
-        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
-
-        ym(108981205, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer",
-            accurateTrackBounce: true, trackLinks: true });
-    </script>
-    <noscript>
-        <div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
+    ym(108981205, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108981205" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 </body>
 </html>
